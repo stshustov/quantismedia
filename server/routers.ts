@@ -1,28 +1,279 @@
+import { z } from "zod";
+import { TRPCError } from "@trpc/server";
 import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
-import { publicProcedure, router } from "./_core/trpc";
+import { publicProcedure, protectedProcedure, router } from "./_core/trpc";
+import * as db from "./db";
+
+// Admin-only procedure
+const adminProcedure = protectedProcedure.use(({ ctx, next }) => {
+  if (ctx.user.role !== "admin") {
+    throw new TRPCError({ code: "FORBIDDEN", message: "Admin access required" });
+  }
+  return next({ ctx });
+});
+
+// Subscriber procedure (core or pro)
+const subscriberProcedure = protectedProcedure.use(({ ctx, next }) => {
+  if (!["core", "pro", "admin"].includes(ctx.user.role)) {
+    throw new TRPCError({ code: "FORBIDDEN", message: "Active subscription required" });
+  }
+  return next({ ctx });
+});
 
 export const appRouter = router({
-    // if you need to use socket.io, read and register route in server/_core/index.ts, all api should start with '/api/' so that the gateway can route correctly
   system: systemRouter,
+  
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),
     logout: publicProcedure.mutation(({ ctx }) => {
       const cookieOptions = getSessionCookieOptions(ctx.req);
       ctx.res.clearCookie(COOKIE_NAME, { ...cookieOptions, maxAge: -1 });
-      return {
-        success: true,
-      } as const;
+      return { success: true } as const;
+    }),
+    updateLanguage: protectedProcedure
+      .input(z.object({ language: z.enum(["en", "ru"]) }))
+      .mutation(async ({ ctx, input }) => {
+        await db.updateUserLanguage(ctx.user.id, input.language);
+        return { success: true };
+      }),
+    acceptTerms: protectedProcedure.mutation(async ({ ctx }) => {
+      await db.acceptTerms(ctx.user.id);
+      return { success: true };
     }),
   }),
 
-  // TODO: add feature routers here, e.g.
-  // todo: router({
-  //   list: protectedProcedure.query(({ ctx }) =>
-  //     db.getUserTodos(ctx.user.id)
-  //   ),
-  // }),
+  subscription: router({
+    getCurrent: protectedProcedure.query(async ({ ctx }) => {
+      return await db.getActiveSubscription(ctx.user.id);
+    }),
+    create: protectedProcedure
+      .input(z.object({
+        plan: z.enum(["free", "core", "pro"]),
+        stripeCustomerId: z.string().optional(),
+        stripeSubscriptionId: z.string().optional(),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        await db.createSubscription({
+          userId: ctx.user.id,
+          plan: input.plan,
+          status: "active",
+          stripeCustomerId: input.stripeCustomerId,
+          stripeSubscriptionId: input.stripeSubscriptionId,
+          currentPeriodStart: new Date(),
+          currentPeriodEnd: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000), // 30 days
+        });
+        return { success: true };
+      }),
+  }),
+
+  tradingIdeas: router({
+    getPublished: publicProcedure
+      .input(z.object({ accessLevel: z.enum(["sample", "core", "pro"]).optional() }))
+      .query(async ({ input }) => {
+        return await db.getPublishedTradingIdeas(input.accessLevel);
+      }),
+    getById: publicProcedure
+      .input(z.object({ id: z.number() }))
+      .query(async ({ input }) => {
+        return await db.getTradingIdeaById(input.id);
+      }),
+    getSample: publicProcedure.query(async () => {
+      return await db.getPublishedTradingIdeas("sample");
+    }),
+    getSubscriberIdeas: subscriberProcedure.query(async ({ ctx }) => {
+      const accessLevel = ctx.user.role === "pro" ? "pro" : "core";
+      return await db.getPublishedTradingIdeas(accessLevel);
+    }),
+    create: adminProcedure
+      .input(z.object({
+        instrument: z.string(),
+        contextEn: z.string(),
+        contextRu: z.string(),
+        scenarioEn: z.string(),
+        scenarioRu: z.string(),
+        invalidationZone: z.string(),
+        targetArea: z.string(),
+        market: z.enum(["indices", "fx", "energy", "metals"]),
+        accessLevel: z.enum(["sample", "core", "pro"]),
+        status: z.enum(["draft", "published", "archived"]),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        await db.createTradingIdea({
+          ...input,
+          authorId: ctx.user.id,
+          publishedAt: input.status === "published" ? new Date() : undefined,
+        });
+        return { success: true };
+      }),
+    update: adminProcedure
+      .input(z.object({
+        id: z.number(),
+        data: z.object({
+          instrument: z.string().optional(),
+          contextEn: z.string().optional(),
+          contextRu: z.string().optional(),
+          scenarioEn: z.string().optional(),
+          scenarioRu: z.string().optional(),
+          invalidationZone: z.string().optional(),
+          targetArea: z.string().optional(),
+          market: z.enum(["indices", "fx", "energy", "metals"]).optional(),
+          accessLevel: z.enum(["sample", "core", "pro"]).optional(),
+          status: z.enum(["draft", "published", "archived"]).optional(),
+        }),
+      }))
+      .mutation(async ({ input }) => {
+        const updateData: any = { ...input.data };
+        if (input.data.status === "published" && !updateData.publishedAt) {
+          updateData.publishedAt = new Date();
+        }
+        await db.updateTradingIdea(input.id, updateData);
+        return { success: true };
+      }),
+    delete: adminProcedure
+      .input(z.object({ id: z.number() }))
+      .mutation(async ({ input }) => {
+        await db.deleteTradingIdea(input.id);
+        return { success: true };
+      }),
+  }),
+
+  marketInsights: router({
+    getPublished: publicProcedure.query(async () => {
+      return await db.getPublishedMarketInsights();
+    }),
+    getBySlug: publicProcedure
+      .input(z.object({ slug: z.string(), language: z.enum(["en", "ru"]) }))
+      .query(async ({ input }) => {
+        return await db.getMarketInsightBySlug(input.slug, input.language);
+      }),
+    create: adminProcedure
+      .input(z.object({
+        titleEn: z.string(),
+        titleRu: z.string(),
+        slugEn: z.string(),
+        slugRu: z.string(),
+        excerptEn: z.string(),
+        excerptRu: z.string(),
+        contentEn: z.string(),
+        contentRu: z.string(),
+        coverImageUrl: z.string().optional(),
+        status: z.enum(["draft", "published", "archived"]),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        await db.createMarketInsight({
+          ...input,
+          authorId: ctx.user.id,
+          publishedAt: input.status === "published" ? new Date() : undefined,
+        });
+        return { success: true };
+      }),
+    update: adminProcedure
+      .input(z.object({
+        id: z.number(),
+        data: z.object({
+          titleEn: z.string().optional(),
+          titleRu: z.string().optional(),
+          slugEn: z.string().optional(),
+          slugRu: z.string().optional(),
+          excerptEn: z.string().optional(),
+          excerptRu: z.string().optional(),
+          contentEn: z.string().optional(),
+          contentRu: z.string().optional(),
+          coverImageUrl: z.string().optional(),
+          status: z.enum(["draft", "published", "archived"]).optional(),
+        }),
+      }))
+      .mutation(async ({ input }) => {
+        const updateData: any = { ...input.data };
+        if (input.data.status === "published" && !updateData.publishedAt) {
+          updateData.publishedAt = new Date();
+        }
+        await db.updateMarketInsight(input.id, updateData);
+        return { success: true };
+      }),
+  }),
+
+  legal: router({
+    getPage: publicProcedure
+      .input(z.object({ pageType: z.enum(["disclaimer", "risk_disclosure", "terms", "privacy", "cookie"]) }))
+      .query(async ({ input }) => {
+        return await db.getLegalPage(input.pageType);
+      }),
+    upsert: adminProcedure
+      .input(z.object({
+        pageType: z.enum(["disclaimer", "risk_disclosure", "terms", "privacy", "cookie"]),
+        titleEn: z.string(),
+        titleRu: z.string(),
+        contentEn: z.string(),
+        contentRu: z.string(),
+        version: z.number(),
+        effectiveDate: z.date(),
+      }))
+      .mutation(async ({ input }) => {
+        await db.upsertLegalPage(input);
+        return { success: true };
+      }),
+  }),
+
+  telegram: router({
+    getAccess: subscriberProcedure.query(async ({ ctx }) => {
+      return await db.getTelegramAccess(ctx.user.id);
+    }),
+    generateInvite: subscriberProcedure.mutation(async ({ ctx }) => {
+      // TODO: Implement actual Telegram invite link generation
+      const inviteLink = `https://t.me/+PLACEHOLDER_${ctx.user.id}`;
+      const channels = ctx.user.role === "pro" 
+        ? ["indices", "fx", "energy", "metals", "community"]
+        : ["indices", "fx", "energy", "metals"];
+      
+      await db.upsertTelegramAccess({
+        userId: ctx.user.id,
+        inviteLink,
+        channelAccess: JSON.stringify(channels),
+        accessGrantedAt: new Date(),
+        status: "active",
+      });
+      
+      return { inviteLink, channels };
+    }),
+  }),
+
+  contact: router({
+    submit: publicProcedure
+      .input(z.object({
+        name: z.string(),
+        email: z.string().email(),
+        subject: z.string(),
+        message: z.string(),
+      }))
+      .mutation(async ({ input }) => {
+        await db.createContactSubmission(input);
+        return { success: true };
+      }),
+    getAll: adminProcedure.query(async () => {
+      return await db.getAllContactSubmissions();
+    }),
+  }),
+
+  admin: router({
+    getAllUsers: adminProcedure.query(async () => {
+      const dbInstance = await db.getDb();
+      if (!dbInstance) return [];
+      const { users } = await import("../drizzle/schema");
+      return await dbInstance.select().from(users);
+    }),
+    updateUserRole: adminProcedure
+      .input(z.object({ userId: z.number(), role: z.enum(["guest", "registered", "core", "pro", "admin"]) }))
+      .mutation(async ({ input }) => {
+        const dbInstance = await db.getDb();
+        if (!dbInstance) throw new TRPCError({ code: "INTERNAL_SERVER_ERROR" });
+        const { users } = await import("../drizzle/schema");
+        await dbInstance.update(users).set({ role: input.role }).where((users as any).id.eq(input.userId));
+        return { success: true };
+      }),
+  }),
 });
 
 export type AppRouter = typeof appRouter;
