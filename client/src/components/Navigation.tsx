@@ -1,195 +1,153 @@
-import { Link } from "wouter";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/_core/hooks/useAuth";
+import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { getLoginUrl } from "@/const";
-import { trpc } from "@/lib/trpc";
 import { Globe, Menu, X } from "lucide-react";
 import { useState } from "react";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 
 export default function Navigation() {
-  const { language, setLanguage, t } = useLanguage();
-  const { user, isAuthenticated } = useAuth();
+  const { language, setLanguage } = useLanguage();
+  const { user, isAuthenticated, logout } = useAuth();
+  const [location] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const logoutMutation = trpc.auth.logout.useMutation();
-
-  const handleLogout = async () => {
-    await logoutMutation.mutateAsync();
-    window.location.href = "/";
-  };
 
   const toggleLanguage = () => {
     setLanguage(language === "en" ? "ru" : "en");
   };
 
-  const isSubscriber = user && ["core", "pro", "admin"].includes(user.role);
+  const handleLogout = () => {
+    logout();
+    setMobileMenuOpen(false);
+  };
+
+  const navLinks = [
+    { href: "/", label: language === "en" ? "Home" : "Главная" },
+    { href: "/how-it-works", label: language === "en" ? "How It Works" : "Как это работает" },
+    { href: "/market-insights", label: language === "en" ? "Market Insights" : "Рыночная аналитика" },
+    { href: "/sample-ideas", label: language === "en" ? "Sample Ideas" : "Примеры идей" },
+    { href: "/pricing", label: language === "en" ? "Pricing" : "Тарифы" },
+    { href: "/about", label: language === "en" ? "About" : "О нас" },
+    { href: "/contact", label: language === "en" ? "Contact" : "Контакты" },
+  ];
+
+  if (isAuthenticated && user) {
+    navLinks.push({ href: "/dashboard", label: language === "en" ? "Dashboard" : "Панель" });
+    if (user.role === "admin") {
+      navLinks.push({ href: "/admin", label: language === "en" ? "Admin" : "Админ" });
+    }
+  }
 
   return (
-    <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">
-      <div className="container mx-auto px-4">
+    <nav className="sticky top-0 z-50 bg-card/95 backdrop-blur-md border-b border-border shadow-lg">
+      <div className="container">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
           <Link href="/">
-            <a className="text-2xl font-bold text-blue-600 hover:text-blue-700">
-              Quantis Media
+            <a className="flex items-center space-x-2">
+              <span className="text-2xl font-bold text-primary">Quantis</span>
+              <span className="text-2xl font-bold text-foreground">Media</span>
             </a>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
-            <Link href="/">
-              <a className="text-gray-700 hover:text-blue-600">{t.nav.home}</a>
-            </Link>
-            <Link href="/how-it-works">
-              <a className="text-gray-700 hover:text-blue-600">{t.nav.howItWorks}</a>
-            </Link>
-            <Link href="/market-insights">
-              <a className="text-gray-700 hover:text-blue-600">{t.nav.marketInsights}</a>
-            </Link>
-            <Link href="/sample-ideas">
-              <a className="text-gray-700 hover:text-blue-600">{t.nav.sampleIdeas}</a>
-            </Link>
-            <Link href="/pricing">
-              <a className="text-gray-700 hover:text-blue-600">{t.nav.pricing}</a>
-            </Link>
-            <Link href="/about">
-              <a className="text-gray-700 hover:text-blue-600">{t.nav.about}</a>
-            </Link>
-            <Link href="/contact">
-              <a className="text-gray-700 hover:text-blue-600">{t.nav.contact}</a>
-            </Link>
-            
-            {isSubscriber && (
-              <Link href="/dashboard">
-                <a className="text-gray-700 hover:text-blue-600 font-medium">{t.nav.dashboard}</a>
+          <div className="hidden lg:flex items-center space-x-1">
+            {navLinks.map((link) => (
+              <Link key={link.href} href={link.href}>
+                <a
+                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                    location === link.href
+                      ? "text-primary bg-primary/10"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                  }`}
+                >
+                  {link.label}
+                </a>
               </Link>
-            )}
+            ))}
           </div>
 
-          {/* Right Side Actions */}
-          <div className="hidden md:flex items-center space-x-4">
-            {/* Language Switcher */}
+          <div className="hidden lg:flex items-center space-x-4">
             <Button
               variant="ghost"
               size="sm"
               onClick={toggleLanguage}
-              className="flex items-center gap-2"
+              className="text-muted-foreground hover:text-foreground"
             >
-              <Globe className="h-4 w-4" />
+              <Globe className="h-4 w-4 mr-2" />
               {language.toUpperCase()}
             </Button>
 
-            {/* Auth Actions */}
-            {isAuthenticated ? (
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="outline" size="sm">
-                    {user?.name || user?.email || "User"}
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end">
-                  {isSubscriber && (
-                    <DropdownMenuItem asChild>
-                      <Link href="/dashboard">
-                        <a className="w-full">{t.nav.dashboard}</a>
-                      </Link>
-                    </DropdownMenuItem>
-                  )}
-                  {user?.role === "admin" && (
-                    <DropdownMenuItem asChild>
-                      <Link href="/admin">
-                        <a className="w-full">Admin Panel</a>
-                      </Link>
-                    </DropdownMenuItem>
-                  )}
-                  <DropdownMenuItem onClick={handleLogout}>
-                    {t.nav.logout}
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
+            {isAuthenticated && user ? (
+              <div className="flex items-center space-x-3">
+                <span className="text-sm text-muted-foreground">{user.name}</span>
+                <Button variant="outline" size="sm" onClick={handleLogout}>
+                  {language === "en" ? "Logout" : "Выйти"}
+                </Button>
+              </div>
             ) : (
-              <Button asChild size="sm">
-                <a href={getLoginUrl()}>{t.nav.login}</a>
+              <Button
+                size="sm"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                onClick={() => (window.location.href = getLoginUrl())}
+              >
+                {language === "en" ? "Sign In" : "Войти"}
               </Button>
             )}
           </div>
 
-          {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2"
+            className="lg:hidden p-2 text-muted-foreground hover:text-foreground"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
 
-        {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 space-y-3 border-t">
-            <Link href="/">
-              <a className="block py-2 text-gray-700 hover:text-blue-600">{t.nav.home}</a>
-            </Link>
-            <Link href="/how-it-works">
-              <a className="block py-2 text-gray-700 hover:text-blue-600">{t.nav.howItWorks}</a>
-            </Link>
-            <Link href="/market-insights">
-              <a className="block py-2 text-gray-700 hover:text-blue-600">{t.nav.marketInsights}</a>
-            </Link>
-            <Link href="/sample-ideas">
-              <a className="block py-2 text-gray-700 hover:text-blue-600">{t.nav.sampleIdeas}</a>
-            </Link>
-            <Link href="/pricing">
-              <a className="block py-2 text-gray-700 hover:text-blue-600">{t.nav.pricing}</a>
-            </Link>
-            <Link href="/about">
-              <a className="block py-2 text-gray-700 hover:text-blue-600">{t.nav.about}</a>
-            </Link>
-            <Link href="/contact">
-              <a className="block py-2 text-gray-700 hover:text-blue-600">{t.nav.contact}</a>
-            </Link>
-            
-            {isSubscriber && (
-              <Link href="/dashboard">
-                <a className="block py-2 text-gray-700 hover:text-blue-600 font-medium">{t.nav.dashboard}</a>
-              </Link>
-            )}
-
-            <div className="pt-4 border-t space-y-2">
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={toggleLanguage}
-                className="w-full justify-start"
-              >
-                <Globe className="h-4 w-4 mr-2" />
-                {language.toUpperCase()}
-              </Button>
-
-              {isAuthenticated ? (
-                <>
-                  <div className="text-sm text-gray-600 px-2">
-                    {user?.name || user?.email}
-                  </div>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={handleLogout}
-                    className="w-full"
+          <div className="lg:hidden py-4 border-t border-border">
+            <div className="flex flex-col space-y-2">
+              {navLinks.map((link) => (
+                <Link key={link.href} href={link.href}>
+                  <a
+                    className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                      location === link.href
+                        ? "text-primary bg-primary/10"
+                        : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                    }`}
+                    onClick={() => setMobileMenuOpen(false)}
                   >
-                    {t.nav.logout}
-                  </Button>
-                </>
-              ) : (
-                <Button asChild size="sm" className="w-full">
-                  <a href={getLoginUrl()}>{t.nav.login}</a>
+                    {link.label}
+                  </a>
+                </Link>
+              ))}
+
+              <div className="flex items-center justify-between px-4 py-2 border-t border-border mt-2 pt-4">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={toggleLanguage}
+                  className="text-muted-foreground hover:text-foreground"
+                >
+                  <Globe className="h-4 w-4 mr-2" />
+                  {language.toUpperCase()}
                 </Button>
-              )}
+
+                {isAuthenticated && user ? (
+                  <Button variant="outline" size="sm" onClick={handleLogout}>
+                    {language === "en" ? "Logout" : "Выйти"}
+                  </Button>
+                ) : (
+                  <Button
+                    size="sm"
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                    onClick={() => {
+                      window.location.href = getLoginUrl();
+                      setMobileMenuOpen(false);
+                    }}
+                  >
+                    {language === "en" ? "Sign In" : "Войти"}
+                  </Button>
+                )}
+              </div>
             </div>
           </div>
         )}

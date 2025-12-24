@@ -1,3 +1,9 @@
+#!/bin/bash
+
+# Create all missing pages with the new Institutional Dark design
+
+# Pricing page
+cat > Pricing.tsx << 'PRICINGEOF'
 import { useLanguage } from "@/contexts/LanguageContext";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -176,3 +182,7 @@ export default function Pricing() {
     </div>
   );
 }
+PRICINGEOF
+
+echo "Created Pricing.tsx"
+
