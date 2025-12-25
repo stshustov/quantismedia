@@ -165,3 +165,13 @@
 - [x] Update favicon in index.html
 - [x] Test all logo placements and TypeScript - no errors
 - [x] Commit and push final branding - commit 6f44869
+
+## Final Branding Adjustments (User Feedback)
+- [x] Remove QM logo from Navigation - use text-only "Quantis" (white) + "Media" (gold)
+- [x] Remove definition line from Navigation header
+- [x] Update Home Hero section with definition line as main subtitle
+- [x] Add supporting paragraph under definition line in Hero
+- [x] Update Footer with compact QM mark + "Independent research platform"
+- [x] Translations already have correct copyright: "© Quantis Media, Republic of Moldova"
+- [ ] Test all changes
+- [ ] Commit and push final branding adjustments

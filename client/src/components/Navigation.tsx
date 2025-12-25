@@ -43,20 +43,9 @@ export default function Navigation() {
       <div className="container">
         <div className="flex items-center justify-between h-16">
           <Link href="/">
-            <a className="flex items-center space-x-3">
-              <img 
-                src="/branding/qm-mark.png" 
-                alt="QM" 
-                className="h-10 w-auto"
-              />
-              <div className="flex flex-col">
-                <span className="text-xl font-bold text-foreground leading-none">Quantis Media</span>
-                <span className="text-xs text-[var(--platinum)] leading-tight mt-0.5">
-                  {language === "en" 
-                    ? "Comprehensive research and scenario analysis" 
-                    : "Комплексные исследования и сценарный анализ"}
-                </span>
-              </div>
+            <a className="flex items-center space-x-2">
+              <span className="text-2xl font-bold text-foreground">Quantis</span>
+              <span className="text-2xl font-bold text-primary">Media</span>
             </a>
           </Link>
 

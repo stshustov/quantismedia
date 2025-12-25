@@ -64,20 +64,20 @@ export default function Home() {
         
         <div className="container relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 tracking-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
               Quantis Media
             </h1>
             
-            <p className="text-2xl md:text-3xl mb-6 text-primary font-semibold">
+            <p className="text-xl md:text-2xl mb-6 text-[var(--platinum)] leading-relaxed max-w-3xl mx-auto">
               {language === "en" 
-                ? "Scenario-led research. Structure over noise."
-                : "Сценарный анализ рынков. Структура вместо шума."}
+                ? "Comprehensive research and scenario analysis of global markets"
+                : "Комплексные исследования и сценарный анализ глобальных рынков"}
             </p>
             
-            <p className="text-lg md:text-xl mb-8 text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+            <p className="text-base md:text-lg mb-8 text-muted-foreground leading-relaxed max-w-3xl mx-auto">
               {language === "en" 
-                ? "Quantis Media is an analytical platform designed to help market participants navigate global financial markets through structured, scenario-based research."
-                : "Quantis Media — аналитическая платформа, созданная для помощи участникам рынка в навигации по глобальным финансовым рынкам через структурированные сценарные исследования."}
+                ? "Quantis Media is an independent analytical platform designed to help market participants navigate global financial markets through structured, scenario-based research and disciplined analytical frameworks."
+                : "Quantis Media — независимая аналитическая платформа, помогающая участникам рынков ориентироваться в глобальной финансовой среде с помощью структурированного сценарного анализа и дисциплинированных исследовательских подходов."}
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">

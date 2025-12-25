@@ -10,9 +10,16 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* About */}
           <div>
-            <h3 className="text-foreground font-bold text-lg mb-3">Quantis Media</h3>
-            <p className="text-sm text-[var(--platinum)] mb-3 leading-relaxed">
-              {t.footer.definitionLine}
+            <div className="flex items-center space-x-3 mb-3">
+              <img 
+                src="/branding/qm-mark.png" 
+                alt="QM" 
+                className="h-8 w-auto opacity-90"
+              />
+              <h3 className="text-foreground font-bold text-lg">Quantis Media</h3>
+            </div>
+            <p className="text-sm text-muted-foreground mb-2">
+              Independent research platform
             </p>
             <p className="text-sm leading-relaxed">
               {t.footer.disclaimer}
