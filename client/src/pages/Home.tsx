@@ -12,44 +12,44 @@ export default function Home() {
   const features = language === "en" ? [
     {
       icon: TrendingUp,
-      title: "Scenario-Based Trading Ideas",
-      description: "Algorithmically-assisted market analysis with clear context, scenarios, invalidation zones, and target areas."
+      title: "Scenario-Based Market Research",
+      description: "Structured market scenarios with clear context, confirmation factors, and invalidation references — designed to support independent decision-making."
     },
     {
       icon: BarChart3,
-      title: "Market Intelligence",
-      description: "In-depth research and analytical insights covering global financial markets and instruments."
+      title: "Institutional-Style Insights",
+      description: "Concise research notes and market structure analysis across major global instruments and macro regimes."
     },
     {
       icon: Globe,
       title: "Multi-Market Coverage",
-      description: "Analysis across FX, indices, metals, oil & gas markets."
+      description: "Indices, FX, energy (oil & gas), and precious metals — focused on liquid global markets."
     },
     {
       icon: Shield,
-      title: "Risk-Aware Approach",
-      description: "Every idea includes invalidation zones and proper risk disclosure. No guarantees, only scenarios."
+      title: "Risk-First Methodology",
+      description: "No averaging, no martingale, no execution. Content is analytical and educational, with clear risk disclosure on every page."
     }
   ] : [
     {
       icon: TrendingUp,
-      title: "Сценарные торговые идеи",
-      description: "Алгоритмически-ассистированный анализ рынков с чётким контекстом, сценариями, зонами инвалидации и целевыми областями."
+      title: "Сценарная рыночная аналитика",
+      description: "Структурированные сценарии с контекстом, факторами подтверждения и ориентирами инвалидации — как поддержка самостоятельных решений."
     },
     {
       icon: BarChart3,
-      title: "Рыночная аналитика",
-      description: "Углублённые исследования и аналитические материалы по глобальным финансовым рынкам и инструментам."
+      title: "Профессиональный формат",
+      description: "Короткие исследовательские заметки и анализ структуры рынка по ключевым глобальным инструментам и режимам волатильности."
     },
     {
       icon: Globe,
       title: "Мультирыночный охват",
-      description: "Анализ валютных рынков, сырьевых товаров, индексов и криптовалют."
+      description: "Индексы, FX, энергетика (нефть и газ) и драгоценные металлы — фокус на ликвидных глобальных рынках."
     },
     {
       icon: Shield,
       title: "Риск-ориентированный подход",
-      description: "Каждая идея включает зоны инвалидации и полное раскрытие рисков. Никаких гарантий, только сценарии."
+      description: "Без усреднения, без мартингейла, без исполнения сделок. Материалы носят аналитический и образовательный характер, с раскрытием рисков."
     }
   ];
 

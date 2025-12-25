@@ -29,7 +29,7 @@ export default function TradingIdeas() {
       <Navigation />
       <main className="flex-1 py-20">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-bold mb-8">{t.dashboard.tradingIdeas}</h1>
+          <h1 className="text-4xl font-bold mb-8">{language === "en" ? "Subscriber Scenarios" : "Сценарии для подписчиков"}</h1>
           
           <div className="grid gap-6">
             {ideas?.map((idea) => (
@@ -49,16 +49,16 @@ export default function TradingIdeas() {
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <h3 className="font-semibold text-sm mb-1">{t.tradingIdea.invalidationZone}</h3>
+                      <h3 className="font-semibold text-sm mb-1">{language === "en" ? "Invalidation reference" : "Инвалидация (ориентир)"}</h3>
                       <p className="text-red-600 font-mono">{idea.invalidationZone}</p>
                     </div>
                     <div>
-                      <h3 className="font-semibold text-sm mb-1">{t.tradingIdea.targetArea}</h3>
+                      <h3 className="font-semibold text-sm mb-1">{language === "en" ? "Reference area" : "Целевая зона (ориентир)"}</h3>
                       <p className="text-green-600 font-mono">{idea.targetArea}</p>
                     </div>
                   </div>
                   <div className="pt-4 border-t text-sm text-gray-600">
-                    {t.tradingIdea.disclaimer}
+                    {language === "en" ? "Important: Scenarios are analytical frameworks for informational purposes only and do not constitute trading advice." : "Важно: сценарии являются аналитическими рамками в информационных целях и не являются торговыми рекомендациями."}
                   </div>
                 </CardContent>
               </Card>

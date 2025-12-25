@@ -1,0 +1,54 @@
+========================================
+RENDER ENVIRONMENT VARIABLES
+Скопируйте эти переменные в Render Dashboard
+========================================
+
+Как добавить:
+1. Откройте: https://dashboard.render.com/
+2. Выберите сервис: quantismedia-preview
+3. Перейдите в "Environment" (слева)
+4. Нажмите "Add Environment Variable"
+5. Скопируйте каждую пару KEY=VALUE ниже
+
+========================================
+
+NODE_ENV=production
+
+DATABASE_URL=mysql://3Vw3sBxn3PVfsWt.40752de7f7c0:HLH8ezDB9hqaRE673w5O@gateway02.us-east-1.prod.aws.tidbcloud.com:4000/2FuYdXWoTHqtAhfudHLG7U?ssl={"rejectUnauthorized":true}
+
+JWT_SECRET=your-random-secret-here-min-32-chars-please-change-this
+
+OAUTH_SERVER_URL=https://api.manus.im
+
+VITE_OAUTH_PORTAL_URL=https://manus.im
+
+VITE_APP_ID=2FuYdXWoTHqtAhfudHLG7U
+
+OWNER_OPEN_ID=adJG6sB3DChRKgZFKkiJGa
+
+OWNER_NAME=Stas Shustov
+
+VITE_APP_TITLE=Quantis Media
+
+BUILT_IN_FORGE_API_URL=https://forge.manus.ai
+
+BUILT_IN_FORGE_API_KEY=VgfhKwGXd4U8bw4vqyuDbz
+
+VITE_FRONTEND_FORGE_API_URL=https://forge.manus.ai
+
+VITE_FRONTEND_FORGE_API_KEY=95AFaAs4N4e95H2H2jfsrq
+
+========================================
+ВАЖНО:
+========================================
+
+1. JWT_SECRET - ОБЯЗАТЕЛЬНО замените на свою случайную строку!
+   Сгенерируйте: openssl rand -base64 32
+   Или просто наберите 32+ случайных символа
+
+2. После добавления всех переменных Render автоматически
+   передеплоит сервис (2-3 минуты)
+
+3. Проверьте сайт: https://quantismedia-preview.onrender.com
+
+========================================

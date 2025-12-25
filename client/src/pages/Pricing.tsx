@@ -11,99 +11,93 @@ export default function Pricing() {
 
   const plans = language === "en" ? [
     {
-      name: "Free",
+      name: "Public",
       price: "$0",
       period: "/month",
-      description: "Get started with basic access",
+      description: "Public pages and limited previews",
       features: [
-        "Access to sample trading ideas",
-        "Market insights blog",
-        "Risk disclosure materials",
-        "Email support"
+        "Public market insights",
+        "Sample scenario previews",
+        "Legal & risk disclosure access",
+        "Newsletter (optional)"
       ],
-      cta: "Current Plan",
-      highlighted: false
+      cta: "Explore",
+      popular: false
     },
     {
       name: "Core",
-      price: "$49",
+      price: "$39",
       period: "/month",
-      description: "Essential tools for active traders",
+      description: "Full access to core scenario library",
       features: [
-        "All Free features",
-        "5 trading ideas per week",
-        "Basic market analysis",
-        "Telegram channel access",
-        "Priority email support",
-        "Historical ideas archive"
+        "Full scenario formats (Core)",
+        "Scenario Library & history",
+        "Market insights archive",
+        "Subscriber dashboard",
+        "Email support"
       ],
-      cta: "Subscribe Now",
-      highlighted: true
+      cta: "Subscribe",
+      popular: true
     },
     {
       name: "Pro",
-      price: "$99",
+      price: "$89",
       period: "/month",
-      description: "Complete intelligence platform",
+      description: "Extended scenarios + closed community",
       features: [
-        "All Core features",
-        "Unlimited trading ideas",
-        "Advanced market intelligence",
-        "Real-time notifications",
-        "Private Telegram group",
-        "1-on-1 consultation (monthly)",
-        "Custom alerts"
+        "Everything in Core",
+        "Extended scenarios (Primary/Alternative cases)",
+        "Higher-frequency updates (when market conditions justify)",
+        "Closed analytical community access",
+        "Priority support"
       ],
-      cta: "Subscribe Now",
-      highlighted: false
+      cta: "Subscribe Pro",
+      popular: false
     }
   ] : [
     {
-      name: "Бесплатный",
+      name: "Публичный доступ",
       price: "$0",
-      period: "/месяц",
-      description: "Начните с базового доступа",
+      period: "/мес",
+      description: "Открытые страницы и ограниченные примеры",
       features: [
-        "Доступ к примерам торговых идей",
-        "Блог рыночной аналитики",
-        "Материалы о рисках",
-        "Поддержка по email"
+        "Публичные обзоры рынков",
+        "Примеры сценариев",
+        "Доступ к юридическим документам",
+        "Рассылка (опционально)"
       ],
-      cta: "Текущий план",
-      highlighted: false
+      cta: "Смотреть",
+      popular: false
     },
     {
       name: "Core",
-      price: "$49",
-      period: "/месяц",
-      description: "Основные инструменты для активных трейдеров",
+      price: "$39",
+      period: "/мес",
+      description: "Полный доступ к базовой библиотеке сценариев",
       features: [
-        "Все функции Free",
-        "5 торговых идей в неделю",
-        "Базовый анализ рынка",
-        "Доступ к Telegram каналу",
-        "Приоритетная поддержка",
-        "Архив исторических идей"
+        "Полный формат сценариев (Core)",
+        "Библиотека и история сценариев",
+        "Архив аналитики",
+        "Личный кабинет подписчика",
+        "Поддержка по email"
       ],
       cta: "Подписаться",
-      highlighted: true
+      popular: true
     },
     {
       name: "Pro",
-      price: "$99",
-      period: "/месяц",
-      description: "Полная аналитическая платформа",
+      price: "$89",
+      period: "/мес",
+      description: "Расширенные сценарии + закрытое сообщество",
       features: [
-        "Все функции Core",
-        "Неограниченные торговые идеи",
-        "Продвинутая аналитика",
-        "Уведомления в реальном времени",
-        "Приватная Telegram группа",
-        "Консультация 1-на-1 (ежемесячно)",
-        "Персональные оповещения"
+        "Всё из Core",
+        "Расширенные сценарии (основной/альтернативный)",
+        "Более частые обновления (по рыночным условиям)",
+        "Доступ к закрытому аналитическому сообществу",
+        "Приоритетная поддержка"
       ],
-      cta: "Подписаться",
-      highlighted: false
+      cta: "Подписаться Pro",
+      popular: false
     }
   ];
 
@@ -129,12 +123,12 @@ export default function Pricing() {
               <Card
                 key={index}
                 className={`relative ${
-                  plan.highlighted
+                  plan.popular
                     ? "border-primary border-2 shadow-2xl scale-105"
                     : "border-border"
                 }`}
               >
-                {plan.highlighted && (
+                {plan.popular && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold">
                     {language === "en" ? "Most Popular" : "Популярный"}
                   </div>
@@ -158,7 +152,7 @@ export default function Pricing() {
                   </ul>
                   <Button
                     className={`w-full ${
-                      plan.highlighted
+                      plan.popular
                         ? "bg-primary hover:bg-primary/90 text-primary-foreground"
                         : "bg-secondary hover:bg-secondary/80"
                     }`}

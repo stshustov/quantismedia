@@ -57,6 +57,17 @@
 - [x] Test all user roles and permissions
 - [ ] Verify payment flows
 
+## Content Updates (User Provided)
+- [x] Review user's content pack with updated pages
+- [x] HowItWorks.tsx - professional content added (EN/RU)
+- [x] SampleIdeas.tsx - rebranded as Sample Market Scenarios
+- [x] TradingIdeas.tsx - renamed to Subscriber Scenarios with safer terminology
+- [x] Home.tsx - updated features to institutional style
+- [x] server/db.ts - added fallback legal pages and sample scenarios
+- [x] Fix TypeScript error in Pricing.tsx (highlighted → popular)
+- [ ] Commit and push content updates to staging
+- [ ] Verify deployment on Render
+
 ## Phase 8: Final Optimization & Delivery
 - [x] Optimize performance and loading times
 - [x] Verify all disclaimers are present
@@ -113,10 +124,16 @@
 - [ ] Verify successful deployment on Render (waiting for user confirmation)
 
 ## Fix Render Invalid URL Error
-- [ ] Check Express static file serving configuration
-- [ ] Verify dist/public directory structure
-- [ ] Check index.html asset paths
-- [ ] Fix environment variables for frontend
-- [ ] Test locally with production build
-- [ ] Commit and push fixes
-- [ ] Verify deployment works on Render
+- [x] Check Express static file serving configuration
+- [x] Verify dist/public directory structure
+- [x] Check index.html asset paths - correct
+- [x] Fix distPath resolution in serveStatic
+- [x] Test locally with production build - works
+- [x] Commit and push fixes - commit 6e07b45
+- [x] Fix server binding to 0.0.0.0 - commit 08e640e
+- [ ] Verify deployment works on Render (waiting for final redeploy)
+- [x] Fix "TypeError: Failed to construct 'URL': Invalid URL" error on Render - identified missing env vars
+- [x] Identify source of invalid URL construction in tRPC client or environment variables - VITE_OAUTH_PORTAL_URL missing
+- [x] Created RENDER_ENV_SETUP.md and RENDER_ENV_VALUES.txt with all required variables
+- [ ] User adds environment variables to Render Dashboard
+- [ ] Verify deployment works after env vars added

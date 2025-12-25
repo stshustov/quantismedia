@@ -180,7 +180,59 @@ export async function getPublishedTradingIdeas(accessLevel?: "sample" | "core" |
       .orderBy(desc(tradingIdeas.publishedAt));
   }
 
-  return await query;
+  const rows = await query;
+
+  // If database is empty (common on first deploy), return safe sample defaults.
+  if (!rows || rows.length === 0) {
+    const now = new Date();
+    const defaults: any[] = [
+      {
+        id: 1,
+        instrument: "S&P 500 (US500)",
+        market: "indices",
+        accessLevel: "sample",
+        status: "published",
+        publishedAt: now,
+        createdAt: now,
+        updatedAt: now,
+        contextEn:
+          "Market environment: elevated volatility with macro headlines. Focus is on structure and liquidity, not prediction.",
+        contextRu:
+          "Рыночная среда: повышенная волатильность на фоне макро-новостей. Фокус — структура и ликвидность, а не прогноз.",
+        scenarioEn:
+          "Primary case: continuation under stable structure; Alternative case: structural shift if key conditions fail. Use as an analytical framework only.",
+        scenarioRu:
+          "Основной сценарий: продолжение при сохранении структуры; Альтернативный: смена структуры при нарушении ключевых условий. Только как аналитическая рамка.",
+        invalidationZone: "Structural invalidation reference",
+        targetArea: "Reference area (context-dependent)",
+      },
+      {
+        id: 2,
+        instrument: "XAUUSD (Gold)",
+        market: "metals",
+        accessLevel: "sample",
+        status: "published",
+        publishedAt: now,
+        createdAt: now,
+        updatedAt: now,
+        contextEn:
+          "Market environment: trend phases can alternate quickly. Scenario describes conditions, not instructions.",
+        contextRu:
+          "Рыночная среда: трендовые фазы могут быстро сменяться. Сценарий описывает условия, а не инструкции.",
+        scenarioEn:
+          "Primary case: momentum persists while volatility remains supportive; Alternative case: mean-reversion regime if volatility compresses and structure weakens.",
+        scenarioRu:
+          "Основной: импульс сохраняется при подходящем режиме волатильности; Альтернативный: возврат к среднему при сжатии волатильности и ослаблении структуры.",
+        invalidationZone: "Structural invalidation reference",
+        targetArea: "Reference area (context-dependent)",
+      },
+    ];
+
+    if (!accessLevel) return defaults;
+    return defaults.filter((d) => d.accessLevel === accessLevel);
+  }
+
+  return rows;
 }
 
 export async function getTradingIdeaById(id: number): Promise<TradingIdea | undefined> {
@@ -253,7 +305,147 @@ export async function getLegalPage(pageType: string): Promise<LegalPage | undefi
   if (!db) return undefined;
 
   const result = await db.select().from(legalPages).where(eq(legalPages.pageType, pageType as any)).limit(1);
-  return result.length > 0 ? result[0] : undefined;
+  const page = result.length > 0 ? result[0] : undefined;
+
+  // Fallback defaults (used when DB is empty or contains placeholder duplicates)
+  const defaults: Record<string, { titleEn: string; titleRu: string; contentEn: string; contentRu: string; version: number }> = {
+    disclaimer: {
+      titleEn: "Disclaimer",
+      titleRu: "Дисклеймер",
+      version: 1,
+      contentEn: `
+        <h2>General disclaimer</h2>
+        <p>Quantis Media is an independent analytical platform. All content is provided strictly for informational and educational purposes and does not constitute investment advice, trading advice, or a solicitation to buy or sell any financial instrument.</p>
+        <p>Users are solely responsible for their own decisions and actions. Past performance is not indicative of future results.</p>
+      `,
+      contentRu: `
+        <h2>Общий дисклеймер</h2>
+        <p>Quantis Media — независимая аналитическая платформа. Все материалы предоставляются исключительно в информационных и образовательных целях и не являются инвестиционной рекомендацией, торговым советом или предложением купить/продать финансовые инструменты.</p>
+        <p>Пользователь самостоятельно принимает решения и несёт ответственность за свои действия. Прошлые результаты не гарантируют будущей доходности.</p>
+      `,
+    },
+    risk_disclosure: {
+      titleEn: "Risk Disclosure",
+      titleRu: "Раскрытие рисков",
+      version: 1,
+      contentEn: `
+        <h2>Risk disclosure</h2>
+        <p>Trading and investing in financial markets involves significant risk and may result in partial or total loss of capital. Markets can be volatile and unpredictable.</p>
+        <ul>
+          <li>Leverage can amplify gains and losses.</li>
+          <li>Liquidity, spreads, and execution conditions may change rapidly.</li>
+          <li>Macroeconomic events can lead to sharp price moves.</li>
+        </ul>
+        <p>Quantis Media does not provide execution services and does not control user accounts. Any use of the platform materials is at the user’s own risk.</p>
+      `,
+      contentRu: `
+        <h2>Раскрытие рисков</h2>
+        <p>Торговля и инвестиции на финансовых рынках связаны с существенными рисками и могут привести к частичной или полной потере капитала. Рынки могут быть волатильными и непредсказуемыми.</p>
+        <ul>
+          <li>Кредитное плечо усиливает как прибыль, так и убытки.</li>
+          <li>Ликвидность, спреды и условия исполнения могут быстро меняться.</li>
+          <li>Макроэкономические события способны вызывать резкие движения цены.</li>
+        </ul>
+        <p>Quantis Media не оказывает услуг по исполнению сделок и не управляет счетами пользователей. Использование материалов платформы осуществляется на риск пользователя.</p>
+      `,
+    },
+    terms: {
+      titleEn: "Terms of Service",
+      titleRu: "Условия использования",
+      version: 1,
+      contentEn: `
+        <h2>Terms</h2>
+        <p>By accessing or using Quantis Media, you agree to these Terms. If you do not agree, do not use the platform.</p>
+        <h3>Nature of service</h3>
+        <p>Quantis Media provides analytical and educational content only. No personalized advice is provided.</p>
+        <h3>Subscriptions</h3>
+        <p>Subscriptions grant access to private content for the subscription period. Access may be suspended or revoked in case of violations of community rules or misuse.</p>
+        <h3>Limitation of liability</h3>
+        <p>Quantis Media shall not be liable for any losses or damages arising from the use of the content.</p>
+      `,
+      contentRu: `
+        <h2>Условия</h2>
+        <p>Используя Quantis Media, вы соглашаетесь с настоящими условиями. Если вы не согласны — не используйте платформу.</p>
+        <h3>Характер сервиса</h3>
+        <p>Quantis Media предоставляет исключительно аналитические и образовательные материалы. Персональные рекомендации не предоставляются.</p>
+        <h3>Подписки</h3>
+        <p>Подписка предоставляет доступ к закрытому контенту на срок подписки. Доступ может быть приостановлен/отозван при нарушении правил сообщества или злоупотреблении сервисом.</p>
+        <h3>Ограничение ответственности</h3>
+        <p>Quantis Media не несёт ответственности за убытки или ущерб, возникшие в результате использования материалов.</p>
+      `,
+    },
+    privacy: {
+      titleEn: "Privacy Policy",
+      titleRu: "Политика конфиденциальности",
+      version: 1,
+      contentEn: `
+        <h2>Privacy</h2>
+        <p>We collect only the data necessary to operate the platform (e.g., account identifiers, subscription status, and basic contact details).</p>
+        <p>We do not sell personal data. We may use service providers for hosting and payments.</p>
+        <p>You can request access, correction, or deletion of your data by contacting support.</p>
+      `,
+      contentRu: `
+        <h2>Конфиденциальность</h2>
+        <p>Мы собираем только данные, необходимые для работы платформы (например, идентификаторы аккаунта, статус подписки и базовые контактные данные).</p>
+        <p>Мы не продаём персональные данные. Мы можем использовать сторонних провайдеров для хостинга и платежей.</p>
+        <p>Вы можете запросить доступ, исправление или удаление данных, написав в поддержку.</p>
+      `,
+    },
+    cookie: {
+      titleEn: "Cookie Policy",
+      titleRu: "Политика cookie",
+      version: 1,
+      contentEn: `
+        <h2>Cookies</h2>
+        <p>We use cookies and similar technologies to ensure essential functionality (e.g., authentication) and to improve user experience.</p>
+        <p>You may disable cookies in your browser settings; some features may not work properly.</p>
+      `,
+      contentRu: `
+        <h2>Cookie</h2>
+        <p>Мы используем cookie и аналогичные технологии для обеспечения базовой функциональности (например, авторизация) и улучшения пользовательского опыта.</p>
+        <p>Вы можете отключить cookie в настройках браузера — часть функций может работать некорректно.</p>
+      `,
+    },
+  };
+
+  // If missing entirely — return default
+  if (!page) {
+    const d = defaults[pageType];
+    if (!d) return undefined;
+    return {
+      id: 0,
+      pageType: pageType as any,
+      titleEn: d.titleEn,
+      titleRu: d.titleRu,
+      contentEn: d.contentEn,
+      contentRu: d.contentRu,
+      version: d.version,
+      effectiveDate: new Date(),
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    } as any;
+  }
+
+  // If non-disclaimer pages accidentally contain duplicate disclaimer content, return safer defaults
+  if (pageType !== "disclaimer") {
+    const disclaimer = defaults["disclaimer"];
+    const looksDuplicated =
+      (page.contentEn || "").trim() === disclaimer.contentEn.trim() ||
+      (page.contentRu || "").trim() === disclaimer.contentRu.trim();
+    if (looksDuplicated && defaults[pageType]) {
+      const d = defaults[pageType];
+      return {
+        ...page,
+        titleEn: d.titleEn,
+        titleRu: d.titleRu,
+        contentEn: d.contentEn,
+        contentRu: d.contentRu,
+        version: Math.max(page.version || 1, d.version),
+      } as any;
+    }
+  }
+
+  return page;
 }
 
 export async function upsertLegalPage(data: typeof legalPages.$inferInsert) {
