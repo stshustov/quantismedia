@@ -141,4 +141,4 @@
 ## UI Fixes (User Reported)
 - [x] Remove extra "О" letter before "Quantis Media" on About page
 - [x] Fix text alignment on Disclaimer page (added prose typography styles)
-- [ ] Commit and push fixes to staging
+- [x] Commit and push fixes to staging - commit 824a16a
