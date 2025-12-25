@@ -178,4 +178,4 @@
 
 ## Hero Title Color Adjustment
 - [x] Make "Media" word gold in Hero h1 title (match Navigation branding)
-- [ ] Commit and push change
+- [x] Commit and push change - commit 76954eb
