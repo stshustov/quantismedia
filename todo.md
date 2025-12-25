@@ -173,5 +173,5 @@
 - [x] Add supporting paragraph under definition line in Hero
 - [x] Update Footer with compact QM mark + "Independent research platform"
 - [x] Translations already have correct copyright: "© Quantis Media, Republic of Moldova"
-- [ ] Test all changes
-- [ ] Commit and push final branding adjustments
+- [x] Test all changes - TypeScript: no errors
+- [x] Commit and push final branding adjustments - commit fe05f59
