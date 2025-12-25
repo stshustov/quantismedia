@@ -105,9 +105,18 @@
 - [ ] Create PR from staging to main (after successful deploy)
 
 ## Fix Render Build Error (Status 127)
-- [ ] Analyze Render build logs
-- [ ] Fix pnpm installation in render.yaml
-- [ ] Update build commands to use npm instead of pnpm (Render compatibility)
-- [ ] Test build commands locally
-- [ ] Commit and push fixes to staging
-- [ ] Verify successful deployment on Render
+- [x] Analyze Render build logs - Status 127 = pnpm not found
+- [x] Fix pnpm installation in render.yaml - Added corepack enable
+- [x] Update build commands with corepack for pnpm support
+- [x] Test build commands locally - verified pnpm build works
+- [x] Commit and push fixes to staging - commit 8c44208
+- [ ] Verify successful deployment on Render (waiting for user confirmation)
+
+## Fix Render Invalid URL Error
+- [ ] Check Express static file serving configuration
+- [ ] Verify dist/public directory structure
+- [ ] Check index.html asset paths
+- [ ] Fix environment variables for frontend
+- [ ] Test locally with production build
+- [ ] Commit and push fixes
+- [ ] Verify deployment works on Render
