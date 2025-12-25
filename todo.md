@@ -89,3 +89,17 @@
 - [x] Replace "Signals/My Signals" labels with "Market Ideas/Idea Archive" (to be done when implementing full dashboard)
 - [x] Set defaultTheme="dark" in App.tsx
 - [x] Final smoke test: verified no "signal" words in UI, no BUY/SELL commands, all tests passing (10/10)
+
+## GitHub & Render Deployment Setup
+- [ ] Initialize Git repository
+- [ ] Create comprehensive .gitignore file
+- [ ] Setup staging and main branches
+- [ ] Analyze project structure for Render deployment
+- [ ] Configure build commands for Render
+- [ ] Test build locally (npm run build)
+- [ ] Fix any build errors
+- [ ] Create render.yaml configuration
+- [ ] Write README section for Render deployment
+- [ ] Commit all changes to staging branch
+- [ ] Verify staging branch builds successfully
+- [ ] Create PR from staging to main (after successful deploy)
