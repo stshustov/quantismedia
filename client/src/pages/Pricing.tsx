@@ -3,7 +3,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Check } from "lucide-react";
+import { Check, AlertCircle } from "lucide-react";
 import { Link } from "wouter";
 
 export default function Pricing() {
@@ -162,6 +162,67 @@ export default function Pricing() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+          
+          {/* Core Plan Details Section */}
+          <div className="mt-20 max-w-4xl mx-auto">
+            <Card className="border-2 border-primary/30">
+              <CardHeader>
+                <CardTitle className="text-3xl">
+                  {language === "en" ? "About Core Plan" : "О тарифе Core"}
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p className="text-lg leading-relaxed">
+                  {language === "en"
+                    ? "Core provides access to Quantis Media's scenario-based research, including structured market scenarios and analytical context."
+                    : "Core — базовый уровень доступа к сценарной аналитике Quantis Media. Предоставляет структурированные рыночные сценарии и аналитический контекст."}
+                </p>
+                
+                <div className="pt-4">
+                  <h3 className="font-semibold text-xl mb-3">
+                    {language === "en" ? "What's included:" : "Что входит:"}
+                  </h3>
+                  <ul className="space-y-2">
+                    {(language === "en" ? [
+                      "Full scenario formats",
+                      "Scenario library and history",
+                      "Analytics archive",
+                      "Subscriber dashboard",
+                      "Technical email support"
+                    ] : [
+                      "Полный формат сценариев",
+                      "Библиотека и история сценариев",
+                      "Архив аналитики",
+                      "Личный кабинет подписчика",
+                      "Email-поддержка (техническая)"
+                    ]).map((item, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+          
+          {/* Legal Disclaimer */}
+          <div className="mt-16 max-w-4xl mx-auto">
+            <div className="flex items-start gap-3 p-6 bg-card/50 backdrop-blur-sm border border-border rounded-lg">
+              <AlertCircle className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
+              <div className="text-sm text-muted-foreground leading-relaxed">
+                <p className="font-semibold mb-2">
+                  {language === "en" ? "Important Legal Notice" : "Важное юридическое уведомление"}
+                </p>
+                <p>
+                  {language === "en"
+                    ? "Quantis Media does not provide investment advice or trading signals. All content is provided for informational and educational purposes only."
+                    : "Quantis Media не предоставляет инвестиционных рекомендаций или торговых сигналов. Весь контент предоставляется исключительно в информационных и образовательных целях."}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

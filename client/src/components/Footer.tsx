@@ -10,7 +10,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* About */}
           <div>
-            <h3 className="text-foreground font-bold text-lg mb-4">Quantis Media</h3>
+            <h3 className="text-foreground font-bold text-lg mb-3">Quantis Media</h3>
+            <p className="text-sm font-semibold text-primary mb-3">
+              {t.footer.definitionLine}
+            </p>
             <p className="text-sm leading-relaxed">
               {t.footer.disclaimer}
             </p>
@@ -95,9 +98,9 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-border pt-8 text-center text-sm">
-          <p>{t.footer.copyright}</p>
+          <p>&copy; Quantis Media, Republic of Moldova</p>
           <p className="mt-2 text-xs opacity-70">
-            Operated internationally. Administrative operations based in the Republic of Moldova.
+            {t.footer.copyright}
           </p>
         </div>
       </div>

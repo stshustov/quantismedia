@@ -49,6 +49,7 @@ export interface Translations {
   
   // Footer
   footer: {
+    definitionLine: string;
     disclaimer: string;
     copyright: string;
   };
@@ -152,8 +153,9 @@ export const translations: Record<Language, Translations> = {
       currentPlan: "Current Plan",
     },
     footer: {
+      definitionLine: "Scenario-led research. Structure over noise.",
       disclaimer: "Quantis Media is an independent market intelligence platform providing subscription-based access to market research, analytical insights, and scenario-based trading ideas for informational and educational purposes only.",
-      copyright: "© 2024 Quantis Media. All rights reserved.",
+      copyright: "Operated internationally. Administrative operations based in the Republic of Moldova.",
     },
     dashboard: {
       welcome: "Welcome to Your Dashboard",
@@ -243,8 +245,9 @@ export const translations: Record<Language, Translations> = {
       currentPlan: "Текущий тариф",
     },
     footer: {
+      definitionLine: "Сценарный анализ рынков. Структура вместо шума.",
       disclaimer: "Quantis Media — независимая аналитическая платформа, предоставляющая доступ по подписке к рыночным обзорам, исследовательским материалам и сценарным торговым идеям в информационных и образовательных целях.",
-      copyright: "© 2024 Quantis Media. Все права защищены.",
+      copyright: "Работает на международном уровне. Административные операции базируются в Республике Молдова.",
     },
     dashboard: {
       welcome: "Добро пожаловать в вашу панель управления",

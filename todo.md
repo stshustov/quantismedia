@@ -142,3 +142,14 @@
 - [x] Remove extra "О" letter before "Quantis Media" on About page
 - [x] Fix text alignment on Disclaimer page (added prose typography styles)
 - [x] Commit and push fixes to staging - commit 824a16a
+
+## Content Checklist Implementation (User Provided)
+- [x] Home page: Update hero section with definition line "Scenario-led research. Structure over noise."
+- [x] Home page: Update features block with correct content (scenario-based, algorithmic filtering, multi-asset, research-first)
+- [x] Pricing page: Add detailed Core plan description with full feature list
+- [x] Pricing page: Add legal disclaimer block at bottom
+- [x] Telegram Access page: Update text with proper disclaimers (no trading instructions, no execution, scenarios only)
+- [x] Footer: Add definition line (RU/EN)
+- [x] Footer: Update copyright to "© Quantis Media, Republic of Moldova"
+- [x] Verify all pages have RU/EN translations
+- [ ] Commit and push all checklist changes

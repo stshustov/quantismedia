@@ -12,44 +12,44 @@ export default function Home() {
   const features = language === "en" ? [
     {
       icon: TrendingUp,
-      title: "Scenario-Based Market Research",
-      description: "Structured market scenarios with clear context, confirmation factors, and invalidation references — designed to support independent decision-making."
-    },
-    {
-      icon: BarChart3,
-      title: "Institutional-Style Insights",
-      description: "Concise research notes and market structure analysis across major global instruments and macro regimes."
-    },
-    {
-      icon: Globe,
-      title: "Multi-Market Coverage",
-      description: "Indices, FX, energy (oil & gas), and precious metals — focused on liquid global markets."
+      title: "Scenario-based market analysis",
+      description: "Structured market scenarios with context, probabilities, and invalidation logic — designed to support independent research and decision-making."
     },
     {
       icon: Shield,
-      title: "Risk-First Methodology",
-      description: "No averaging, no martingale, no execution. Content is analytical and educational, with clear risk disclosure on every page."
+      title: "Algorithmic filtering of market noise",
+      description: "Data-driven approach to identify structural patterns and filter out irrelevant short-term fluctuations."
+    },
+    {
+      icon: Globe,
+      title: "Multi-asset coverage",
+      description: "Indices, FX, energy, and metals — focused on liquid global markets with institutional participation."
+    },
+    {
+      icon: BarChart3,
+      title: "Research-first approach",
+      description: "Analytical content for informational and educational purposes. No execution instructions, no personalized advice."
     }
   ] : [
     {
       icon: TrendingUp,
-      title: "Сценарная рыночная аналитика",
-      description: "Структурированные сценарии с контекстом, факторами подтверждения и ориентирами инвалидации — как поддержка самостоятельных решений."
-    },
-    {
-      icon: BarChart3,
-      title: "Профессиональный формат",
-      description: "Короткие исследовательские заметки и анализ структуры рынка по ключевым глобальным инструментам и режимам волатильности."
-    },
-    {
-      icon: Globe,
-      title: "Мультирыночный охват",
-      description: "Индексы, FX, энергетика (нефть и газ) и драгоценные металлы — фокус на ликвидных глобальных рынках."
+      title: "Сценарный анализ рынков",
+      description: "Структурированные рыночные сценарии с контекстом, вероятностями и логикой инвалидации — для поддержки независимых исследований и решений."
     },
     {
       icon: Shield,
-      title: "Риск-ориентированный подход",
-      description: "Без усреднения, без мартингейла, без исполнения сделок. Материалы носят аналитический и образовательный характер, с раскрытием рисков."
+      title: "Алгоритмическая фильтрация рыночного шума",
+      description: "Подход, основанный на данных, для выявления структурных паттернов и фильтрации нерелевантных краткосрочных колебаний."
+    },
+    {
+      icon: Globe,
+      title: "Мультиактивный охват",
+      description: "Индексы, FX, энергетика и металлы — фокус на ликвидных глобальных рынках с институциональным участием."
+    },
+    {
+      icon: BarChart3,
+      title: "Исследовательский подход",
+      description: "Аналитический контент в информационных и образовательных целях. Без инструкций по исполнению, без персонализированных советов."
     }
   ];
 
@@ -64,14 +64,20 @@ export default function Home() {
         
         <div className="container relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
-              {language === "en" ? "Independent Market Intelligence Platform" : "Независимая платформа рыночной аналитики"}
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 tracking-tight">
+              Quantis Media
             </h1>
             
-            <p className="text-xl md:text-2xl mb-8 text-muted-foreground leading-relaxed">
+            <p className="text-2xl md:text-3xl mb-6 text-primary font-semibold">
               {language === "en" 
-                ? "Access algorithmically-assisted market analysis and scenario-based trading ideas for informational and educational purposes."
-                : "Доступ к алгоритмически-ассистированному анализу рынков и сценарным торговым идеям в информационных и образовательных целях."}
+                ? "Scenario-led research. Structure over noise."
+                : "Сценарный анализ рынков. Структура вместо шума."}
+            </p>
+            
+            <p className="text-lg md:text-xl mb-8 text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+              {language === "en" 
+                ? "Quantis Media is an analytical platform designed to help market participants navigate global financial markets through structured, scenario-based research."
+                : "Quantis Media — аналитическая платформа, созданная для помощи участникам рынка в навигации по глобальным финансовым рынкам через структурированные сценарные исследования."}
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">

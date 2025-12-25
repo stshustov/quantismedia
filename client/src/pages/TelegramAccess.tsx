@@ -39,6 +39,28 @@ export default function TelegramAccess() {
         <div className="container mx-auto px-4 max-w-3xl">
           <h1 className="text-4xl font-bold mb-8">{t.dashboard.telegram}</h1>
           
+          <div className="mb-8 p-6 bg-card/50 backdrop-blur-sm border border-border rounded-lg">
+            <p className="text-lg leading-relaxed mb-4">
+              {language === "en"
+                ? "Telegram channel provides real-time distribution of published scenarios for convenience and community discussion."
+                : "Telegram-канал обеспечивает распространение опубликованных сценариев в реальном времени для удобства и обсуждения в сообществе."}
+            </p>
+            <div className="space-y-2 text-sm text-muted-foreground">
+              <p className="flex items-center gap-2">
+                <span className="text-primary">•</span>
+                {language === "en" ? "No trading instructions" : "Без торговых инструкций"}
+              </p>
+              <p className="flex items-center gap-2">
+                <span className="text-primary">•</span>
+                {language === "en" ? "No execution" : "Без исполнения сделок"}
+              </p>
+              <p className="flex items-center gap-2">
+                <span className="text-primary">•</span>
+                {language === "en" ? "Scenarios only" : "Только сценарии"}
+              </p>
+            </div>
+          </div>
+          
           <Card>
             <CardHeader>
               <CardTitle>
