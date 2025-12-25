@@ -31,7 +31,7 @@ export default function AdminPanel() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
-      <main className="flex-1 py-20 bg-gray-50">
+      <main className="flex-1 py-20 bg-background">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl font-bold mb-8">Admin Panel</h1>
           
@@ -68,7 +68,7 @@ export default function AdminPanel() {
                             <td className="p-2">{u.name}</td>
                             <td className="p-2">{u.email}</td>
                             <td className="p-2">
-                              <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded text-sm">
+                              <span className="px-2 py-1 bg-primary/10 text-primary rounded text-sm">
                                 {u.role}
                               </span>
                             </td>

@@ -32,7 +32,7 @@ export default function Dashboard() {
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-3xl font-bold mb-4">Subscription Required</h1>
             <p className="mb-8">Please subscribe to access the dashboard.</p>
-            <Link href="/pricing"><a className="text-blue-600 hover:underline">View Pricing</a></Link>
+            <Link href="/pricing"><a className="text-primary hover:underline">View Pricing</a></Link>
           </div>
         </main>
         <Footer />
@@ -43,16 +43,16 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
-      <main className="flex-1 py-20 bg-gray-50">
+      <main className="flex-1 py-20 bg-background">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl font-bold mb-8">{t.dashboard.welcome}</h1>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Link href="/trading-ideas">
               <a>
-                <Card className="hover:border-blue-500 transition-colors cursor-pointer">
+                <Card className="hover:border-primary transition-colors cursor-pointer">
                   <CardHeader>
-                    <TrendingUp className="h-8 w-8 text-blue-600 mb-2" />
+                    <TrendingUp className="h-8 w-8 text-primary mb-2" />
                     <CardTitle>{t.dashboard.tradingIdeas}</CardTitle>
                   </CardHeader>
                   <CardContent>
@@ -64,9 +64,9 @@ export default function Dashboard() {
 
             <Link href="/history">
               <a>
-                <Card className="hover:border-blue-500 transition-colors cursor-pointer">
+                <Card className="hover:border-primary transition-colors cursor-pointer">
                   <CardHeader>
-                    <History className="h-8 w-8 text-blue-600 mb-2" />
+                    <History className="h-8 w-8 text-primary mb-2" />
                     <CardTitle>{t.dashboard.history}</CardTitle>
                   </CardHeader>
                   <CardContent>
@@ -78,9 +78,9 @@ export default function Dashboard() {
 
             <Link href="/telegram">
               <a>
-                <Card className="hover:border-blue-500 transition-colors cursor-pointer">
+                <Card className="hover:border-primary transition-colors cursor-pointer">
                   <CardHeader>
-                    <MessageSquare className="h-8 w-8 text-blue-600 mb-2" />
+                    <MessageSquare className="h-8 w-8 text-primary mb-2" />
                     <CardTitle>{t.dashboard.telegram}</CardTitle>
                   </CardHeader>
                   <CardContent>

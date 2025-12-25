@@ -5,12 +5,12 @@ export default function Footer() {
   const { t } = useLanguage();
 
   return (
-    <footer className="bg-gray-900 text-gray-300 py-12 mt-auto">
+    <footer className="bg-background text-muted-foreground py-12 mt-auto border-t border-border">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* About */}
           <div>
-            <h3 className="text-white font-bold text-lg mb-4">Quantis Media</h3>
+            <h3 className="text-foreground font-bold text-lg mb-4">Quantis Media</h3>
             <p className="text-sm leading-relaxed">
               {t.footer.disclaimer}
             </p>
@@ -18,26 +18,26 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-white font-semibold mb-4">{t.nav.home}</h4>
+            <h4 className="text-foreground font-semibold mb-4">{t.nav.home}</h4>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/how-it-works">
-                  <a className="hover:text-white">{t.nav.howItWorks}</a>
+                  <a className="hover:text-foreground transition-colors">{t.nav.howItWorks}</a>
                 </Link>
               </li>
               <li>
                 <Link href="/market-insights">
-                  <a className="hover:text-white">{t.nav.marketInsights}</a>
+                  <a className="hover:text-foreground transition-colors">{t.nav.marketInsights}</a>
                 </Link>
               </li>
               <li>
                 <Link href="/sample-ideas">
-                  <a className="hover:text-white">{t.nav.sampleIdeas}</a>
+                  <a className="hover:text-foreground transition-colors">{t.nav.sampleIdeas}</a>
                 </Link>
               </li>
               <li>
                 <Link href="/pricing">
-                  <a className="hover:text-white">{t.nav.pricing}</a>
+                  <a className="hover:text-foreground transition-colors">{t.nav.pricing}</a>
                 </Link>
               </li>
             </ul>
@@ -45,16 +45,16 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h4 className="text-white font-semibold mb-4">{t.nav.about}</h4>
+            <h4 className="text-foreground font-semibold mb-4">{t.nav.about}</h4>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/about">
-                  <a className="hover:text-white">{t.nav.about}</a>
+                  <a className="hover:text-foreground transition-colors">{t.nav.about}</a>
                 </Link>
               </li>
               <li>
                 <Link href="/contact">
-                  <a className="hover:text-white">{t.nav.contact}</a>
+                  <a className="hover:text-foreground transition-colors">{t.nav.contact}</a>
                 </Link>
               </li>
             </ul>
@@ -62,31 +62,31 @@ export default function Footer() {
 
           {/* Legal */}
           <div>
-            <h4 className="text-white font-semibold mb-4">{t.nav.legal}</h4>
+            <h4 className="text-foreground font-semibold mb-4">{t.nav.legal}</h4>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/legal/disclaimer">
-                  <a className="hover:text-white">{t.legal.disclaimer}</a>
+                  <a className="hover:text-foreground transition-colors">{t.legal.disclaimer}</a>
                 </Link>
               </li>
               <li>
                 <Link href="/legal/risk_disclosure">
-                  <a className="hover:text-white">{t.legal.riskDisclosure}</a>
+                  <a className="hover:text-foreground transition-colors">{t.legal.riskDisclosure}</a>
                 </Link>
               </li>
               <li>
                 <Link href="/legal/terms">
-                  <a className="hover:text-white">{t.legal.terms}</a>
+                  <a className="hover:text-foreground transition-colors">{t.legal.terms}</a>
                 </Link>
               </li>
               <li>
                 <Link href="/legal/privacy">
-                  <a className="hover:text-white">{t.legal.privacy}</a>
+                  <a className="hover:text-foreground transition-colors">{t.legal.privacy}</a>
                 </Link>
               </li>
               <li>
                 <Link href="/legal/cookie">
-                  <a className="hover:text-white">{t.legal.cookie}</a>
+                  <a className="hover:text-foreground transition-colors">{t.legal.cookie}</a>
                 </Link>
               </li>
             </ul>
@@ -94,10 +94,10 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800 pt-8 text-center text-sm">
+        <div className="border-t border-border pt-8 text-center text-sm">
           <p>{t.footer.copyright}</p>
-          <p className="mt-2 text-xs text-gray-500">
-            Republic of Moldova | quantismedia.io
+          <p className="mt-2 text-xs opacity-70">
+            Operated internationally. Administrative operations based in the Republic of Moldova.
           </p>
         </div>
       </div>

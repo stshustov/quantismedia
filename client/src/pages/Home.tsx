@@ -23,7 +23,7 @@ export default function Home() {
     {
       icon: Globe,
       title: "Multi-Market Coverage",
-      description: "Analysis across forex, commodities, indices, and cryptocurrency markets."
+      description: "Analysis across FX, indices, metals, oil & gas markets."
     },
     {
       icon: Shield,
@@ -92,8 +92,8 @@ export default function Home() {
               <AlertCircle className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
               <p className="text-sm text-muted-foreground text-left leading-relaxed">
                 {language === "en"
-                  ? "All content is provided strictly for informational and educational purposes only. Quantis Media does not provide trading signals or investment advice."
-                  : "Весь контент предоставляется исключительно в информационных и образовательных целях. Quantis Media не предоставляет торговых сигналов или инвестиционных рекомендаций."}
+                  ? "All content is provided strictly for informational and educational purposes only. Quantis Media does not provide investment advice, trade execution instructions, or personalized recommendations."
+                  : "Весь контент предоставляется исключительно в информационных и образовательных целях. Quantis Media не предоставляет инвестиционных рекомендаций, инструкций по исполнению сделок или персонализированных советов."}
               </p>
             </div>
           </div>

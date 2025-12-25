@@ -13,7 +13,7 @@ const legalContent = [
       <p>Quantis Media is an independent market intelligence platform. The platform does not:</p>
       <ul>
         <li>Provide investment advice</li>
-        <li>Sell trading signals</li>
+        <li>Provide trade execution instructions (e.g. buy/sell alerts)</li>
         <li>Execute trades</li>
         <li>Manage client funds</li>
       </ul>
@@ -25,7 +25,7 @@ const legalContent = [
       <p>Quantis Media — независимая аналитическая платформа. Платформа не:</p>
       <ul>
         <li>Предоставляет инвестиционные рекомендации</li>
-        <li>Продаёт торговые сигналы</li>
+        <li>Предоставляет инструкции по исполнению сделок (например, сигналы на покупку/продажу)</li>
         <li>Исполняет сделки</li>
         <li>Управляет средствами клиентов</li>
       </ul>

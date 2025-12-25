@@ -22,7 +22,7 @@ export default function MarketInsights() {
                 <CardHeader>
                   <CardTitle>
                     <Link href={`/market-insights/${language === "en" ? insight.slugEn : insight.slugRu}`}>
-                      <a className="hover:text-blue-600">
+                      <a className="hover:text-primary">
                         {language === "en" ? insight.titleEn : insight.titleRu}
                       </a>
                     </Link>

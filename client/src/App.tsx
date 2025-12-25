@@ -12,39 +12,31 @@ import MarketInsightDetail from "./pages/MarketInsightDetail";
 import SampleIdeas from "./pages/SampleIdeas";
 import Pricing from "./pages/Pricing";
 import About from "./pages/About";
-import Legal from "./pages/Legal";
 import Contact from "./pages/Contact";
 import Dashboard from "./pages/Dashboard";
 import TradingIdeas from "./pages/TradingIdeas";
 import History from "./pages/History";
 import TelegramAccess from "./pages/TelegramAccess";
-import AdminPanel from "./pages/AdminPanel";
+import Admin from "./pages/Admin";
+import Legal from "./pages/Legal";
 
 function Router() {
   return (
     <Switch>
-      {/* Public Pages */}
       <Route path="/" component={Home} />
       <Route path="/how-it-works" component={HowItWorks} />
       <Route path="/market-insights" component={MarketInsights} />
-      <Route path="/market-insights/:slug" component={MarketInsightDetail} />
+      <Route path="/market-insights/:id" component={MarketInsightDetail} />
       <Route path="/sample-ideas" component={SampleIdeas} />
       <Route path="/pricing" component={Pricing} />
       <Route path="/about" component={About} />
-      <Route path="/legal" component={Legal} />
-      <Route path="/legal/:type" component={Legal} />
       <Route path="/contact" component={Contact} />
-      
-      {/* Private Pages (Subscribers) */}
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/trading-ideas" component={TradingIdeas} />
       <Route path="/history" component={History} />
-      <Route path="/telegram" component={TelegramAccess} />
-      
-      {/* Admin Pages */}
-      <Route path="/admin" component={AdminPanel} />
-      
-      {/* 404 */}
+      <Route path="/telegram-access" component={TelegramAccess} />
+      <Route path="/admin" component={Admin} />
+      <Route path="/legal/:slug" component={Legal} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
@@ -54,7 +46,7 @@ function Router() {
 function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider defaultTheme="light">
+      <ThemeProvider defaultTheme="dark">
         <LanguageProvider>
           <TooltipProvider>
             <Toaster />

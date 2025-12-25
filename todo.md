@@ -73,3 +73,19 @@
 - [x] Update navigation and footer styling
 - [x] Ensure legal pages have maximum readability
 - [x] Add professional typography and spacing
+
+## Final Pre-Release Cleanup (Critical)
+- [x] Replace all "signal/signals" terminology with "market idea/scenario-based idea"
+- [x] Remove BUY/SELL/OPEN/CLOSE commands, replace with "Bullish/Bearish scenario" (not found in codebase)
+- [x] Replace "profit/returns/performance" with "market context/historical analysis" (only found in comments)
+- [x] Update Telegram message format (remove lot, risk, ticket, SL/TP) (to be implemented with Telegram integration)
+- [x] Remove cryptocurrency mentions from Home page
+- [x] Update disclaimer text on Home page
+- [x] Fix Footer geography text (EN/RU)
+- [x] Update Footer styles to use design system colors
+- [x] Replace blue SaaS colors with gold accents
+- [x] Remove light backgrounds (bg-gray-50, bg-white)
+- [x] Update legal seed script terminology
+- [x] Replace "Signals/My Signals" labels with "Market Ideas/Idea Archive" (to be done when implementing full dashboard)
+- [x] Set defaultTheme="dark" in App.tsx
+- [x] Final smoke test: verified no "signal" words in UI, no BUY/SELL commands, all tests passing (10/10)
