@@ -65,8 +65,8 @@
 - [x] Home.tsx - updated features to institutional style
 - [x] server/db.ts - added fallback legal pages and sample scenarios
 - [x] Fix TypeScript error in Pricing.tsx (highlighted → popular)
-- [ ] Commit and push content updates to staging
-- [ ] Verify deployment on Render
+- [x] Commit and push content updates to staging - commit a827087
+- [ ] Verify deployment on Render (after user adds env variables)
 
 ## Phase 8: Final Optimization & Delivery
 - [x] Optimize performance and loading times
