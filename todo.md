@@ -103,3 +103,11 @@
 - [x] Commit all changes to staging branch
 - [x] Verify staging branch builds successfully
 - [ ] Create PR from staging to main (after successful deploy)
+
+## Fix Render Build Error (Status 127)
+- [ ] Analyze Render build logs
+- [ ] Fix pnpm installation in render.yaml
+- [ ] Update build commands to use npm instead of pnpm (Render compatibility)
+- [ ] Test build commands locally
+- [ ] Commit and push fixes to staging
+- [ ] Verify successful deployment on Render

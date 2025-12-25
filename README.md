@@ -83,7 +83,13 @@ pnpm dev
    - **Branch**: `staging` (for staging environment)
    - **Root Directory**: `.` (project root)
    - **Runtime**: Node
-   - **Build Command**: `pnpm install && pnpm run build`
+   - **Build Command**: 
+     ```bash
+     corepack enable
+     corepack prepare pnpm@latest --activate
+     pnpm install --frozen-lockfile
+     pnpm run build
+     ```
    - **Start Command**: `pnpm start`
    - **Plan**: Free (or upgrade as needed)
 
