@@ -11,7 +11,7 @@ export default function Footer() {
           {/* About */}
           <div>
             <h3 className="text-foreground font-bold text-lg mb-3">Quantis Media</h3>
-            <p className="text-sm font-semibold text-primary mb-3">
+            <p className="text-sm text-[var(--platinum)] mb-3 leading-relaxed">
               {t.footer.definitionLine}
             </p>
             <p className="text-sm leading-relaxed">
@@ -98,10 +98,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-border pt-8 text-center text-sm">
-          <p>&copy; Quantis Media, Republic of Moldova</p>
-          <p className="mt-2 text-xs opacity-70">
-            {t.footer.copyright}
-          </p>
+          <p>{t.footer.copyright}</p>
         </div>
       </div>
     </footer>
