@@ -137,3 +137,8 @@
 - [x] Created RENDER_ENV_SETUP.md and RENDER_ENV_VALUES.txt with all required variables
 - [ ] User adds environment variables to Render Dashboard
 - [ ] Verify deployment works after env vars added
+
+## UI Fixes (User Reported)
+- [x] Remove extra "О" letter before "Quantis Media" on About page
+- [x] Fix text alignment on Disclaimer page (added prose typography styles)
+- [ ] Commit and push fixes to staging

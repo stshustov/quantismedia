@@ -10,7 +10,7 @@ export default function About() {
       <main className="flex-1 py-20">
         <div className="container mx-auto px-4 max-w-4xl">
           <h1 className="text-4xl font-bold mb-8">
-            {language === "en" ? "About Quantis Media" : "О Quantis Media"}
+            {language === "en" ? "About Quantis Media" : "Quantis Media"}
           </h1>
 
           <div className="prose prose-lg max-w-none">

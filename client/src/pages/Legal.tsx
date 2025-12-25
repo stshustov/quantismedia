@@ -22,7 +22,7 @@ export default function Legal() {
               <h1 className="text-4xl font-bold mb-8">
                 {language === "en" ? page.titleEn : page.titleRu}
               </h1>
-              <div className="prose prose-lg max-w-none">
+              <div className="prose prose-lg max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-ul:text-muted-foreground">
                 <div dangerouslySetInnerHTML={{ 
                   __html: language === "en" ? page.contentEn : page.contentRu 
                 }} />
