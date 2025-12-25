@@ -175,3 +175,7 @@
 - [x] Translations already have correct copyright: "© Quantis Media, Republic of Moldova"
 - [x] Test all changes - TypeScript: no errors
 - [x] Commit and push final branding adjustments - commit fe05f59
+
+## Hero Title Color Adjustment
+- [x] Make "Media" word gold in Hero h1 title (match Navigation branding)
+- [ ] Commit and push change
