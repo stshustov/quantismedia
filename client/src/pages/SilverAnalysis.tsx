@@ -5,10 +5,14 @@ import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 import ShareButtons from "@/components/ShareButtons";
 import { Card } from "@/components/ui/card";
+import { useTrackScenarioView } from "@/hooks/useTrackScenarioView";
 
 
 export default function SilverAnalysis() {
   const { language } = useLanguage();
+  
+  // Track page view for analytics
+  useTrackScenarioView("silver-analysis", "Silver Market Analysis");
 
   const content = {
     en: {

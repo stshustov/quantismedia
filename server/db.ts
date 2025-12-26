@@ -513,3 +513,103 @@ export async function getAllContactSubmissions() {
 
   return await db.select().from(contactSubmissions).orderBy(desc(contactSubmissions.createdAt));
 }
+
+// Activity Tracking
+export async function trackScenarioView(userId: number, scenarioId: string, scenarioTitle: string) {
+  const db = await getDb();
+  if (!db) return;
+
+  const { userActivity } = await import("../drizzle/schema");
+
+  await db.insert(userActivity).values({
+    userId,
+    activityType: "viewed_scenario",
+    resourceId: scenarioId,
+    resourceTitle: scenarioTitle,
+  });
+}
+
+export async function getUserActivity(userId: number, limit: number = 50) {
+  const db = await getDb();
+  if (!db) return [];
+
+  const { userActivity } = await import("../drizzle/schema");
+
+  return await db
+    .select()
+    .from(userActivity)
+    .where(eq(userActivity.userId, userId))
+    .orderBy(desc(userActivity.createdAt))
+    .limit(limit);
+}
+
+export async function getAllUsersActivity(limit: number = 100) {
+  const db = await getDb();
+  if (!db) return [];
+
+  const { userActivity } = await import("../drizzle/schema");
+
+  return await db
+    .select({
+      id: userActivity.id,
+      userId: userActivity.userId,
+      activityType: userActivity.activityType,
+      resourceId: userActivity.resourceId,
+      resourceTitle: userActivity.resourceTitle,
+      createdAt: userActivity.createdAt,
+      userName: users.name,
+      userEmail: users.email,
+    })
+    .from(userActivity)
+    .leftJoin(users, eq(userActivity.userId, users.id))
+    .orderBy(desc(userActivity.createdAt))
+    .limit(limit);
+}
+
+export async function getPopularScenarios(limit: number = 10) {
+  const db = await getDb();
+  if (!db) return [];
+
+  const { userActivity } = await import("../drizzle/schema");
+  const { sql } = await import("drizzle-orm");
+
+  return await db
+    .select({
+      resourceId: userActivity.resourceId,
+      resourceTitle: userActivity.resourceTitle,
+      viewCount: sql<number>`COUNT(*)`.as("viewCount"),
+    })
+    .from(userActivity)
+    .where(eq(userActivity.activityType, "viewed_scenario"))
+    .groupBy(userActivity.resourceId, userActivity.resourceTitle)
+    .orderBy(desc(sql`COUNT(*)`))
+    .limit(limit);
+}
+
+export async function getUserStats(userId: number) {
+  const db = await getDb();
+  if (!db) return { totalViews: 0, lastActive: null };
+
+  const { userActivity } = await import("../drizzle/schema");
+  const { sql } = await import("drizzle-orm");
+
+  const result = await db
+    .select({
+      totalViews: sql<number>`COUNT(*)`.as("totalViews"),
+      lastActive: sql<Date | null>`MAX(${userActivity.createdAt})`.as("lastActive"),
+    })
+    .from(userActivity)
+    .where(and(eq(userActivity.userId, userId), eq(userActivity.activityType, "viewed_scenario")));
+
+  return result[0] || { totalViews: 0, lastActive: null };
+}
+
+export async function getAllUsers() {
+  const db = await getDb();
+  if (!db) return [];
+
+  return await db
+    .select()
+    .from(users)
+    .orderBy(desc(users.lastSignedIn));
+}

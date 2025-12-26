@@ -2,9 +2,13 @@ import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
 import ShareButtons from "@/components/ShareButtons";
+import { useTrackScenarioView } from "@/hooks/useTrackScenarioView";
 
 export default function CopperAnalysis() {
   const { language } = useLanguage();
+  
+  // Track page view for analytics
+  useTrackScenarioView("copper-analysis", "Copper Market Analysis");
 
   const content = {
     en: {

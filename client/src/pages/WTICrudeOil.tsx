@@ -5,10 +5,14 @@ import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Card } from "@/components/ui/card";
 import ShareButtons from "@/components/ShareButtons";
+import { useTrackScenarioView } from "@/hooks/useTrackScenarioView";
 
 
 export default function WTICrudeOil() {
   const { language } = useLanguage();
+  
+  // Track page view for analytics
+  useTrackScenarioView("wti-crude-oil", "WTI Crude Oil Analysis");
 
   const content = {
     en: {

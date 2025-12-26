@@ -44,6 +44,26 @@ export const appRouter = router({
     }),
   }),
 
+  activity: router({
+    trackScenarioView: protectedProcedure
+      .input(z.object({
+        scenarioId: z.string(),
+        scenarioTitle: z.string(),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        await db.trackScenarioView(ctx.user.id, input.scenarioId, input.scenarioTitle);
+        return { success: true };
+      }),
+    getUserActivity: protectedProcedure.query(async ({ ctx }) => {
+      return await db.getUserActivity(ctx.user.id);
+    }),
+    getRecentActivity: protectedProcedure
+      .input(z.object({ limit: z.number().optional() }))
+      .query(async ({ ctx, input }) => {
+        return await db.getUserActivity(ctx.user.id, input.limit || 10);
+      }),
+  }),
+
   subscription: router({
     getCurrent: protectedProcedure.query(async ({ ctx }) => {
       return await db.getActiveSubscription(ctx.user.id);
@@ -258,12 +278,36 @@ export const appRouter = router({
   }),
 
   admin: router({
-    getAllUsers: adminProcedure.query(async () => {
-      const dbInstance = await db.getDb();
-      if (!dbInstance) return [];
-      const { users } = await import("../drizzle/schema");
-      return await dbInstance.select().from(users);
+    getStats: adminProcedure.query(async () => {
+      const allUsers = await db.getAllUsers();
+      const totalUsers = allUsers.length;
+      const activeUsers = allUsers.filter(u => 
+        u.lastSignedIn && (Date.now() - new Date(u.lastSignedIn).getTime()) < 7 * 24 * 60 * 60 * 1000
+      ).length;
+      const coreUsers = allUsers.filter(u => u.role === "core").length;
+      const proUsers = allUsers.filter(u => u.role === "pro").length;
+      
+      return {
+        totalUsers,
+        activeUsers,
+        coreUsers,
+        proUsers,
+        registeredUsers: totalUsers - coreUsers - proUsers,
+      };
     }),
+    getAllUsers: adminProcedure.query(async () => {
+      return await db.getAllUsers();
+    }),
+    getPopularScenarios: adminProcedure
+      .input(z.object({ limit: z.number().optional() }))
+      .query(async ({ input }) => {
+        return await db.getPopularScenarios(input.limit || 10);
+      }),
+    getAllActivity: adminProcedure
+      .input(z.object({ limit: z.number().optional() }))
+      .query(async ({ input }) => {
+        return await db.getAllUsersActivity(input.limit || 100);
+      }),
     updateUserRole: adminProcedure
       .input(z.object({ userId: z.number(), role: z.enum(["guest", "registered", "core", "pro", "admin"]) }))
       .mutation(async ({ input }) => {

@@ -419,3 +419,25 @@
 - [x] All dialogs (upgrade, downgrade, cancel) working correctly
 - [x] Bilingual support verified (Russian interface)
 - [x] Ready for Paddle integration
+
+## Activity Tracking & Admin Panel (User Request - Dec 26, 2024)
+- [x] Implement automatic activity tracking for market analysis pages
+- [x] Create tRPC procedure to log scenario views (trackScenarioView)
+- [x] Add tracking calls to all analysis pages (WTI, Gold, Silver, Copper)
+- [x] Create admin panel with analytics dashboard
+- [x] Add user statistics table (total users, active users, by tier)
+- [x] Add popular scenarios list (most viewed)
+- [x] Add recent activity feed (all users)
+- [x] Add user management table (view all users, their plans, activity)
+- [x] Created useTrackScenarioView hook for automatic tracking
+- [x] Added tracking to WTI, Gold, Silver, Copper analysis pages
+- [x] Created comprehensive Admin dashboard with 4 stat cards
+- [x] Added Popular Scenarios table with view counts
+- [x] Added Recent Activity feed with user actions
+- [x] Added User Management table with role badges
+- [x] Test activity tracking on all analysis pages
+- [x] Verify admin panel displays correct statistics
+- [x] Tested WTI and Gold pages - tracking working perfectly
+- [x] Admin panel showing Popular Scenarios with view counts
+- [x] Admin panel showing Recent Activity with user details
+- [x] All statistics updating in real-time
