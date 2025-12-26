@@ -35,7 +35,7 @@ export default function EnergyCategory() {
           ? "West Texas Intermediate crude oil market analysis"
           : "Анализ рынка нефти марки West Texas Intermediate",
       price: "~$58.5/bbl",
-      href: "/market-insights/energy-metals/wti-crude-oil",
+      href: "/market-insights/energy-metals/energy/wti-crude-oil",
     },
   ];
 

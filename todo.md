@@ -350,4 +350,11 @@
 - [x] Keep text-muted-foreground ONLY for: labels (like "Share:"), metadata, button text
 - [x] Test all pages to verify white text on all content sections
 - [x] Verify WTI page deployment on Render
+- [x] Push changes to GitHub
+
+## Fix WTI Page 404 Error on Render
+- [x] Find and update WTI link on EnergyCategory page to use correct route `/market-insights/energy-metals/energy/wti-crude-oil`
+- [x] Verify all internal links to WTI page use correct route
+- [x] Test WTI page on local dev server
 - [ ] Push changes to GitHub
+- [ ] Verify WTI page works on Render after deployment
