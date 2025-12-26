@@ -22,6 +22,7 @@ import Legal from "./pages/Legal";
 import WTICrudeOil from "./pages/WTICrudeOil";
 import MarketInsightsArchive from "./pages/MarketInsightsArchive";
 import GoldAnalysis from "./pages/GoldAnalysis";
+import SilverAnalysis from "./pages/SilverAnalysis";
 
 function Router() {
   return (
@@ -43,6 +44,7 @@ function Router() {
       <Route path="/legal/:slug" component={Legal} />
       <Route path="/market-insights/energy-metals/wti-crude-oil" component={WTICrudeOil} />
       <Route path="/market-insights/energy-metals/metals/gold" component={GoldAnalysis} />
+      <Route path="/market-insights/energy-metals/metals/silver" component={SilverAnalysis} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>

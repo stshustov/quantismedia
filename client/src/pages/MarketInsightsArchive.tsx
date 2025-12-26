@@ -40,6 +40,18 @@ export default function MarketInsightsArchive() {
   const archiveData = {
     energyMetals: [
       {
+        id: "silver-2024-12-26",
+        asset: language === "en" ? "Silver" : "Серебро",
+        date: "2024-12-26",
+        displayDate: language === "en" ? "December 26, 2024" : "26 декабря 2024",
+        price: "~$74.5–75.1/oz",
+        excerpt:
+          language === "en"
+            ? "Trading near record highs, momentum-driven uptrend amplified by thin year-end liquidity."
+            : "Торгуется вблизи рекордных максимумов, импульс вверх усиливается тонкой ликвидностью конца года.",
+        href: "/market-insights/energy-metals/metals/silver",
+      },
+      {
         id: "gold-2024-12-26",
         asset: language === "en" ? "Gold" : "Золото",
         date: "2024-12-26",

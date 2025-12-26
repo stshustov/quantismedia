@@ -236,3 +236,18 @@
 - [x] Update archive page to include Gold entry
 - [x] Test functionality and language switching
 - [x] Push to GitHub
+
+## Fix Gold Page Naming and Russian Translations
+- [x] Replace GOLDMINI with GOLD in Gold page
+- [x] Fix Russian section titles (currently showing English)
+- [x] Test Gold page with fixes
+
+## Silver Market Analysis Page
+- [x] Create Silver page component at `/market-insights/energy-metals/metals/silver`
+- [x] Use correct naming (SILVER not SILVERMINI) from the start
+- [x] Add bilingual content (EN/RU) with proper Russian section titles
+- [x] Include all sections with scenario blocks
+- [x] Add route to App.tsx
+- [x] Update archive page to include Silver entry
+- [x] Test functionality
+- [ ] Push all changes to GitHub

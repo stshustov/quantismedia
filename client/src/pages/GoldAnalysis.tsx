@@ -15,13 +15,13 @@ export default function GoldAnalysis() {
       title: "GOLD — Short-Term Market Outlook",
       timeHorizon: "1–5 trading days",
       currentPriceSpot: "~$4,50x/oz",
-      currentPriceInstrument: "~4505 (GOLDMINI)",
+      currentPriceInstrument: "~4505 (GOLD)",
       lastUpdated: "26 December 2024",
 
       priceAnchor: {
         title: "Price Anchor & Setup",
         content:
-          "Gold is trading near record highs (~$4.50x/oz spot), supported by Fed easing expectations and safe-haven demand amid geopolitical and currency concerns.\n\nOn your GOLDMINI chart, price is ~4505, consistent with a \"holding at highs\" regime after a strong impulse.",
+          "Gold is trading near record highs (~$4.50x/oz spot), supported by Fed easing expectations and safe-haven demand amid geopolitical and currency concerns.\n\nOn your GOLD chart, price is ~4505, consistent with a \"holding at highs\" regime after a strong impulse.",
       },
 
       macro: {
@@ -55,7 +55,7 @@ export default function GoldAnalysis() {
       },
 
       technical: {
-        title: "Technical (GOLDMINI M30 Chart)",
+        title: "Technical (GOLD M30 Chart)",
         content: "Uptrend intact, momentum moderating near resistance. Key zones:",
         resistance: "Resistance: ~4521 (then higher overhead supply zone)",
         support: "Support: ~4495, then ~4469, then ~4444",
@@ -66,7 +66,7 @@ export default function GoldAnalysis() {
         base: {
           title: "Base case:",
           content:
-            "Range/consolidation 4495–4521 (GOLDMINI), with headline-driven volatility.",
+            "Range/consolidation 4495–4521 (GOLD), with headline-driven volatility.",
         },
         upside: {
           title: "Upside:",
@@ -97,13 +97,13 @@ export default function GoldAnalysis() {
       title: "Золото: краткосрочный прогноз и сценарии",
       timeHorizon: "1–5 торговых дней",
       currentPriceSpot: "~$4,50x/унция",
-      currentPriceInstrument: "~4505 (GOLDMINI)",
+      currentPriceInstrument: "~4505 (GOLD)",
       lastUpdated: "26 декабря 2024",
 
       priceAnchor: {
         title: "Текущая цена и контекст",
         content:
-          "Золото торгуется вблизи исторических максимумов (спот около $4,50x/oz), при этом внутридневная динамика показывает повышенную чувствительность к ожиданиям смягчения ДКП ФРС и к спросу «убежища» на фоне геополитики и валютных рисков.\n\nНа инструменте GOLDMINI цена в момент анализа около 4505, что соответствует удержанию рынка \"на верхах\" после импульса.",
+          "Золото торгуется вблизи исторических максимумов (спот около $4,50x/oz), при этом внутридневная динамика показывает повышенную чувствительность к ожиданиям смягчения ДКП ФРС и к спросу «убежища» на фоне геополитики и валютных рисков.\n\nНа инструменте GOLD цена в момент анализа около 4505, что соответствует удержанию рынка \"на верхах\" после импульса.",
       },
 
       macro: {
@@ -137,7 +137,7 @@ export default function GoldAnalysis() {
       },
 
       technical: {
-        title: "Техника (GOLDMINI, M30): тренд вверх, импульс замедляется",
+        title: "Техника (GOLD, M30): тренд вверх, импульс замедляется",
         content:
           "График показывает сохранение восходящей структуры, но рынок упирается в \"верхнюю зону\" и начинает пилить диапазон. Ближайшие уровни:",
         resistance: "Resistance / предложение: ~4521, далее зона выше как overhead supply",
@@ -149,7 +149,7 @@ export default function GoldAnalysis() {
         base: {
           title: "Base case (наиболее вероятный):",
           content:
-            "Консолидация/волатильный боковик в диапазоне 4495–4521 (для GOLDMINI), при сохранении позитивного \"macro-bid\", но с риском фиксации прибыли на тонком рынке.",
+            "Консолидация/волатильный боковик в диапазоне 4495–4521 (для GOLD), при сохранении позитивного \"macro-bid\", но с риском фиксации прибыли на тонком рынке.",
         },
         upside: {
           title: "Upside scenario:",
