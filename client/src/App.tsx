@@ -27,6 +27,7 @@ import EnergyMetalsCategory from "./pages/EnergyMetalsCategory";
 import EnergyCategory from "./pages/EnergyCategory";
 import MetalsCategory from "./pages/MetalsCategory";
 import CopperAnalysis from "./pages/CopperAnalysis";
+import ProCommunity from "./pages/ProCommunity";
 
 function Router() {
   return (
@@ -46,7 +47,8 @@ function Router() {
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/trading-ideas" component={TradingIdeas} />
       <Route path="/history" component={History} />
-      <Route path="/telegram-access" component={TelegramAccess} />
+      <Route path="/telegram" component={TelegramAccess} />
+      <Route path="/pro-community" component={ProCommunity} />
       <Route path="/admin" component={Admin} />
       <Route path="/legal/:slug" component={Legal} />
       <Route path="/market-insights/energy-metals/energy/wti-crude-oil" component={WTICrudeOil} />

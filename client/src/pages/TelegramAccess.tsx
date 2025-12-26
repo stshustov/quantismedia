@@ -20,6 +20,9 @@ export default function TelegramAccess() {
     }
   }, [loading, isAuthenticated, user, setLocation]);
 
+  // Placeholder for Telegram Channel link (to be added by user)
+  const telegramChannelLink = import.meta.env.VITE_TELEGRAM_CHANNEL || "";
+
   const { data: access } = trpc.telegram.getAccess.useQuery(undefined, {
     enabled: isAuthenticated && !!user && ["core", "pro", "admin"].includes(user.role),
   });
@@ -64,41 +67,37 @@ export default function TelegramAccess() {
           <Card>
             <CardHeader>
               <CardTitle>
-                {language === "en" ? "Telegram Channel Access" : "Доступ к Telegram-каналам"}
+                {language === "en" ? "Telegram Channel Access" : "Доступ к Telegram каналу"}
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
-              {access?.inviteLink ? (
-                <>
-                  <div>
-                    <h3 className="font-semibold mb-2">
-                      {language === "en" ? "Your Invite Link:" : "Ваша ссылка-приглашение:"}
-                    </h3>
-                    <code className="block bg-gray-100 p-3 rounded break-all">
-                      {access.inviteLink}
-                    </code>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-2">
-                      {language === "en" ? "Available Channels:" : "Доступные каналы:"}
-                    </h3>
-                    <ul className="list-disc list-inside space-y-1">
-                      {JSON.parse(access.channelAccess || "[]").map((channel: string) => (
-                        <li key={channel} className="capitalize">{channel}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </>
-              ) : (
-                <div className="text-center py-8">
-                  <p className="mb-4">
-                    {language === "en" 
-                      ? "Generate your Telegram invite link to access market channels."
-                      : "Создайте ссылку-приглашение для доступа к рыночным каналам."}
+              {telegramChannelLink ? (
+                <div className="text-center">
+                  <p className="mb-6 text-muted-foreground">
+                    {language === "en"
+                      ? "Join our Telegram channel to receive trading ideas and market scenario notifications."
+                      : "Присоединяйтесь к нашему Telegram каналу для получения торговых идей и уведомлений о рыночных сценариях."}
                   </p>
-                  <Button onClick={() => generateMutation.mutate()} disabled={generateMutation.isPending}>
-                    {generateMutation.isPending ? t.common.loading : (language === "en" ? "Generate Invite Link" : "Создать ссылку")}
+                  <Button
+                    size="lg"
+                    className="bg-primary hover:bg-primary/90"
+                    onClick={() => window.open(telegramChannelLink, "_blank")}
+                  >
+                    {language === "en" ? "Join Telegram Channel" : "Присоединиться к Telegram каналу"}
                   </Button>
+                </div>
+              ) : (
+                <div className="text-center p-8 bg-muted/30 rounded-lg">
+                  <p className="text-muted-foreground mb-4">
+                    {language === "en"
+                      ? "Telegram channel is being set up. You will receive an invitation link via email once it's ready."
+                      : "Telegram канал настраивается. Вы получите ссылку-приглашение на email, когда он будет готов."}
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    {language === "en"
+                      ? "Expected availability: Coming soon"
+                      : "Ожидаемая доступность: Скоро"}
+                  </p>
                 </div>
               )}
             </CardContent>

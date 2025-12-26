@@ -367,3 +367,18 @@
 - [ ] Add subtle shadow or glow effect to info cards for better visual hierarchy
 - [ ] Test visual improvements on all analysis pages
 - [ ] Push changes to GitHub
+
+## Pricing & Dashboard Enhancements (User Request - Dec 26, 2024)
+- [x] Fix pricing card hover effects - add visible border/outline on hover
+- [x] Define dashboard functionality per subscription tier:
+  * Guest/Registered: Public pages + archive with 1-week delay, no dashboard access
+  * Core: Dashboard with 3 cards (Trading Ideas, History, Telegram Channel)
+  * Pro: Dashboard with 4 cards (Trading Ideas, History, Telegram Channel, Pro Community)
+- [x] Update Dashboard.tsx with tier-specific card visibility
+- [x] Add Pro Community card for Pro subscribers only
+- [x] Create ProCommunity.tsx page with access control (Pro/Admin only)
+- [x] Update Telegram page with channel information and placeholder
+- [x] Add Telegram channel link placeholders (awaiting user's channel URLs)
+- [x] Prepare Paddle payment integration structure (user not yet registered)
+- [x] Create payment flow UI placeholder (ready for Paddle credentials)
+- [x] Create PADDLE_INTEGRATION.md documentation

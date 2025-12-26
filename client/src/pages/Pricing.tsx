@@ -122,10 +122,10 @@ export default function Pricing() {
             {plans.map((plan, index) => (
               <Card
                 key={index}
-                className={`relative ${
+                className={`relative transition-all duration-300 ${
                   plan.popular
-                    ? "border-primary border-2 shadow-2xl scale-105"
-                    : "border-border"
+                    ? "border-primary border-2 shadow-2xl scale-105 hover:shadow-[0_0_30px_rgba(201,162,77,0.3)] hover:border-primary/80"
+                    : "border-border hover:border-primary hover:shadow-lg"
                 }`}
               >
                 {plan.popular && (
@@ -156,6 +156,17 @@ export default function Pricing() {
                         ? "bg-primary hover:bg-primary/90 text-primary-foreground"
                         : "bg-secondary hover:bg-secondary/80"
                     }`}
+                    onClick={() => {
+                      if (plan.name === "Public" || plan.name === "Публичный доступ") {
+                        window.location.href = "/market-insights";
+                      } else {
+                        // Placeholder for Paddle checkout
+                        // TODO: Integrate Paddle when user provides credentials
+                        alert(language === "en" 
+                          ? "Payment integration coming soon. Please contact us for subscription."
+                          : "Интеграция оплаты скоро. Пожалуйста, свяжитесь с нами для оформления подписки.");
+                      }
+                    }}
                   >
                     {plan.cta}
                   </Button>
