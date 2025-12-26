@@ -455,3 +455,17 @@
 - [x] Verified "Get Started" button changes to "Go to Dashboard" for authenticated users
 - [x] Verified Dashboard accessible with Pro badge and 4 cards for Admin users
 - [x] Confirmed upgrade banner will show for non-subscriber users (role = "user")
+
+## Telegram Integration (User Request - Dec 26, 2024)
+- [x] Generate QM avatar for Trading Ideas channel (blue/gold theme)
+- [x] Generate QM avatar for Pro Community (purple/gold premium theme)
+- [x] Regenerated avatars with correct brand colors (white Q, gold M)
+- [x] Add Telegram links to Render environment variables
+  * VITE_TELEGRAM_CHANNEL = https://t.me/quantismedia_ideas
+  * VITE_TELEGRAM_PRO_COMMUNITY = https://t.me/quantismedia_pro
+- [x] Update TelegramAccess.tsx to use real channel link (already configured)
+- [x] Update ProCommunity.tsx to use real community link (already configured)
+- [x] Created RENDER_TELEGRAM_SETUP.md with step-by-step instructions
+- [ ] User needs to add environment variables in Render Dashboard
+- [ ] Test Telegram links from Dashboard, Account, and dedicated pages (after Render setup)
+- [ ] Verify links work for Core and Pro users respectively (after Render setup)
