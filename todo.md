@@ -282,3 +282,22 @@
 - [x] Make breadcrumb links clickable on Silver page
 - [x] Test navigation flow from asset pages back through hierarchy
 - [x] Push fixes to GitHub
+
+## Visual Improvements for Professional Look
+- [x] Enhance content section styling on WTI page (subtle borders, better spacing, accent colors)
+- [x] Enhance content section styling on Gold page
+- [x] Enhance content section styling on Silver page
+- [x] Create Copper market analysis page with professional design
+- [x] Add Copper to archive and navigation
+- [x] Test visual improvements across all pages
+- [ ] Push changes to GitHub
+
+## Copper Market Analysis Page
+- [x] Create Copper page component at `/market-insights/energy-metals/metals/copper`
+- [x] Add bilingual content (EN/RU) with professional institutional style
+- [x] Include all sections with enhanced visual design (icons, borders)
+- [x] Add scenario blocks (Base/Upside/Downside) with color coding
+- [x] Add route to App.tsx
+- [x] Update MetalsCategory page to include Copper
+- [x] Update archive page to include Copper entry
+- [x] Apply professional visual enhancements (matching WTI, Gold, Silver)

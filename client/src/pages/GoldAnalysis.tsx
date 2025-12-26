@@ -248,56 +248,77 @@ export default function GoldAnalysis() {
             {/* Content Sections */}
             <div className="max-w-[760px] mx-auto space-y-8">
               {/* Price Anchor */}
-              <section>
-                <h2 className="text-2xl font-bold mb-4">{currentContent.priceAnchor.title}</h2>
+              <section className="border-l-2 border-muted pl-6">
+                <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
+                  <span className="text-xl">🎯</span>
+                  {currentContent.priceAnchor.title}
+                </h2>
                 <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
                   {currentContent.priceAnchor.content}
                 </p>
               </section>
 
               {/* Macro */}
-              <section>
-                <h2 className="text-2xl font-bold mb-4">{currentContent.macro.title}</h2>
+              <section className="border-l-2 border-muted pl-6">
+                <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
+                  <span className="text-xl">🌐</span>
+                  {currentContent.macro.title}
+                </h2>
                 <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
                   {currentContent.macro.content}
                 </p>
               </section>
 
               {/* Demand */}
-              <section>
-                <h2 className="text-2xl font-bold mb-4">{currentContent.demand.title}</h2>
+              <section className="border-l-2 border-muted pl-6">
+                <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
+                  <span className="text-xl">📈</span>
+                  {currentContent.demand.title}
+                </h2>
                 <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
                   {currentContent.demand.content}
                 </p>
               </section>
 
               {/* Supply */}
-              <section>
-                <h2 className="text-2xl font-bold mb-4">{currentContent.supply.title}</h2>
+              <section className="border-l-2 border-muted pl-6">
+                <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
+                  <span className="text-xl">⛏️</span>
+                  {currentContent.supply.title}
+                </h2>
                 <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
                   {currentContent.supply.content}
                 </p>
               </section>
 
               {/* Stocks */}
-              <section>
-                <h2 className="text-2xl font-bold mb-4">{currentContent.stocks.title}</h2>
+              <section className="border-l-2 border-muted pl-6">
+                <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
+                  <span className="text-xl">📊</span>
+                  {currentContent.stocks.title}
+                </h2>
                 <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
                   {currentContent.stocks.content}
                 </p>
               </section>
 
               {/* Positioning */}
-              <section>
-                <h2 className="text-2xl font-bold mb-4">{currentContent.positioning.title}</h2>
+              <section className="border-l-2 border-muted pl-6">
+                <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
+                  <span className="text-xl">👥</span>
+                  {currentContent.positioning.title}
+                </h2>
                 <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
                   {currentContent.positioning.content}
                 </p>
               </section>
 
               {/* Technical */}
-              <section>
-                <h2 className="text-2xl font-bold mb-4">{currentContent.technical.title}</h2>
+              <section className="border-l-2 border-muted pl-6">
+                <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
+                  <span className="text-xl">🔧</span>
+                  {currentContent.technical.title}
+                </h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 whitespace-pre-line">
                   {currentContent.technical.content}
                 </p>

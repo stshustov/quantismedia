@@ -40,6 +40,18 @@ export default function MarketInsightsArchive() {
   const archiveData = {
     energyMetals: [
       {
+        id: "copper-2024-12-26",
+        asset: language === "en" ? "Copper" : "Медь",
+        date: "2024-12-26",
+        displayDate: language === "en" ? "December 26, 2024" : "26 декабря 2024",
+        price: "~$4.18/lb",
+        excerpt:
+          language === "en"
+            ? "Trading near multi-month highs, supported by supply constraints and China stimulus expectations."
+            : "Торгуется вблизи многомесячных максимумов, поддержано ограничениями предложения и ожиданиями стимулирования в Китае.",
+        href: "/market-insights/energy-metals/metals/copper",
+      },
+      {
         id: "silver-2024-12-26",
         asset: language === "en" ? "Silver" : "Серебро",
         date: "2024-12-26",

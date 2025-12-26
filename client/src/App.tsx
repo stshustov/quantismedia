@@ -26,6 +26,7 @@ import SilverAnalysis from "./pages/SilverAnalysis";
 import EnergyMetalsCategory from "./pages/EnergyMetalsCategory";
 import EnergyCategory from "./pages/EnergyCategory";
 import MetalsCategory from "./pages/MetalsCategory";
+import CopperAnalysis from "./pages/CopperAnalysis";
 
 function Router() {
   return (
@@ -51,6 +52,7 @@ function Router() {
       <Route path="/market-insights/energy-metals/wti-crude-oil" component={WTICrudeOil} />
       <Route path="/market-insights/energy-metals/metals/gold" component={GoldAnalysis} />
       <Route path="/market-insights/energy-metals/metals/silver" component={SilverAnalysis} />
+      <Route path="/market-insights/energy-metals/metals/copper" component={CopperAnalysis} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>

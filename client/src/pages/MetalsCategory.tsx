@@ -47,6 +47,16 @@ export default function MetalsCategory() {
       price: "~$74.5–75.1/oz",
       href: "/market-insights/energy-metals/metals/silver",
     },
+    {
+      id: "copper",
+      name: language === "en" ? "Copper" : "Медь",
+      description:
+        language === "en"
+          ? "Copper market analysis and scenario outlook"
+          : "Анализ рынка меди и сценарный прогноз",
+      price: "~$4.18/lb",
+      href: "/market-insights/energy-metals/metals/copper",
+    },
   ];
 
   return (

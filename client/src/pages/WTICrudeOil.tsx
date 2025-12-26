@@ -198,40 +198,55 @@ export default function WTICrudeOil() {
             {/* Content Sections */}
             <div className="max-w-[760px] mx-auto space-y-8">
               {/* Market Snapshot */}
-              <section>
-                <h2 className="text-2xl font-bold mb-4">{currentContent.marketSnapshot.title}</h2>
+              <section className="border-l-2 border-muted pl-6">
+                <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
+                  <span className="text-xl">📊</span>
+                  {currentContent.marketSnapshot.title}
+                </h2>
                 <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
                   {currentContent.marketSnapshot.content}
                 </p>
               </section>
 
               {/* Fundamental Backdrop */}
-              <section>
-                <h2 className="text-2xl font-bold mb-4">{currentContent.fundamentalBackdrop.title}</h2>
+              <section className="border-l-2 border-muted pl-6">
+                <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
+                  <span className="text-xl">📈</span>
+                  {currentContent.fundamentalBackdrop.title}
+                </h2>
                 <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
                   {currentContent.fundamentalBackdrop.content}
                 </p>
               </section>
 
               {/* Inventories */}
-              <section>
-                <h2 className="text-2xl font-bold mb-4">{currentContent.inventories.title}</h2>
+              <section className="border-l-2 border-muted pl-6">
+                <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
+                  <span className="text-xl">📦</span>
+                  {currentContent.inventories.title}
+                </h2>
                 <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
                   {currentContent.inventories.content}
                 </p>
               </section>
 
               {/* Market Positioning */}
-              <section>
-                <h2 className="text-2xl font-bold mb-4">{currentContent.positioning.title}</h2>
+              <section className="border-l-2 border-muted pl-6">
+                <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
+                  <span className="text-xl">👥</span>
+                  {currentContent.positioning.title}
+                </h2>
                 <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
                   {currentContent.positioning.content}
                 </p>
               </section>
 
               {/* Technical Structure */}
-              <section>
-                <h2 className="text-2xl font-bold mb-4">{currentContent.technical.title}</h2>
+              <section className="border-l-2 border-muted pl-6">
+                <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
+                  <span className="text-xl">🔧</span>
+                  {currentContent.technical.title}
+                </h2>
                 <p className="text-muted-foreground leading-relaxed whitespace-pre-line mb-4">
                   {currentContent.technical.content}
                 </p>
