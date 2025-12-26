@@ -175,15 +175,21 @@ export default function WTICrudeOil() {
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
                 <Card className="p-4">
-                  <div className="text-sm text-muted-foreground mb-1">Time Horizon</div>
+                  <div className="text-sm text-muted-foreground mb-1">
+                    {language === "en" ? "Time Horizon" : "Временной горизонт"}
+                  </div>
                   <div className="font-semibold">{currentContent.timeHorizon}</div>
                 </Card>
                 <Card className="p-4">
-                  <div className="text-sm text-muted-foreground mb-1">Current Price</div>
+                  <div className="text-sm text-muted-foreground mb-1">
+                    {language === "en" ? "Current Price" : "Текущая цена"}
+                  </div>
                   <div className="font-semibold text-gold">{currentContent.currentPrice}</div>
                 </Card>
                 <Card className="p-4">
-                  <div className="text-sm text-muted-foreground mb-1">Last Updated</div>
+                  <div className="text-sm text-muted-foreground mb-1">
+                    {language === "en" ? "Last Updated" : "Обновлено"}
+                  </div>
                   <div className="font-semibold">{currentContent.lastUpdated}</div>
                 </Card>
               </div>
@@ -239,21 +245,21 @@ export default function WTICrudeOil() {
               <section>
                 <h2 className="text-2xl font-bold mb-6">{currentContent.scenarios.title}</h2>
                 
-                <Card className="p-6 border-gold/20 bg-gold/5 mb-4">
+                <Card className="p-6 border-gold/20 bg-gold/5 mb-4 border-l-4 border-l-blue-500">
                   <h3 className="font-bold text-lg mb-2">{currentContent.scenarios.base.title}</h3>
                   <p className="text-muted-foreground leading-relaxed">
                     {currentContent.scenarios.base.content}
                   </p>
                 </Card>
 
-                <Card className="p-6 border-green-500/20 bg-green-500/5 mb-4">
+                <Card className="p-6 border-green-500/20 bg-green-500/5 mb-4 border-l-4 border-l-green-500">
                   <h3 className="font-bold text-lg mb-2">{currentContent.scenarios.upside.title}</h3>
                   <p className="text-muted-foreground leading-relaxed">
                     {currentContent.scenarios.upside.content}
                   </p>
                 </Card>
 
-                <Card className="p-6 border-red-500/20 bg-red-500/5">
+                <Card className="p-6 border-red-500/20 bg-red-500/5 border-l-4 border-l-red-500">
                   <h3 className="font-bold text-lg mb-2">{currentContent.scenarios.downside.title}</h3>
                   <p className="text-muted-foreground leading-relaxed">
                     {currentContent.scenarios.downside.content}

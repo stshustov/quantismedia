@@ -267,3 +267,11 @@
 - [x] Fix WTI and Gold pages
 - [x] Test language switching and breadcrumb display
 - [x] Push fixes to GitHub
+
+## Fix Language Switching and Scenario Styling
+- [x] Fix WTI page - card labels not switching to Russian (Time Horizon, Current Price, Last Updated)
+- [x] Fix Silver page - breadcrumbs already correct
+- [x] Fix Gold page - card labels and GOLDMINI to GOLD
+- [x] Add colored left borders to scenario blocks on all pages (Base=blue, Upside=green, Downside=red)
+- [x] Test language switching on all asset pages
+- [ ] Push fixes to GitHub
