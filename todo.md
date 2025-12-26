@@ -179,3 +179,16 @@
 ## Hero Title Color Adjustment
 - [x] Make "Media" word gold in Hero h1 title (match Navigation branding)
 - [x] Commit and push change - commit 76954eb
+
+## WTI Crude Oil Market Analysis Page
+- [x] Create WTI market analysis page route `/market-insights/energy-metals/wti-crude-oil`
+- [x] Implement bilingual content switcher (RU/EN) without page reload
+- [x] Design header section with current price, time horizon, last updated date
+- [x] Create content blocks: Market Snapshot, Fundamental Backdrop, Inventories, Market Positioning, Technical Structure
+- [x] Highlight Scenario Outlook block (Base/Upside/Downside cases)
+- [x] Add Bottom Line section
+- [x] Include disclaimer at page bottom
+- [x] Ensure institutional styling (no emojis, clean design, max-width 720-760px)
+- [x] Make responsive for desktop and mobile
+- [x] Add SEO meta tags
+- [x] Test all functionality

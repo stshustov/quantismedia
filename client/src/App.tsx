@@ -19,6 +19,7 @@ import History from "./pages/History";
 import TelegramAccess from "./pages/TelegramAccess";
 import Admin from "./pages/Admin";
 import Legal from "./pages/Legal";
+import WTICrudeOil from "./pages/WTICrudeOil";
 
 function Router() {
   return (
@@ -37,6 +38,7 @@ function Router() {
       <Route path="/telegram-access" component={TelegramAccess} />
       <Route path="/admin" component={Admin} />
       <Route path="/legal/:slug" component={Legal} />
+      <Route path="/market-insights/energy-metals/wti-crude-oil" component={WTICrudeOil} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
