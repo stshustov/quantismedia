@@ -196,7 +196,7 @@ export default function SilverAnalysis() {
         <main className="flex-1">
           <div className="container py-12">
             {/* Breadcrumb */}
-            <div className="text-sm text-muted-foreground mb-8">
+            <div className="text-sm text-foreground mb-8">
               <a href="/market-insights" className="hover:text-foreground cursor-pointer">
                 {language === "en" ? "Market Insights" : "Рыночная аналитика"}
               </a>
@@ -232,28 +232,28 @@ export default function SilverAnalysis() {
                 />
               </div>
                 <Card className="p-6 bg-card/50">
-                  <div className="text-sm text-muted-foreground mb-2">
+                  <div className="text-sm text-foreground mb-2">
                     {language === "en" ? "Time Horizon" : "Временной горизонт"}
                   </div>
                   <div className="text-lg font-semibold">{currentContent.timeHorizon}</div>
                 </Card>
 
                 <Card className="p-6 bg-card/50">
-                  <div className="text-sm text-muted-foreground mb-2">
+                  <div className="text-sm text-foreground mb-2">
                     {language === "en" ? "Spot Price" : "Спотовая цена"}
                   </div>
                   <div className="text-lg font-semibold">{currentContent.currentPriceSpot}</div>
                 </Card>
 
                 <Card className="p-6 bg-card/50">
-                  <div className="text-sm text-muted-foreground mb-2">
+                  <div className="text-sm text-foreground mb-2">
                     {currentContent.currentPriceInstrument}
                   </div>
                   <div className="text-lg font-semibold">{currentContent.currentPriceSpot}</div>
                 </Card>
 
                 <Card className="p-6 bg-card/50">
-                  <div className="text-sm text-muted-foreground mb-2">
+                  <div className="text-sm text-foreground mb-2">
                     {language === "en" ? "Last Updated" : "Обновлено"}
                   </div>
                   <div className="text-lg font-semibold">{currentContent.lastUpdated}</div>
@@ -269,7 +269,7 @@ export default function SilverAnalysis() {
                   <span className="text-xl">🎯</span>
                   {currentContent.priceAnchor.title}
                 </h2>
-                <p className="text-muted-foreground whitespace-pre-line">
+                <p className="text-foreground whitespace-pre-line">
                   {currentContent.priceAnchor.content}
                 </p>
               </section>
@@ -280,7 +280,7 @@ export default function SilverAnalysis() {
                   <span className="text-xl">🌐</span>
                   {currentContent.macro.title}
                 </h2>
-                <p className="text-muted-foreground whitespace-pre-line">
+                <p className="text-foreground whitespace-pre-line">
                   {currentContent.macro.content}
                 </p>
               </section>
@@ -291,7 +291,7 @@ export default function SilverAnalysis() {
                   <span className="text-xl">📈</span>
                   {currentContent.demand.title}
                 </h2>
-                <p className="text-muted-foreground whitespace-pre-line">
+                <p className="text-foreground whitespace-pre-line">
                   {currentContent.demand.content}
                 </p>
               </section>
@@ -302,7 +302,7 @@ export default function SilverAnalysis() {
                   <span className="text-xl">⛏️</span>
                   {currentContent.supply.title}
                 </h2>
-                <p className="text-muted-foreground whitespace-pre-line">
+                <p className="text-foreground whitespace-pre-line">
                   {currentContent.supply.content}
                 </p>
               </section>
@@ -313,7 +313,7 @@ export default function SilverAnalysis() {
                   <span className="text-xl">📊</span>
                   {currentContent.stocks.title}
                 </h2>
-                <p className="text-muted-foreground whitespace-pre-line">
+                <p className="text-foreground whitespace-pre-line">
                   {currentContent.stocks.content}
                 </p>
               </section>
@@ -324,7 +324,7 @@ export default function SilverAnalysis() {
                   <span className="text-xl">👥</span>
                   {currentContent.positioning.title}
                 </h2>
-                <p className="text-muted-foreground whitespace-pre-line">
+                <p className="text-foreground whitespace-pre-line">
                   {currentContent.positioning.content}
                 </p>
               </section>
@@ -335,10 +335,10 @@ export default function SilverAnalysis() {
                   <span className="text-xl">🔧</span>
                   {currentContent.technical.title}
                 </h2>
-                <p className="text-muted-foreground mb-4">{currentContent.technical.content}</p>
+                <p className="text-foreground mb-4">{currentContent.technical.content}</p>
                 <div className="space-y-2 ml-4">
-                  <p className="text-muted-foreground">{currentContent.technical.resistance}</p>
-                  <p className="text-muted-foreground">{currentContent.technical.support}</p>
+                  <p className="text-foreground">{currentContent.technical.resistance}</p>
+                  <p className="text-foreground">{currentContent.technical.support}</p>
                 </div>
               </section>
 
@@ -350,7 +350,7 @@ export default function SilverAnalysis() {
                   {/* Base Case */}
                   <Card className="p-6 border-l-4 border-l-blue-500 bg-blue-500/5">
                     <h3 className="font-bold text-lg mb-2">{currentContent.scenarios.base.title}</h3>
-                    <p className="text-muted-foreground">{currentContent.scenarios.base.content}</p>
+                    <p className="text-foreground">{currentContent.scenarios.base.content}</p>
                   </Card>
 
                   {/* Upside */}
@@ -358,7 +358,7 @@ export default function SilverAnalysis() {
                     <h3 className="font-bold text-lg mb-2">
                       {currentContent.scenarios.upside.title}
                     </h3>
-                    <p className="text-muted-foreground">
+                    <p className="text-foreground">
                       {currentContent.scenarios.upside.content}
                     </p>
                   </Card>
@@ -368,7 +368,7 @@ export default function SilverAnalysis() {
                     <h3 className="font-bold text-lg mb-2">
                       {currentContent.scenarios.downside.title}
                     </h3>
-                    <p className="text-muted-foreground">
+                    <p className="text-foreground">
                       {currentContent.scenarios.downside.content}
                     </p>
                   </Card>
@@ -378,12 +378,12 @@ export default function SilverAnalysis() {
               {/* Bottom Line */}
               <section>
                 <h2 className="text-2xl font-bold mb-4">{currentContent.bottomLine.title}</h2>
-                <p className="text-muted-foreground">{currentContent.bottomLine.content}</p>
+                <p className="text-foreground">{currentContent.bottomLine.content}</p>
               </section>
 
               {/* Disclaimer */}
               <section className="pt-8 border-t">
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-foreground">
                   <strong>
                     {language === "en" ? "Disclaimer:" : "Дисклеймер:"}
                   </strong>{" "}

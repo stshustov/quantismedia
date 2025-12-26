@@ -340,4 +340,14 @@
 - [x] Add ShareButtons to Silver Analysis page
 - [x] Add ShareButtons to Copper Analysis page
 - [x] Test sharing functionality on all pages
+- [x] Push changes to GitHub
+
+## Comprehensive Text Readability Fix - All Pages
+- [x] Find and replace ALL remaining text-muted-foreground with text-foreground on Silver page
+- [x] Find and replace ALL remaining text-muted-foreground with text-foreground on WTI page  
+- [x] Find and replace ALL remaining text-muted-foreground with text-foreground on Gold page
+- [x] Find and replace ALL remaining text-muted-foreground with text-foreground on Copper page
+- [x] Keep text-muted-foreground ONLY for: labels (like "Share:"), metadata, button text
+- [x] Test all pages to verify white text on all content sections
+- [x] Verify WTI page deployment on Render
 - [ ] Push changes to GitHub

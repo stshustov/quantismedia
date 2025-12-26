@@ -154,7 +154,7 @@ export default function WTICrudeOil() {
         <main className="flex-1">
           <div className="container py-12">
             {/* Breadcrumb */}
-            <div className="text-sm text-muted-foreground mb-8">
+            <div className="text-sm text-foreground mb-8">
               <a href="/market-insights" className="hover:text-foreground cursor-pointer">
                 {language === "en" ? "Market Insights" : "Рыночная аналитика"}
               </a>
@@ -186,19 +186,19 @@ export default function WTICrudeOil() {
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
                 <Card className="p-4">
-                  <div className="text-sm text-muted-foreground mb-1">
+                  <div className="text-sm text-foreground mb-1">
                     {language === "en" ? "Time Horizon" : "Временной горизонт"}
                   </div>
                   <div className="font-semibold">{currentContent.timeHorizon}</div>
                 </Card>
                 <Card className="p-4">
-                  <div className="text-sm text-muted-foreground mb-1">
+                  <div className="text-sm text-foreground mb-1">
                     {language === "en" ? "Current Price" : "Текущая цена"}
                   </div>
                   <div className="font-semibold text-gold">{currentContent.currentPrice}</div>
                 </Card>
                 <Card className="p-4">
-                  <div className="text-sm text-muted-foreground mb-1">
+                  <div className="text-sm text-foreground mb-1">
                     {language === "en" ? "Last Updated" : "Обновлено"}
                   </div>
                   <div className="font-semibold">{currentContent.lastUpdated}</div>
@@ -262,8 +262,8 @@ export default function WTICrudeOil() {
                   {currentContent.technical.content}
                 </p>
                 <div className="space-y-2 ml-4">
-                  <p className="text-muted-foreground">{currentContent.technical.resistance}</p>
-                  <p className="text-muted-foreground">{currentContent.technical.support}</p>
+                  <p className="text-foreground">{currentContent.technical.resistance}</p>
+                  <p className="text-foreground">{currentContent.technical.support}</p>
                 </div>
               </section>
 
@@ -303,7 +303,7 @@ export default function WTICrudeOil() {
 
               {/* Disclaimer */}
               <section className="pt-8 border-t border-border">
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-foreground">
                   <strong>{language === "en" ? "Disclaimer:" : "Дисклеймер:"}</strong> {currentContent.disclaimer.text}{" "}
                   <a href="/legal/disclaimer" className="text-gold hover:underline">
                     {currentContent.disclaimer.disclaimerLink}
