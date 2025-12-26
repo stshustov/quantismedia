@@ -290,7 +290,7 @@
 - [x] Create Copper market analysis page with professional design
 - [x] Add Copper to archive and navigation
 - [x] Test visual improvements across all pages
-- [ ] Push changes to GitHub
+- [x] Push changes to GitHub
 
 ## Copper Market Analysis Page
 - [x] Create Copper page component at `/market-insights/energy-metals/metals/copper`
@@ -301,3 +301,14 @@
 - [x] Update MetalsCategory page to include Copper
 - [x] Update archive page to include Copper entry
 - [x] Apply professional visual enhancements (matching WTI, Gold, Silver)
+
+## Sample Ideas Page Update - Scenario Cards
+- [x] Update Sample Ideas page with new institutional scenario format
+- [x] Add S&P 500 (US500) scenario card with Market Context + Base/Alternative scenarios
+- [x] Add Gold (XAUUSD) scenario card with Market Context + Base/Upside/Downside scenarios
+- [x] Include Analytical Reference Levels for each card
+- [x] Apply professional card design (max-width 520px, color-coded scenario markers)
+- [x] Add bilingual support (EN/RU) for all scenario cards
+- [x] Update page title to "Scenario-Based Market Outlook" or "Institutional Market Scenarios"
+- [x] Test card display and language switching
+- [ ] Push changes to GitHub
