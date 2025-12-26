@@ -356,5 +356,14 @@
 - [x] Find and update WTI link on EnergyCategory page to use correct route `/market-insights/energy-metals/energy/wti-crude-oil`
 - [x] Verify all internal links to WTI page use correct route
 - [x] Test WTI page on local dev server
+- [x] Push changes to GitHub
+- [x] Verify WTI page works on Render after deployment
+
+## Visual Design Improvements
+- [x] Rename Twitter to X (𝕏) in ShareButtons component
+- [x] Update Twitter icon to X icon in ShareButtons
+- [x] Update share URL to use x.com instead of twitter.com
+- [ ] Enhance info card borders (Time Horizon, Current Price, Last Updated cards)
+- [ ] Add subtle shadow or glow effect to info cards for better visual hierarchy
+- [ ] Test visual improvements on all analysis pages
 - [ ] Push changes to GitHub
-- [ ] Verify WTI page works on Render after deployment

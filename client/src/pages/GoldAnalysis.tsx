@@ -233,23 +233,23 @@ export default function GoldAnalysis() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                <Card className="p-4">
+                <Card className="p-4 border-primary/20 shadow-md hover:shadow-lg transition-shadow">
                   <div className="text-sm text-foreground mb-1">
                     {language === "en" ? "Time Horizon" : "Временной горизонт"}
                   </div>
                   <div className="font-semibold">{currentContent.timeHorizon}</div>
                 </Card>
-                <Card className="p-4">
+                <Card className="p-4 border-primary/20 shadow-md hover:shadow-lg transition-shadow">
                   <div className="text-sm text-foreground mb-1">
                     {language === "en" ? "Spot Price" : "Спотовая цена"}
                   </div>
                   <div className="font-semibold text-gold">{currentContent.currentPriceSpot}</div>
                 </Card>
-                <Card className="p-4">
+                <Card className="p-4 border-primary/20 shadow-md hover:shadow-lg transition-shadow">
                   <div className="text-sm text-foreground mb-1">GOLD</div>
                   <div className="font-semibold text-gold">{currentContent.currentPriceInstrument}</div>
                 </Card>
-                <Card className="p-4">
+                <Card className="p-4 border-primary/20 shadow-md hover:shadow-lg transition-shadow">
                   <div className="text-sm text-foreground mb-1">
                     {language === "en" ? "Last Updated" : "Обновлено"}
                   </div>

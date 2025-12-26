@@ -185,19 +185,19 @@ export default function WTICrudeOil() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-                <Card className="p-4">
+                <Card className="p-4 border-primary/20 shadow-md hover:shadow-lg transition-shadow">
                   <div className="text-sm text-foreground mb-1">
                     {language === "en" ? "Time Horizon" : "Временной горизонт"}
                   </div>
                   <div className="font-semibold">{currentContent.timeHorizon}</div>
                 </Card>
-                <Card className="p-4">
+                <Card className="p-4 border-primary/20 shadow-md hover:shadow-lg transition-shadow">
                   <div className="text-sm text-foreground mb-1">
                     {language === "en" ? "Current Price" : "Текущая цена"}
                   </div>
                   <div className="font-semibold text-gold">{currentContent.currentPrice}</div>
                 </Card>
-                <Card className="p-4">
+                <Card className="p-4 border-primary/20 shadow-md hover:shadow-lg transition-shadow">
                   <div className="text-sm text-foreground mb-1">
                     {language === "en" ? "Last Updated" : "Обновлено"}
                   </div>

@@ -1,4 +1,4 @@
-import { Twitter, Linkedin, Link as LinkIcon } from "lucide-react";
+import { Twitter as XIcon, Linkedin, Link as LinkIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
@@ -12,10 +12,10 @@ export default function ShareButtons({ title, url, description }: ShareButtonsPr
   
   const fullUrl = url.startsWith('http') ? url : `${window.location.origin}${url}`;
   
-  const shareOnTwitter = () => {
+  const shareOnX = () => {
     const text = description || title;
-    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(fullUrl)}`;
-    window.open(twitterUrl, '_blank', 'width=550,height=420');
+    const xUrl = `https://x.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(fullUrl)}`;
+    window.open(xUrl, '_blank', 'width=550,height=420');
   };
   
   const shareOnLinkedIn = () => {
@@ -38,12 +38,12 @@ export default function ShareButtons({ title, url, description }: ShareButtonsPr
       <Button
         variant="outline"
         size="sm"
-        onClick={shareOnTwitter}
+        onClick={shareOnX}
         className="gap-2"
-        title="Share on Twitter"
+        title="Share on 𝕏"
       >
-        <Twitter className="h-4 w-4" />
-        <span className="hidden sm:inline">Twitter</span>
+        <XIcon className="h-4 w-4" />
+        <span className="hidden sm:inline">𝕏</span>
       </Button>
       <Button
         variant="outline"
