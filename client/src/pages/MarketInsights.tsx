@@ -4,7 +4,7 @@ import { trpc } from "@/lib/trpc";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Link } from "wouter";
-import { TrendingUp, DollarSign, Zap } from "lucide-react";
+import { TrendingUp, DollarSign, Zap, Archive } from "lucide-react";
 
 export default function MarketInsights() {
   const { language } = useLanguage();
@@ -84,17 +84,25 @@ export default function MarketInsights() {
         <div className="container mx-auto px-4 max-w-6xl">
           {/* Header */}
           <div className="mb-12">
-            <h1 className="text-4xl font-bold mb-3">
-              {language === "en" ? (
-                <>
-                  Market <span className="text-primary">Insights</span>
-                </>
-              ) : (
-                <>
-                  Рыночная <span className="text-primary">аналитика</span>
-                </>
-              )}
-            </h1>
+            <div className="flex items-start justify-between gap-4 mb-3">
+              <h1 className="text-4xl font-bold">
+                {language === "en" ? (
+                  <>
+                    Market <span className="text-primary">Insights</span>
+                  </>
+                ) : (
+                  <>
+                    Рыночная <span className="text-primary">аналитика</span>
+                  </>
+                )}
+              </h1>
+              <Link href="/market-insights/archive">
+                <a className="flex items-center gap-2 text-sm text-primary hover:underline">
+                  <Archive className="w-4 h-4" />
+                  {language === "en" ? "Archive" : "Архив"}
+                </a>
+              </Link>
+            </div>
             <p className="text-lg text-muted-foreground">{t.subtitle}</p>
           </div>
 

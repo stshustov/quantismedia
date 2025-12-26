@@ -20,6 +20,7 @@ import TelegramAccess from "./pages/TelegramAccess";
 import Admin from "./pages/Admin";
 import Legal from "./pages/Legal";
 import WTICrudeOil from "./pages/WTICrudeOil";
+import MarketInsightsArchive from "./pages/MarketInsightsArchive";
 
 function Router() {
   return (
@@ -27,6 +28,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/how-it-works" component={HowItWorks} />
       <Route path="/market-insights" component={MarketInsights} />
+      <Route path="/market-insights/archive" component={MarketInsightsArchive} />
       <Route path="/market-insights/:id" component={MarketInsightDetail} />
       <Route path="/sample-ideas" component={SampleIdeas} />
       <Route path="/pricing" component={Pricing} />

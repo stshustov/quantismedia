@@ -204,4 +204,19 @@
 - [x] Link Energy & Metals category to WTI Crude Oil page
 - [x] Add Russian translations for all categories
 - [x] Test navigation flow from Market Insights → Energy & Metals → WTI
+- [x] Push changes to GitHub and verify on Render
+
+## WTI Page Russian Translation
+- [x] Add Russian translations for all WTI page content
+- [x] Test language switching on WTI page
+- [x] Verify all sections translated properly
+
+## Market Analysis Archive Page
+- [x] Create archive page route `/market-insights/archive`
+- [x] Design archive page with asset filter (dropdown or tabs)
+- [x] Add date-based browsing (list by date, newest first)
+- [x] Link archive entries to specific analysis pages
+- [x] Add bilingual support for archive page
+- [x] Add navigation link to archive from Market Insights page
+- [x] Test archive functionality
 - [ ] Push changes to GitHub and verify on Render
