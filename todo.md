@@ -382,3 +382,20 @@
 - [x] Prepare Paddle payment integration structure (user not yet registered)
 - [x] Create payment flow UI placeholder (ready for Paddle credentials)
 - [x] Create PADDLE_INTEGRATION.md documentation
+
+## Dashboard Structure Enhancement (User Request - Dec 26, 2024)
+- [x] Design comprehensive dashboard structure for Core and Pro tiers
+- [x] Create account management page (/account) with subscription details
+- [x] Add subscription status card (plan name, billing cycle, next payment)
+- [x] Add usage statistics widget (scenarios viewed, history count)
+- [x] Create notification preferences page (/account/notifications)
+- [x] Add quick access links to Telegram channels based on tier
+- [x] Implement tier comparison widget (upgrade prompt for Core users)
+- [x] Add welcome header with user name and plan badge
+- [x] Add quick stats bar (scenarios viewed, last active, member since, subscription)
+- [x] Enhanced Dashboard with statistics and tier-specific layouts
+- [x] Database schema updated (userActivity, notificationPreferences tables)
+- [x] Test all dashboard features across both tiers
+- [x] Verified Dashboard with welcome header, stats bar, and 4 cards for Pro
+- [x] Verified Account page with subscription details and Telegram access
+- [x] Verified Notifications page with email and Telegram preferences

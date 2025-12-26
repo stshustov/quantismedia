@@ -28,6 +28,8 @@ import EnergyCategory from "./pages/EnergyCategory";
 import MetalsCategory from "./pages/MetalsCategory";
 import CopperAnalysis from "./pages/CopperAnalysis";
 import ProCommunity from "./pages/ProCommunity";
+import Account from "./pages/Account";
+import Notifications from "./pages/Notifications";
 
 function Router() {
   return (
@@ -49,6 +51,8 @@ function Router() {
       <Route path="/history" component={History} />
       <Route path="/telegram" component={TelegramAccess} />
       <Route path="/pro-community" component={ProCommunity} />
+      <Route path="/account" component={Account} />
+      <Route path="/account/notifications" component={Notifications} />
       <Route path="/admin" component={Admin} />
       <Route path="/legal/:slug" component={Legal} />
       <Route path="/market-insights/energy-metals/energy/wti-crude-oil" component={WTICrudeOil} />

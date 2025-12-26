@@ -16,6 +16,12 @@ export const users = mysqlTable("users", {
   language: mysqlEnum("language", ["en", "ru"]).default("en").notNull(),
   termsAccepted: boolean("termsAccepted").default(false).notNull(),
   termsAcceptedAt: timestamp("termsAcceptedAt"),
+  // Subscription tracking
+  subscriptionId: varchar("subscriptionId", { length: 255 }),
+  subscriptionStatus: mysqlEnum("subscriptionStatus", ["active", "cancelled", "past_due", "trialing"]),
+  subscriptionStartDate: timestamp("subscriptionStartDate"),
+  subscriptionEndDate: timestamp("subscriptionEndDate"),
+  lastActiveAt: timestamp("lastActiveAt"),
 });
 
 export type User = typeof users.$inferSelect;
@@ -142,3 +148,37 @@ export const contactSubmissions = mysqlTable("contactSubmissions", {
 
 export type ContactSubmission = typeof contactSubmissions.$inferSelect;
 export type InsertContactSubmission = typeof contactSubmissions.$inferInsert;
+
+/**
+ * User Activity Tracking
+ */
+export const userActivity = mysqlTable("userActivity", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  activityType: mysqlEnum("activityType", ["viewed_scenario", "viewed_insight", "joined_telegram", "upgraded_plan"]).notNull(),
+  resourceId: varchar("resourceId", { length: 255 }),
+  resourceTitle: text("resourceTitle"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type UserActivity = typeof userActivity.$inferSelect;
+export type InsertUserActivity = typeof userActivity.$inferInsert;
+
+/**
+ * Notification Preferences
+ */
+export const notificationPreferences = mysqlTable("notificationPreferences", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull().unique(),
+  emailNewScenarios: boolean("emailNewScenarios").default(true).notNull(),
+  emailWeeklyDigest: boolean("emailWeeklyDigest").default(true).notNull(),
+  emailBilling: boolean("emailBilling").default(true).notNull(),
+  emailMarketing: boolean("emailMarketing").default(false).notNull(),
+  telegramAlerts: boolean("telegramAlerts").default(true).notNull(),
+  telegramCommunity: boolean("telegramCommunity").default(true).notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type NotificationPreference = typeof notificationPreferences.$inferSelect;
+export type InsertNotificationPreference = typeof notificationPreferences.$inferInsert;

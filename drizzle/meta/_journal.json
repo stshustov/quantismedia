@@ -15,6 +15,13 @@
       "when": 1766612186277,
       "tag": "0001_perpetual_hulk",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1766767395553,
+      "tag": "0002_low_energizer",
+      "breakpoints": true
     }
   ]
 }
