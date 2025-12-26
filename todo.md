@@ -505,3 +505,14 @@
 
 ## Translation Improvement - Telegram Access Page
 - [x] Update Russian translation: "Распространение" → "Публикация рыночной аналитики в реальном времени"
+
+## Dashboard - Telegram Channel Section
+- [x] Add Telegram channel card to Dashboard showing subscription info
+- [x] Display user's subscription tier (Pro/Core)
+- [x] Display selected channel language (EN/RU) with flag
+- [x] Add quick link to change language preference
+- [x] Add "Go to Channel" button with dynamic link
+- [x] Show channel features based on subscription tier
+- [x] Full bilingual support (EN/RU)
+- [x] Test with Pro user role - working perfectly
+- [x] Verified both EN and RU translations

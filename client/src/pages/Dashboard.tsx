@@ -4,7 +4,8 @@ import { useAuth } from "@/_core/hooks/useAuth";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "wouter";
-import { TrendingUp, History, MessageSquare, Users, Calendar, Eye, Clock, Badge as BadgeIcon, AlertCircle, ArrowRight } from "lucide-react";
+import { TrendingUp, History, MessageSquare, Users, Calendar, Eye, Clock, Badge as BadgeIcon, AlertCircle, ArrowRight, Globe, ExternalLink } from "lucide-react";
+import { trpc } from "@/lib/trpc";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
@@ -138,6 +139,123 @@ export default function Dashboard() {
               </CardContent>
             </Card>
           </div>
+
+          {/* Telegram Channel Info - Only for Subscribers */}
+          {isSubscriber && (
+            <div className="mb-8">
+              <h2 className="text-2xl font-bold mb-4">
+                {language === "en" ? "Telegram Channel" : "Telegram канал"}
+              </h2>
+              <Card className="border-primary/20">
+                <CardHeader>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <MessageSquare className="h-6 w-6 text-primary" />
+                      <CardTitle>
+                        {language === "en" ? "Your Telegram Access" : "Ваш доступ к Telegram"}
+                      </CardTitle>
+                    </div>
+                    <Link href="/telegram">
+                      <Button variant="outline" size="sm">
+                        {language === "en" ? "Manage" : "Настроить"}
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Button>
+                    </Link>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid md:grid-cols-3 gap-6">
+                    {/* Subscription Tier */}
+                    <div className="flex items-start gap-3">
+                      <div className="p-2 rounded-lg bg-primary/10">
+                        <BadgeIcon className="h-5 w-5 text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-sm text-muted-foreground mb-1">
+                          {language === "en" ? "Subscription Tier" : "Уровень подписки"}
+                        </p>
+                        <p className="text-lg font-semibold capitalize">
+                          {isPro ? "Pro" : "Core"}
+                        </p>
+                        <p className="text-xs text-muted-foreground mt-1">
+                          {language === "en" 
+                            ? isPro ? "Analytics + Scenarios" : "Scenarios only"
+                            : isPro ? "Аналитика + Сценарии" : "Только сценарии"}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Channel Language */}
+                    <div className="flex items-start gap-3">
+                      <div className="p-2 rounded-lg bg-primary/10">
+                        <Globe className="h-5 w-5 text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-sm text-muted-foreground mb-1">
+                          {language === "en" ? "Channel Language" : "Язык канала"}
+                        </p>
+                        <p className="text-lg font-semibold">
+                          {user.telegramChannelLanguage === "ru" ? "🇷🇺 Русский" : "🇬🇧 English"}
+                        </p>
+                        <Link href="/telegram">
+                          <button className="text-xs text-primary hover:underline mt-1">
+                            {language === "en" ? "Change language" : "Изменить язык"}
+                          </button>
+                        </Link>
+                      </div>
+                    </div>
+
+                    {/* Channel Access */}
+                    <div className="flex items-start gap-3">
+                      <div className="p-2 rounded-lg bg-primary/10">
+                        <ExternalLink className="h-5 w-5 text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-sm text-muted-foreground mb-1">
+                          {language === "en" ? "Channel Access" : "Доступ к каналу"}
+                        </p>
+                        <p className="text-lg font-semibold text-primary">
+                          {language === "en" ? "Active" : "Активен"}
+                        </p>
+                        <Link href="/telegram">
+                          <button className="text-xs text-primary hover:underline mt-1">
+                            {language === "en" ? "Go to channel" : "Перейти в канал"}
+                          </button>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Channel Features */}
+                  <div className="mt-6 pt-6 border-t border-border">
+                    <p className="text-sm font-semibold mb-3">
+                      {language === "en" ? "What you'll receive:" : "Что вы получите:"}
+                    </p>
+                    <div className="grid md:grid-cols-2 gap-3">
+                      {isPro && (
+                        <div className="flex items-center gap-2 text-sm">
+                          <span className="text-primary">✓</span>
+                          <span>{language === "en" ? "Market Insights (Analytics)" : "Рыночная аналитика"}</span>
+                        </div>
+                      )}
+                      <div className="flex items-center gap-2 text-sm">
+                        <span className="text-primary">✓</span>
+                        <span>{language === "en" ? "Trading Scenarios" : "Торговые сценарии"}</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-sm">
+                        <span className="text-primary">✓</span>
+                        <span>{language === "en" ? "Real-time notifications" : "Уведомления в реальном времени"}</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-sm">
+                        <span className="text-primary">✓</span>
+                        <span>{language === "en" ? "Community discussions" : "Обсуждения в сообществе"}</span>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          )}
 
           {/* Main Cards */}
           <h2 className="text-2xl font-bold mb-4">
