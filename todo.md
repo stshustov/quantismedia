@@ -274,4 +274,4 @@
 - [x] Fix Gold page - card labels and GOLDMINI to GOLD
 - [x] Add colored left borders to scenario blocks on all pages (Base=blue, Upside=green, Downside=red)
 - [x] Test language switching on all asset pages
-- [ ] Push fixes to GitHub
+- [x] Push fixes to GitHub
