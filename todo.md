@@ -275,3 +275,10 @@
 - [x] Add colored left borders to scenario blocks on all pages (Base=blue, Upside=green, Downside=red)
 - [x] Test language switching on all asset pages
 - [x] Push fixes to GitHub
+
+## Fix Breadcrumb Navigation Links
+- [x] Make breadcrumb links clickable on WTI page
+- [x] Make breadcrumb links clickable on Gold page
+- [x] Make breadcrumb links clickable on Silver page
+- [x] Test navigation flow from asset pages back through hierarchy
+- [ ] Push fixes to GitHub

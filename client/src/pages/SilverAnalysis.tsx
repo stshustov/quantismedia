@@ -196,17 +196,17 @@ export default function SilverAnalysis() {
           <div className="container py-12">
             {/* Breadcrumb */}
             <div className="text-sm text-muted-foreground mb-8">
-              <span className="hover:text-foreground cursor-pointer">
+              <a href="/market-insights" className="hover:text-foreground cursor-pointer">
                 {language === "en" ? "Market Insights" : "Рыночная аналитика"}
-              </span>
+              </a>
               <span className="mx-2">/</span>
-              <span className="hover:text-foreground cursor-pointer">
+              <a href="/market-insights/energy-metals" className="hover:text-foreground cursor-pointer">
                 {language === "en" ? "Energy & Metals" : "Энергетика и металлы"}
-              </span>
+              </a>
               <span className="mx-2">/</span>
-              <span className="hover:text-foreground cursor-pointer">
+              <a href="/market-insights/energy-metals/metals" className="hover:text-foreground cursor-pointer">
                 {language === "en" ? "Metals" : "Металлы"}
-              </span>
+              </a>
               <span className="mx-2">/</span>
               <span className="text-foreground">
                 {language === "en" ? "Silver" : "Серебро"}
