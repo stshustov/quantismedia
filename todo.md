@@ -192,3 +192,16 @@
 - [x] Make responsive for desktop and mobile
 - [x] Add SEO meta tags
 - [x] Test all functionality
+
+## Deploy WTI Page to Render
+- [x] Push WTI Crude Oil page changes to GitHub staging branch
+- [x] Verify auto-deployment on Render
+- [x] Confirm page is live at https://quantismedia-preview.onrender.com/market-insights/energy-metals/wti-crude-oil
+
+## Market Insights Category Structure
+- [x] Add market categories to Market Insights page (Indices, FX, Energy & Metals)
+- [x] Create navigation cards for each category
+- [x] Link Energy & Metals category to WTI Crude Oil page
+- [x] Add Russian translations for all categories
+- [x] Test navigation flow from Market Insights → Energy & Metals → WTI
+- [ ] Push changes to GitHub and verify on Render
