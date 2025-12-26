@@ -16,7 +16,7 @@ export default function CopperAnalysis() {
       timeHorizon: "Short-term (1–5 trading days)",
       currentPriceSpot: "$4.18/lb (spot)",
       currentPriceInstrument: "$4.20/lb (HG futures)",
-      lastUpdated: "December 26, 2024",
+      lastUpdated: "December 26, 2025",
       priceAnchor: {
         title: "Price Anchor",
         content: `Copper is trading near multi-month highs, supported by supply-side constraints, robust demand from China's infrastructure stimulus, and expectations of accelerating energy transition investments. The market remains sensitive to macro data and inventory dynamics.`
@@ -44,7 +44,7 @@ export default function CopperAnalysis() {
       technical: {
         title: "Technical Structure",
         content: `Copper has broken above the $4.10–4.15 resistance zone and is testing the upper end of the recent range. Momentum indicators show strength, but short-term overbought conditions suggest potential for consolidation.`,
-        resistance: "Resistance: $4.25–4.30 (2024 highs)",
+        resistance: "Resistance: $4.25–4.30 (2025 highs)",
         support: "Support: $4.05–4.10 (breakout zone)"
       },
       scenarios: {
@@ -73,7 +73,7 @@ export default function CopperAnalysis() {
       timeHorizon: "Краткосрочный (1–5 торговых дней)",
       currentPriceSpot: "$4.18/фунт (спот)",
       currentPriceInstrument: "$4.20/фунт (фьючерсы HG)",
-      lastUpdated: "26 декабря 2024 г.",
+      lastUpdated: "26 декабря 2025 г.",
       priceAnchor: {
         title: "Ценовой ориентир",
         content: `Медь торгуется вблизи многомесячных максимумов при поддержке ограничений на стороне предложения, устойчивого спроса на фоне стимулирования инфраструктуры в Китае и ожиданий ускорения инвестиций в энергопереход. Рынок остаётся чувствительным к макро-данным и динамике запасов.`
@@ -101,7 +101,7 @@ export default function CopperAnalysis() {
       technical: {
         title: "Техническая структура",
         content: `Медь пробила зону сопротивления $4.10–4.15 и тестирует верхнюю границу недавнего диапазона. Индикаторы импульса показывают силу, но краткосрочные условия перекупленности предполагают потенциал для консолидации.`,
-        resistance: "Сопротивление: $4.25–4.30 (максимумы 2024)",
+        resistance: "Сопротивление: $4.25–4.30 (максимумы 2025)",
         support: "Поддержка: $4.05–4.10 (зона пробоя)"
       },
       scenarios: {

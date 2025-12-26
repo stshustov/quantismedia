@@ -58,8 +58,8 @@ export default function MarketInsights() {
       icon: TrendingUp,
       title: t.indices.title,
       description: t.indices.description,
-      href: "#",
-      comingSoon: true,
+      href: "/market-insights/indices",
+      comingSoon: false,
     },
     {
       icon: DollarSign,

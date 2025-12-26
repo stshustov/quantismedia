@@ -20,7 +20,7 @@ export default function SilverAnalysis() {
       timeHorizon: "1–5 trading days",
       currentPriceSpot: "~$74.5–75.1/oz",
       currentPriceInstrument: "SILVER",
-      lastUpdated: "26 December 2024",
+      lastUpdated: "26 December 2025",
 
       priceAnchor: {
         title: "Price Anchor & Setup",
@@ -103,7 +103,7 @@ export default function SilverAnalysis() {
       timeHorizon: "1–5 торговых дней",
       currentPriceSpot: "~$74.5–75.1/унция",
       currentPriceInstrument: "SILVER",
-      lastUpdated: "26 декабря 2024",
+      lastUpdated: "26 декабря 2025",
 
       priceAnchor: {
         title: "Текущая цена и контекст",

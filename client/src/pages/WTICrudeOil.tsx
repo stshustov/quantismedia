@@ -19,7 +19,7 @@ export default function WTICrudeOil() {
       title: "WTI Crude Oil — Short-Term Market Outlook",
       timeHorizon: "1–5 trading days",
       currentPrice: "~58.5 USD/bbl",
-      lastUpdated: "26 December 2024",
+      lastUpdated: "26 December 2025",
       
       marketSnapshot: {
         title: "Current Market Snapshot",
@@ -81,7 +81,7 @@ export default function WTICrudeOil() {
       title: "WTI: краткосрочный прогноз и сценарии",
       timeHorizon: "1–5 торговых дней",
       currentPrice: "~58.5 USD/баррель",
-      lastUpdated: "26 декабря 2024",
+      lastUpdated: "26 декабря 2025",
       
       marketSnapshot: {
         title: "Текущая рыночная картина",

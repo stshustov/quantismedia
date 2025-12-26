@@ -20,7 +20,7 @@ export default function GoldAnalysis() {
       timeHorizon: "1–5 trading days",
       currentPriceSpot: "~$4,50x/oz",
       currentPriceInstrument: "~4505 (GOLD)",
-      lastUpdated: "26 December 2024",
+      lastUpdated: "26 December 2025",
 
       priceAnchor: {
         title: "Price Anchor & Setup",
@@ -102,7 +102,7 @@ export default function GoldAnalysis() {
       timeHorizon: "1–5 торговых дней",
       currentPriceSpot: "~$4,50x/унция",
       currentPriceInstrument: "~4505 (GOLD)",
-      lastUpdated: "26 декабря 2024",
+      lastUpdated: "26 декабря 2025",
 
       priceAnchor: {
         title: "Текущая цена и контекст",

@@ -469,3 +469,24 @@
 - [ ] User needs to add environment variables in Render Dashboard
 - [ ] Test Telegram links from Dashboard, Account, and dedicated pages (after Render setup)
 - [ ] Verify links work for Core and Pro users respectively (after Render setup)
+
+## Date Updates
+- [ ] Update dates on all market analysis pages from 2024 to December 26, 2025 (WTI, Gold, Silver, Copper)
+- [ ] Fix contact form to send emails to info@quantismedia.io
+- [ ] Create S&P 500 (SPX500) analysis page in Indices category
+
+## SPX500 (S&P 500) Index Analysis Page
+- [x] Create SPX500 analysis page route `/market-insights/indices/spx500`
+- [x] Implement full bilingual content (EN/RU) with professional institutional language
+- [x] Design header with 4 info cards (Time Horizon, Current Reference, Last Updated, Market Regime)
+- [x] Add Share buttons (𝕏, LinkedIn, Copy link)
+- [x] Create content sections: Market Context, Monetary Policy, Positioning, Geopolitical, Technical Structure
+- [x] Add color-coded scenario blocks (Blue: Base Case, Green: Upside, Red: Downside)
+- [x] Include Bottom Line section and disclaimer
+- [x] Add breadcrumb navigation (Market Insights / Indices / S&P 500)
+- [x] Integrate analytics tracking with useTrackScenarioView hook
+- [x] Add SPX500 to MarketInsightsArchive with proper excerpt
+- [x] Create Indices category landing page route `/market-insights/indices`
+- [x] Test all functionality (EN/RU switching, navigation, share buttons)
+- [x] Verify TypeScript: no errors
+- [x] Date set to December 26, 2025

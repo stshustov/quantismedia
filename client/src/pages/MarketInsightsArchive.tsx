@@ -88,7 +88,20 @@ export default function MarketInsightsArchive() {
         href: "/market-insights/energy-metals/wti-crude-oil",
       },
     ],
-    indices: [],
+    indices: [
+      {
+        id: "spx500-2025-12-26",
+        asset: language === "en" ? "S&P 500 (SPX500)" : "S&P 500 (SPX500)",
+        date: "2025-12-26",
+        displayDate: language === "en" ? "December 26, 2025" : "26 декабря 2025",
+        price: "~6930",
+        excerpt:
+          language === "en"
+            ? "Trading near record highs, bullish structure with late-cycle consolidation, liquidity-sensitive."
+            : "Торгуется вблизи исторических максимумов, бычья структура с консолидацией позднего цикла, чувствителен к ликвидности.",
+        href: "/market-insights/indices/spx500",
+      },
+    ],
     fx: [],
   };
 
