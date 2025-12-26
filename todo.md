@@ -251,3 +251,12 @@
 - [x] Update archive page to include Silver entry
 - [x] Test functionality
 - [x] Push all changes to GitHub
+
+## Energy & Metals Category Page
+- [x] Create Energy & Metals landing page at `/market-insights/energy-metals`
+- [x] Add Energy subcategory card (WTI Crude Oil)
+- [x] Add Metals subcategory card (Gold, Silver)
+- [x] Add bilingual support for category page
+- [x] Update Market Insights page to link to Energy & Metals category
+- [x] Test navigation flow: Market Insights → Energy & Metals → Energy/Metals → Specific Asset
+- [ ] Push changes to GitHub

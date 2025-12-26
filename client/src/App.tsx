@@ -23,6 +23,9 @@ import WTICrudeOil from "./pages/WTICrudeOil";
 import MarketInsightsArchive from "./pages/MarketInsightsArchive";
 import GoldAnalysis from "./pages/GoldAnalysis";
 import SilverAnalysis from "./pages/SilverAnalysis";
+import EnergyMetalsCategory from "./pages/EnergyMetalsCategory";
+import EnergyCategory from "./pages/EnergyCategory";
+import MetalsCategory from "./pages/MetalsCategory";
 
 function Router() {
   return (
@@ -31,6 +34,9 @@ function Router() {
       <Route path="/how-it-works" component={HowItWorks} />
       <Route path="/market-insights" component={MarketInsights} />
       <Route path="/market-insights/archive" component={MarketInsightsArchive} />
+      <Route path="/market-insights/energy-metals" component={EnergyMetalsCategory} />
+      <Route path="/market-insights/energy-metals/energy" component={EnergyCategory} />
+      <Route path="/market-insights/energy-metals/metals" component={MetalsCategory} />
       <Route path="/market-insights/:id" component={MarketInsightDetail} />
       <Route path="/sample-ideas" component={SampleIdeas} />
       <Route path="/pricing" component={Pricing} />

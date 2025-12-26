@@ -72,7 +72,7 @@ export default function MarketInsights() {
       icon: Zap,
       title: t.energyMetals.title,
       description: t.energyMetals.description,
-      href: "/market-insights/energy-metals/wti-crude-oil",
+      href: "/market-insights/energy-metals",
       comingSoon: false,
     },
   ];
