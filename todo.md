@@ -259,4 +259,4 @@
 - [x] Add bilingual support for category page
 - [x] Update Market Insights page to link to Energy & Metals category
 - [x] Test navigation flow: Market Insights → Energy & Metals → Energy/Metals → Specific Asset
-- [ ] Push changes to GitHub
+- [x] Push changes to GitHub
