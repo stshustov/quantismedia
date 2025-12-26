@@ -399,3 +399,23 @@
 - [x] Verified Dashboard with welcome header, stats bar, and 4 cards for Pro
 - [x] Verified Account page with subscription details and Telegram access
 - [x] Verified Notifications page with email and Telegram preferences
+
+## Subscription Management Page (User Request - Dec 26, 2024)
+- [x] Design subscription management page structure and layout
+- [x] Create /account/subscription page with current plan display
+- [x] Add plan comparison section (Core vs Pro features)
+- [x] Implement upgrade flow (Core → Pro) with confirmation dialog
+- [x] Implement downgrade flow (Pro → Core) with confirmation dialog
+- [x] Create /account/billing page with billing history table
+- [x] Add invoice download functionality (placeholder for Paddle)
+- [x] Add payment method display and update button
+- [x] Implement subscription cancellation flow with confirmation dialog
+- [x] Add next billing date and amount display
+- [x] Add subscription status indicators (active status with checkmark)
+- [x] Prepared for Paddle integration (all flows ready)
+- [x] Test all subscription management features
+- [x] Verified /account/subscription page with plan comparison and actions
+- [x] Verified /account/billing page with payment history and invoices
+- [x] All dialogs (upgrade, downgrade, cancel) working correctly
+- [x] Bilingual support verified (Russian interface)
+- [x] Ready for Paddle integration

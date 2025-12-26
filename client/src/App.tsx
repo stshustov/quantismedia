@@ -30,6 +30,8 @@ import CopperAnalysis from "./pages/CopperAnalysis";
 import ProCommunity from "./pages/ProCommunity";
 import Account from "./pages/Account";
 import Notifications from "./pages/Notifications";
+import SubscriptionManagement from "./pages/SubscriptionManagement";
+import BillingHistory from "./pages/BillingHistory";
 
 function Router() {
   return (
@@ -53,6 +55,8 @@ function Router() {
       <Route path="/pro-community" component={ProCommunity} />
       <Route path="/account" component={Account} />
       <Route path="/account/notifications" component={Notifications} />
+      <Route path="/account/subscription" component={SubscriptionManagement} />
+      <Route path="/account/billing" component={BillingHistory} />
       <Route path="/admin" component={Admin} />
       <Route path="/legal/:slug" component={Legal} />
       <Route path="/market-insights/energy-metals/energy/wti-crude-oil" component={WTICrudeOil} />
