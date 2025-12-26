@@ -4,11 +4,10 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+
 
 export default function SilverAnalysis() {
   const { language } = useLanguage();
-  const [activeLanguage, setActiveLanguage] = useState<"en" | "ru">("en");
 
   const content = {
     en: {
@@ -178,7 +177,7 @@ export default function SilverAnalysis() {
     },
   };
 
-  const currentContent = content[activeLanguage];
+  const currentContent = content[language];
 
   return (
     <>
@@ -197,31 +196,21 @@ export default function SilverAnalysis() {
           <div className="container py-12">
             {/* Breadcrumb */}
             <div className="text-sm text-muted-foreground mb-8">
-              <span className="hover:text-foreground cursor-pointer">Market Insights</span>
+              <span className="hover:text-foreground cursor-pointer">
+                {language === "en" ? "Market Insights" : "Рыночная аналитика"}
+              </span>
               <span className="mx-2">/</span>
-              <span className="hover:text-foreground cursor-pointer">Energy & Metals</span>
+              <span className="hover:text-foreground cursor-pointer">
+                {language === "en" ? "Energy & Metals" : "Энергетика и металлы"}
+              </span>
               <span className="mx-2">/</span>
-              <span className="hover:text-foreground cursor-pointer">Metals</span>
+              <span className="hover:text-foreground cursor-pointer">
+                {language === "en" ? "Metals" : "Металлы"}
+              </span>
               <span className="mx-2">/</span>
-              <span className="text-foreground">Silver</span>
-            </div>
-
-            {/* Language Toggle */}
-            <div className="flex justify-end gap-2 mb-6">
-              <Button
-                variant={activeLanguage === "en" ? "default" : "outline"}
-                size="sm"
-                onClick={() => setActiveLanguage("en")}
-              >
-                EN
-              </Button>
-              <Button
-                variant={activeLanguage === "ru" ? "default" : "outline"}
-                size="sm"
-                onClick={() => setActiveLanguage("ru")}
-              >
-                RU
-              </Button>
+              <span className="text-foreground">
+                {language === "en" ? "Silver" : "Серебро"}
+              </span>
             </div>
 
             {/* Header */}
@@ -231,14 +220,14 @@ export default function SilverAnalysis() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Card className="p-6 bg-card/50">
                   <div className="text-sm text-muted-foreground mb-2">
-                    {activeLanguage === "en" ? "Time Horizon" : "Временной горизонт"}
+                    {language === "en" ? "Time Horizon" : "Временной горизонт"}
                   </div>
                   <div className="text-lg font-semibold">{currentContent.timeHorizon}</div>
                 </Card>
 
                 <Card className="p-6 bg-card/50">
                   <div className="text-sm text-muted-foreground mb-2">
-                    {activeLanguage === "en" ? "Spot Price" : "Спотовая цена"}
+                    {language === "en" ? "Spot Price" : "Спотовая цена"}
                   </div>
                   <div className="text-lg font-semibold">{currentContent.currentPriceSpot}</div>
                 </Card>
@@ -252,7 +241,7 @@ export default function SilverAnalysis() {
 
                 <Card className="p-6 bg-card/50">
                   <div className="text-sm text-muted-foreground mb-2">
-                    {activeLanguage === "en" ? "Last Updated" : "Обновлено"}
+                    {language === "en" ? "Last Updated" : "Обновлено"}
                   </div>
                   <div className="text-lg font-semibold">{currentContent.lastUpdated}</div>
                 </Card>
@@ -362,7 +351,7 @@ export default function SilverAnalysis() {
               <section className="pt-8 border-t">
                 <p className="text-sm text-muted-foreground">
                   <strong>
-                    {activeLanguage === "en" ? "Disclaimer:" : "Дисклеймер:"}
+                    {language === "en" ? "Disclaimer:" : "Дисклеймер:"}
                   </strong>{" "}
                   {currentContent.disclaimer.text}{" "}
                   <a href="/legal/disclaimer" className="underline hover:text-foreground">

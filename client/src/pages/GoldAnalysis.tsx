@@ -4,11 +4,10 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+
 
 export default function GoldAnalysis() {
   const { language } = useLanguage();
-  const [activeLanguage, setActiveLanguage] = useState<"en" | "ru">("en");
 
   const content = {
     en: {
@@ -178,7 +177,7 @@ export default function GoldAnalysis() {
     },
   };
 
-  const currentContent = content[activeLanguage];
+  const currentContent = content[language];
 
   return (
     <>
@@ -197,35 +196,26 @@ export default function GoldAnalysis() {
           <div className="container py-12">
             {/* Breadcrumb */}
             <div className="text-sm text-muted-foreground mb-8">
-              <span className="hover:text-foreground cursor-pointer">Market Insights</span>
+              <span className="hover:text-foreground cursor-pointer">
+                {language === "en" ? "Market Insights" : "Рыночная аналитика"}
+              </span>
               <span className="mx-2">/</span>
-              <span className="hover:text-foreground cursor-pointer">Energy & Metals</span>
+              <span className="hover:text-foreground cursor-pointer">
+                {language === "en" ? "Energy & Metals" : "Энергетика и металлы"}
+              </span>
               <span className="mx-2">/</span>
-              <span className="hover:text-foreground cursor-pointer">Metals</span>
+              <span className="hover:text-foreground cursor-pointer">
+                {language === "en" ? "Metals" : "Металлы"}
+              </span>
               <span className="mx-2">/</span>
-              <span className="text-foreground">Gold</span>
+              <span className="text-foreground">
+                {language === "en" ? "Gold" : "Золото"}
+              </span>
             </div>
 
             {/* Header Section */}
             <div className="max-w-[760px] mx-auto mb-12">
-              <div className="flex items-center justify-between mb-6">
-                <div className="flex gap-2">
-                  <Button
-                    variant={activeLanguage === "en" ? "default" : "outline"}
-                    size="sm"
-                    onClick={() => setActiveLanguage("en")}
-                  >
-                    EN
-                  </Button>
-                  <Button
-                    variant={activeLanguage === "ru" ? "default" : "outline"}
-                    size="sm"
-                    onClick={() => setActiveLanguage("ru")}
-                  >
-                    RU
-                  </Button>
-                </div>
-              </div>
+
 
               <h1 className="text-4xl font-bold mb-6">{currentContent.title}</h1>
 
@@ -348,7 +338,7 @@ export default function GoldAnalysis() {
               {/* Disclaimer */}
               <section className="pt-8 border-t border-border">
                 <p className="text-sm text-muted-foreground">
-                  <strong>{activeLanguage === "en" ? "Disclaimer:" : "Дисклеймер:"}</strong>{" "}
+                  <strong>{language === "en" ? "Disclaimer:" : "Дисклеймер:"}</strong>{" "}
                   {currentContent.disclaimer.text}{" "}
                   <a href="/legal/disclaimer" className="text-gold hover:underline">
                     {currentContent.disclaimer.disclaimerLink}

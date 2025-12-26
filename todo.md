@@ -260,3 +260,10 @@
 - [x] Update Market Insights page to link to Energy & Metals category
 - [x] Test navigation flow: Market Insights → Energy & Metals → Energy/Metals → Specific Asset
 - [x] Push changes to GitHub
+
+## Fix Language Switcher and Breadcrumb Issues
+- [x] Remove duplicate language switcher from Silver page
+- [x] Add Russian translations for breadcrumb navigation on Silver page
+- [x] Fix WTI and Gold pages
+- [x] Test language switching and breadcrumb display
+- [ ] Push fixes to GitHub
