@@ -235,4 +235,4 @@
 - [x] Add route to App.tsx
 - [x] Update archive page to include Gold entry
 - [x] Test functionality and language switching
-- [ ] Push to GitHub
+- [x] Push to GitHub
