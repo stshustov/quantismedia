@@ -320,4 +320,11 @@
 - [x] Change main content text color from text-muted-foreground to text-foreground on Copper page
 - [x] Keep text-muted-foreground only for labels, metadata, and supplementary text
 - [x] Test readability on all pages
+- [x] Push changes to GitHub
+
+## Sample Ideas Page Text Readability Fix
+- [x] Change scenario card text from text-muted-foreground to text-foreground
+- [x] Change bullet points text from text-muted-foreground to text-foreground
+- [x] Keep only labels/metadata as muted
+- [x] Test Sample Ideas page readability
 - [ ] Push changes to GitHub

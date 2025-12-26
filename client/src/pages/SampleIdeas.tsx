@@ -203,7 +203,7 @@ export default function SampleIdeas() {
                     <h3 className="text-sm font-bold uppercase tracking-wide mb-2 text-muted-foreground">
                       {language === "en" ? "Market Context" : "Контекст рынка"}
                     </h3>
-                    <p className="text-sm leading-relaxed">{t.sp500.marketContext}</p>
+                    <p className="text-sm leading-relaxed text-foreground">{t.sp500.marketContext}</p>
                   </div>
 
                   {/* Scenario Framework */}
@@ -217,10 +217,10 @@ export default function SampleIdeas() {
                       <p className="font-semibold text-sm mb-2">{t.sp500.baseScenario.title}</p>
                       <ul className="text-sm space-y-1 mb-2">
                         {t.sp500.baseScenario.points.map((point, idx) => (
-                          <li key={idx} className="text-muted-foreground">• {point}</li>
+                          <li key={idx} className="text-foreground">• {point}</li>
                         ))}
                       </ul>
-                      <p className="text-xs italic text-muted-foreground">
+                      <p className="text-xs italic text-foreground">
                         {language === "en" ? "Interpretation: " : "Интерпретация: "}
                         {t.sp500.baseScenario.interpretation}
                       </p>
@@ -231,10 +231,10 @@ export default function SampleIdeas() {
                       <p className="font-semibold text-sm mb-2">{t.sp500.altScenario.title}</p>
                       <ul className="text-sm space-y-1 mb-2">
                         {t.sp500.altScenario.points.map((point, idx) => (
-                          <li key={idx} className="text-muted-foreground">• {point}</li>
+                          <li key={idx} className="text-foreground">• {point}</li>
                         ))}
                       </ul>
-                      <p className="text-xs italic text-muted-foreground">
+                      <p className="text-xs italic text-foreground">
                         {language === "en" ? "Interpretation: " : "Интерпретация: "}
                         {t.sp500.altScenario.interpretation}
                       </p>
@@ -281,7 +281,7 @@ export default function SampleIdeas() {
                     <h3 className="text-sm font-bold uppercase tracking-wide mb-2 text-muted-foreground">
                       {language === "en" ? "Market Context" : "Контекст рынка"}
                     </h3>
-                    <p className="text-sm leading-relaxed">{t.gold.marketContext}</p>
+                    <p className="text-sm leading-relaxed text-foreground">{t.gold.marketContext}</p>
                   </div>
 
                   {/* Scenario Framework */}
@@ -295,10 +295,10 @@ export default function SampleIdeas() {
                       <p className="font-semibold text-sm mb-2">{t.gold.baseScenario.title}</p>
                       <ul className="text-sm space-y-1 mb-2">
                         {t.gold.baseScenario.points.map((point, idx) => (
-                          <li key={idx} className="text-muted-foreground">• {point}</li>
+                          <li key={idx} className="text-foreground">• {point}</li>
                         ))}
                       </ul>
-                      <p className="text-xs italic text-muted-foreground">
+                      <p className="text-xs italic text-foreground">
                         {language === "en" ? "Interpretation: " : "Интерпретация: "}
                         {t.gold.baseScenario.interpretation}
                       </p>
@@ -309,10 +309,10 @@ export default function SampleIdeas() {
                       <p className="font-semibold text-sm mb-2">{t.gold.upsideScenario.title}</p>
                       <ul className="text-sm space-y-1 mb-2">
                         {t.gold.upsideScenario.points.map((point, idx) => (
-                          <li key={idx} className="text-muted-foreground">• {point}</li>
+                          <li key={idx} className="text-foreground">• {point}</li>
                         ))}
                       </ul>
-                      <p className="text-xs italic text-muted-foreground">
+                      <p className="text-xs italic text-foreground">
                         {language === "en" ? "Interpretation: " : "Интерпретация: "}
                         {t.gold.upsideScenario.interpretation}
                       </p>
@@ -323,10 +323,10 @@ export default function SampleIdeas() {
                       <p className="font-semibold text-sm mb-2">{t.gold.downsideScenario.title}</p>
                       <ul className="text-sm space-y-1 mb-2">
                         {t.gold.downsideScenario.points.map((point, idx) => (
-                          <li key={idx} className="text-muted-foreground">• {point}</li>
+                          <li key={idx} className="text-foreground">• {point}</li>
                         ))}
                       </ul>
-                      <p className="text-xs italic text-muted-foreground">
+                      <p className="text-xs italic text-foreground">
                         {language === "en" ? "Interpretation: " : "Интерпретация: "}
                         {t.gold.downsideScenario.interpretation}
                       </p>
