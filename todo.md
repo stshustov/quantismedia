@@ -220,3 +220,8 @@
 - [x] Add navigation link to archive from Market Insights page
 - [x] Test archive functionality
 - [x] Push changes to GitHub and verify on Render
+
+## Fix WTI Page Disclaimer Translation
+- [x] Add Russian translation for disclaimer text at bottom of WTI page
+- [x] Test disclaimer switches with language toggle
+- [ ] Push fix to GitHub

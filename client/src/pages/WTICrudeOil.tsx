@@ -63,6 +63,13 @@ export default function WTICrudeOil() {
       bottomLine: {
         title: "Bottom Line",
         content: "The short-term outlook for WTI remains neutral to cautiously constructive, with price action likely dictated by external catalysts rather than endogenous momentum."
+      },
+      
+      disclaimer: {
+        text: "This content is provided for informational and educational purposes only. It does not constitute investment advice, trading recommendations, or an offer to buy or sell any financial instruments. Past performance is not indicative of future results. Please review our full",
+        disclaimerLink: "Disclaimer",
+        and: "and",
+        riskLink: "Risk Disclosure"
       }
     },
     
@@ -118,6 +125,13 @@ export default function WTICrudeOil() {
       bottomLine: {
         title: "Вывод",
         content: "Краткосрочный прогноз по WTI остаётся нейтрально-умеренным. Рынок находится в режиме ожидания и требует внешнего импульса для выхода из текущего диапазона."
+      },
+      
+      disclaimer: {
+        text: "Данный контент предоставляется исключительно в информационных и образовательных целях. Он не является инвестиционной рекомендацией, торговой инструкцией или предложением купить или продать какие-либо финансовые инструменты. Прошлые результаты не гарантируют будущей доходности. Пожалуйста, ознакомьтесь с полным текстом",
+        disclaimerLink: "Дисклеймера",
+        and: "и",
+        riskLink: "Раскрытия рисков"
       }
     }
   };
@@ -270,15 +284,13 @@ export default function WTICrudeOil() {
               {/* Disclaimer */}
               <section className="pt-8 border-t border-border">
                 <p className="text-sm text-muted-foreground">
-                  <strong>Disclaimer:</strong> This content is provided for informational and educational purposes only. 
-                  It does not constitute investment advice, trading recommendations, or an offer to buy or sell any financial instruments. 
-                  Past performance is not indicative of future results. Please review our full{" "}
+                  <strong>{activeLanguage === "en" ? "Disclaimer:" : "Дисклеймер:"}</strong> {currentContent.disclaimer.text}{" "}
                   <a href="/legal/disclaimer" className="text-gold hover:underline">
-                    Disclaimer
+                    {currentContent.disclaimer.disclaimerLink}
                   </a>{" "}
-                  and{" "}
+                  {currentContent.disclaimer.and}{" "}
                   <a href="/legal/risk-disclosure" className="text-gold hover:underline">
-                    Risk Disclosure
+                    {currentContent.disclaimer.riskLink}
                   </a>.
                 </p>
               </section>
