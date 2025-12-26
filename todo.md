@@ -250,4 +250,4 @@
 - [x] Add route to App.tsx
 - [x] Update archive page to include Silver entry
 - [x] Test functionality
-- [ ] Push all changes to GitHub
+- [x] Push all changes to GitHub
