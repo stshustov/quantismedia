@@ -253,7 +253,7 @@ export default function GoldAnalysis() {
                   <span className="text-xl">🎯</span>
                   {currentContent.priceAnchor.title}
                 </h2>
-                <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
+                <p className="text-foreground leading-relaxed whitespace-pre-line">
                   {currentContent.priceAnchor.content}
                 </p>
               </section>
@@ -264,7 +264,7 @@ export default function GoldAnalysis() {
                   <span className="text-xl">🌐</span>
                   {currentContent.macro.title}
                 </h2>
-                <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
+                <p className="text-foreground leading-relaxed whitespace-pre-line">
                   {currentContent.macro.content}
                 </p>
               </section>
@@ -275,7 +275,7 @@ export default function GoldAnalysis() {
                   <span className="text-xl">📈</span>
                   {currentContent.demand.title}
                 </h2>
-                <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
+                <p className="text-foreground leading-relaxed whitespace-pre-line">
                   {currentContent.demand.content}
                 </p>
               </section>
@@ -286,7 +286,7 @@ export default function GoldAnalysis() {
                   <span className="text-xl">⛏️</span>
                   {currentContent.supply.title}
                 </h2>
-                <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
+                <p className="text-foreground leading-relaxed whitespace-pre-line">
                   {currentContent.supply.content}
                 </p>
               </section>
@@ -297,7 +297,7 @@ export default function GoldAnalysis() {
                   <span className="text-xl">📊</span>
                   {currentContent.stocks.title}
                 </h2>
-                <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
+                <p className="text-foreground leading-relaxed whitespace-pre-line">
                   {currentContent.stocks.content}
                 </p>
               </section>
@@ -308,7 +308,7 @@ export default function GoldAnalysis() {
                   <span className="text-xl">👥</span>
                   {currentContent.positioning.title}
                 </h2>
-                <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
+                <p className="text-foreground leading-relaxed whitespace-pre-line">
                   {currentContent.positioning.content}
                 </p>
               </section>
@@ -334,21 +334,21 @@ export default function GoldAnalysis() {
 
                 <Card className="p-6 mb-4 border-blue-500/20 bg-blue-500/5 border-l-4 border-l-blue-500">
                   <h3 className="font-bold text-lg mb-2">{currentContent.scenarios.base.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-foreground leading-relaxed">
                     {currentContent.scenarios.base.content}
                   </p>
                 </Card>
 
                 <Card className="p-6 mb-4 border-green-500/20 bg-green-500/5 border-l-4 border-l-green-500">
                   <h3 className="font-bold text-lg mb-2">{currentContent.scenarios.upside.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-foreground leading-relaxed">
                     {currentContent.scenarios.upside.content}
                   </p>
                 </Card>
 
                 <Card className="p-6 border-red-500/20 bg-red-500/5 border-l-4 border-l-red-500">
                   <h3 className="font-bold text-lg mb-2">{currentContent.scenarios.downside.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-foreground leading-relaxed">
                     {currentContent.scenarios.downside.content}
                   </p>
                 </Card>
@@ -357,7 +357,7 @@ export default function GoldAnalysis() {
               {/* Bottom Line */}
               <section>
                 <h2 className="text-2xl font-bold mb-4">{currentContent.bottomLine.title}</h2>
-                <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
+                <p className="text-foreground leading-relaxed whitespace-pre-line">
                   {currentContent.bottomLine.content}
                 </p>
               </section>

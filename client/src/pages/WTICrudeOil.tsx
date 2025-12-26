@@ -203,7 +203,7 @@ export default function WTICrudeOil() {
                   <span className="text-xl">📊</span>
                   {currentContent.marketSnapshot.title}
                 </h2>
-                <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
+                <p className="text-foreground leading-relaxed whitespace-pre-line">
                   {currentContent.marketSnapshot.content}
                 </p>
               </section>
@@ -214,7 +214,7 @@ export default function WTICrudeOil() {
                   <span className="text-xl">📈</span>
                   {currentContent.fundamentalBackdrop.title}
                 </h2>
-                <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
+                <p className="text-foreground leading-relaxed whitespace-pre-line">
                   {currentContent.fundamentalBackdrop.content}
                 </p>
               </section>
@@ -225,7 +225,7 @@ export default function WTICrudeOil() {
                   <span className="text-xl">📦</span>
                   {currentContent.inventories.title}
                 </h2>
-                <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
+                <p className="text-foreground leading-relaxed whitespace-pre-line">
                   {currentContent.inventories.content}
                 </p>
               </section>
@@ -236,7 +236,7 @@ export default function WTICrudeOil() {
                   <span className="text-xl">👥</span>
                   {currentContent.positioning.title}
                 </h2>
-                <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
+                <p className="text-foreground leading-relaxed whitespace-pre-line">
                   {currentContent.positioning.content}
                 </p>
               </section>
@@ -247,7 +247,7 @@ export default function WTICrudeOil() {
                   <span className="text-xl">🔧</span>
                   {currentContent.technical.title}
                 </h2>
-                <p className="text-muted-foreground leading-relaxed whitespace-pre-line mb-4">
+                <p className="text-foreground leading-relaxed whitespace-pre-line mb-4">
                   {currentContent.technical.content}
                 </p>
                 <div className="space-y-2 ml-4">
@@ -262,21 +262,21 @@ export default function WTICrudeOil() {
                 
                 <Card className="p-6 border-gold/20 bg-gold/5 mb-4 border-l-4 border-l-blue-500">
                   <h3 className="font-bold text-lg mb-2">{currentContent.scenarios.base.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-foreground leading-relaxed">
                     {currentContent.scenarios.base.content}
                   </p>
                 </Card>
 
                 <Card className="p-6 border-green-500/20 bg-green-500/5 mb-4 border-l-4 border-l-green-500">
                   <h3 className="font-bold text-lg mb-2">{currentContent.scenarios.upside.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-foreground leading-relaxed">
                     {currentContent.scenarios.upside.content}
                   </p>
                 </Card>
 
                 <Card className="p-6 border-red-500/20 bg-red-500/5 border-l-4 border-l-red-500">
                   <h3 className="font-bold text-lg mb-2">{currentContent.scenarios.downside.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-foreground leading-relaxed">
                     {currentContent.scenarios.downside.content}
                   </p>
                 </Card>
@@ -285,7 +285,7 @@ export default function WTICrudeOil() {
               {/* Bottom Line */}
               <section>
                 <h2 className="text-2xl font-bold mb-4">{currentContent.bottomLine.title}</h2>
-                <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
+                <p className="text-foreground leading-relaxed whitespace-pre-line">
                   {currentContent.bottomLine.content}
                 </p>
               </section>

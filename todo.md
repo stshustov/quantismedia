@@ -311,4 +311,13 @@
 - [x] Add bilingual support (EN/RU) for all scenario cards
 - [x] Update page title to "Scenario-Based Market Outlook" or "Institutional Market Scenarios"
 - [x] Test card display and language switching
+- [x] Push changes to GitHub
+
+## Text Readability Improvements
+- [x] Change main content text color from text-muted-foreground to text-foreground on WTI page
+- [x] Change main content text color from text-muted-foreground to text-foreground on Gold page
+- [x] Change main content text color from text-muted-foreground to text-foreground on Silver page
+- [x] Change main content text color from text-muted-foreground to text-foreground on Copper page
+- [x] Keep text-muted-foreground only for labels, metadata, and supplementary text
+- [x] Test readability on all pages
 - [ ] Push changes to GitHub
