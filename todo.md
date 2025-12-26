@@ -281,4 +281,4 @@
 - [x] Make breadcrumb links clickable on Gold page
 - [x] Make breadcrumb links clickable on Silver page
 - [x] Test navigation flow from asset pages back through hierarchy
-- [ ] Push fixes to GitHub
+- [x] Push fixes to GitHub
