@@ -40,6 +40,18 @@ export default function MarketInsightsArchive() {
   const archiveData = {
     energyMetals: [
       {
+        id: "gold-2024-12-26",
+        asset: language === "en" ? "Gold" : "Золото",
+        date: "2024-12-26",
+        displayDate: language === "en" ? "December 26, 2024" : "26 декабря 2024",
+        price: "~$4,50x/oz",
+        excerpt:
+          language === "en"
+            ? "Trading near record highs, structurally supported by CB demand and ETF inflows, tactically consolidation-prone."
+            : "Торгуется вблизи исторических максимумов, структурно поддержано спросом ЦБ и ETF, тактически склонно к консолидации.",
+        href: "/market-insights/energy-metals/metals/gold",
+      },
+      {
         id: "wti-2024-12-26",
         asset: language === "en" ? "WTI Crude Oil" : "Нефть WTI",
         date: "2024-12-26",

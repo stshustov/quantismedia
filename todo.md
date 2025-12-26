@@ -225,3 +225,14 @@
 - [x] Add Russian translation for disclaimer text at bottom of WTI page
 - [x] Test disclaimer switches with language toggle
 - [x] Push fix to GitHub
+
+## Gold Market Analysis Page
+- [x] Create Gold page component at `/market-insights/energy-metals/metals/gold`
+- [x] Add bilingual content (EN/RU) with language switcher
+- [x] Include all sections: Price anchor, Macro, Demand, Supply, Stocks, Positioning, Technical, Scenarios
+- [x] Add scenario blocks (Base/Upside/Downside) with visual distinction
+- [x] Include disclaimer with bilingual support
+- [x] Add route to App.tsx
+- [x] Update archive page to include Gold entry
+- [x] Test functionality and language switching
+- [ ] Push to GitHub
