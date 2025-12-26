@@ -1,0 +1,1 @@
+ALTER TABLE `users` ADD `telegramChannelLanguage` enum('en','ru') DEFAULT 'en' NOT NULL;

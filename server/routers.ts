@@ -241,6 +241,12 @@ export const appRouter = router({
     getAccess: subscriberProcedure.query(async ({ ctx }) => {
       return await db.getTelegramAccess(ctx.user.id);
     }),
+    updateChannelLanguage: subscriberProcedure
+      .input(z.object({ language: z.enum(["en", "ru"]) }))
+      .mutation(async ({ ctx, input }) => {
+        await db.updateUserTelegramLanguage(ctx.user.id, input.language);
+        return { success: true };
+      }),
     generateInvite: subscriberProcedure.mutation(async ({ ctx }) => {
       // TODO: Implement actual Telegram invite link generation
       const inviteLink = `https://t.me/+PLACEHOLDER_${ctx.user.id}`;

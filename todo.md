@@ -490,3 +490,15 @@
 - [x] Test all functionality (EN/RU switching, navigation, share buttons)
 - [x] Verify TypeScript: no errors
 - [x] Date set to December 26, 2025
+
+## Telegram Channel Language Selection
+- [x] Update TelegramAccess.tsx with language selection UI (EN/RU toggle)
+- [x] Add 4 channel structure: Pro EN, Pro RU, Core EN, Core RU
+- [x] Implement dynamic link generation based on subscription tier + language
+- [x] Add channel descriptions explaining comment-only access
+- [x] Update database schema to store user's preferred channel language (telegramChannelLanguage field)
+- [x] Create tRPC procedure to save/retrieve channel language preference (telegram.updateChannelLanguage)
+- [x] Add explanatory text about channel structure and comments
+- [x] Test all combinations (Pro EN/RU, Core EN/RU) - working perfectly
+- [x] Full bilingual support (EN/RU) for page interface
+- [ ] Update Pricing page to mention bilingual channels (optional - can be done later)

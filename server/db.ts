@@ -117,6 +117,13 @@ export async function updateUserLanguage(userId: number, language: "en" | "ru") 
   await db.update(users).set({ language }).where(eq(users.id, userId));
 }
 
+export async function updateUserTelegramLanguage(userId: number, language: "en" | "ru") {
+  const db = await getDb();
+  if (!db) return;
+
+  await db.update(users).set({ telegramChannelLanguage: language }).where(eq(users.id, userId));
+}
+
 export async function acceptTerms(userId: number) {
   const db = await getDb();
   if (!db) return;

@@ -14,6 +14,7 @@ export const users = mysqlTable("users", {
   updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
   lastSignedIn: timestamp("lastSignedIn").defaultNow().notNull(),
   language: mysqlEnum("language", ["en", "ru"]).default("en").notNull(),
+  telegramChannelLanguage: mysqlEnum("telegramChannelLanguage", ["en", "ru"]).default("en").notNull(),
   termsAccepted: boolean("termsAccepted").default(false).notNull(),
   termsAcceptedAt: timestamp("termsAcceptedAt"),
   // Subscription tracking
