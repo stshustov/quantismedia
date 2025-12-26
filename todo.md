@@ -224,4 +224,4 @@
 ## Fix WTI Page Disclaimer Translation
 - [x] Add Russian translation for disclaimer text at bottom of WTI page
 - [x] Test disclaimer switches with language toggle
-- [ ] Push fix to GitHub
+- [x] Push fix to GitHub
