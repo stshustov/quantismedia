@@ -219,4 +219,4 @@
 - [x] Add bilingual support for archive page
 - [x] Add navigation link to archive from Market Insights page
 - [x] Test archive functionality
-- [ ] Push changes to GitHub and verify on Render
+- [x] Push changes to GitHub and verify on Render
