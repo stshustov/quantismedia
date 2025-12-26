@@ -502,3 +502,6 @@
 - [x] Test all combinations (Pro EN/RU, Core EN/RU) - working perfectly
 - [x] Full bilingual support (EN/RU) for page interface
 - [ ] Update Pricing page to mention bilingual channels (optional - can be done later)
+
+## Translation Improvement - Telegram Access Page
+- [x] Update Russian translation: "Распространение" → "Публикация рыночной аналитики в реальном времени"
