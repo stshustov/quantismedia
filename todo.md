@@ -266,4 +266,4 @@
 - [x] Add Russian translations for breadcrumb navigation on Silver page
 - [x] Fix WTI and Gold pages
 - [x] Test language switching and breadcrumb display
-- [ ] Push fixes to GitHub
+- [x] Push fixes to GitHub
