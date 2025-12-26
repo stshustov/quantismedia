@@ -4,8 +4,10 @@ import { useAuth } from "@/_core/hooks/useAuth";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "wouter";
-import { TrendingUp, History, MessageSquare, Users, Calendar, Eye, Clock, Badge as BadgeIcon } from "lucide-react";
+import { TrendingUp, History, MessageSquare, Users, Calendar, Eye, Clock, Badge as BadgeIcon, AlertCircle, ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { useEffect } from "react";
 import { useLocation } from "wouter";
 
@@ -27,30 +29,6 @@ export default function Dashboard() {
   const isPro = ["pro", "admin"].includes(user.role);
   const { language } = useLanguage();
 
-  if (!isSubscriber) {
-    return (
-      <div className="min-h-screen flex flex-col">
-        <Navigation />
-        <main className="flex-1 py-20">
-          <div className="container mx-auto px-4 text-center">
-            <h1 className="text-3xl font-bold mb-4">
-              {language === "en" ? "Subscription Required" : "Требуется подписка"}
-            </h1>
-            <p className="mb-8">
-              {language === "en" 
-                ? "Please subscribe to access the dashboard." 
-                : "Пожалуйста, оформите подписку для доступа к личному кабинету."}
-            </p>
-            <Link href="/pricing"><a className="text-primary hover:underline">
-              {language === "en" ? "View Pricing" : "Смотреть тарифы"}
-            </a></Link>
-          </div>
-        </main>
-        <Footer />
-      </div>
-    );
-  }
-
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
@@ -62,9 +40,11 @@ export default function Dashboard() {
               <h1 className="text-4xl font-bold">
                 {language === "en" ? `Welcome back, ${user.name || "User"}!` : `С возвращением, ${user.name || "Пользователь"}!`}
               </h1>
-              <Badge variant={isPro ? "default" : "secondary"} className="text-lg px-4 py-1">
-                {isPro ? "Pro" : "Core"}
-              </Badge>
+              {isSubscriber && (
+                <Badge variant={isPro ? "default" : "secondary"} className="text-lg px-4 py-1">
+                  {isPro ? "Pro" : "Core"}
+                </Badge>
+              )}
             </div>
             <p className="text-muted-foreground">
               {language === "en" 
@@ -72,6 +52,29 @@ export default function Dashboard() {
                 : `Последний вход: ${new Date(user.lastSignedIn).toLocaleDateString("ru-RU", { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" })}`}
             </p>
           </div>
+
+          {/* Upgrade Banner for Non-Subscribers */}
+          {!isSubscriber && (
+            <Alert className="mb-8 border-primary/50 bg-primary/5">
+              <AlertCircle className="h-5 w-5 text-primary" />
+              <AlertTitle className="text-lg font-semibold">
+                {language === "en" ? "Unlock Full Access" : "Откройте полный доступ"}
+              </AlertTitle>
+              <AlertDescription className="mt-2">
+                <p className="mb-4">
+                  {language === "en" 
+                    ? "Subscribe to access trading scenarios, market analysis, and exclusive Telegram channels."
+                    : "Подпишитесь, чтобы получить доступ к торговым сценариям, рыночной аналитике и эксклюзивным Telegram каналам."}
+                </p>
+                <Link href="/pricing">
+                  <Button className="bg-primary hover:bg-primary/90">
+                    {language === "en" ? "View Plans" : "Смотреть тарифы"}
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </AlertDescription>
+            </Alert>
+          )}
 
           {/* Quick Stats Bar */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">

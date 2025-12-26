@@ -4,10 +4,13 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "wouter";
+import { getLoginUrl } from "@/const";
+import { useAuth } from "@/_core/hooks/useAuth";
 import { TrendingUp, Shield, Globe, BarChart3, AlertCircle } from "lucide-react";
 
 export default function Home() {
   const { language, t } = useLanguage();
+  const { isAuthenticated } = useAuth();
 
   const features = language === "en" ? [
     {
@@ -82,11 +85,21 @@ export default function Home() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Link href="/pricing">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 text-lg">
+              {isAuthenticated ? (
+                <Link href="/dashboard">
+                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 text-lg">
+                    {language === "en" ? "Go to Dashboard" : "Перейти в панель"}
+                  </Button>
+                </Link>
+              ) : (
+                <Button 
+                  size="lg" 
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 text-lg"
+                  onClick={() => window.location.href = getLoginUrl()}
+                >
                   {language === "en" ? "Get Started" : "Начать"}
                 </Button>
-              </Link>
+              )}
               <Link href="/sample-ideas">
                 <Button size="lg" variant="outline" className="border-2 border-primary/30 hover:border-primary text-white px-8 py-6 text-lg">
                   {language === "en" ? "Sample Ideas" : "Примеры идей"}
