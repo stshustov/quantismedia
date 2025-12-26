@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
+import ShareButtons from "@/components/ShareButtons";
 import { Card } from "@/components/ui/card";
 
 
@@ -218,6 +219,18 @@ export default function GoldAnalysis() {
 
 
               <h1 className="text-4xl font-bold mb-6">{currentContent.title}</h1>
+              
+              {/* Share Buttons */}
+              <div className="mb-6">
+                <ShareButtons 
+                  title={currentContent.title}
+                  url="/market-insights/energy-metals/metals/gold"
+                  description={language === "en" 
+                    ? "Gold market analysis and short-term outlook from Quantis Media"
+                    : "Анализ рынка золота и краткосрочный прогноз от Quantis Media"
+                  }
+                />
+              </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                 <Card className="p-4">

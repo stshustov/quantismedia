@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
+import ShareButtons from "@/components/ShareButtons";
 import { Card } from "@/components/ui/card";
 
 
@@ -218,6 +219,18 @@ export default function SilverAnalysis() {
               <h1 className="text-4xl font-bold mb-8">{currentContent.title}</h1>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              
+              {/* Share Buttons */}
+              <div className="mb-6">
+                <ShareButtons 
+                  title={currentContent.title}
+                  url="/market-insights/energy-metals/metals/silver"
+                  description={language === "en" 
+                    ? "Silver market analysis and short-term outlook from Quantis Media"
+                    : "Анализ рынка серебра и краткосрочный прогноз от Quantis Media"
+                  }
+                />
+              </div>
                 <Card className="p-6 bg-card/50">
                   <div className="text-sm text-muted-foreground mb-2">
                     {language === "en" ? "Time Horizon" : "Временной горизонт"}

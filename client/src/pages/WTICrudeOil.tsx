@@ -4,6 +4,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Card } from "@/components/ui/card";
+import ShareButtons from "@/components/ShareButtons";
 
 
 export default function WTICrudeOil() {
@@ -169,9 +170,19 @@ export default function WTICrudeOil() {
 
             {/* Header Section */}
             <div className="max-w-[760px] mx-auto mb-12">
-
-
               <h1 className="text-4xl font-bold mb-6">{currentContent.title}</h1>
+              
+              {/* Share Buttons */}
+              <div className="mb-6">
+                <ShareButtons 
+                  title={currentContent.title}
+                  url="/market-insights/energy-metals/energy/wti-crude-oil"
+                  description={language === "en" 
+                    ? "WTI Crude Oil market analysis and short-term outlook from Quantis Media"
+                    : "Анализ рынка нефти WTI и краткосрочный прогноз от Quantis Media"
+                  }
+                />
+              </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
                 <Card className="p-4">

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
+import ShareButtons from "@/components/ShareButtons";
 
 export default function CopperAnalysis() {
   const { language } = useLanguage();
@@ -218,6 +219,18 @@ export default function CopperAnalysis() {
                 <span className="text-xl">⛏️</span>
                 {currentContent.supply.title}
               </h2>
+              
+              {/* Share Buttons */}
+              <div className="mb-6">
+                <ShareButtons 
+                  title={currentContent.title}
+                  url="/market-insights/energy-metals/metals/copper"
+                  description={language === "en" 
+                    ? "Copper market analysis and short-term outlook from Quantis Media"
+                    : "Анализ рынка меди и краткосрочный прогноз от Quantis Media"
+                  }
+                />
+              </div>
               <p className="text-foreground leading-relaxed whitespace-pre-line">
                 {currentContent.supply.content}
               </p>

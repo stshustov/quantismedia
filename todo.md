@@ -327,4 +327,17 @@
 - [x] Change bullet points text from text-muted-foreground to text-foreground
 - [x] Keep only labels/metadata as muted
 - [x] Test Sample Ideas page readability
+- [x] Push changes to GitHub
+
+## Social Sharing Buttons Feature
+- [x] Create ShareButtons component with Twitter and LinkedIn share functionality
+- [x] Add Twitter share button with pre-filled text and URL
+- [x] Add LinkedIn share button with URL sharing
+- [x] Add copy link button for easy sharing
+- [x] Style buttons to match site design (icons + hover effects)
+- [x] Add ShareButtons to WTI Crude Oil page
+- [x] Add ShareButtons to Gold Analysis page
+- [x] Add ShareButtons to Silver Analysis page
+- [x] Add ShareButtons to Copper Analysis page
+- [x] Test sharing functionality on all pages
 - [ ] Push changes to GitHub
