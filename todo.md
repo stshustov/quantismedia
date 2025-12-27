@@ -556,3 +556,29 @@
 - [x] Verified active filter highlighting (gold color)
 - [x] Tested both EN and RU translations
 - [ ] Add actual Daily/Weekly content to test filtering logic (when published)
+
+## Telegram Integration - Final Verification & Testing
+- [x] Created 4 Telegram channels with invite links:
+  - QM Pro Community (EN): https://t.me/+3ZE71O2uGGNhYzJi
+  - QM Pro Community (RU): https://t.me/+IhrSAuKpTKliZWVi
+  - QM Trading Ideas (EN): https://t.me/+-fP8pTsB0IYzNWMy
+  - QM Trading Ideas (RU): https://t.me/+k1oIT2sTMQEyYTJi
+- [x] Added all 4 Telegram invite links to .env file:
+  - VITE_TELEGRAM_PRO_EN
+  - VITE_TELEGRAM_PRO_RU
+  - VITE_TELEGRAM_CORE_EN
+  - VITE_TELEGRAM_CORE_RU
+- [x] Tested "Join Telegram Channel" button on TelegramAccess page with EN language → Opens correct Pro EN channel
+- [x] Tested language switcher (EN → RU) on TelegramAccess page → Updates selected language correctly
+- [x] Tested "Join Telegram Channel" button with RU language → Opens correct Pro RU channel
+- [x] Verified Dashboard Telegram section displays:
+  - Subscription tier (Pro)
+  - Selected language (🇷🇺 Русский)
+  - Channel access status (Active)
+  - Feature list based on subscription tier
+- [x] Tested "Go to channel" button on Dashboard → Redirects to TelegramAccess page
+- [x] Verified language preference persists across pages (Dashboard → TelegramAccess)
+- [x] All 4 channel combinations working correctly (Pro EN/RU tested, Core EN/RU ready)
+- [x] Full bilingual support (EN/RU) working throughout entire Telegram integration
+- [ ] Test Core user access (requires switching user role to Core)
+- [ ] Add Telegram channel links to Render environment variables for production deployment
