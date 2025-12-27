@@ -969,4 +969,45 @@
 - [x] Market Insights shows both Published and Last Updated
 - [x] All Invalidation/Target labels include "(reference)" suffix
 - [x] Bilingual support for all new labels (RU/EN)
-- [ ] Create checkpoint with ТЗ implementation
+- [x] Create checkpoint with ТЗ implementation
+
+## Trading Ideas Bug Fixes
+
+### Issues Reported
+- [ ] CTA button "Read Full Market Insight" leads to 404 error (incorrect URL)
+- [ ] Gold Invalidation/Target data doesn't match GoldAnalysis.tsx actual values
+- [ ] Need to verify Invalidation/Target data for all other instruments (WTI, Silver, Copper, S&P 500)
+
+### Bug Analysis
+- [ ] Check scenarios.ts fullAnalysisUrl field for all instruments
+- [ ] Compare scenarios.ts Invalidation/Target with actual Market Insights pages
+- [ ] Identify URL pattern mismatch causing 404
+
+### Fixes Required
+- [ ] Fix fullAnalysisUrl in scenarios.ts to point to correct Market Insights pages
+- [ ] Update Gold Invalidation/Target data to match GoldAnalysis.tsx
+- [ ] Verify and update WTI Invalidation/Target data
+- [ ] Verify and update Silver Invalidation/Target data
+- [ ] Verify and update Copper Invalidation/Target data
+- [ ] Verify and update S&P 500 Invalidation/Target data
+
+### Testing
+- [ ] Test CTA button for Gold → should navigate to /market-insights/energy-metals/gold
+- [ ] Test CTA button for WTI → should navigate to /market-insights/energy-metals/wti-crude-oil
+- [ ] Test CTA button for Silver → should navigate to /market-insights/energy-metals/silver
+- [ ] Test CTA button for Copper → should navigate to /market-insights/energy-metals/copper
+- [ ] Test CTA button for S&P 500 → should navigate to /market-insights/indices/spx500
+- [ ] Verify all Invalidation/Target values match Market Insights pages
+- [ ] Create checkpoint with bug fixes
+
+## Trading Ideas Data Synchronization & Routing Fixes
+- [x] Identify data discrepancies between Trading Ideas preview cards and Market Insights analysis pages
+- [x] Fix Silver (XAGUSD) market context and base scenario (updated from $30-32 range to correct $74-75 range)
+- [x] Fix S&P 500 (SPX500) market context and base scenario (updated from 5950-6050 to correct 4980-5020 range)
+- [x] Fix Gold (XAUUSD) routing - add /metals/ segment to URL path
+- [x] Fix Silver (XAGUSD) routing - add /metals/ segment to URL path
+- [x] Fix Copper (HG) routing - add /metals/ segment to URL path
+- [x] Verify all "Read Full Market Insight" buttons navigate correctly without 404 errors
+- [x] Verify 100% data consistency across all 5 instruments (WTI, Gold, Silver, Copper, S&P 500)
+- [x] Test navigation flow from Trading Ideas to each Market Insights analysis page
+- [x] Document all changes and verification results

@@ -9,7 +9,9 @@ import { useEffect, useState, useMemo } from "react";
 import { useLocation } from "wouter";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { scenarios, type AssetClass, type ScenarioStatus, getRelativeTime } from "@/data/scenarios";
+import { scenarios, type ScenarioStatus, getRelativeTime } from "@/data/scenarios";
+
+type AssetClass = "indices" | "fx" | "energy" | "metals";
 import { ArrowRight } from "lucide-react";
 
 type AssetClassFilter = "all" | AssetClass;
@@ -34,10 +36,10 @@ export default function TradingIdeas() {
     
     // Group energy and metals together
     if (selectedAssetClass === "energy") {
-      return scenarios.filter(s => s.assetClass === "energy" || s.assetClass === "metals");
+      return scenarios.filter(s => s.market === "energy" || s.market === "metals");
     }
     
-    return scenarios.filter(s => s.assetClass === selectedAssetClass);
+    return scenarios.filter(s => s.market === selectedAssetClass);
   }, [selectedAssetClass]);
 
   // Get unique instruments from filtered scenarios
@@ -162,7 +164,7 @@ export default function TradingIdeas() {
                         
                         {/* Category Badge */}
                         <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wide rounded-full bg-primary/10 text-primary">
-                          {assetClassDisplayLabels[scenario.assetClass]}
+                          {assetClassDisplayLabels[scenario.market]}
                         </span>
                         
                         {/* Status Badge */}
