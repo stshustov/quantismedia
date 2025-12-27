@@ -698,3 +698,14 @@
 - [x] Update "Your Access Level" to use tier labels from tierLabels.ts (Pro → Scenario Intelligence, Core → Scenario Access)
 - [x] Test with both pro and core user roles (admin displays correctly as "Admin")
 - [x] Create checkpoint with access level display fix
+
+## How It Works Page - Interactive Cards
+- [x] Analyze current HowItWorks page structure and card layout
+- [x] Add expanded content for all 4 steps (RU/EN bilingual)
+- [x] Implement accordion functionality (one open at a time)
+- [x] Add chevron icon indicator (↓ collapsed, ↑ expanded)
+- [x] Add smooth expand/collapse animation (150-250ms ease-in-out)
+- [x] Implement keyboard accessibility (Enter/Space to toggle)
+- [x] Add ARIA attributes (aria-expanded, aria-controls)
+- [x] Test with both EN/RU languages (tested EN and RU, accordion mode works perfectly)
+- [x] Create checkpoint with interactive How It Works cards
