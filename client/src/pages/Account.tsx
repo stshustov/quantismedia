@@ -62,10 +62,10 @@ export default function Account() {
       title: language === "en" ? "Telegram Access" : "Доступ к Telegram",
       channel: language === "en" ? "Trading Ideas Channel" : "Канал торговых идей",
       channelDesc: language === "en" ? "Get notifications about new scenarios" : "Получайте уведомления о новых сценариях",
-      community: language === "en" ? "Pro Community" : "Pro сообщество",
-      communityDesc: language === "en" ? "Exclusive discussions with Pro members" : "Эксклюзивные обсуждения с Pro участниками",
-      proOnly: language === "en" ? "Pro only" : "Только для Pro",
-      upgradeToPro: language === "en" ? "Upgrade to Pro" : "Перейти на Pro",
+      community: language === "en" ? "Analytical Discussions" : "Аналитические обсуждения",
+      communityDesc: language === "en" ? "Optional access to closed analytical discussions" : "Опциональный доступ к закрытым аналитическим обсуждениям",
+      proOnly: language === "en" ? "Intelligence only" : "Только Intelligence",
+      upgradeToPro: language === "en" ? "Upgrade to Intelligence" : "Перейти на Intelligence",
       openChannel: language === "en" ? "Open Channel" : "Открыть канал",
       openCommunity: language === "en" ? "Open Community" : "Открыть сообщество",
     },
@@ -77,10 +77,10 @@ export default function Account() {
       updateProfile: language === "en" ? "Update Profile" : "Обновить профиль",
     },
     upgrade: {
-      title: language === "en" ? "Upgrade to Pro" : "Перейти на Pro",
+      title: language === "en" ? "Upgrade to Scenario Intelligence" : "Перейти на Scenario Intelligence",
       description: language === "en" 
-        ? "Unlock extended scenarios, Pro community access, and priority support for just $50/month more."
-        : "Разблокируйте расширенные сценарии, доступ к Pro сообществу и приоритетную поддержку всего за $50/месяц.",
+        ? "Unlock extended scenario frameworks, analytical bias & weighting, and priority support for just $50/month more."
+        : "Разблокируйте расширенные сценарные фреймворки, аналитический уклон и приоритетную поддержку всего за $50/месяц.",
       comparePlans: language === "en" ? "Compare Plans" : "Сравнить планы",
       upgradeNow: language === "en" ? "Upgrade Now" : "Перейти сейчас",
     },
@@ -117,9 +117,11 @@ export default function Account() {
                 <div>
                   <div className="text-sm text-muted-foreground mb-1">{t.subscription.plan}</div>
                   <div className="flex items-center gap-2">
-                    <span className="text-2xl font-bold capitalize">{user.role}</span>
+                    <span className="text-2xl font-bold">
+                      {isPro ? "Scenario Intelligence" : "Scenario Access"}
+                    </span>
                     <Badge variant={isPro ? "default" : "secondary"}>
-                      {isPro ? "Pro" : "Core"}
+                      {isPro ? "$89/mo" : "$39/mo"}
                     </Badge>
                   </div>
                 </div>

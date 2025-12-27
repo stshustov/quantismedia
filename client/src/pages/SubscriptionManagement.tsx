@@ -101,21 +101,21 @@ export default function SubscriptionManagement() {
     },
 
     upgradeDialog: {
-      title: language === "en" ? "Upgrade to Pro" : "Обновить до Pro",
+      title: language === "en" ? "Upgrade to Scenario Intelligence" : "Обновить до Scenario Intelligence",
       description: language === "en"
-        ? "Upgrade to Pro plan for $89/month and get access to extended scenarios, Pro community, and priority support. Your card will be charged the prorated amount immediately."
-        : "Обновите до Pro плана за $89/месяц и получите доступ к расширенным сценариям, Pro сообществу и приоритетной поддержке. С вашей карты будет списана пропорциональная сумма немедленно.",
+        ? "Upgrade to Scenario Intelligence for $89/month and get access to extended scenario frameworks, analytical bias & weighting, and priority support. Your card will be charged the prorated amount immediately."
+        : "Обновите до Scenario Intelligence за $89/месяц и получите доступ к расширенным сценарным фреймворкам, аналитическому уклону и приоритетной поддержке. С вашей карты будет списана пропорциональная сумма немедленно.",
       confirm: language === "en" ? "Upgrade Now" : "Обновить сейчас",
       cancel: language === "en" ? "Maybe Later" : "Может быть позже",
     },
 
     downgradeDialog: {
-      title: language === "en" ? "Downgrade to Core" : "Понизить до Core",
+      title: language === "en" ? "Downgrade to Scenario Access" : "Понизить до Scenario Access",
       description: language === "en"
-        ? "Downgrade to Core plan for $39/month. You will lose access to Pro community and extended scenarios at the end of your current billing period."
-        : "Понизьте до Core плана за $39/месяц. Вы потеряете доступ к Pro сообществу и расширенным сценариям в конце текущего платёжного периода.",
-      confirm: language === "en" ? "Downgrade to Core" : "Понизить до Core",
-      cancel: language === "en" ? "Keep Pro" : "Оставить Pro",
+        ? "Downgrade to Scenario Access for $39/month. You will lose access to extended scenario frameworks and analytical bias at the end of your current billing period."
+        : "Понизьте до Scenario Access за $39/месяц. Вы потеряете доступ к расширенным сценарным фреймворкам и аналитическому уклону в конце текущего платёжного периода.",
+      confirm: language === "en" ? "Downgrade to Scenario Access" : "Понизить до Scenario Access",
+      cancel: language === "en" ? "Keep Intelligence" : "Оставить Intelligence",
     },
   };
 

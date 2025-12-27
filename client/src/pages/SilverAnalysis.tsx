@@ -6,6 +6,9 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import ShareButtons from "@/components/ShareButtons";
 import { Card } from "@/components/ui/card";
 import { useTrackScenarioView } from "@/hooks/useTrackScenarioView";
+import { useAuth } from "@/_core/hooks/useAuth";
+import PaywallBlur from "@/components/PaywallBlur";
+import { truncateText, isContentLocked } from "../../../shared/paywall";
 
 
 export default function SilverAnalysis() {
@@ -13,6 +16,8 @@ export default function SilverAnalysis() {
   
   // Track page view for analytics
   useTrackScenarioView("silver-analysis", "Silver Market Analysis");
+  const { user } = useAuth();
+  const isLocked = isContentLocked(user?.role);
 
   const content = {
     en: {
@@ -55,7 +60,7 @@ export default function SilverAnalysis() {
       positioning: {
         title: "Positioning & Liquidity",
         content:
-          "In the next few days, the market will be especially sensitive to any signals of \"tightness\" (warehouse levels/deliverability), as the momentum is already \"momentum-driven.\" In such regimes, silver often shows extended candles and sharp \"spike\" levels.",
+          "In the next few days, the market will be especially sensitive to any indications of \"tightness\" (warehouse levels/deliverability), as the momentum is already \"momentum-driven.\" In such regimes, silver often shows extended candles and sharp \"spike\" levels.",
       },
 
       technical: {
@@ -347,36 +352,49 @@ export default function SilverAnalysis() {
               </section>
 
               {/* Scenarios */}
-              <section>
+              <section className="relative">
                 <h2 className="text-2xl font-bold mb-6">{currentContent.scenarios.title}</h2>
 
                 <div className="space-y-4">
                   {/* Base Case */}
                   <Card className="p-6 border-l-4 border-l-blue-500 bg-blue-500/5">
                     <h3 className="font-bold text-lg mb-2">{currentContent.scenarios.base.title}</h3>
-                    <p className="text-foreground">{currentContent.scenarios.base.content}</p>
-                  </Card>
-
-                  {/* Upside */}
-                  <Card className="p-6 border-l-4 border-l-green-500 bg-green-500/5">
-                    <h3 className="font-bold text-lg mb-2">
-                      {currentContent.scenarios.upside.title}
-                    </h3>
                     <p className="text-foreground">
-                      {currentContent.scenarios.upside.content}
+                      {isLocked ? truncateText(currentContent.scenarios.base.content, 350) : currentContent.scenarios.base.content}
                     </p>
                   </Card>
 
-                  {/* Downside */}
-                  <Card className="p-6 border-l-4 border-l-red-500 bg-red-500/5">
-                    <h3 className="font-bold text-lg mb-2">
-                      {currentContent.scenarios.downside.title}
-                    </h3>
-                    <p className="text-foreground">
-                      {currentContent.scenarios.downside.content}
-                    </p>
-                  </Card>
+                  {!isLocked && (
+                    <>
+                      {/* Upside */}
+                      <Card className="p-6 border-l-4 border-l-green-500 bg-green-500/5">
+                        <h3 className="font-bold text-lg mb-2">
+                          {currentContent.scenarios.upside.title}
+                        </h3>
+                        <p className="text-foreground">
+                          {currentContent.scenarios.upside.content}
+                        </p>
+                      </Card>
+
+                      {/* Downside */}
+                      <Card className="p-6 border-l-4 border-l-red-500 bg-red-500/5">
+                        <h3 className="font-bold text-lg mb-2">
+                          {currentContent.scenarios.downside.title}
+                        </h3>
+                        <p className="text-foreground">
+                          {currentContent.scenarios.downside.content}
+                        </p>
+                      </Card>
+                    </>
+                  )}
                 </div>
+                
+                {/* Paywall Overlay */}
+                {isLocked && (
+                  <div className="mt-8">
+                    <PaywallBlur isLocked={isLocked} />
+                  </div>
+                )}
               </section>
 
               {/* Bottom Line */}

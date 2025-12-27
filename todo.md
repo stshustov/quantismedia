@@ -582,3 +582,94 @@
 - [x] Full bilingual support (EN/RU) working throughout entire Telegram integration
 - [ ] Test Core user access (requires switching user role to Core)
 - [ ] Add Telegram channel links to Render environment variables for production deployment
+
+## Product Strategy Update v1 - Finalized Positioning & Tiers
+
+### Phase 1: Subscription Tier Restructuring
+- [ ] Rename "Core" tier to "Scenario Access" ($39/month)
+- [ ] Rename "Pro" tier to "Scenario Intelligence" ($89/month)
+- [ ] Add "Public" tier (free) with limited preview access
+- [ ] Update database schema: change role enum from 'core'/'pro' to 'public'/'scenario_access'/'scenario_intelligence'
+- [ ] Update all backend procedures to use new tier names
+- [ ] Update all frontend components to use new tier names
+- [ ] Test tier-based access control with new naming
+
+### Phase 2: Pricing Page Redesign
+- [ ] Update Pricing page with new tier structure (Public/Scenario Access/Scenario Intelligence)
+- [ ] Add "Public - Market Preview" tier card with $0/month pricing
+- [ ] Update "Scenario Access" tier description (was Core)
+- [ ] Update "Scenario Intelligence" tier description (was Pro)
+- [ ] Add "Why Scenario-Based Analysis Works" educational block under pricing cards
+- [ ] Update CTAs: "Unlock full market framework", "Open full scenario access", "Upgrade to Intelligence level"
+- [ ] Add disclaimer about community being optional, not core value
+- [ ] Full bilingual support (EN/RU) for all new content
+- [ ] Test responsive design for new pricing structure
+
+### Phase 3: Paywall Logic Implementation
+- [ ] Implement blur/fade effect for Public tier users on scenario pages
+- [ ] Show Market Context (full) to Public users
+- [ ] Show Base Scenario (50%, truncated) to Public users
+- [ ] Show partial analytical levels to Public users
+- [ ] Add "Unlock full market framework" CTA for Public users
+- [ ] Ensure Scenario Access users see full scenario framework
+- [ ] Ensure Scenario Intelligence users see extended frameworks + bias/weighting
+- [ ] Test paywall on all market analysis pages (WTI, Gold, Silver, Copper, SPX500)
+
+### Phase 4: Terminology Audit & Updates
+- [ ] Search and replace forbidden terms: "signals" → "scenarios"
+- [ ] Verify no "buy/sell" language in user-facing content
+- [ ] Verify no "entry/stop/target" language in content
+- [ ] Replace "guaranteed/high probability" with "scenario framework"
+- [ ] Update all content to use preferred terms: framework, context, scenario, range, structure, bias, regime
+- [ ] Update Russian translations with correct terminology
+- [ ] Add mandatory disclaimer to all scenario pages: "Analytical scenario. Not a trading instruction."
+
+### Phase 5: Dashboard & Navigation Updates
+- [ ] Update Dashboard tier badges (Public/Scenario Access/Scenario Intelligence)
+- [ ] Update Dashboard card descriptions for new tier structure
+- [ ] Update navigation to reflect new positioning
+- [ ] Update Account page with new tier names
+- [ ] Update Subscription Management page with new tier comparison
+- [ ] Update Billing History page references
+- [ ] Test all tier-specific features with new naming
+
+### Phase 6: Content Model Updates
+- [ ] Ensure all scenario pages follow standardized structure:
+  - Instrument, Category, Time Horizon, Last Update
+  - Market Context (2-3 sentences)
+  - Scenario Framework (Base/Upside/Downside)
+  - Analytical Reference Levels (Support/Resistance, Pivot, Risk Boundary)
+  - Interpretation (no trade instructions)
+  - Mandatory disclaimer
+- [ ] Verify SPX500 page follows new structure
+- [ ] Verify all Energy & Metals pages follow new structure
+- [ ] Add scenario weighting/bias section for Scenario Intelligence tier (future)
+
+### Phase 7: Testing & Verification
+- [ ] Test Public tier access (limited preview with blur)
+- [ ] Test Scenario Access tier (full scenarios)
+- [ ] Test Scenario Intelligence tier (extended frameworks)
+- [ ] Verify all terminology changes applied correctly
+- [ ] Test bilingual support (EN/RU) for all new content
+- [ ] Run vitest tests to ensure no breaking changes
+- [ ] Create checkpoint with product strategy v1 implementation
+
+## Product Strategy Update v1 - Tier Rebranding & Paywall
+- [x] Create centralized tier labels mapping module (shared/tierLabels.ts)
+- [x] Update Pricing page with new tier structure (Market Preview / Scenario Access / Scenario Intelligence)
+- [x] Add "Why Scenario-Based Analysis Works" educational section to Pricing
+- [x] Update Dashboard tier display with new labels
+- [x] Update Account page tier references
+- [x] Update SubscriptionManagement dialogs with new terminology
+- [x] Remove forbidden terminology (signals → indications, signal → indicate)
+- [x] Create PaywallBlur component with blur/fade overlay + CTA
+- [x] Implement content truncation logic (Base Scenario ~350 chars)
+- [x] Add paywall to WTI Crude Oil page
+- [x] Add paywall to Gold Analysis page
+- [x] Add paywall to Silver Analysis page
+- [x] Add paywall to Copper Analysis page
+- [x] Add paywall to SPX500 Analysis page
+- [x] Public users see: Market Context + truncated Base + PaywallBlur overlay
+- [x] Subscribers see: Full content without restrictions
+- [x] Test paywall functionality with different user roles (admin sees full content, guest logic implemented)
+- [x] Create final checkpoint with product strategy updates

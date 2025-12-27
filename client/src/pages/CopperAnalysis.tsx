@@ -3,12 +3,17 @@ import { Card } from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
 import ShareButtons from "@/components/ShareButtons";
 import { useTrackScenarioView } from "@/hooks/useTrackScenarioView";
+import { useAuth } from "@/_core/hooks/useAuth";
+import PaywallBlur from "@/components/PaywallBlur";
+import { truncateText, isContentLocked } from "../../../shared/paywall";
 
 export default function CopperAnalysis() {
   const { language } = useLanguage();
   
   // Track page view for analytics
   useTrackScenarioView("copper-analysis", "Copper Market Analysis");
+  const { user } = useAuth();
+  const isLocked = isContentLocked(user?.role);
 
   const content = {
     en: {
@@ -278,29 +283,40 @@ export default function CopperAnalysis() {
             </section>
 
             {/* Scenario Outlook */}
-            <section>
+            <section className="relative">
               <h2 className="text-2xl font-bold mb-6">{currentContent.scenarios.title}</h2>
 
               <Card className="p-6 mb-4 border-blue-500/20 bg-blue-500/5 border-l-4 border-l-blue-500">
                 <h3 className="font-bold text-lg mb-2">{currentContent.scenarios.base.title}</h3>
                 <p className="text-foreground leading-relaxed">
-                  {currentContent.scenarios.base.content}
+                  {isLocked ? truncateText(currentContent.scenarios.base.content, 350) : currentContent.scenarios.base.content}
                 </p>
               </Card>
 
-              <Card className="p-6 mb-4 border-green-500/20 bg-green-500/5 border-l-4 border-l-green-500">
-                <h3 className="font-bold text-lg mb-2">{currentContent.scenarios.upside.title}</h3>
-                <p className="text-foreground leading-relaxed">
-                  {currentContent.scenarios.upside.content}
-                </p>
-              </Card>
+              {!isLocked && (
+                <>
+                  <Card className="p-6 mb-4 border-green-500/20 bg-green-500/5 border-l-4 border-l-green-500">
+                    <h3 className="font-bold text-lg mb-2">{currentContent.scenarios.upside.title}</h3>
+                    <p className="text-foreground leading-relaxed">
+                      {currentContent.scenarios.upside.content}
+                    </p>
+                  </Card>
 
-              <Card className="p-6 border-red-500/20 bg-red-500/5 border-l-4 border-l-red-500">
-                <h3 className="font-bold text-lg mb-2">{currentContent.scenarios.downside.title}</h3>
-                <p className="text-foreground leading-relaxed">
-                  {currentContent.scenarios.downside.content}
-                </p>
-              </Card>
+                  <Card className="p-6 border-red-500/20 bg-red-500/5 border-l-4 border-l-red-500">
+                    <h3 className="font-bold text-lg mb-2">{currentContent.scenarios.downside.title}</h3>
+                    <p className="text-foreground leading-relaxed">
+                      {currentContent.scenarios.downside.content}
+                    </p>
+                  </Card>
+                </>
+              )}
+              
+              {/* Paywall Overlay */}
+              {isLocked && (
+                <div className="mt-8">
+                  <PaywallBlur isLocked={isLocked} />
+                </div>
+              )}
             </section>
 
             {/* Bottom Line */}

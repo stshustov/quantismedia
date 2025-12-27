@@ -6,12 +6,19 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "wouter";
 import ShareButtons from "@/components/ShareButtons";
 import { useTrackScenarioView } from "@/hooks/useTrackScenarioView";
+import { useAuth } from "@/_core/hooks/useAuth";
+import PaywallBlur from "@/components/PaywallBlur";
+import { truncateText, isContentLocked } from "../../../shared/paywall";
 
 export default function SPX500Analysis() {
   const { language } = useLanguage();
+  const { user } = useAuth();
 
   // Track page view for analytics
   useTrackScenarioView("spx500-short-term", "S&P 500 (SPX500) Analysis");
+  
+  // Check if content should be locked
+  const isLocked = isContentLocked(user?.role);
 
   const content = {
     en: {
@@ -64,7 +71,7 @@ export default function SPX500Analysis() {
           },
           downside: {
             title: "Downside Scenario — Tactical Pullback",
-            content: "A break below 6,900 opens the 6,888–6,872 area. Further weakness below that zone would signal a deeper, but still tactical, repricing rather than a trend reversal."
+            content: "A break below 6,900 opens the 6,888–6,872 area. Further weakness below that zone would indicate a deeper, but still tactical, repricing rather than a trend reversal."
           }
         },
         bottomLine: {
@@ -257,7 +264,7 @@ export default function SPX500Analysis() {
               </div>
 
               {/* Scenarios */}
-              <div>
+              <div className="relative">
                 <h2 className="text-2xl font-bold mb-6 text-foreground">{t.sections.scenarios.title}</h2>
                 
                 <div className="space-y-4">
@@ -267,30 +274,43 @@ export default function SPX500Analysis() {
                       <CardTitle className="text-foreground">{t.sections.scenarios.baseCase.title}</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-foreground leading-relaxed">{t.sections.scenarios.baseCase.content}</p>
+                      <p className="text-foreground leading-relaxed">
+                        {isLocked ? truncateText(t.sections.scenarios.baseCase.content, 350) : t.sections.scenarios.baseCase.content}
+                      </p>
                     </CardContent>
                   </Card>
 
-                  {/* Upside */}
-                  <Card className="border-l-4 border-l-green-500 bg-green-950/20">
-                    <CardHeader>
-                      <CardTitle className="text-foreground">{t.sections.scenarios.upside.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-foreground leading-relaxed">{t.sections.scenarios.upside.content}</p>
-                    </CardContent>
-                  </Card>
+                  {!isLocked && (
+                    <>
+                      {/* Upside */}
+                      <Card className="border-l-4 border-l-green-500 bg-green-950/20">
+                        <CardHeader>
+                          <CardTitle className="text-foreground">{t.sections.scenarios.upside.title}</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <p className="text-foreground leading-relaxed">{t.sections.scenarios.upside.content}</p>
+                        </CardContent>
+                      </Card>
 
-                  {/* Downside */}
-                  <Card className="border-l-4 border-l-red-500 bg-red-950/20">
-                    <CardHeader>
-                      <CardTitle className="text-foreground">{t.sections.scenarios.downside.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-foreground leading-relaxed">{t.sections.scenarios.downside.content}</p>
-                    </CardContent>
-                  </Card>
+                      {/* Downside */}
+                      <Card className="border-l-4 border-l-red-500 bg-red-950/20">
+                        <CardHeader>
+                          <CardTitle className="text-foreground">{t.sections.scenarios.downside.title}</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <p className="text-foreground leading-relaxed">{t.sections.scenarios.downside.content}</p>
+                        </CardContent>
+                      </Card>
+                    </>
+                  )}
                 </div>
+                
+                {/* Paywall Overlay */}
+                {isLocked && (
+                  <div className="mt-8">
+                    <PaywallBlur isLocked={isLocked} />
+                  </div>
+                )}
               </div>
 
               {/* Bottom Line */}

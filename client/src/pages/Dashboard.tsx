@@ -43,7 +43,7 @@ export default function Dashboard() {
               </h1>
               {isSubscriber && (
                 <Badge variant={isPro ? "default" : "secondary"} className="text-lg px-4 py-1">
-                  {isPro ? "Pro" : "Core"}
+                  {isPro ? "Scenario Intelligence" : "Scenario Access"}
                 </Badge>
               )}
             </div>
@@ -132,7 +132,9 @@ export default function Dashboard() {
                     <p className="text-sm text-muted-foreground mb-1">
                       {language === "en" ? "Subscription" : "Подписка"}
                     </p>
-                    <p className="text-lg font-semibold capitalize">{user.role}</p>
+                    <p className="text-lg font-semibold">
+                      {user.role === "pro" || user.role === "admin" ? "Scenario Intelligence" : user.role === "core" ? "Scenario Access" : "Market Preview"}
+                    </p>
                   </div>
                   <BadgeIcon className="h-8 w-8 text-primary/50" />
                 </div>
@@ -174,13 +176,13 @@ export default function Dashboard() {
                         <p className="text-sm text-muted-foreground mb-1">
                           {language === "en" ? "Subscription Tier" : "Уровень подписки"}
                         </p>
-                        <p className="text-lg font-semibold capitalize">
-                          {isPro ? "Pro" : "Core"}
+                        <p className="text-lg font-semibold">
+                          {isPro ? "Scenario Intelligence" : "Scenario Access"}
                         </p>
                         <p className="text-xs text-muted-foreground mt-1">
                           {language === "en" 
-                            ? isPro ? "Analytics + Scenarios" : "Scenarios only"
-                            : isPro ? "Аналитика + Сценарии" : "Только сценарии"}
+                            ? isPro ? "Extended analytics + Scenarios" : "Full scenario frameworks"
+                            : isPro ? "Расширенная аналитика + Сценарии" : "Полные сценарные фреймворки"}
                         </p>
                       </div>
                     </div>
