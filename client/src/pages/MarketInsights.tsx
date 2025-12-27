@@ -4,7 +4,7 @@ import { trpc } from "@/lib/trpc";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Link } from "wouter";
-import { TrendingUp, DollarSign, Zap, Archive } from "lucide-react";
+import { TrendingUp, DollarSign, Zap, Archive, Globe } from "lucide-react";
 
 export default function MarketInsights() {
   const { language } = useLanguage();
@@ -27,6 +27,10 @@ export default function MarketInsights() {
         title: "Energy & Metals",
         description: "Commodities: oil, gas, precious and industrial metals",
       },
+      globalMacro: {
+        title: "Global Macro",
+        description: "Daily and weekly macroeconomic outlook",
+      },
       latestInsights: "Latest Research",
       comingSoon: "Coming soon",
     },
@@ -45,6 +49,10 @@ export default function MarketInsights() {
       energyMetals: {
         title: "Энергетика и металлы",
         description: "Сырьевые товары: нефть, газ, драгоценные и промышленные металлы",
+      },
+      globalMacro: {
+        title: "Global Macro",
+        description: "Ежедневные и еженедельные макроэкономические прогнозы",
       },
       latestInsights: "Последние исследования",
       comingSoon: "Скоро",
@@ -74,6 +82,13 @@ export default function MarketInsights() {
       description: t.energyMetals.description,
       href: "/market-insights/energy-metals",
       comingSoon: false,
+    },
+    {
+      icon: Globe,
+      title: t.globalMacro.title,
+      description: t.globalMacro.description,
+      href: "/market-insights/global-macro",
+      comingSoon: true,
     },
   ];
 

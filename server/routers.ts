@@ -179,6 +179,9 @@ export const appRouter = router({
         contentEn: z.string(),
         contentRu: z.string(),
         coverImageUrl: z.string().optional(),
+        market: z.enum(["indices", "fx", "energy", "metals", "global_macro"]),
+        contentType: z.enum(["analysis", "daily_outlook", "weekly_outlook"]).default("analysis"),
+        accessLevel: z.enum(["sample", "core", "pro"]).default("pro"),
         status: z.enum(["draft", "published", "archived"]),
       }))
       .mutation(async ({ ctx, input }) => {
@@ -202,6 +205,9 @@ export const appRouter = router({
           contentEn: z.string().optional(),
           contentRu: z.string().optional(),
           coverImageUrl: z.string().optional(),
+          market: z.enum(["indices", "fx", "energy", "metals", "global_macro"]).optional(),
+          contentType: z.enum(["analysis", "daily_outlook", "weekly_outlook"]).optional(),
+          accessLevel: z.enum(["sample", "core", "pro"]).optional(),
           status: z.enum(["draft", "published", "archived"]).optional(),
         }),
       }))

@@ -29,6 +29,13 @@
       "when": 1766784253461,
       "tag": "0003_third_siren",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1766836063504,
+      "tag": "0004_white_chamber",
+      "breakpoints": true
     }
   ]
 }

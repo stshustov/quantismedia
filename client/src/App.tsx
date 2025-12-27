@@ -29,6 +29,7 @@ import MetalsCategory from "./pages/MetalsCategory";
 import CopperAnalysis from "./pages/CopperAnalysis";
 import Indices from "./pages/Indices";
 import SPX500Analysis from "./pages/SPX500Analysis";
+import GlobalMacro from "./pages/GlobalMacro";
 import ProCommunity from "./pages/ProCommunity";
 import Account from "./pages/Account";
 import Notifications from "./pages/Notifications";
@@ -42,6 +43,7 @@ function Router() {
       <Route path="/how-it-works" component={HowItWorks} />
       <Route path="/market-insights" component={MarketInsights} />
       <Route path="/market-insights/archive" component={MarketInsightsArchive} />
+      <Route path="/market-insights/global-macro" component={GlobalMacro} />
       <Route path="/market-insights/energy-metals" component={EnergyMetalsCategory} />
       <Route path="/market-insights/energy-metals/energy" component={EnergyCategory} />
       <Route path="/market-insights/energy-metals/metals" component={MetalsCategory} />

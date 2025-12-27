@@ -516,3 +516,33 @@
 - [x] Full bilingual support (EN/RU)
 - [x] Test with Pro user role - working perfectly
 - [x] Verified both EN and RU translations
+
+## Global Macro Section Implementation
+
+### Phase 1: Database and Structure
+- [x] Add "global_macro" to market enum in schema
+- [x] Add content type field: "analysis", "daily_outlook", "weekly_outlook"
+- [x] Add accessLevel field to marketInsights table
+- [x] Push database schema changes (migration 0004_white_chamber.sql created)
+
+### Phase 2: UI Components
+- [x] Add Global Macro card to Market Insights landing page (with Globe icon)
+- [x] Create GlobalMacro.tsx category page with Daily/Weekly cards
+- [x] Add route /market-insights/global-macro to App.tsx
+- [x] Update breadcrumbs navigation
+- [x] Full bilingual support (EN/RU)
+- [ ] Create DailyOutlook.tsx template page (when content is ready)
+- [ ] Create WeeklyOutlook.tsx template page (when content is ready)
+- [ ] Add Global Macro filter to MarketInsightsArchive
+
+### Phase 3: Features and Integration
+- [x] Test Global Macro landing page (Market Insights) - working perfectly
+- [x] Test Global Macro category page - both EN and RU versions
+- [x] Verify Daily Outlook badge shows "Pro only" / "Только Pro"
+- [x] Verify Weekly Outlook badge shows "Core & Pro" / "Core и Pro"
+- [x] Full bilingual support (EN/RU) - all translations verified
+- [x] Coming soon notice displayed correctly
+- [ ] Add tracking for Global Macro page views (when content is published)
+- [ ] Add share buttons (when individual outlook pages are created)
+- [ ] Add SEO meta tags (when content is published)
+- [ ] Test access control with actual content (Core sees weekly only, Pro sees both)
