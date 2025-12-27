@@ -673,3 +673,16 @@
 - [x] Subscribers see: Full content without restrictions
 - [x] Test paywall functionality with different user roles (admin sees full content, guest logic implemented)
 - [x] Create final checkpoint with product strategy updates
+
+## Paddle Payment Integration
+- [x] Install Paddle SDK (@paddle/paddle-node-sdk)
+- [x] Create Paddle service layer (server/_core/paddle.ts)
+- [x] Create Paddle checkout flow endpoints (server/routers.ts)
+- [x] Implement webhook handlers for subscription.created, subscription.updated, subscription.canceled
+- [x] Add automatic role upgrade logic (guest/registered → core/pro)
+- [x] Update Pricing page with Paddle checkout buttons
+- [x] Create Paddle products configuration file
+- [ ] Add Paddle API keys to environment (PADDLE_API_KEY, PADDLE_ENVIRONMENT, PADDLE_WEBHOOK_SECRET)
+- [ ] Test checkout flow with Paddle sandbox
+- [x] Write documentation for Paddle setup
+- [ ] Create checkpoint with Paddle integration

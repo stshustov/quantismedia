@@ -5,9 +5,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check, AlertCircle, TrendingUp, BarChart3, Brain } from "lucide-react";
 import { Link } from "wouter";
+import { trpc } from "@/lib/trpc";
+import { useAuth } from "@/_core/hooks/useAuth";
+import { getLoginUrl } from "@/const";
+import { toast } from "sonner";
 
 export default function Pricing() {
   const { language } = useLanguage();
+  const { user } = useAuth();
+  const createCheckout = trpc.paddle.createCheckout.useMutation();
 
   const plans = language === "en" ? [
     {
@@ -222,19 +228,53 @@ export default function Pricing() {
                           ? "bg-primary hover:bg-primary/90 text-primary-foreground"
                           : "bg-secondary hover:bg-secondary/80"
                       }`}
-                      onClick={() => {
+                      disabled={plan.id !== "free" && createCheckout.isPending}
+                      onClick={async () => {
                         if (plan.id === "free") {
                           window.location.href = "/market-insights";
-                        } else {
-                          // Placeholder for Paddle checkout
-                          // TODO: Integrate Paddle when user provides credentials
-                          alert(language === "en" 
-                            ? "Payment integration coming soon. Please contact us for subscription."
-                            : "Интеграция оплаты скоро. Пожалуйста, свяжитесь с нами для оформления подписки.");
+                          return;
+                        }
+
+                        // Check if user is logged in
+                        if (!user) {
+                          toast.info(
+                            language === "en"
+                              ? "Please sign in to subscribe"
+                              : "Пожалуйста, войдите для оформления подписки"
+                          );
+                          window.location.href = getLoginUrl();
+                          return;
+                        }
+
+                        // Map plan ID to product ID
+                        const productId = plan.id === "core" ? "scenario_access" : "scenario_intelligence";
+
+                        try {
+                          const result = await createCheckout.mutateAsync({ productId });
+                          
+                          // Open checkout in new tab
+                          window.open(result.checkoutUrl, "_blank");
+                          
+                          toast.success(
+                            language === "en"
+                              ? "Redirecting to checkout..."
+                              : "Перенаправление на оплату..."
+                          );
+                        } catch (error) {
+                          console.error("Checkout error:", error);
+                          toast.error(
+                            language === "en"
+                              ? "Failed to create checkout. Please try again or contact support."
+                              : "Не удалось создать сессию оплаты. Попробуйте снова или свяжитесь с поддержкой."
+                          );
                         }
                       }}
                     >
-                      {plan.cta}
+                      {createCheckout.isPending && plan.id !== "free" ? (
+                        language === "en" ? "Loading..." : "Загрузка..."
+                      ) : (
+                        plan.cta
+                      )}
                     </Button>
                   </CardContent>
                 </Card>

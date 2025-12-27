@@ -620,3 +620,22 @@ export async function getAllUsers() {
     .from(users)
     .orderBy(desc(users.lastSignedIn));
 }
+
+/**
+ * Update user role (for subscription management)
+ */
+export async function updateUserRole(userId: number, role: "guest" | "registered" | "core" | "pro" | "admin"): Promise<void> {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot update user role: database not available");
+    return;
+  }
+
+  try {
+    await db.update(users).set({ role }).where(eq(users.id, userId));
+    console.log(`[Database] Updated user ${userId} role to ${role}`);
+  } catch (error) {
+    console.error("[Database] Failed to update user role:", error);
+    throw error;
+  }
+}

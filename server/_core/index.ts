@@ -30,6 +30,13 @@ async function findAvailablePort(startPort: number = 3000): Promise<number> {
 async function startServer() {
   const app = express();
   const server = createServer(app);
+  
+  // Paddle webhook endpoint MUST come before express.json() to preserve raw body
+  app.post("/api/paddle/webhook", express.raw({ type: "application/json" }), async (req, res) => {
+    const { handlePaddleWebhook } = await import("./paddleWebhook");
+    return handlePaddleWebhook(req, res);
+  });
+  
   // Configure body parser with larger size limit for file uploads
   app.use(express.json({ limit: "50mb" }));
   app.use(express.urlencoded({ limit: "50mb", extended: true }));

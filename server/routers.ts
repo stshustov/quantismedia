@@ -330,6 +330,75 @@ export const appRouter = router({
         return { success: true };
       }),
   }),
+
+  // Paddle Payment Integration
+  paddle: router({
+    // Create checkout session for subscription purchase
+    createCheckout: protectedProcedure
+      .input(z.object({
+        productId: z.enum(["scenario_access", "scenario_intelligence"]),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        const { createCheckoutSession, getOrCreateCustomer } = await import("./_core/paddle");
+        const { PADDLE_PRODUCTS } = await import("../shared/paddleProducts");
+
+        const product = Object.values(PADDLE_PRODUCTS).find(p => p.id === input.productId);
+        if (!product) {
+          throw new TRPCError({ code: "BAD_REQUEST", message: "Invalid product ID" });
+        }
+
+        try {
+          // Get or create Paddle customer
+          if (!ctx.user.email) {
+            throw new TRPCError({ code: "BAD_REQUEST", message: "User email is required" });
+          }
+          const paddleCustomerId = await getOrCreateCustomer(
+            ctx.user.email,
+            ctx.user.name || undefined
+          );
+
+          // Create checkout session
+          const origin = ctx.req.headers.origin || "http://localhost:3000";
+          const checkoutUrl = await createCheckoutSession({
+            priceId: product.priceId,
+            customerId: paddleCustomerId,
+            customerEmail: ctx.user.email,
+            customerName: ctx.user.name || "",
+            userId: ctx.user.id.toString(),
+            successUrl: `${origin}/dashboard?payment=success`,
+            cancelUrl: `${origin}/pricing?payment=canceled`,
+          });
+
+          return { checkoutUrl };
+        } catch (error) {
+          console.error("[Paddle] Checkout creation failed:", error);
+          throw new TRPCError({
+            code: "INTERNAL_SERVER_ERROR",
+            message: "Failed to create checkout session. Please try again later.",
+          });
+        }
+      }),
+
+    // Get customer portal URL for managing subscriptions
+    getPortalUrl: protectedProcedure.query(async ({ ctx }) => {
+      const { getCustomerPortalUrl, getOrCreateCustomer } = await import("./_core/paddle");
+
+      try {
+        if (!ctx.user.email) {
+          throw new TRPCError({ code: "BAD_REQUEST", message: "User email is required" });
+        }
+        const paddleCustomerId = await getOrCreateCustomer(ctx.user.email, ctx.user.name || undefined);
+        const portalUrl = await getCustomerPortalUrl(paddleCustomerId);
+        return { portalUrl };
+      } catch (error) {
+        console.error("[Paddle] Failed to get portal URL:", error);
+        throw new TRPCError({
+          code: "INTERNAL_SERVER_ERROR",
+          message: "Failed to access customer portal.",
+        });
+      }
+    }),
+  }),
 });
 
 export type AppRouter = typeof appRouter;
