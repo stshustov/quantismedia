@@ -789,3 +789,9 @@
 - [ ] Test all 3 pages in EN language
 - [ ] Verify design consistency (no color/typography changes)
 - [ ] Create checkpoint with all 3 steps completed
+
+## Bug Fixes - Navigation & Dashboard
+- [x] Fix navigation text overlap in header (changed space-x-1 to space-x-2)
+- [x] Populate Trading Ideas dashboard page (added 4 trading ideas: 2 Core, 2 Pro)
+- [x] Test navigation on different screen sizes (verified in browser)
+- [x] Verify Trading Ideas page shows actual scenario content (EUR/USD, Gold visible)

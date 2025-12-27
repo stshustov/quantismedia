@@ -1,0 +1,8 @@
+{
+  "query": "SELECT COUNT(*) as count FROM trading_ideas;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Vw3sBxn3PVfsWt.40752de7f7c0 --database 2FuYdXWoTHqtAhfudHLG7U --execute SELECT COUNT(*) as count FROM trading_ideas;",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1146 (42S02) at line 1: Table '2fuydxwothqtahfudhlg7u.trading_ideas' doesn't exist"
+  ]
+}

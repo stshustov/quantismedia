@@ -1,0 +1,13 @@
+{
+  "query": "SELECT id FROM users WHERE openId = 'adJG6sB3DChRKgZFKkiJGa' LIMIT 1;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Vw3sBxn3PVfsWt.40752de7f7c0 --database 2FuYdXWoTHqtAhfudHLG7U --execute SELECT id FROM users WHERE openId = 'adJG6sB3DChRKgZFKkiJGa' LIMIT 1;",
+  "rows": [
+    {
+      "id": "1"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\n1\n",
+  "stderr": "",
+  "execution_time_ms": 61
+}
