@@ -733,3 +733,15 @@
 - [x] Update Step 4 short text to match ТЗ requirements
 - [x] Test with both EN/RU languages (tested EN and RU, all short texts match ТЗ requirements)
 - [x] Create checkpoint with short texts update
+
+## FAQ Page Creation
+- [x] Create faq.json data file in shared/ directory
+- [x] Create FAQ page component with accordion functionality
+- [x] Implement short/full answer toggle (a_short visible, a_full on expand)
+- [x] Add chevron indicators and smooth animations
+- [x] Ensure keyboard accessibility (Enter/Space)
+- [x] Add ARIA attributes (aria-expanded, aria-controls)
+- [x] Group questions by sections (Product, Scenarios, Subscription, Legal)
+- [x] Add FAQ route to App.tsx
+- [x] Test with both EN/RU languages (tested EN and RU, accordion works perfectly, all sections translated)
+- [x] Create checkpoint with FAQ page

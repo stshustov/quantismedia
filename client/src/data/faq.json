@@ -1,0 +1,245 @@
+{
+  "page": {
+    "title": {
+      "ru": "FAQ",
+      "en": "FAQ"
+    },
+    "subtitle": {
+      "ru": "Ответы на ключевые вопросы о сценарной аналитике и подписке Quantis Media.",
+      "en": "Key answers about Quantis Media scenario analysis and subscriptions."
+    }
+  },
+  "sections": [
+    {
+      "id": "product",
+      "title": {
+        "ru": "О продукте",
+        "en": "About the Product"
+      },
+      "items": [
+        {
+          "id": "what-is-quantis",
+          "q": {
+            "ru": "Что такое Quantis Media?",
+            "en": "What is Quantis Media?"
+          },
+          "a_short": {
+            "ru": "Сценарная аналитическая платформа для структурирования рыночной неопределённости.",
+            "en": "A scenario-based analytical platform for structuring market uncertainty."
+          },
+          "a_full": {
+            "ru": "Quantis Media — это аналитическая платформа, предоставляющая сценарный взгляд на финансовые рынки. Мы структурируем рыночную неопределённость через сценарии, диапазоны и ключевые уровни, помогая пользователям понимать контекст и возможные рыночные режимы, а не делать прогнозы.",
+            "en": "Quantis Media is an analytical platform providing scenario-based perspectives on financial markets. We structure market uncertainty through scenarios, ranges, and key levels, helping users understand context and potential market regimes rather than making predictions."
+          }
+        },
+        {
+          "id": "no-signals",
+          "q": {
+            "ru": "Чем Quantis Media отличается от торговых сигналов?",
+            "en": "How is Quantis Media different from trading signals?"
+          },
+          "a_short": {
+            "ru": "Мы даём сценарные рамки и контекст, а не торговые инструкции.",
+            "en": "We provide scenario frameworks and context, not trading instructions."
+          },
+          "a_full": {
+            "ru": "Quantis Media не предоставляет торговые сигналы, рекомендации или инструкции. Мы описываем возможные сценарии, условия их подтверждения и факторы инвалидирования. Любые решения пользователь принимает самостоятельно.",
+            "en": "Quantis Media does not provide trading signals, recommendations, or instructions. We define possible scenarios, their confirmation conditions, and invalidation factors. All decisions are made independently by the user."
+          }
+        },
+        {
+          "id": "who-for",
+          "q": {
+            "ru": "Кому подходит этот продукт?",
+            "en": "Who is this product for?"
+          },
+          "a_short": {
+            "ru": "Для профессиональных и продвинутых участников рынка.",
+            "en": "Designed for professional and advanced market participants."
+          },
+          "a_full": {
+            "ru": "Платформа ориентирована на трейдеров, аналитиков, управляющих и других участников рынка, принимающих решения в условиях неопределённости. Продукт не предназначен для обучения базовому трейдингу.",
+            "en": "The platform is designed for traders, analysts, portfolio managers, and other market participants who operate under uncertainty. It is not intended as a beginner trading education product."
+          }
+        }
+      ]
+    },
+    {
+      "id": "scenarios",
+      "title": {
+        "ru": "О сценариях",
+        "en": "About Scenarios"
+      },
+      "items": [
+        {
+          "id": "what-is-scenario",
+          "q": {
+            "ru": "Что такое сценарный анализ?",
+            "en": "What is scenario analysis?"
+          },
+          "a_short": {
+            "ru": "Метод описания нескольких допустимых рыночных режимов вместо одного прогноза.",
+            "en": "A method describing multiple viable market regimes instead of a single forecast."
+          },
+          "a_full": {
+            "ru": "Сценарный анализ описывает несколько возможных рыночных режимов, а не один прогноз. Каждый сценарий содержит условия актуальности и уровни, при выходе за которые требуется пересмотр контекста.",
+            "en": "Scenario analysis describes multiple possible market regimes rather than a single forecast. Each scenario defines validity conditions and levels beyond which the context must be reassessed."
+          }
+        },
+        {
+          "id": "why-multiple",
+          "q": {
+            "ru": "Почему используется несколько сценариев, а не один прогноз?",
+            "en": "Why use multiple scenarios instead of one forecast?"
+          },
+          "a_short": {
+            "ru": "Потому что рынки развиваются нелинейно.",
+            "en": "Because markets evolve non-linearly."
+          },
+          "a_full": {
+            "ru": "Финансовые рынки редко развиваются по линейной траектории. Несколько сценариев позволяют учитывать альтернативные исходы и работать с неопределённостью более устойчиво.",
+            "en": "Financial markets rarely evolve along a linear path. Multiple scenarios allow alternative outcomes to be considered and uncertainty to be managed more robustly."
+          }
+        },
+        {
+          "id": "update-frequency",
+          "q": {
+            "ru": "Как часто обновляются сценарии?",
+            "en": "How often are scenarios updated?"
+          },
+          "a_short": {
+            "ru": "При изменении рыночной структуры или режима.",
+            "en": "When market structure or regime changes."
+          },
+          "a_full": {
+            "ru": "Сценарии обновляются при изменении рыночной структуры, режима волатильности или ликвидности. Если контекст остаётся прежним, сценарий может сохраняться без изменений с соответствующим статусом.",
+            "en": "Scenarios are updated when market structure, volatility regime, or liquidity conditions change. If the context remains stable, a scenario may remain unchanged with an appropriate status."
+          }
+        },
+        {
+          "id": "scenario-status",
+          "q": {
+            "ru": "Что означает статус сценария: актуален или инвалидирован?",
+            "en": "What does scenario status mean: valid or invalidated?"
+          },
+          "a_short": {
+            "ru": "Актуален — условия выполняются, инвалидирован — контекст изменился.",
+            "en": "Valid means conditions hold; invalidated means context has changed."
+          },
+          "a_full": {
+            "ru": "Актуальный сценарий означает, что его условия по-прежнему выполняются. Инвалидированный сценарий указывает на выход рынка за пределы допустимых условий и необходимость пересмотра анализа.",
+            "en": "A valid scenario means its conditions are still met. An invalidated scenario indicates the market has moved beyond its defined conditions and requires reassessment."
+          }
+        }
+      ]
+    },
+    {
+      "id": "subscription",
+      "title": {
+        "ru": "Подписка и доступ",
+        "en": "Subscription & Access"
+      },
+      "items": [
+        {
+          "id": "market-preview",
+          "q": {
+            "ru": "Что доступно в бесплатном режиме (Market Preview)?",
+            "en": "What is included in Market Preview?"
+          },
+          "a_short": {
+            "ru": "Ограниченный доступ для знакомства с методологией.",
+            "en": "Limited access to explore the methodology."
+          },
+          "a_full": {
+            "ru": "Market Preview предоставляет ограниченный доступ к рыночному контексту, примерам базовых сценариев и отдельным аналитическим уровням. Он предназначен для ознакомления с подходом Quantis Media.",
+            "en": "Market Preview provides limited access to market context, sample base scenarios, and selected analytical levels. It is designed to demonstrate the Quantis Media methodology."
+          }
+        },
+        {
+          "id": "plans-difference",
+          "q": {
+            "ru": "В чём разница между Scenario Access и Scenario Intelligence?",
+            "en": "What is the difference between Scenario Access and Scenario Intelligence?"
+          },
+          "a_short": {
+            "ru": "Scenario Intelligence добавляет более глубокий аналитический слой.",
+            "en": "Scenario Intelligence adds a deeper analytical layer."
+          },
+          "a_full": {
+            "ru": "Scenario Access предоставляет полный доступ к сценариям и обновлениям. Scenario Intelligence дополняет этот доступ расширенными сценарными рамками, аналитическим уклоном и более частыми обновлениями в периоды смены рыночного режима.",
+            "en": "Scenario Access provides full access to scenarios and updates. Scenario Intelligence adds extended frameworks, analytical bias, and higher-frequency updates during regime transitions."
+          }
+        },
+        {
+          "id": "use-for-trading",
+          "q": {
+            "ru": "Можно ли использовать аналитику Quantis Media для торговли?",
+            "en": "Can Quantis Media analysis be used for trading?"
+          },
+          "a_short": {
+            "ru": "Да, как аналитический контекст, но не как инструкция.",
+            "en": "Yes, as analytical context, not instructions."
+          },
+          "a_full": {
+            "ru": "Аналитика Quantis Media может использоваться как контекст для принятия решений, однако платформа не предоставляет торговых инструкций. Ответственность за любые действия несёт пользователь.",
+            "en": "Quantis Media analysis may be used as contextual input for decision-making, but the platform does not provide trading instructions. Responsibility for any actions remains with the user."
+          }
+        }
+      ]
+    },
+    {
+      "id": "legal",
+      "title": {
+        "ru": "Юридическое и риски",
+        "en": "Legal & Risk"
+      },
+      "items": [
+        {
+          "id": "not-advice",
+          "q": {
+            "ru": "Является ли Quantis Media инвестиционной рекомендацией?",
+            "en": "Is Quantis Media investment advice?"
+          },
+          "a_short": {
+            "ru": "Нет, это исключительно аналитическая информация.",
+            "en": "No, it is analytical information only."
+          },
+          "a_full": {
+            "ru": "Quantis Media предоставляет аналитическую информацию и не является инвестиционной рекомендацией, консультацией или предложением к совершению сделок.",
+            "en": "Quantis Media provides analytical information only and does not constitute investment advice, consulting services, or an offer to transact."
+          }
+        },
+        {
+          "id": "responsibility",
+          "q": {
+            "ru": "Кто несёт ответственность за торговые решения?",
+            "en": "Who is responsible for trading decisions?"
+          },
+          "a_short": {
+            "ru": "Полную ответственность несёт пользователь.",
+            "en": "The user bears full responsibility."
+          },
+          "a_full": {
+            "ru": "Пользователь самостоятельно принимает все торговые и инвестиционные решения и несёт полную ответственность за их последствия. Quantis Media не управляет капиталом.",
+            "en": "Users independently make all trading and investment decisions and bear full responsibility for their outcomes. Quantis Media does not manage capital."
+          }
+        },
+        {
+          "id": "no-guarantees",
+          "q": {
+            "ru": "Гарантируете ли вы результаты?",
+            "en": "Do you guarantee results?"
+          },
+          "a_short": {
+            "ru": "Нет, результаты на рынках не гарантируются.",
+            "en": "No, market results cannot be guaranteed."
+          },
+          "a_full": {
+            "ru": "Финансовые рынки по своей природе неопределённы, и Quantis Media не гарантирует доходность или конкретные результаты.",
+            "en": "Financial markets are inherently uncertain, and Quantis Media does not guarantee performance or specific results."
+          }
+        }
+      ]
+    }
+  ]
+}

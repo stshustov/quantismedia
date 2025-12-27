@@ -6,7 +6,8 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import Home from "./pages/Home";
-import HowItWorks from "./pages/HowItWorks";
+import HowItWorks from "@/pages/HowItWorks";
+import FAQ from "@/pages/FAQ";
 import MarketInsights from "./pages/MarketInsights";
 import MarketInsightDetail from "./pages/MarketInsightDetail";
 import SampleIdeas from "./pages/SampleIdeas";
@@ -41,6 +42,7 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/how-it-works" component={HowItWorks} />
+      <Route path="/faq" component={FAQ} />
       <Route path="/market-insights" component={MarketInsights} />
       <Route path="/market-insights/archive" component={MarketInsightsArchive} />
       <Route path="/market-insights/global-macro" component={GlobalMacro} />
