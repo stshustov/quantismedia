@@ -546,3 +546,13 @@
 - [ ] Add share buttons (when individual outlook pages are created)
 - [ ] Add SEO meta tags (when content is published)
 - [ ] Test access control with actual content (Core sees weekly only, Pro sees both)
+
+## Market Insights Archive - Global Macro Filter
+- [x] Add "Global Macro" category filter to archive (5th tab)
+- [x] Add Daily/Weekly Outlook sub-filters when Global Macro is selected
+- [x] Update state management for globalMacroFilter
+- [x] Full bilingual support (EN/RU)
+- [x] Test filter switching (All/Daily/Weekly) - working perfectly
+- [x] Verified active filter highlighting (gold color)
+- [x] Tested both EN and RU translations
+- [ ] Add actual Daily/Weekly content to test filtering logic (when published)

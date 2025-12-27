@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "wouter";
-import { Calendar, TrendingUp, DollarSign, Zap } from "lucide-react";
+import { Calendar, TrendingUp, DollarSign, Zap, Globe } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function MarketInsightsArchive() {
@@ -19,6 +19,10 @@ export default function MarketInsightsArchive() {
       indices: "Indices",
       fx: "FX",
       energyMetals: "Energy & Metals",
+      globalMacro: "Global Macro",
+      dailyOutlook: "Daily Outlook",
+      weeklyOutlook: "Weekly Outlook",
+      allOutlooks: "All Outlooks",
       noData: "No analysis available for this category yet",
       readMore: "Read analysis",
     },
@@ -29,6 +33,10 @@ export default function MarketInsightsArchive() {
       indices: "Индексы",
       fx: "FX",
       energyMetals: "Энергетика и металлы",
+      globalMacro: "Global Macro",
+      dailyOutlook: "Daily Outlook",
+      weeklyOutlook: "Weekly Outlook",
+      allOutlooks: "Все прогнозы",
       noData: "Пока нет аналитики в этой категории",
       readMore: "Читать обзор",
     },
@@ -103,9 +111,11 @@ export default function MarketInsightsArchive() {
       },
     ],
     fx: [],
+    globalMacro: [],
   };
 
-  const [activeTab, setActiveTab] = useState<"all" | "indices" | "fx" | "energyMetals">("all");
+  const [activeTab, setActiveTab] = useState<"all" | "indices" | "fx" | "energyMetals" | "globalMacro">("all");
+  const [globalMacroFilter, setGlobalMacroFilter] = useState<"all" | "daily" | "weekly">("all");
 
   const getAllAnalysis = () => {
     return [
@@ -161,12 +171,49 @@ export default function MarketInsightsArchive() {
 
             {/* Tabs for filtering */}
             <Tabs value={activeTab} onValueChange={(v) => setActiveTab(v as typeof activeTab)} className="mb-8">
-              <TabsList className="grid w-full grid-cols-4 max-w-2xl">
+              <TabsList className="grid w-full grid-cols-5 max-w-3xl">
                 <TabsTrigger value="all">{t.allAssets}</TabsTrigger>
                 <TabsTrigger value="indices">{t.indices}</TabsTrigger>
                 <TabsTrigger value="fx">{t.fx}</TabsTrigger>
                 <TabsTrigger value="energyMetals">{t.energyMetals}</TabsTrigger>
+                <TabsTrigger value="globalMacro">{t.globalMacro}</TabsTrigger>
               </TabsList>
+
+              {/* Global Macro Sub-filters */}
+              {activeTab === "globalMacro" && (
+                <div className="mt-6 flex gap-2">
+                  <button
+                    onClick={() => setGlobalMacroFilter("all")}
+                    className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                      globalMacroFilter === "all"
+                        ? "bg-primary text-primary-foreground"
+                        : "bg-muted text-muted-foreground hover:bg-muted/80"
+                    }`}
+                  >
+                    {t.allOutlooks}
+                  </button>
+                  <button
+                    onClick={() => setGlobalMacroFilter("daily")}
+                    className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                      globalMacroFilter === "daily"
+                        ? "bg-primary text-primary-foreground"
+                        : "bg-muted text-muted-foreground hover:bg-muted/80"
+                    }`}
+                  >
+                    {t.dailyOutlook}
+                  </button>
+                  <button
+                    onClick={() => setGlobalMacroFilter("weekly")}
+                    className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                      globalMacroFilter === "weekly"
+                        ? "bg-primary text-primary-foreground"
+                        : "bg-muted text-muted-foreground hover:bg-muted/80"
+                    }`}
+                  >
+                    {t.weeklyOutlook}
+                  </button>
+                </div>
+              )}
 
               <TabsContent value={activeTab} className="mt-8">
                 {filteredData.length === 0 ? (
