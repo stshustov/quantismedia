@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React from "react";
 import { Helmet } from "react-helmet";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -21,399 +21,368 @@ export default function GoldAnalysis() {
 
   const content = {
     en: {
-      title: "GOLD — Short-Term Market Outlook",
-      timeHorizon: "1–5 trading days",
-      currentPriceSpot: "~$4,50x/oz",
-      currentPriceInstrument: "~4505 (GOLD)",
-      lastUpdated: "26 December 2025",
+      title: "Gold (XAUUSD) — Short-Term Scenario",
+      subtitle: "1–5 trading days",
+      category: "Metals",
+      timeHorizon: "Short-term (1–5 trading days)",
+      lastUpdated: "auto",
 
-      priceAnchor: {
-        title: "Price Anchor & Setup",
+      marketContext: {
+        title: "Market Context",
         content:
-          "Gold is trading near record highs (~$4.50x/oz spot), supported by Fed easing expectations and safe-haven demand amid geopolitical and currency concerns.\n\nOn your GOLD chart, price is ~4505, consistent with a \"holding at highs\" regime after a strong impulse.",
-      },
-
-      macro: {
-        title: "Macro (Fed & Global CBs)",
-        content:
-          "The Fed lowered the target range to 3.50%–3.75% and reiterated data dependence, keeping the market focused on the path of real yields and USD—both central to gold's marginal pricing.",
-      },
-
-      demand: {
-        title: "Demand (CBs, ETFs, Retail)",
-        content:
-          "**Central banks:** WGC reports net purchases of 53t in October (+36% m/m), reinforcing the structural official-sector bid.\n\n**ETFs/investment:** WGC highlights strong investment demand in Q3'25 with +222t ETF buying and total demand of 1,313t (record quarterly level).\n\n**Retail/jewellery:** at record prices, price sensitivity increases—Reuters notes softened Indian buying (wider discounts), while China dynamics differ due to local factors and supply constraints.",
-      },
-
-      supply: {
-        title: "Supply (Miners, Recycling, Hedging)",
-        content:
-          "WGC shows Q3'25 total supply 1,313t, mine production 977t, recycling 344t—steady growth rather than a surge.\n\nProducer hedging remains modest (e.g., Q1'25 net hedging ~5t, mostly financing-related), limiting \"producer-sell\" overhang risk.",
-      },
-
-      stocks: {
-        title: "Stocks/Availability (London/COMEX)",
-        content:
-          "LBMA reports 8,907t of gold in London vaults at end-Nov (+0.55% m/m), providing a snapshot of physical market depth.\n\nCME daily stock reports help track COMEX warehouse availability during volatility regimes.",
-      },
-
-      positioning: {
-        title: "Positioning & Liquidity",
-        content:
-          "Year-end liquidity can amplify moves; Reuters flags thin trading conditions contributing to outsized precious metals swings.",
-      },
-
-      technical: {
-        title: "Technical (GOLD M30 Chart)",
-        content: "Uptrend intact, momentum moderating near resistance. Key zones:",
-        resistance: "Resistance: ~4521 (then higher overhead supply zone)",
-        support: "Support: ~4495, then ~4469, then ~4444",
+          "Gold is trading near historical highs amid easing Federal Reserve policy expectations, sustained institutional demand from central banks, and elevated geopolitical uncertainty. Current price action is driven less by momentum chasing and more by liquidity balance and the defense of key structural zones, leaving the market sensitive to shifts in the volatility regime.",
       },
 
       scenarios: {
-        title: "Scenario Outlook (1–5 days)",
+        title: "Scenario Outlook",
         base: {
-          title: "Base case:",
+          emoji: "🟢",
+          title: "Base Scenario — Consolidation within the current liquidity regime",
           content:
-            "Range/consolidation 4495–4521 (GOLD), with headline-driven volatility.",
+            "As long as price holds above 4,495–4,500 and volatility remains contained, gold is expected to consolidate following the prior impulse. Flows remain predominantly institutional, with no clear signs of aggressive profit-taking.",
+          conditions: {
+            title: "Key conditions:",
+            items: [
+              "Price holds above 4,495–4,500",
+              "Stabilizing or declining short-term volatility",
+              "No sharp expansion in risk premium",
+            ],
+          },
+          interpretation: {
+            title: "Interpretation:",
+            text: "The market is digesting the prior move, forming a structural base for the next directional phase.",
+          },
+          validity: {
+            title: "Scenario validity:",
+            text: "Remains valid while price holds above 4,495 and volatility stays controlled.",
+          },
         },
         upside: {
-          title: "Upside:",
+          emoji: "🔵",
+          title: "Upside Scenario — Expansion driven by renewed risk premium",
           content:
-            "Sustained break above 4521 on softer USD/real yields or renewed geopolitical premium / ETF inflows.",
+            "A sustained break above 4,520 would indicate a transition from consolidation to range expansion, supported by rising geopolitical or monetary risk premium.",
+          conditions: {
+            title: "Key conditions:",
+            items: [
+              "Sustained acceptance above 4,520",
+              "Increase in geopolitical or monetary uncertainty",
+              "Range expansion without disorderly volatility",
+            ],
+          },
+          interpretation: {
+            title: "Interpretation:",
+            text: "Acceleration becomes possible upon the emergence of an external catalyst.",
+          },
         },
         downside: {
-          title: "Downside:",
+          emoji: "🔴",
+          title: "Downside Scenario — Tactical pullback within broader structure",
           content:
-            "Pullback toward 4469–4444 on profit-taking + stronger USD/real yields and/or calmer risk tone; retail price sensitivity may amplify dips.",
+            "A move back below 4,470 would signal a tactical correction driven by profit-taking and localized liquidity compression, without implying a broader structural breakdown.",
+          conditions: {
+            title: "Key conditions:",
+            items: [
+              "Loss of the 4,470 area",
+              "Short-term volatility expansion",
+              "Increased profit-taking flows",
+            ],
+          },
+          interpretation: {
+            title: "Interpretation:",
+            text: "The pullback remains corrective within a broader constructive context.",
+          },
         },
       },
 
-      bottomLine: {
-        title: "Bottom Line",
-        content: "Structurally supported, tactically consolidation-prone.",
+      referenceLevels: {
+        title: "Analytical Reference Levels",
+        items: [
+          "Structural Support: 4,470–4,500",
+          "Expansion Area: >4,520",
+          "Risk Boundary: <4,440 — invalidates the consolidation scenario",
+        ],
       },
 
       disclaimer: {
         text: "This content is provided for informational and educational purposes only. It does not constitute investment advice, trading recommendations, or an offer to buy or sell any financial instruments. Past performance is not indicative of future results. Please review our full",
         disclaimerLink: "Disclaimer",
         and: "and",
-        riskLink: "Risk Disclosure",
+        riskDisclosureLink: "Risk Disclosure",
+        beforeProceeding: "before proceeding.",
       },
     },
-
     ru: {
-      title: "Золото: краткосрочный прогноз и сценарии",
-      timeHorizon: "1–5 торговых дней",
-      currentPriceSpot: "~$4,50x/унция",
-      currentPriceInstrument: "~4505 (GOLD)",
-      lastUpdated: "26 декабря 2025",
+      title: "Gold (XAUUSD) — Краткосрочный сценарий",
+      subtitle: "1–5 торговых дней",
+      category: "Металлы",
+      timeHorizon: "Краткосрочный (1–5 торговых дней)",
+      lastUpdated: "автоматически",
 
-      priceAnchor: {
-        title: "Текущая цена и контекст",
+      marketContext: {
+        title: "Контекст рынка",
         content:
-          "Золото торгуется вблизи исторических максимумов (спот около $4,50x/oz), при этом внутридневная динамика показывает повышенную чувствительность к ожиданиям смягчения ДКП ФРС и к спросу «убежища» на фоне геополитики и валютных рисков.\n\nНа инструменте GOLD цена в момент анализа около 4505, что соответствует удержанию рынка \"на верхах\" после импульса.",
-      },
-
-      macro: {
-        title: "Макро-драйвер: ДКП ФРС и глобальных ЦБ",
-        content:
-          "Фундаментально золоту помогает режим, где рынки продолжают закладывать дальнейшее смягчение при высокой неопределённости. На последнем заседании ФРС снизила целевой диапазон ставки до 3.50%–3.75%, сохранив зависимость дальнейших шагов от данных и баланса рисков.",
-      },
-
-      demand: {
-        title: "Спрос: центральные банки, ETF, ритейл",
-        content:
-          "**ЦБ:** официальный сектор остаётся ключевым структурным покупателем. По данным WGC, в октябре чистые покупки ЦБ составили 53 т (+36% м/м), с концентрацией покупок у EM-ЦБ.\n\n**ETF / инвестиционный спрос:** в 3К25 WGC фиксирует сильную инвестиционную компоненту — ETF-покупки +222 т, при общем спросе 1 313 т (квартальный максимум), что подчёркивает устойчивость \"финансового спроса\".\n\n**Ритейл/ювелирка:** на рекордных ценах физический розничный спрос становится более ценочувствительным: Reuters указывает на охлаждение спроса в Индии (расширение дисконтов), при более устойчивой динамике в Китае за счёт локальных факторов.",
-      },
-
-      supply: {
-        title: "Предложение: добыча, переработка, хеджирование производителей",
-        content:
-          "WGC: в 3К25 совокупное предложение 1 313 т (+3% г/г), добыча 977 т (+2% г/г), переработка/скрап 344 т (+6% г/г).\n\nХеджирование производителей остаётся умеренным (в Q1'25 net producer hedging около 5 т, в основном под финансирование), т.е. нет признаков агрессивного \"продажного навеса\" со стороны майнеров.",
-      },
-
-      stocks: {
-        title: "Запасы и availability металла: Лондон/COMEX",
-        content:
-          "По данным LBMA London Vault Data, золото в лондонских хранилищах на конец ноября 2025 составило 8 907 т (+0.55% м/м), что в целом указывает на достаточную инфраструктурную \"подкладку\" OTC-рынка.\n\nПо COMEX ежедневные отчёты CME отражают текущие уровни складских запасов (registered/eligible); рынок мониторит их как индикатор \"deliverability\" в периоды высокой волатильности.",
-      },
-
-      positioning: {
-        title: "Позиционирование: фонды/спекулянты и flow-driven риск",
-        content:
-          "Данные по managed money показывают, что спекулятивное позиционирование остаётся значимым, но ключевой риск сейчас — не столько \"перекупленность\", сколько тонкая ликвидность конца года, когда движение ускоряется на новостях и стоп-потоках.",
-      },
-
-      technical: {
-        title: "Техника (GOLD, M30): тренд вверх, импульс замедляется",
-        content:
-          "График показывает сохранение восходящей структуры, но рынок упирается в \"верхнюю зону\" и начинает пилить диапазон. Ближайшие уровни:",
-        resistance: "Resistance / предложение: ~4521, далее зона выше как overhead supply",
-        support: "Support / спрос: ~4495, затем ~4469, далее ~4444",
+          "Золото торгуется вблизи исторических максимумов на фоне смягчения ожиданий по денежно-кредитной политике ФРС, устойчивого институционального спроса со стороны центральных банков и сохраняющейся геополитической неопределённости. Текущая динамика формируется не импульсным спросом, а балансом ликвидности и удержанием ключевых структурных зон, что делает рынок чувствительным к смене волатильностного режима.",
       },
 
       scenarios: {
-        title: "Сценарный прогноз (1–5 торговых дней)",
+        title: "Сценарный прогноз",
         base: {
-          title: "Base case (наиболее вероятный):",
+          emoji: "🟢",
+          title: "Базовый сценарий — Консолидация в рамках текущего режима ликвидности",
           content:
-            "Консолидация/волатильный боковик в диапазоне 4495–4521 (для GOLD), при сохранении позитивного \"macro-bid\", но с риском фиксации прибыли на тонком рынке.",
+            "Пока цена удерживается выше зоны 4,495–4,500 и не наблюдается ускорения волатильности, рынок сохраняет режим консолидации после импульсного движения. Потоки остаются преимущественно институциональными, без признаков агрессивной фиксации прибыли.",
+          conditions: {
+            title: "Ключевые условия:",
+            items: [
+              "Удержание выше 4,495–4,500",
+              "Стабилизация или снижение краткосрочной волатильности",
+              "Отсутствие резкого расширения risk premium",
+            ],
+          },
+          interpretation: {
+            title: "Интерпретация:",
+            text: "Рынок переваривает предыдущий импульс, формируя структурную базу для следующего движения.",
+          },
+          validity: {
+            title: "Актуальность сценария:",
+            text: "Сохраняется, пока цена удерживается выше 4,495 и волатильность остаётся контролируемой.",
+          },
         },
         upside: {
-          title: "Upside scenario:",
+          emoji: "🔵",
+          title: "Сценарий роста — Расширение на фоне роста risk premium",
           content:
-            "Устойчивое закрепление выше 4521 при усилении: (а) ожиданий снижения ставок/ослабления USD, или (б) геополитической риск-премии и притока в ETF/убежища.",
+            "Закрепление выше 4,520 будет указывать на выход из консолидации и переход к расширению диапазона на фоне усиления геополитической или монетарной премии.",
+          conditions: {
+            title: "Ключевые условия:",
+            items: [
+              "Устойчивое закрепление выше 4,520",
+              "Рост геополитической или монетарной неопределённости",
+              "Расширение диапазона без резкого всплеска волатильности",
+            ],
+          },
+          interpretation: {
+            title: "Интерпретация:",
+            text: "Допускается ускорение движения при появлении внешнего катализатора.",
+          },
         },
         downside: {
-          title: "Downside scenario:",
+          emoji: "🔴",
+          title: "Сценарий снижения — Тактический откат в рамках структуры",
           content:
-            "Откат в 4469–4444 при комбинации: (а) \"profit-taking\" + (б) восстановление USD/real yields или успокоение риск-фона. Ритейл-спрос на рекордных ценах может усиливать амплитуду коррекций.",
+            "Возврат ниже 4,470 указывает на тактическую коррекцию, связанную с фиксацией прибыли и локальным сжатием ликвидности, без смены более широкого рыночного контекста.",
+          conditions: {
+            title: "Ключевые условия:",
+            items: [
+              "Потеря области 4,470",
+              "Рост краткосрочной волатильности",
+              "Усиление потоков profit-taking",
+            ],
+          },
+          interpretation: {
+            title: "Интерпретация:",
+            text: "Коррекция развивается в рамках более широкого восходящего контекста.",
+          },
         },
       },
 
-      bottomLine: {
-        title: "Итог",
-        content:
-          "Краткосрочно золото остаётся структурно поддержанным (ЦБ + инвестиционный спрос), но на горизонте нескольких дней баланс смещён в сторону консолидации с повышенной вероятностью резких проколов уровней из-за тонкой ликвидности и headline-risk.",
+      referenceLevels: {
+        title: "Аналитические референсные уровни",
+        items: [
+          "Структурная поддержка: 4,470–4,500",
+          "Зона расширения импульса: >4,520",
+          "Граница риска: <4,440 — инвалидирует сценарий консолидации",
+        ],
       },
 
       disclaimer: {
-        text: "Данный контент предоставляется исключительно в информационных и образовательных целях. Он не является инвестиционной рекомендацией, торговой инструкцией или предложением купить или продать какие-либо финансовые инструменты. Прошлые результаты не гарантируют будущей доходности. Пожалуйста, ознакомьтесь с полным текстом",
-        disclaimerLink: "Дисклеймера",
+        text: "Данный контент предоставляется исключительно в информационных и образовательных целях. Он не является инвестиционной консультацией, торговыми рекомендациями или предложением купить или продать финансовые инструменты. Прошлые результаты не гарантируют будущих. Пожалуйста, ознакомьтесь с полным",
+        disclaimerLink: "Дисклеймером",
         and: "и",
-        riskLink: "Раскрытия рисков",
+        riskDisclosureLink: "Раскрытием рисков",
+        beforeProceeding: "перед использованием.",
       },
     },
   };
 
-  const currentContent = content[language];
+  const t = content[language as keyof typeof content];
 
   return (
     <>
       <Helmet>
-        <title>Gold Market Outlook | Quantis Media</title>
+        <title>{t.title} | Quantis Media</title>
         <meta
           name="description"
-          content="Institutional short-term analysis of gold including price levels, scenarios, demand-supply dynamics and market positioning."
+          content={`${t.title} - ${t.timeHorizon}. ${t.marketContext.content.substring(0, 150)}...`}
         />
       </Helmet>
-
-      <div className="min-h-screen bg-background flex flex-col">
+      <div className="min-h-screen bg-background">
         <Navigation />
-
-        <main className="flex-1">
-          <div className="container py-12">
-            {/* Breadcrumb */}
-            <div className="text-sm text-foreground mb-8">
-              <a href="/market-insights" className="hover:text-foreground cursor-pointer">
-                {language === "en" ? "Market Insights" : "Рыночная аналитика"}
-              </a>
-              <span className="mx-2">/</span>
-              <a href="/market-insights/energy-metals" className="hover:text-foreground cursor-pointer">
-                {language === "en" ? "Energy & Metals" : "Энергетика и металлы"}
-              </a>
-              <span className="mx-2">/</span>
-              <a href="/market-insights/energy-metals/metals" className="hover:text-foreground cursor-pointer">
-                {language === "en" ? "Metals" : "Металлы"}
-              </a>
-              <span className="mx-2">/</span>
-              <span className="text-foreground">
-                {language === "en" ? "Gold" : "Золото"}
-              </span>
+        <main className="container py-8 md:py-12">
+          <div className="max-w-4xl mx-auto">
+            {/* Header */}
+            <div className="mb-8">
+              <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+                <span>{t.category}</span>
+                <span>•</span>
+                <span>{t.timeHorizon}</span>
+              </div>
+              <h1 className="text-3xl md:text-4xl font-bold mb-2">{t.title}</h1>
+              <p className="text-muted-foreground">
+                {language === "en" ? "Last Update:" : "Последнее обновление:"} {t.lastUpdated}
+              </p>
             </div>
 
-            {/* Header Section */}
-            <div className="max-w-[760px] mx-auto mb-12">
+            {/* Market Context */}
+            <Card className="p-6 mb-6">
+              <h2 className="text-2xl font-semibold mb-4">{t.marketContext.title}</h2>
+              <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
+                {t.marketContext.content}
+              </p>
+            </Card>
 
+            {/* Scenarios */}
+            <div className="mb-6">
+              <h2 className="text-2xl font-semibold mb-6">{t.scenarios.title}</h2>
 
-              <h1 className="text-4xl font-bold mb-6">{currentContent.title}</h1>
-              
-              {/* Share Buttons */}
-              <div className="mb-6">
-                <ShareButtons 
-                  title={currentContent.title}
-                  url="/market-insights/energy-metals/metals/gold"
-                  description={language === "en" 
-                    ? "Gold market analysis and short-term outlook from Quantis Media"
-                    : "Анализ рынка золота и краткосрочный прогноз от Quantis Media"
-                  }
-                />
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                <Card className="p-4 border-primary/20 shadow-md hover:shadow-lg transition-shadow">
-                  <div className="text-sm text-foreground mb-1">
-                    {language === "en" ? "Time Horizon" : "Временной горизонт"}
-                  </div>
-                  <div className="font-semibold">{currentContent.timeHorizon}</div>
-                </Card>
-                <Card className="p-4 border-primary/20 shadow-md hover:shadow-lg transition-shadow">
-                  <div className="text-sm text-foreground mb-1">
-                    {language === "en" ? "Spot Price" : "Спотовая цена"}
-                  </div>
-                  <div className="font-semibold text-gold">{currentContent.currentPriceSpot}</div>
-                </Card>
-                <Card className="p-4 border-primary/20 shadow-md hover:shadow-lg transition-shadow">
-                  <div className="text-sm text-foreground mb-1">GOLD</div>
-                  <div className="font-semibold text-gold">{currentContent.currentPriceInstrument}</div>
-                </Card>
-                <Card className="p-4 border-primary/20 shadow-md hover:shadow-lg transition-shadow">
-                  <div className="text-sm text-foreground mb-1">
-                    {language === "en" ? "Last Updated" : "Обновлено"}
-                  </div>
-                  <div className="font-semibold">{currentContent.lastUpdated}</div>
-                </Card>
-              </div>
-            </div>
-
-            {/* Content Sections */}
-            <div className="max-w-[760px] mx-auto space-y-8">
-              {/* Price Anchor */}
-              <section className="border-l-2 border-muted pl-6">
-                <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
-                  <span className="text-xl">🎯</span>
-                  {currentContent.priceAnchor.title}
-                </h2>
-                <p className="text-foreground leading-relaxed whitespace-pre-line">
-                  {currentContent.priceAnchor.content}
+              {/* Base Scenario */}
+              <Card className="p-6 mb-4 border-l-4 border-l-blue-500 relative">
+                <h3 className="text-xl font-semibold mb-3">
+                  {t.scenarios.base.emoji} {t.scenarios.base.title}
+                </h3>
+                <p className="text-muted-foreground mb-4 leading-relaxed">
+                  {isLocked ? truncateText(t.scenarios.base.content, 350) : t.scenarios.base.content}
                 </p>
-              </section>
-
-              {/* Macro */}
-              <section className="border-l-2 border-muted pl-6">
-                <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
-                  <span className="text-xl">🌐</span>
-                  {currentContent.macro.title}
-                </h2>
-                <p className="text-foreground leading-relaxed whitespace-pre-line">
-                  {currentContent.macro.content}
-                </p>
-              </section>
-
-              {/* Demand */}
-              <section className="border-l-2 border-muted pl-6">
-                <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
-                  <span className="text-xl">📈</span>
-                  {currentContent.demand.title}
-                </h2>
-                <p className="text-foreground leading-relaxed whitespace-pre-line">
-                  {currentContent.demand.content}
-                </p>
-              </section>
-
-              {/* Supply */}
-              <section className="border-l-2 border-muted pl-6">
-                <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
-                  <span className="text-xl">⛏️</span>
-                  {currentContent.supply.title}
-                </h2>
-                <p className="text-foreground leading-relaxed whitespace-pre-line">
-                  {currentContent.supply.content}
-                </p>
-              </section>
-
-              {/* Stocks */}
-              <section className="border-l-2 border-muted pl-6">
-                <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
-                  <span className="text-xl">📊</span>
-                  {currentContent.stocks.title}
-                </h2>
-                <p className="text-foreground leading-relaxed whitespace-pre-line">
-                  {currentContent.stocks.content}
-                </p>
-              </section>
-
-              {/* Positioning */}
-              <section className="border-l-2 border-muted pl-6">
-                <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
-                  <span className="text-xl">👥</span>
-                  {currentContent.positioning.title}
-                </h2>
-                <p className="text-foreground leading-relaxed whitespace-pre-line">
-                  {currentContent.positioning.content}
-                </p>
-              </section>
-
-              {/* Technical */}
-              <section className="border-l-2 border-muted pl-6">
-                <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
-                  <span className="text-xl">🔧</span>
-                  {currentContent.technical.title}
-                </h2>
-                <p className="text-foreground leading-relaxed mb-4 whitespace-pre-line">
-                  {currentContent.technical.content}
-                </p>
-                <div className="space-y-2">
-                  <p className="text-foreground">{currentContent.technical.resistance}</p>
-                  <p className="text-foreground">{currentContent.technical.support}</p>
-                </div>
-              </section>
-
-              {/* Scenario Outlook */}
-              <section className="relative">
-                <h2 className="text-2xl font-bold mb-6">{currentContent.scenarios.title}</h2>
-
-                <Card className="p-6 mb-4 border-blue-500/20 bg-blue-500/5 border-l-4 border-l-blue-500">
-                  <h3 className="font-bold text-lg mb-2">{currentContent.scenarios.base.title}</h3>
-                  <p className="text-foreground leading-relaxed">
-                    {isLocked ? truncateText(currentContent.scenarios.base.content, 350) : currentContent.scenarios.base.content}
-                  </p>
-                </Card>
 
                 {!isLocked && (
                   <>
-                    <Card className="p-6 mb-4 border-green-500/20 bg-green-500/5 border-l-4 border-l-green-500">
-                      <h3 className="font-bold text-lg mb-2">{currentContent.scenarios.upside.title}</h3>
-                      <p className="text-foreground leading-relaxed">
-                        {currentContent.scenarios.upside.content}
-                      </p>
-                    </Card>
+                    <div className="mb-4">
+                      <p className="font-medium mb-2">{t.scenarios.base.conditions.title}</p>
+                      <ul className="list-none space-y-1 ml-0">
+                        {t.scenarios.base.conditions.items.map((item, idx) => (
+                          <li key={idx} className="text-muted-foreground flex items-start">
+                            <span className="mr-2">•</span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
 
-                    <Card className="p-6 border-red-500/20 bg-red-500/5 border-l-4 border-l-red-500">
-                      <h3 className="font-bold text-lg mb-2">{currentContent.scenarios.downside.title}</h3>
-                      <p className="text-foreground leading-relaxed">
-                        {currentContent.scenarios.downside.content}
-                      </p>
-                    </Card>
+                    <div className="mb-4">
+                      <p className="font-medium mb-1">{t.scenarios.base.interpretation.title}</p>
+                      <p className="text-muted-foreground">{t.scenarios.base.interpretation.text}</p>
+                    </div>
+
+                    <div>
+                      <p className="font-medium mb-1">{t.scenarios.base.validity.title}</p>
+                      <p className="text-muted-foreground">{t.scenarios.base.validity.text}</p>
+                    </div>
                   </>
                 )}
-                
-                {/* Paywall Overlay */}
-                {isLocked && (
-                  <div className="mt-8">
-                    <PaywallBlur isLocked={isLocked} />
+
+                {isLocked && <PaywallBlur isLocked={isLocked} />}
+              </Card>
+
+              {/* Upside Scenario */}
+              {!isLocked && (
+                <Card className="p-6 mb-4 border-l-4 border-l-green-500">
+                  <h3 className="text-xl font-semibold mb-3">
+                    {t.scenarios.upside.emoji} {t.scenarios.upside.title}
+                  </h3>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    {t.scenarios.upside.content}
+                  </p>
+
+                  <div className="mb-4">
+                    <p className="font-medium mb-2">{t.scenarios.upside.conditions.title}</p>
+                    <ul className="list-none space-y-1 ml-0">
+                      {t.scenarios.upside.conditions.items.map((item, idx) => (
+                        <li key={idx} className="text-muted-foreground flex items-start">
+                          <span className="mr-2">•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                )}
-              </section>
 
-              {/* Bottom Line */}
-              <section>
-                <h2 className="text-2xl font-bold mb-4">{currentContent.bottomLine.title}</h2>
-                <p className="text-foreground leading-relaxed whitespace-pre-line">
-                  {currentContent.bottomLine.content}
-                </p>
-              </section>
+                  <div>
+                    <p className="font-medium mb-1">{t.scenarios.upside.interpretation.title}</p>
+                    <p className="text-muted-foreground">{t.scenarios.upside.interpretation.text}</p>
+                  </div>
+                </Card>
+              )}
 
-              {/* Disclaimer */}
-              <section className="pt-8 border-t border-border">
-                <p className="text-sm text-foreground">
-                  <strong>{language === "en" ? "Disclaimer:" : "Дисклеймер:"}</strong>{" "}
-                  {currentContent.disclaimer.text}{" "}
-                  <a href="/legal/disclaimer" className="text-gold hover:underline">
-                    {currentContent.disclaimer.disclaimerLink}
-                  </a>{" "}
-                  {currentContent.disclaimer.and}{" "}
-                  <a href="/legal/risk-disclosure" className="text-gold hover:underline">
-                    {currentContent.disclaimer.riskLink}
-                  </a>
-                  .
-                </p>
-              </section>
+              {/* Downside Scenario */}
+              {!isLocked && (
+                <Card className="p-6 mb-4 border-l-4 border-l-red-500">
+                  <h3 className="text-xl font-semibold mb-3">
+                    {t.scenarios.downside.emoji} {t.scenarios.downside.title}
+                  </h3>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    {t.scenarios.downside.content}
+                  </p>
+
+                  <div className="mb-4">
+                    <p className="font-medium mb-2">{t.scenarios.downside.conditions.title}</p>
+                    <ul className="list-none space-y-1 ml-0">
+                      {t.scenarios.downside.conditions.items.map((item, idx) => (
+                        <li key={idx} className="text-muted-foreground flex items-start">
+                          <span className="mr-2">•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <p className="font-medium mb-1">{t.scenarios.downside.interpretation.title}</p>
+                    <p className="text-muted-foreground">{t.scenarios.downside.interpretation.text}</p>
+                  </div>
+                </Card>
+              )}
             </div>
+
+            {/* Reference Levels */}
+            {!isLocked && (
+              <Card className="p-6 mb-6">
+                <h2 className="text-2xl font-semibold mb-4">{t.referenceLevels.title}</h2>
+                <ul className="list-none space-y-2 ml-0">
+                  {t.referenceLevels.items.map((item, idx) => (
+                    <li key={idx} className="text-muted-foreground flex items-start">
+                      <span className="mr-2">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Card>
+            )}
+
+            {/* Share Buttons */}
+            <div className="mb-6">
+              <ShareButtons
+                title={t.title}
+                description={t.marketContext.content.substring(0, 150)}
+                url={typeof window !== 'undefined' ? window.location.href : ''}
+              />
+            </div>
+
+            {/* Disclaimer */}
+            <Card className="p-6 bg-muted/50">
+              <p className="text-sm text-muted-foreground">
+                {t.disclaimer.text}{" "}
+                <a href="/disclaimer" className="text-primary hover:underline">
+                  {t.disclaimer.disclaimerLink}
+                </a>{" "}
+                {t.disclaimer.and}{" "}
+                <a href="/risk-disclosure" className="text-primary hover:underline">
+                  {t.disclaimer.riskDisclosureLink}
+                </a>{" "}
+                {t.disclaimer.beforeProceeding}
+              </p>
+            </Card>
           </div>
         </main>
-
         <Footer />
       </div>
     </>

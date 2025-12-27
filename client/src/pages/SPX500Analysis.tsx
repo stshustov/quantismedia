@@ -2,8 +2,7 @@ import { Helmet } from "react-helmet";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Link } from "wouter";
+import { Card } from "@/components/ui/card";
 import ShareButtons from "@/components/ShareButtons";
 import { useTrackScenarioView } from "@/hooks/useTrackScenarioView";
 import { useAuth } from "@/_core/hooks/useAuth";
@@ -22,313 +21,368 @@ export default function SPX500Analysis() {
 
   const content = {
     en: {
-      title: "S&P 500 (SPX500) — Short-Term Institutional Outlook",
-      description: "Scenario-based analysis of S&P 500 with technical structure, positioning, and macro drivers",
-      breadcrumb: {
-        marketInsights: "Market Insights",
-        indices: "Indices",
-        spx500: "S&P 500"
+      title: "S&P 500 (US500) — Short-Term Scenario",
+      subtitle: "1–5 trading days",
+      category: "Indices",
+      timeHorizon: "Short-term (1–5 trading days)",
+      lastUpdated: "auto",
+
+      marketContext: {
+        title: "Market Context",
+        content:
+          "The US equity market remains highly sensitive to macroeconomic data and Federal Reserve policy expectations. Recent price action has been driven less by outright directional demand and more by shifts in liquidity conditions, flow structure, and sector-level risk redistribution.",
       },
-      timeHorizon: "Time Horizon",
-      timeHorizonValue: "1–5 trading days",
-      currentPrice: "Current Reference",
-      currentPriceValue: "~6,930",
-      lastUpdated: "Last Updated",
-      lastUpdatedValue: "December 26, 2025",
-      marketRegime: "Market Regime",
-      marketRegimeValue: "Bullish structure, late-cycle consolidation, liquidity-sensitive",
-      shareDescription: "S&P 500 (SPX500) — Short-Term Institutional Outlook: Scenario-based analysis with technical structure, positioning, and macro drivers",
-      sections: {
-        marketContext: {
-          title: "🎯 Market Context",
-          content: "The S&P 500 is trading near record highs after a strong upside impulse. Price action suggests a shift into a late-cycle consolidation phase, where market direction is increasingly driven by liquidity conditions, positioning, and monetary policy expectations rather than company-specific fundamentals.\n\nSeasonally lighter volumes and proximity to key psychological levels increase the likelihood of sharp intraday moves on headlines or flow shifts."
-        },
-        monetaryPolicy: {
-          title: "🌐 Monetary Policy and Macro Backdrop",
-          content: "The Fed maintains a target range of 3.50%–3.75%. In the short term, equities react primarily to the expected policy path rather than the current rate level:\n\n• Sustained easing expectations support risk assets\n• A stronger \"pause\" narrative or rising Treasury yields raise the probability of tactical multiple repricing\n\nOther major central banks remain broadly cautious, keeping global liquidity conditions neutral to mildly supportive."
-        },
-        positioning: {
-          title: "👥 Positioning and Flows",
-          content: "• Active managers and hedge funds remain heavily invested, supporting the base case but reducing resilience to negative surprises\n• CTA/systematic strategies are positioned pro-trend, which can reinforce upside but may accelerate downside if key technical levels fail\n• Retail sentiment is not overtly euphoric, yet the combination of high aggregate exposure and low volatility increases the risk of short-lived air-pocket corrections"
-        },
-        geopolitical: {
-          title: "🔧 Geopolitical Backdrop",
-          content: "Geopolitical developments currently act as secondary catalysts, influencing markets mainly through:\n\n• Rates and USD dynamics\n• Shifts in overall risk appetite\n• Volatility regimes"
-        },
-        technical: {
-          title: "📊 Technical Structure (M30 chart)",
-          content: "• **Resistance / supply:** 6,934–6,950\n• **Primary support:** 6,900–6,910\n• **Secondary value area:** 6,888–6,872\n• **Risk boundary:** below 6,840\n\nThe broader uptrend remains intact, though momentum has moderated near the highs."
-        },
-        scenarios: {
-          title: "📈 Scenario Framework (1–5 days)",
-          baseCase: {
-            title: "Base Case — Consolidation Within a Bullish Structure",
-            content: "Price holds within 6,900–6,950, with support intact above 6,900–6,910. The market digests gains while remaining highly sensitive to macro and rates-related catalysts."
+
+      scenarios: {
+        title: "Scenario Outlook",
+        base: {
+          emoji: "🟢",
+          title: "Base Scenario — Inertial continuation within current structure",
+          content:
+            "As long as the index holds above the 4,980–5,020 area and volatility remains contained, price action is expected to continue within the existing structural regime.",
+          conditions: {
+            title: "Key conditions:",
+            items: [
+              "Sustained hold above 4,980–5,020",
+              "No sharp volatility expansion",
+              "Ongoing liquidity support",
+            ],
           },
-          upside: {
-            title: "Upside Scenario — Momentum Extension",
-            content: "Sustained acceptance above 6,950 allows for renewed trend continuation and refocus toward higher psychological reference levels."
+          interpretation: {
+            title: "Interpretation:",
+            text: "The market maintains its current trajectory without signs of structural transition.",
           },
-          downside: {
-            title: "Downside Scenario — Tactical Pullback",
-            content: "A break below 6,900 opens the 6,888–6,872 area. Further weakness below that zone would indicate a deeper, but still tactical, repricing rather than a trend reversal."
-          }
+          validity: {
+            title: "Scenario validity:",
+            text: "Remains valid while the index holds above 4,980 and volatility stays contained.",
+          },
         },
-        bottomLine: {
-          title: "Bottom Line",
-          content: "The short-term outlook for SPX500 remains constructive but fragile. The dominant theme is consolidation with asymmetric sensitivity to liquidity, positioning, and policy expectations, making range boundaries and regime shifts critical to monitor."
-        }
+        upside: {
+          emoji: "🔵",
+          title: "Upside Scenario — Range expansion supported by liquidity",
+          content:
+            "Acceptance above recent highs would suggest a range expansion phase, supported by favorable liquidity conditions and stable risk appetite.",
+          conditions: {
+            title: "Key conditions:",
+            items: [
+              "Sustained acceptance above 5,020",
+              "Stable or improving risk appetite",
+              "No stress signals from rates or credit markets",
+            ],
+          },
+          interpretation: {
+            title: "Interpretation:",
+            text: "The move is driven by inertia and internal capital reallocation rather than speculative excess.",
+          },
+        },
+        downside: {
+          emoji: "🔴",
+          title: "Downside Scenario — Transition toward re-pricing",
+          content:
+            "A loss of the 4,980 area would indicate a transition toward a re-pricing phase, characterized by rising volatility and increased defensive flows.",
+          conditions: {
+            title: "Key conditions:",
+            items: [
+              "Breakdown below 4,980",
+              "Volatility expansion",
+              "Increase in defensive positioning",
+            ],
+          },
+          interpretation: {
+            title: "Interpretation:",
+            text: "The market shifts from continuation toward risk reassessment.",
+          },
+        },
       },
-      disclaimer: "All content is provided strictly for informational and educational purposes only. Quantis Media does not provide investment advice, trade execution instructions, or personalized recommendations."
+
+      referenceLevels: {
+        title: "Analytical Reference Levels",
+        items: [
+          "Structural Support Zone: 4,980–5,020",
+          "Structural Pivot: ~4,950",
+          "Risk Boundary: <4,900 — signals a regime shift",
+        ],
+      },
+
+      disclaimer: {
+        text: "This content is provided for informational and educational purposes only. It does not constitute investment advice, trading recommendations, or an offer to buy or sell any financial instruments. Past performance is not indicative of future results. Please review our full",
+        disclaimerLink: "Disclaimer",
+        and: "and",
+        riskDisclosureLink: "Risk Disclosure",
+        beforeProceeding: "before proceeding.",
+      },
     },
     ru: {
-      title: "S&P 500 (SPX500) — Краткосрочный институциональный прогноз",
-      description: "Сценарный анализ S&P 500 с технической структурой, позиционированием и макро-драйверами",
-      breadcrumb: {
-        marketInsights: "Рыночная аналитика",
-        indices: "Индексы",
-        spx500: "S&P 500"
+      title: "S&P 500 (US500) — Краткосрочный сценарий",
+      subtitle: "1–5 торговых дней",
+      category: "Индексы",
+      timeHorizon: "Краткосрочный (1–5 торговых дней)",
+      lastUpdated: "автоматически",
+
+      marketContext: {
+        title: "Контекст рынка",
+        content:
+          "Американский фондовый рынок остаётся в фазе повышенной чувствительности к макроэкономическим данным и ожиданиям по ДКП ФРС. Текущие движения формируются не столько направленным спросом, сколько изменениями в ликвидности, структуре потоков и перераспределением риска между секторами.",
       },
-      timeHorizon: "Временной горизонт",
-      timeHorizonValue: "1–5 торговых дней",
-      currentPrice: "Текущий ориентир",
-      currentPriceValue: "~6 930",
-      lastUpdated: "Обновлено",
-      lastUpdatedValue: "26 декабря 2025 г.",
-      marketRegime: "Рыночный режим",
-      marketRegimeValue: "Бычья структура, консолидация поздней фазы, чувствительность к ликвидности",
-      shareDescription: "S&P 500 (SPX500) — Краткосрочный институциональный прогноз: Сценарный анализ с технической структурой, позиционированием и макро-драйверами",
-      sections: {
-        marketContext: {
-          title: "🎯 Рыночный контекст",
-          content: "Индекс S&P 500 удерживается вблизи исторических максимумов после сильного импульса роста. Текущая динамика указывает на переход рынка в фазу консолидации на вершине диапазона, где направление движения определяется не столько корпоративными факторами, сколько ликвидностью, позиционированием и ожиданиями по денежно-кредитной политике.\n\nСезонно сниженные объёмы и приближение психологически значимых уровней усиливают вероятность резких внутридневных колебаний при выходе новостей или изменении потока ордеров."
-        },
-        monetaryPolicy: {
-          title: "🌐 Денежно-кредитная политика и макро-фон",
-          content: "ФРС сохраняет целевой диапазон ставки на уровне 3,50–3,75%. Краткосрочно для рынка акций важна не сама ставка, а траектория ожиданий:\n\n• Сохранение ожиданий дальнейшего смягчения поддерживает риск-аппетит\n• Усиление риторики о «паузе» или рост доходностей US Treasuries повышают вероятность тактической переоценки мультипликаторов\n\nДругие ключевые ЦБ в целом придерживаются осторожного подхода, что удерживает глобальную ликвидность в нейтрально-поддерживающем режиме."
-        },
-        positioning: {
-          title: "👥 Позиционирование и потоки",
-          content: "• Активные управляющие и фонды остаются с высокой долей риска в портфелях, что указывает на уверенность в базовом сценарии, но одновременно снижает запас прочности при негативных сюрпризах\n• CTA и систематические стратегии находятся в про-циклическом режиме: при сохранении структуры они поддерживают рынок, но при нарушении ключевых уровней способны усилить движение механическим снижением экспозиции\n• Ритейл-сентимент не выглядит экстремально эйфоричным, однако сочетание высокой общей загрузки рынка и низкой волатильности повышает риск резких, но краткосрочных «air-pocket» движений"
-        },
-        geopolitical: {
-          title: "🔧 Геополитический фон",
-          content: "Геополитические риски носят фоновый характер и в краткосрочном горизонте влияют преимущественно через:\n\n• Динамику доходностей и доллара США\n• Общее отношение к риску (risk-on / risk-off)\n• Волатильность"
-        },
-        technical: {
-          title: "📊 Техническая структура (по графику M30)",
-          content: "• **Зона сопротивления / предложения:** 6 934–6 950\n• **Ключевая поддержка:** 6 900–6 910\n• **Вторичная зона стоимости:** 6 888–6 872\n• **Граница риска:** ниже 6 840\n\nСтруктура остаётся восходящей, однако последние ценовые колебания указывают на замедление импульса и рост значимости уровней."
-        },
-        scenarios: {
-          title: "📈 Сценарная рамка (1–5 дней)",
-          baseCase: {
-            title: "Базовый сценарий — консолидация в бычьей структуре",
-            content: "Рынок удерживается в диапазоне 6 900–6 950 при сохранении поддержки выше 6 900–6 910. Движение носит балансирующий характер, с повышенной чувствительностью к макро-новостям и доходностям."
+
+      scenarios: {
+        title: "Сценарный прогноз",
+        base: {
+          emoji: "🟢",
+          title: "Базовый сценарий — Инерционное продолжение в текущей структуре",
+          content:
+            "Пока индекс удерживается выше зоны 4,980–5,020 и волатильность остаётся контролируемой, рынок сохраняет инерционное движение в рамках существующей структуры.",
+          conditions: {
+            title: "Ключевые условия:",
+            items: [
+              "Удержание выше 4,980–5,020",
+              "Отсутствие резкого роста волатильности",
+              "Сохранение поддержки со стороны ликвидности",
+            ],
           },
-          upside: {
-            title: "Альтернативный сценарий вверх — расширение импульса",
-            content: "Устойчивое принятие цены выше 6 950 открывает пространство для продолжения тренда и смещения фокуса рынка к более высоким, психологически значимым уровням."
+          interpretation: {
+            title: "Интерпретация:",
+            text: "Рынок продолжает движение в рамках текущего режима без признаков структурного сдвига.",
           },
-          downside: {
-            title: "Альтернативный сценарий вниз — тактическая переоценка",
-            content: "Потеря зоны 6 900 повышает вероятность отката в область 6 888–6 872. Усиление давления ниже этой зоны увеличивает риск более глубокой коррекции без нарушения среднесрочной восходящей структуры."
-          }
+          validity: {
+            title: "Актуальность сценария:",
+            text: "Сохраняется, пока индекс удерживается выше 4,980 и волатильность не выходит из контролируемого диапазона.",
+          },
         },
-        bottomLine: {
-          title: "Итог",
-          content: "Краткосрочный фон по SPX500 остаётся конструктивным, однако рынок входит в фазу, где позиционирование и ликвидность становятся ключевыми драйверами. Базовое ожидание — консолидация с риском ускоренных движений при выходе из диапазона."
-        }
+        upside: {
+          emoji: "🔵",
+          title: "Сценарий роста — Расширение при поддержке ликвидности",
+          content:
+            "Закрепление выше локальных максимумов будет указывать на расширение диапазона при сохранении благоприятных условий ликвидности и аппетита к риску.",
+          conditions: {
+            title: "Ключевые условия:",
+            items: [
+              "Устойчивое закрепление выше 5,020",
+              "Стабильный или улучшающийся риск-аппетит",
+              "Отсутствие стрессовых сигналов в ставках и кредитных рынках",
+            ],
+          },
+          interpretation: {
+            title: "Интерпретация:",
+            text: "Движение поддерживается инерцией и перераспределением капитала внутри рынка.",
+          },
+        },
+        downside: {
+          emoji: "🔴",
+          title: "Сценарий снижения — Переход к фазе переоценки",
+          content:
+            "Потеря области 4,980 будет указывать на начало переоценки, сопровождающейся ростом волатильности и усилением защитных потоков.",
+          conditions: {
+            title: "Ключевые условия:",
+            items: [
+              "Потеря 4,980",
+              "Рост внутридневной волатильности",
+              "Усиление защитного позиционирования",
+            ],
+          },
+          interpretation: {
+            title: "Интерпретация:",
+            text: "Рынок переходит в фазу оценки рисков с повышенной вероятностью коррекционных движений.",
+          },
+        },
       },
-      disclaimer: "Весь контент предоставляется исключительно в информационных и образовательных целях. Quantis Media не предоставляет инвестиционные консультации, инструкции по исполнению сделок или персонализированные рекомендации."
-    }
+
+      referenceLevels: {
+        title: "Аналитические референсные уровни",
+        items: [
+          "Зона структурной поддержки: 4,980–5,020",
+          "Структурный pivot: ~4,950",
+          "Граница риска: <4,900 — указывает на смену режима",
+        ],
+      },
+
+      disclaimer: {
+        text: "Данный контент предоставляется исключительно в информационных и образовательных целях. Он не является инвестиционной консультацией, торговыми рекомендациями или предложением купить или продать финансовые инструменты. Прошлые результаты не гарантируют будущих. Пожалуйста, ознакомьтесь с полным",
+        disclaimerLink: "Дисклеймером",
+        and: "и",
+        riskDisclosureLink: "Раскрытием рисков",
+        beforeProceeding: "перед использованием.",
+      },
+    },
   };
 
-  const t = content[language];
+  const t = content[language as keyof typeof content];
 
   return (
     <>
       <Helmet>
-        <title>{t.title} - Quantis Media</title>
-        <meta name="description" content={t.description} />
+        <title>{t.title} | Quantis Media</title>
+        <meta
+          name="description"
+          content={`${t.title} - ${t.timeHorizon}. ${t.marketContext.content.substring(0, 150)}...`}
+        />
       </Helmet>
-
-      <div className="min-h-screen bg-background flex flex-col">
+      <div className="min-h-screen bg-background">
         <Navigation />
-
-        <main className="flex-1">
-          {/* Breadcrumb */}
-          <div className="container py-4">
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <Link href="/market-insights" className="hover:text-foreground transition-colors">
-                {t.breadcrumb.marketInsights}
-              </Link>
-              <span>/</span>
-              <Link href="/market-insights/indices" className="hover:text-foreground transition-colors">
-                {t.breadcrumb.indices}
-              </Link>
-              <span>/</span>
-              <span className="text-foreground">{t.breadcrumb.spx500}</span>
+        <main className="container py-8 md:py-12">
+          <div className="max-w-4xl mx-auto">
+            {/* Header */}
+            <div className="mb-8">
+              <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+                <span>{t.category}</span>
+                <span>•</span>
+                <span>{t.timeHorizon}</span>
+              </div>
+              <h1 className="text-3xl md:text-4xl font-bold mb-2">{t.title}</h1>
+              <p className="text-muted-foreground">
+                {language === "en" ? "Last Update:" : "Последнее обновление:"} {t.lastUpdated}
+              </p>
             </div>
-          </div>
 
-          {/* Header */}
-          <section className="container py-8">
-            <h1 className="text-4xl font-bold mb-6 text-foreground">{t.title}</h1>
+            {/* Market Context */}
+            <Card className="p-6 mb-6">
+              <h2 className="text-2xl font-semibold mb-4">{t.marketContext.title}</h2>
+              <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
+                {t.marketContext.content}
+              </p>
+            </Card>
+
+            {/* Scenarios */}
+            <div className="mb-6">
+              <h2 className="text-2xl font-semibold mb-6">{t.scenarios.title}</h2>
+
+              {/* Base Scenario */}
+              <Card className="p-6 mb-4 border-l-4 border-l-blue-500 relative">
+                <h3 className="text-xl font-semibold mb-3">
+                  {t.scenarios.base.emoji} {t.scenarios.base.title}
+                </h3>
+                <p className="text-muted-foreground mb-4 leading-relaxed">
+                  {isLocked ? truncateText(t.scenarios.base.content, 350) : t.scenarios.base.content}
+                </p>
+
+                {!isLocked && (
+                  <>
+                    <div className="mb-4">
+                      <p className="font-medium mb-2">{t.scenarios.base.conditions.title}</p>
+                      <ul className="list-none space-y-1 ml-0">
+                        {t.scenarios.base.conditions.items.map((item, idx) => (
+                          <li key={idx} className="text-muted-foreground flex items-start">
+                            <span className="mr-2">•</span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="mb-4">
+                      <p className="font-medium mb-1">{t.scenarios.base.interpretation.title}</p>
+                      <p className="text-muted-foreground">{t.scenarios.base.interpretation.text}</p>
+                    </div>
+
+                    <div>
+                      <p className="font-medium mb-1">{t.scenarios.base.validity.title}</p>
+                      <p className="text-muted-foreground">{t.scenarios.base.validity.text}</p>
+                    </div>
+                  </>
+                )}
+
+                {isLocked && <PaywallBlur isLocked={isLocked} />}
+              </Card>
+
+              {/* Upside Scenario */}
+              {!isLocked && (
+                <Card className="p-6 mb-4 border-l-4 border-l-green-500">
+                  <h3 className="text-xl font-semibold mb-3">
+                    {t.scenarios.upside.emoji} {t.scenarios.upside.title}
+                  </h3>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    {t.scenarios.upside.content}
+                  </p>
+
+                  <div className="mb-4">
+                    <p className="font-medium mb-2">{t.scenarios.upside.conditions.title}</p>
+                    <ul className="list-none space-y-1 ml-0">
+                      {t.scenarios.upside.conditions.items.map((item, idx) => (
+                        <li key={idx} className="text-muted-foreground flex items-start">
+                          <span className="mr-2">•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <p className="font-medium mb-1">{t.scenarios.upside.interpretation.title}</p>
+                    <p className="text-muted-foreground">{t.scenarios.upside.interpretation.text}</p>
+                  </div>
+                </Card>
+              )}
+
+              {/* Downside Scenario */}
+              {!isLocked && (
+                <Card className="p-6 mb-4 border-l-4 border-l-red-500">
+                  <h3 className="text-xl font-semibold mb-3">
+                    {t.scenarios.downside.emoji} {t.scenarios.downside.title}
+                  </h3>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    {t.scenarios.downside.content}
+                  </p>
+
+                  <div className="mb-4">
+                    <p className="font-medium mb-2">{t.scenarios.downside.conditions.title}</p>
+                    <ul className="list-none space-y-1 ml-0">
+                      {t.scenarios.downside.conditions.items.map((item, idx) => (
+                        <li key={idx} className="text-muted-foreground flex items-start">
+                          <span className="mr-2">•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <p className="font-medium mb-1">{t.scenarios.downside.interpretation.title}</p>
+                    <p className="text-muted-foreground">{t.scenarios.downside.interpretation.text}</p>
+                  </div>
+                </Card>
+              )}
+            </div>
+
+            {/* Reference Levels */}
+            {!isLocked && (
+              <Card className="p-6 mb-6">
+                <h2 className="text-2xl font-semibold mb-4">{t.referenceLevels.title}</h2>
+                <ul className="list-none space-y-2 ml-0">
+                  {t.referenceLevels.items.map((item, idx) => (
+                    <li key={idx} className="text-muted-foreground flex items-start">
+                      <span className="mr-2">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Card>
+            )}
 
             {/* Share Buttons */}
-            <ShareButtons 
-              title={t.title}
-              url="/market-insights/indices/spx500"
-              description={t.shareDescription}
-            />
-
-            {/* Info Cards */}
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mb-8">
-              <Card className="border-primary/20 shadow-md hover:shadow-lg transition-shadow">
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-sm font-medium text-muted-foreground">
-                    {t.timeHorizon}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-lg font-semibold text-foreground">{t.timeHorizonValue}</p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-primary/20 shadow-md hover:shadow-lg transition-shadow">
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-sm font-medium text-muted-foreground">
-                    {t.currentPrice}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-lg font-semibold text-foreground font-mono">{t.currentPriceValue}</p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-primary/20 shadow-md hover:shadow-lg transition-shadow">
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-sm font-medium text-muted-foreground">
-                    {t.lastUpdated}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-lg font-semibold text-foreground">{t.lastUpdatedValue}</p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-primary/20 shadow-md hover:shadow-lg transition-shadow">
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-sm font-medium text-muted-foreground">
-                    {t.marketRegime}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm font-semibold text-foreground">{t.marketRegimeValue}</p>
-                </CardContent>
-              </Card>
+            <div className="mb-6">
+              <ShareButtons
+                title={t.title}
+                description={t.marketContext.content.substring(0, 150)}
+                url={typeof window !== 'undefined' ? window.location.href : ''}
+              />
             </div>
-          </section>
 
-          {/* Analysis Content */}
-          <section className="container pb-16 max-w-4xl">
-            <div className="space-y-8">
-              {/* Market Context */}
-              <div className="border-l-2 border-muted pl-6">
-                <h2 className="text-2xl font-bold mb-4 text-foreground">{t.sections.marketContext.title}</h2>
-                <p className="text-foreground whitespace-pre-line leading-relaxed">{t.sections.marketContext.content}</p>
-              </div>
-
-              {/* Monetary Policy */}
-              <div className="border-l-2 border-muted pl-6">
-                <h2 className="text-2xl font-bold mb-4 text-foreground">{t.sections.monetaryPolicy.title}</h2>
-                <p className="text-foreground whitespace-pre-line leading-relaxed">{t.sections.monetaryPolicy.content}</p>
-              </div>
-
-              {/* Positioning */}
-              <div className="border-l-2 border-muted pl-6">
-                <h2 className="text-2xl font-bold mb-4 text-foreground">{t.sections.positioning.title}</h2>
-                <p className="text-foreground whitespace-pre-line leading-relaxed">{t.sections.positioning.content}</p>
-              </div>
-
-              {/* Geopolitical */}
-              <div className="border-l-2 border-muted pl-6">
-                <h2 className="text-2xl font-bold mb-4 text-foreground">{t.sections.geopolitical.title}</h2>
-                <p className="text-foreground whitespace-pre-line leading-relaxed">{t.sections.geopolitical.content}</p>
-              </div>
-
-              {/* Technical */}
-              <div className="border-l-2 border-muted pl-6">
-                <h2 className="text-2xl font-bold mb-4 text-foreground">{t.sections.technical.title}</h2>
-                <p className="text-foreground whitespace-pre-line leading-relaxed">{t.sections.technical.content}</p>
-              </div>
-
-              {/* Scenarios */}
-              <div className="relative">
-                <h2 className="text-2xl font-bold mb-6 text-foreground">{t.sections.scenarios.title}</h2>
-                
-                <div className="space-y-4">
-                  {/* Base Case */}
-                  <Card className="border-l-4 border-l-blue-500 bg-blue-950/20">
-                    <CardHeader>
-                      <CardTitle className="text-foreground">{t.sections.scenarios.baseCase.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-foreground leading-relaxed">
-                        {isLocked ? truncateText(t.sections.scenarios.baseCase.content, 350) : t.sections.scenarios.baseCase.content}
-                      </p>
-                    </CardContent>
-                  </Card>
-
-                  {!isLocked && (
-                    <>
-                      {/* Upside */}
-                      <Card className="border-l-4 border-l-green-500 bg-green-950/20">
-                        <CardHeader>
-                          <CardTitle className="text-foreground">{t.sections.scenarios.upside.title}</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                          <p className="text-foreground leading-relaxed">{t.sections.scenarios.upside.content}</p>
-                        </CardContent>
-                      </Card>
-
-                      {/* Downside */}
-                      <Card className="border-l-4 border-l-red-500 bg-red-950/20">
-                        <CardHeader>
-                          <CardTitle className="text-foreground">{t.sections.scenarios.downside.title}</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                          <p className="text-foreground leading-relaxed">{t.sections.scenarios.downside.content}</p>
-                        </CardContent>
-                      </Card>
-                    </>
-                  )}
-                </div>
-                
-                {/* Paywall Overlay */}
-                {isLocked && (
-                  <div className="mt-8">
-                    <PaywallBlur isLocked={isLocked} />
-                  </div>
-                )}
-              </div>
-
-              {/* Bottom Line */}
-              <div className="border-l-2 border-muted pl-6">
-                <h2 className="text-2xl font-bold mb-4 text-foreground">{t.sections.bottomLine.title}</h2>
-                <p className="text-foreground leading-relaxed">{t.sections.bottomLine.content}</p>
-              </div>
-
-              {/* Disclaimer */}
-              <div className="mt-12 p-6 bg-muted/30 border border-muted rounded-lg">
-                <p className="text-sm text-foreground leading-relaxed">
-                  ⚠️ {t.disclaimer}
-                </p>
-              </div>
-            </div>
-          </section>
+            {/* Disclaimer */}
+            <Card className="p-6 bg-muted/50">
+              <p className="text-sm text-muted-foreground">
+                {t.disclaimer.text}{" "}
+                <a href="/disclaimer" className="text-primary hover:underline">
+                  {t.disclaimer.disclaimerLink}
+                </a>{" "}
+                {t.disclaimer.and}{" "}
+                <a href="/risk-disclosure" className="text-primary hover:underline">
+                  {t.disclaimer.riskDisclosureLink}
+                </a>{" "}
+                {t.disclaimer.beforeProceeding}
+              </p>
+            </Card>
+          </div>
         </main>
-
         <Footer />
       </div>
     </>

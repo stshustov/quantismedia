@@ -709,3 +709,11 @@
 - [x] Add ARIA attributes (aria-expanded, aria-controls)
 - [x] Test with both EN/RU languages (tested EN and RU, accordion mode works perfectly)
 - [x] Create checkpoint with interactive How It Works cards
+
+## Scenario Pages v2 Content Update
+- [x] Update Gold Analysis page with v2 institutional-grade content (RU/EN)
+- [x] Update SPX500 Analysis page with v2 institutional-grade content (RU/EN)
+- [x] Preserve existing UI structure and styling
+- [x] Keep paywall logic intact (truncation for public users)
+- [x] Test both pages with EN/RU languages (tested Gold and SPX500 in both EN and RU)
+- [x] Create checkpoint with v2 scenario content
