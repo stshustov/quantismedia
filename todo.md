@@ -801,3 +801,12 @@
 - [x] Fix "Последний просмотр" date (now shows "27 дек.", loaded from database)
 - [x] Implement activity tracking when user views Trading Ideas (added trackScenarioView mutation in TradingIdeas.tsx)
 - [x] Test statistics update after viewing scenarios (verified working - shows real data)
+
+## Market Preview Terminology Implementation (Final TЗ)
+- [x] Update FAQ - add clarification that Market Preview is access mode, not separate page (RU/EN)
+- [x] Add Market Preview badge to Sample Ideas page subtitle (RU: "Market Preview — пример сценарного анализа", EN: "Market Preview — sample scenario analysis")
+- [x] Verify NO Market Preview menu item exists
+- [x] Verify NO separate Market Preview page exists
+- [x] Check all Market Preview mentions for consistency (should be "режим доступа" not "страница")
+- [x] Test FAQ and Sample Ideas page with new terminology
+- [ ] Create checkpoint with Market Preview clarification

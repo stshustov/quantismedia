@@ -11,6 +11,7 @@ export default function SampleIdeas() {
     en: {
       pageTitle: "Scenario-Based Market Outlook",
       pageSubtitle: "Below are examples of how Quantis Media structures market context into probability-based scenarios, using price ranges, structural levels, and macro conditions.",
+      marketPreviewBadge: "Market Preview — sample scenario analysis",
       disclaimer: "All content is provided for informational and educational purposes only.",
       sp500: {
         instrument: "S&P 500 (US500)",
@@ -97,6 +98,7 @@ export default function SampleIdeas() {
     ru: {
       pageTitle: "Сценарный рыночный прогноз",
       pageSubtitle: "Ниже представлены примеры того, как Quantis Media формирует вероятностные рыночные сценарии с использованием ценовых диапазонов, структурных уровней и макро-контекста.",
+      marketPreviewBadge: "Market Preview — пример сценарного анализа",
       disclaimer: "Материалы носят аналитический и образовательный характер и не являются инвестиционными рекомендациями.",
       sp500: {
         instrument: "S&P 500 (US500)",
@@ -198,7 +200,8 @@ export default function SampleIdeas() {
         <Navigation />
         <main className="flex-1 py-20">
           <div className="container mx-auto px-4 max-w-6xl">
-            <h1 className="text-4xl font-bold mb-4">{t.pageTitle}</h1>
+            <h1 className="text-4xl font-bold mb-2">{t.pageTitle}</h1>
+            <p className="text-sm text-muted-foreground/70 mb-4 italic">{t.marketPreviewBadge}</p>
             <p className="text-lg text-muted-foreground mb-2">{t.pageSubtitle}</p>
             <p className="text-sm text-muted-foreground mb-12">{t.disclaimer}</p>
 
