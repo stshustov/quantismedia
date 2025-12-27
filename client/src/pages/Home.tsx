@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Link } from "wouter";
 import { getLoginUrl } from "@/const";
 import { useAuth } from "@/_core/hooks/useAuth";
-import { TrendingUp, Shield, Globe, BarChart3, AlertCircle } from "lucide-react";
+import { TrendingUp, Shield, Globe, BarChart3, AlertCircle, CheckCircle, Users, XCircle } from "lucide-react";
 
 export default function Home() {
   const { language, t } = useLanguage();
@@ -54,6 +54,16 @@ export default function Home() {
       title: "Исследовательский подход",
       description: "Аналитический контент в информационных и образовательных целях. Без инструкций по исполнению, без персонализированных советов."
     }
+  ];
+
+  const valueBullets = language === "en" ? [
+    "We view markets as dynamic systems where liquidity, volatility, and behavioral regimes play a central role",
+    "A scenario-based approach allows for more robust decision-making under uncertainty than linear forecasts",
+    "We describe multiple viable scenarios, each with defined confirmation conditions and invalidation boundaries"
+  ] : [
+    "Мы рассматриваем рынки как динамичные системы, в которых ключевую роль играют ликвидность, волатильность и поведенческие режимы",
+    "Сценарный подход позволяет работать с неопределённостью более устойчиво, чем линейные прогнозы",
+    "Мы описываем несколько допустимых сценариев, определяя для каждого из них условия подтверждения и границы инвалидирования"
   ];
 
   return (
@@ -115,6 +125,62 @@ export default function Home() {
                   ? "All content is provided strictly for informational and educational purposes only. Quantis Media does not provide investment advice, trade execution instructions, or personalized recommendations."
                   : "Весь контент предоставляется исключительно в информационных и образовательных целях. Quantis Media не предоставляет инвестиционных рекомендаций, инструкций по исполнению сделок или персонализированных советов."}
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Value Bullets Section */}
+      <section className="py-16 bg-[oklch(0.12_0.02_250)]">
+        <div className="container">
+          <div className="max-w-4xl mx-auto space-y-6">
+            {valueBullets.map((bullet, index) => (
+              <div key={index} className="flex items-start gap-4">
+                <CheckCircle className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
+                <p className="text-lg text-muted-foreground leading-relaxed">{bullet}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Who It's For Section */}
+      <section className="py-20 bg-[oklch(0.14_0.02_250)]">
+        <div className="container">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex items-start gap-4 mb-6">
+              <Users className="h-8 w-8 text-primary flex-shrink-0 mt-1" />
+              <div>
+                <h2 className="text-3xl font-bold mb-4">
+                  {language === "en" ? "Who We Work For" : "Для кого мы работаем"}
+                </h2>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  {language === "en"
+                    ? "The platform is designed for traders, analysts, portfolio managers, and advanced market participants who seek contextual understanding, risk awareness, and adaptability to changing market conditions."
+                    : "Платформа ориентирована на трейдеров, аналитиков, портфельных управляющих и продвинутых участников рынка, которым важно понимать контекст, управлять риском и адаптироваться к меняющимся рыночным условиям."}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What We Don't Do Section */}
+      <section className="py-20 bg-[oklch(0.12_0.02_250)]">
+        <div className="container">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex items-start gap-4 mb-6">
+              <XCircle className="h-8 w-8 text-primary flex-shrink-0 mt-1" />
+              <div>
+                <h2 className="text-3xl font-bold mb-4">
+                  {language === "en" ? "What We Don't Do" : "Что мы НЕ делаем"}
+                </h2>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  {language === "en"
+                    ? "Quantis Media does not provide trading signals, investment advice, or capital management. We provide analytical context — decisions remain with the user."
+                    : "Quantis Media не предоставляет торговых сигналов, инвестиционных рекомендаций и не управляет капиталом. Мы предоставляем аналитический контекст — решения остаются за пользователем."}
+                </p>
+              </div>
             </div>
           </div>
         </div>

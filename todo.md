@@ -756,3 +756,36 @@
 - [x] Verified all RU/EN translations are synchronized (tested both languages)
 - [x] Test Footer navigation on all pages (tested on Home, Disclaimer, Risk Disclosure)
 - [x] Create checkpoint with final Footer + Legal structure
+
+## 3-Step TЗ Implementation (ШАГ 1-3)
+
+### ШАГ 1 - Home Page Updates
+- [x] Update Hero section text (keep design unchanged)
+- [x] Add 3 value bullets under Hero (with CheckCircle icons)
+- [x] Add "Who it's for" block (with Users icon)
+- [x] Add "What we don't do" block (with XCircle icon)
+- [x] Verify RU/EN translations (tested both languages)
+
+### ШАГ 2 - Contact Page Professional Redesign
+- [x] Add subtitle under "Contact Us" heading (professional positioning)
+- [x] Add "What you can contact us about" block with 4 items
+- [x] Update "Subject" field placeholder with example
+- [x] Add note under form about response priorities
+- [x] Sync RU/EN versions (tested both languages)
+- [x] Verify professional/partnership-ready appearance
+
+### ШАГ 3 - About Page Methodology Focus
+- [x] Rewrite Intro paragraph (who we are in 1 paragraph)
+- [x] Add "How we approach markets" section
+- [x] Add "Why scenario approach" section
+- [x] Add short "What we don't do" section (no Legal duplication)
+- [x] Add "Who we work for" section
+- [x] Remove legal formulations (already in Disclaimer)
+- [x] Sync RU/EN versions (tested both languages)
+- [ ] Verify no duplication with Legal/FAQ pages
+
+### Final Testing
+- [ ] Test all 3 pages in RU language
+- [ ] Test all 3 pages in EN language
+- [ ] Verify design consistency (no color/typography changes)
+- [ ] Create checkpoint with all 3 steps completed
