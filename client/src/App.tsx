@@ -65,7 +65,7 @@ function Router() {
       <Route path="/account/billing" component={BillingHistory} />
       <Route path="/admin" component={Admin} />
       <Route path="/legal/:slug" component={Legal} />
-      <Route path="/market-insights/energy-metals/energy/wti-crude-oil" component={WTICrudeOil} />
+      <Route path="/market-insights/energy-metals/wti-crude-oil" component={WTICrudeOil} />
       <Route path="/market-insights/energy-metals/metals/gold" component={GoldAnalysis} />
       <Route path="/market-insights/energy-metals/metals/silver" component={SilverAnalysis} />
       <Route path="/market-insights/energy-metals/metals/copper" component={CopperAnalysis} />

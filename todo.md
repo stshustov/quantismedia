@@ -809,4 +809,32 @@
 - [x] Verify NO separate Market Preview page exists
 - [x] Check all Market Preview mentions for consistency (should be "режим доступа" not "страница")
 - [x] Test FAQ and Sample Ideas page with new terminology
-- [ ] Create checkpoint with Market Preview clarification
+- [x] Create checkpoint with Market Preview clarification
+
+## Share Buttons Audit & Optimization (Institutional Research Standards)
+
+### Audit Current Placement
+- [x] Check if Share buttons exist on scenario analysis pages (WTI, Gold, Silver, Copper, SPX500) ✅
+- [x] Check if Share buttons exist on Sample Ideas page (inside scenario cards)
+- [x] Verify NO Share buttons on Home page
+- [x] Verify NO Share buttons on About page
+- [x] Verify NO Share buttons on Contact page
+- [x] Verify NO Share buttons on Legal pages (Disclaimer, Risk Disclosure, Terms, Privacy, Cookie)
+- [x] Verify NO Share buttons on Pricing page
+- [x] Verify NO Share buttons on FAQ page
+
+### Implementation Requirements
+- [x] Share buttons MUST exist on all scenario analysis pages (already done for 5 pages)
+- [x] Add Share buttons to Sample Ideas scenario cards (inside expanded view or card header)
+- [x] Remove Share buttons from non-shareable pages if found (none found)
+- [x] Ensure Share component uses: 𝕏 (Twitter), LinkedIn, Copy link only
+- [x] Verify Copy functionality includes: title + 1-line context + URL
+- [x] Test Share buttons work identically in RU/EN languages
+
+### Acceptance Criteria
+- [x] Share buttons exist ONLY on shareable content (scenario pages, sample ideas)
+- [x] NO Share buttons on Home, About, Contact, Legal, Pricing, FAQ
+- [x] Copy button works without registration
+- [x] Share text auto-generated from page title + context
+- [x] Bilingual support working (RU/EN)
+- [ ] Create checkpoint with Share buttons optimization

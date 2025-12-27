@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Helmet } from "react-helmet";
+import ShareButtons from "@/components/ShareButtons";
 
 export default function SampleIdeas() {
   const { language } = useLanguage();
@@ -212,11 +213,16 @@ export default function SampleIdeas() {
                   {/* Header */}
                   <div className="mb-6">
                     <h2 className="text-2xl font-bold mb-2">{t.sp500.instrument}</h2>
-                    <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
                       <span className="uppercase tracking-wide font-semibold">{t.sp500.category}</span>
                       <span>•</span>
                       <span>{t.sp500.timeHorizon}</span>
                     </div>
+                    <ShareButtons 
+                      title={t.sp500.instrument}
+                      url="/sample-ideas#sp500"
+                      description={t.sp500.marketContext.substring(0, 120) + "..."}
+                    />
                   </div>
 
                   {/* Market Context */}
@@ -301,11 +307,16 @@ export default function SampleIdeas() {
                   {/* Header */}
                   <div className="mb-6">
                     <h2 className="text-2xl font-bold mb-2">{t.gold.instrument}</h2>
-                    <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
                       <span className="uppercase tracking-wide font-semibold">{t.gold.category}</span>
                       <span>•</span>
                       <span>{t.gold.timeHorizon}</span>
                     </div>
+                    <ShareButtons 
+                      title={t.gold.instrument}
+                      url="/sample-ideas#gold"
+                      description={t.gold.marketContext.substring(0, 120) + "..."}
+                    />
                   </div>
 
                   {/* Market Context */}
