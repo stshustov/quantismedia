@@ -868,3 +868,31 @@
 - [x] Filters preserve paywall restrictions (Core vs Pro scenarios)
 - [x] All filter labels translated (RU/EN)
 - [x] Create checkpoint with Scenarios Dashboard filtering
+
+## Scenario Card Structure Fix (Critical)
+
+### Issues Identified
+- [x] Missing proper header panel in scenario cards
+- [x] Share buttons not in header (should be in card header, not separate)
+- [x] Section titles (Context, Scenario, Invalidation, Target) not aligned at top
+- [x] Card structure doesn't match institutional research format
+
+### Required Structure
+- [x] Add card header panel with:
+  * Instrument name (large, prominent)
+  * Time Horizon (e.g., "1-5 days")
+  * Last Update date (e.g., "Updated: Sep 25")
+  * Share buttons (X, LinkedIn, Copy) aligned right
+  * Category badge (FX, Metals, etc.)
+- [x] Align section titles at top of content area
+- [x] Use grid layout for Invalidation/Target columns
+- [x] Ensure consistent spacing and professional look
+
+### Acceptance Criteria
+- [x] Header panel visible on all scenario cards
+- [x] Share buttons integrated into header (right side)
+- [x] Time horizon and last update displayed
+- [x] Section titles aligned horizontally at top
+- [x] Layout matches institutional research aesthetic
+- [x] Works in both RU and EN languages
+- [ ] Create checkpoint with card structure fix

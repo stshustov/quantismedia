@@ -1,9 +1,10 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import ShareButtons from "@/components/ShareButtons";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trpc } from "@/lib/trpc";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { useEffect, useState, useMemo } from "react";
 import { useLocation } from "wouter";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -145,47 +146,80 @@ export default function TradingIdeas() {
             ) : (
               filteredIdeas.map((idea) => (
                 <Card key={idea.id} className="border-2">
-                  <CardHeader>
-                    <div className="flex items-start justify-between">
-                      <div>
-                        <CardTitle className="text-2xl mb-2">{idea.instrument}</CardTitle>
-                        <div className="flex items-center gap-2">
-                          <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wide rounded-full bg-primary/10 text-primary">
-                            {marketLabels[idea.market as keyof typeof marketLabels]}
+                  {/* Card Header Panel - Institutional Format */}
+                  <div className="px-6 py-4 border-b bg-card">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-4">
+                        {/* Instrument Name */}
+                        <h2 className="text-2xl font-bold">{idea.instrument}</h2>
+                        
+                        {/* Category Badge */}
+                        <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wide rounded-full bg-primary/10 text-primary">
+                          {marketLabels[idea.market as keyof typeof marketLabels]}
+                        </span>
+                        
+                        {/* PRO Badge */}
+                        {idea.accessLevel === "pro" && (
+                          <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wide rounded-full bg-amber-500/10 text-amber-600">
+                            PRO
                           </span>
-                          {idea.accessLevel === "pro" && (
-                            <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wide rounded-full bg-amber-500/10 text-amber-600">
-                              PRO
-                            </span>
-                          )}
-                        </div>
+                        )}
+                        
+                        {/* Time Horizon - placeholder for now */}
+                        <span className="text-sm text-muted-foreground">
+                          · 1–5 {language === "en" ? "days" : "дней"}
+                        </span>
+                        
+                        {/* Last Update - placeholder for now */}
+                        <span className="text-sm text-muted-foreground">
+                          · {language === "en" ? "Updated:" : "Обновлено:"} {new Date().toLocaleDateString(language === "en" ? "en-US" : "ru-RU", { month: "short", day: "numeric" })}
+                        </span>
+                      </div>
+                      
+                      {/* Share Buttons - Right Aligned */}
+                      <ShareButtons
+                        url={`/trading-ideas/${idea.id}`}
+                        title={idea.instrument}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Card Content - Aligned Sections */}
+                  <CardContent className="p-6">
+                    {/* Top-aligned section titles */}
+                    <div className="grid grid-cols-2 gap-6 mb-6">
+                      <div>
+                        <h3 className="font-semibold text-sm uppercase tracking-wide text-muted-foreground mb-3">
+                          {t.tradingIdea.context}
+                        </h3>
+                        <p className="text-sm leading-relaxed">{language === "en" ? idea.contextEn : idea.contextRu}</p>
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-sm uppercase tracking-wide text-muted-foreground mb-3">
+                          {t.tradingIdea.scenario}
+                        </h3>
+                        <p className="text-sm leading-relaxed">{language === "en" ? idea.scenarioEn : idea.scenarioRu}</p>
                       </div>
                     </div>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div>
-                      <h3 className="font-semibold mb-2">{t.tradingIdea.context}</h3>
-                      <p className="text-muted-foreground">{language === "en" ? idea.contextEn : idea.contextRu}</p>
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-2">{t.tradingIdea.scenario}</h3>
-                      <p className="text-muted-foreground">{language === "en" ? idea.scenarioEn : idea.scenarioRu}</p>
-                    </div>
-                    <div className="grid grid-cols-2 gap-4">
+
+                    {/* Invalidation & Target - Grid Layout */}
+                    <div className="grid grid-cols-2 gap-6 pt-6 border-t">
                       <div>
-                        <h3 className="font-semibold text-sm mb-1">
+                        <h3 className="font-semibold text-sm uppercase tracking-wide text-muted-foreground mb-2">
                           {language === "en" ? "Invalidation reference" : "Инвалидация (ориентир)"}
                         </h3>
-                        <p className="text-red-600 font-mono">{idea.invalidationZone}</p>
+                        <p className="text-lg font-mono text-red-600">{idea.invalidationZone}</p>
                       </div>
                       <div>
-                        <h3 className="font-semibold text-sm mb-1">
+                        <h3 className="font-semibold text-sm uppercase tracking-wide text-muted-foreground mb-2">
                           {language === "en" ? "Reference area" : "Целевая зона (ориентир)"}
                         </h3>
-                        <p className="text-green-600 font-mono">{idea.targetArea}</p>
+                        <p className="text-lg font-mono text-green-600">{idea.targetArea}</p>
                       </div>
                     </div>
-                    <div className="pt-4 border-t text-sm text-muted-foreground">
+
+                    {/* Disclaimer */}
+                    <div className="mt-6 pt-6 border-t text-xs text-muted-foreground italic">
                       {language === "en"
                         ? "Important: Scenarios are analytical frameworks for informational purposes only and do not constitute trading advice."
                         : "Важно: сценарии являются аналитическими рамками в информационных целях и не являются торговыми рекомендациями."}
