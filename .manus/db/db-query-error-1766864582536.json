@@ -1,0 +1,8 @@
+{
+  "query": "SELECT page_type, title_en, title_ru, LEFT(content_en, 200) as content_preview_en, LEFT(content_ru, 200) as content_preview_ru FROM legal_pages WHERE page_type = 'disclaimer';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Vw3sBxn3PVfsWt.40752de7f7c0 --database 2FuYdXWoTHqtAhfudHLG7U --execute SELECT page_type, title_en, title_ru, LEFT(content_en, 200) as content_preview_en, LEFT(content_ru, 200) as content_preview_ru FROM legal_pages WHERE page_type = 'disclaimer';",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1146 (42S02) at line 1: Table '2fuydxwothqtahfudhlg7u.legal_pages' doesn't exist"
+  ]
+}

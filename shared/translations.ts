@@ -9,6 +9,8 @@ export interface Translations {
     sampleIdeas: string;
     pricing: string;
     about: string;
+    support: string;
+    faq: string;
     legal: string;
     contact: string;
     dashboard: string;
@@ -121,6 +123,8 @@ export const translations: Record<Language, Translations> = {
       sampleIdeas: "Sample Ideas",
       pricing: "Pricing",
       about: "About",
+      support: "Support",
+      faq: "FAQ",
       legal: "Legal",
       contact: "Contact",
       dashboard: "Dashboard",
@@ -213,6 +217,8 @@ export const translations: Record<Language, Translations> = {
       sampleIdeas: "Примеры идей",
       pricing: "Тарифы",
       about: "О нас",
+      support: "Поддержка",
+      faq: "FAQ",
       legal: "Правовая информация",
       contact: "Контакты",
       dashboard: "Панель управления",

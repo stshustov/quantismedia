@@ -1,0 +1,22 @@
+{
+  "query": "SELECT pageType, titleEn, titleRu, LEFT(contentRu, 100) as preview FROM legalPages WHERE pageType IN ('disclaimer', 'risk_disclosure');",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Vw3sBxn3PVfsWt.40752de7f7c0 --database 2FuYdXWoTHqtAhfudHLG7U --execute SELECT pageType, titleEn, titleRu, LEFT(contentRu, 100) as preview FROM legalPages WHERE pageType IN ('disclaimer', 'risk_disclosure');",
+  "rows": [
+    {
+      "pageType": "disclaimer",
+      "titleEn": "Disclaimer",
+      "titleRu": "Дисклеймер",
+      "preview": "<div class=\"space-y-8\"><section><h2 class=\"text-2xl font-semibold mb-4 text-foreground\">Статус платф"
+    },
+    {
+      "pageType": "risk_disclosure",
+      "titleEn": "Risk Disclosure",
+      "titleRu": "Раскрытие рисков",
+      "preview": "<div class=\"space-y-6\"><section><p class=\"text-lg text-muted-foreground leading-relaxed\">Торговля и "
+    }
+  ],
+  "messages": [],
+  "stdout": "pageType\ttitleEn\ttitleRu\tpreview\ndisclaimer\tDisclaimer\tДисклеймер\t<div class=\"space-y-8\"><section><h2 class=\"text-2xl font-semibold mb-4 text-foreground\">Статус платф\nrisk_disclosure\tRisk Disclosure\tРаскрытие рисков\t<div class=\"space-y-6\"><section><p class=\"text-lg text-muted-foreground leading-relaxed\">Торговля и \n",
+  "stderr": "",
+  "execution_time_ms": 68
+}

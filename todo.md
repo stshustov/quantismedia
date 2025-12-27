@@ -745,3 +745,14 @@
 - [x] Add FAQ route to App.tsx
 - [x] Test with both EN/RU languages (tested EN and RU, accordion works perfectly, all sections translated)
 - [x] Create checkpoint with FAQ page
+
+## Final TЗ Implementation - Footer + FAQ + Legal Pages
+- [x] Restructure Footer with 4 blocks (Main, Support, About, Legal)
+- [x] Add "Support" block to Footer with FAQ and Contact links
+- [x] Move FAQ link from Legal block to Support block
+- [x] Ensure Footer contains ONLY navigation links (no long texts, no duplicated disclaimers)
+- [x] Update Disclaimer page with 4-section structure (Platform Status, What We Don't Do, Content Nature, User Responsibility)
+- [x] Update Risk Disclosure page with required warning text (RU/EN)
+- [x] Verified all RU/EN translations are synchronized (tested both languages)
+- [x] Test Footer navigation on all pages (tested on Home, Disclaimer, Risk Disclosure)
+- [x] Create checkpoint with final Footer + Legal structure

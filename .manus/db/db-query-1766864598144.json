@@ -1,0 +1,26 @@
+{
+  "query": "SELECT pageType, titleEn, titleRu, LEFT(contentEn, 300) as content_preview_en, LEFT(contentRu, 300) as content_preview_ru FROM legalPages WHERE pageType = 'disclaimer';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3Vw3sBxn3PVfsWt.40752de7f7c0 --database 2FuYdXWoTHqtAhfudHLG7U --execute SELECT pageType, titleEn, titleRu, LEFT(contentEn, 300) as content_preview_en, LEFT(contentRu, 300) as content_preview_ru FROM legalPages WHERE pageType = 'disclaimer';",
+  "rows": [],
+  "messages": [
+    "disclaimer\tDisclaimer\tДисклеймер\t",
+    "      <h2>Important Notice</h2>",
+    "      <p>Quantis Media is an independent market intelligence platform. The platform does not:</p>",
+    "      <ul>",
+    "        <li>Provide investment advice</li>",
+    "        <li>Sell trading signals</li>",
+    "        <li>Execute trades</li>",
+    "        <li>Manage client funds</li>",
+    "      </\t",
+    "      <h2>Важное уведомление</h2>",
+    "      <p>Quantis Media — независимая аналитическая платформа. Платформа не:</p>",
+    "      <ul>",
+    "        <li>Предоставляет инвестиционные рекомендации</li>",
+    "        <li>Продаёт торговые сигналы</li>",
+    "        <li>Исполняет сделки</li>",
+    "        <li>Управляет средствами клиент"
+  ],
+  "stdout": "pageType\ttitleEn\ttitleRu\tcontent_preview_en\tcontent_preview_ru\ndisclaimer\tDisclaimer\tДисклеймер\t\n      <h2>Important Notice</h2>\n      <p>Quantis Media is an independent market intelligence platform. The platform does not:</p>\n      <ul>\n        <li>Provide investment advice</li>\n        <li>Sell trading signals</li>\n        <li>Execute trades</li>\n        <li>Manage client funds</li>\n      </\t\n      <h2>Важное уведомление</h2>\n      <p>Quantis Media — независимая аналитическая платформа. Платформа не:</p>\n      <ul>\n        <li>Предоставляет инвестиционные рекомендации</li>\n        <li>Продаёт торговые сигналы</li>\n        <li>Исполняет сделки</li>\n        <li>Управляет средствами клиент\n",
+  "stderr": "",
+  "execution_time_ms": 56
+}

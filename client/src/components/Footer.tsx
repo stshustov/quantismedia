@@ -8,28 +8,15 @@ export default function Footer() {
     <footer className="bg-background text-muted-foreground py-12 mt-auto border-t border-border">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          {/* About */}
-          <div>
-            <div className="flex items-center space-x-3 mb-3">
-              <img 
-                src="/branding/qm-mark.png" 
-                alt="QM" 
-                className="h-8 w-auto opacity-90"
-              />
-              <h3 className="text-foreground font-bold text-lg">Quantis Media</h3>
-            </div>
-            <p className="text-sm text-muted-foreground mb-2">
-              Independent research platform
-            </p>
-            <p className="text-sm leading-relaxed">
-              {t.footer.disclaimer}
-            </p>
-          </div>
-
-          {/* Quick Links */}
+          {/* Block 1: Main Navigation */}
           <div>
             <h4 className="text-foreground font-semibold mb-4">{t.nav.home}</h4>
             <ul className="space-y-2 text-sm">
+              <li>
+                <Link href="/">
+                  <a className="hover:text-foreground transition-colors">{t.nav.home}</a>
+                </Link>
+              </li>
               <li>
                 <Link href="/how-it-works">
                   <a className="hover:text-foreground transition-colors">{t.nav.howItWorks}</a>
@@ -53,13 +40,13 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Company */}
+          {/* Block 2: Support */}
           <div>
-            <h4 className="text-foreground font-semibold mb-4">{t.nav.about}</h4>
+            <h4 className="text-foreground font-semibold mb-4">{t.nav.support}</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/about">
-                  <a className="hover:text-foreground transition-colors">{t.nav.about}</a>
+                <Link href="/faq">
+                  <a className="hover:text-foreground transition-colors">{t.nav.faq}</a>
                 </Link>
               </li>
               <li>
@@ -70,7 +57,19 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Legal */}
+          {/* Block 3: About Us */}
+          <div>
+            <h4 className="text-foreground font-semibold mb-4">{t.nav.about}</h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link href="/about">
+                  <a className="hover:text-foreground transition-colors">{t.nav.about}</a>
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Block 4: Legal */}
           <div>
             <h4 className="text-foreground font-semibold mb-4">{t.nav.legal}</h4>
             <ul className="space-y-2 text-sm">

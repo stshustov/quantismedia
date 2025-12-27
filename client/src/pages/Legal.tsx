@@ -7,7 +7,7 @@ import { trpc } from "@/lib/trpc";
 export default function Legal() {
   const { language } = useLanguage();
   const params = useParams();
-  const pageType = (params.type as any) || "disclaimer";
+  const pageType = (params.slug as any) || "disclaimer";
   
   const { data: page, isLoading } = trpc.legal.getPage.useQuery({ pageType });
 
