@@ -867,4 +867,4 @@
 - [x] Card headers clearly show: Instrument | Category | Time Horizon
 - [x] Filters preserve paywall restrictions (Core vs Pro scenarios)
 - [x] All filter labels translated (RU/EN)
-- [ ] Create checkpoint with Scenarios Dashboard filtering
+- [x] Create checkpoint with Scenarios Dashboard filtering
