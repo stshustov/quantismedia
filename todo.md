@@ -693,3 +693,8 @@
 - [x] Ensure consistency with tierLabels.ts mapping
 - [x] Test Telegram page with both EN/RU languages
 - [x] Create checkpoint with Telegram naming updates
+
+## Telegram Page Access Level Display Fix
+- [x] Update "Your Access Level" to use tier labels from tierLabels.ts (Pro → Scenario Intelligence, Core → Scenario Access)
+- [x] Test with both pro and core user roles (admin displays correctly as "Admin")
+- [x] Create checkpoint with access level display fix

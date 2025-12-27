@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { getTierLabel } from "../../../shared/tierLabels";
 import { trpc } from "@/lib/trpc";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -232,8 +233,8 @@ export default function TelegramAccess() {
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <p className="text-sm text-muted-foreground mb-2">{t.yourAccess}</p>
-                  <p className="text-2xl font-bold text-primary capitalize">
-                    {user?.role === "admin" ? "Pro" : user?.role}
+                  <p className="text-2xl font-bold text-primary">
+                    {getTierLabel(user?.role || "guest", language)}
                   </p>
                 </div>
                 <div>
