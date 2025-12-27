@@ -16,6 +16,9 @@ export default function Dashboard() {
   const { user, isAuthenticated, loading } = useAuth();
   const { t } = useLanguage();
   const [, setLocation] = useLocation();
+  const { data: userStats } = trpc.activity.getUserStats.useQuery(undefined, {
+    enabled: isAuthenticated,
+  });
 
   useEffect(() => {
     if (!loading && !isAuthenticated) {
@@ -86,7 +89,7 @@ export default function Dashboard() {
                     <p className="text-sm text-muted-foreground mb-1">
                       {language === "en" ? "Scenarios Viewed" : "Просмотрено сценариев"}
                     </p>
-                    <p className="text-2xl font-bold">0</p>
+                    <p className="text-2xl font-bold">{userStats?.totalViews || 0}</p>
                   </div>
                   <Eye className="h-8 w-8 text-primary/50" />
                 </div>
@@ -101,7 +104,9 @@ export default function Dashboard() {
                       {language === "en" ? "Last Viewed" : "Последний просмотр"}
                     </p>
                     <p className="text-lg font-semibold">
-                      {language === "en" ? "Never" : "Никогда"}
+                      {userStats?.lastActive
+                        ? new Date(userStats.lastActive).toLocaleDateString(language === "en" ? "en-US" : "ru-RU", { month: "short", day: "numeric" })
+                        : (language === "en" ? "Never" : "Никогда")}
                     </p>
                   </div>
                   <Clock className="h-8 w-8 text-primary/50" />

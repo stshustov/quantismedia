@@ -11,6 +11,7 @@ export default function TradingIdeas() {
   const { user, isAuthenticated, loading } = useAuth();
   const { language, t } = useLanguage();
   const [, setLocation] = useLocation();
+  const trackView = trpc.activity.trackScenarioView.useMutation();
 
   useEffect(() => {
     if (!loading && (!isAuthenticated || !["core", "pro", "admin"].includes(user?.role || ""))) {
@@ -21,6 +22,18 @@ export default function TradingIdeas() {
   const { data: ideas, isLoading } = trpc.tradingIdeas.getSubscriberIdeas.useQuery(undefined, {
     enabled: isAuthenticated && !!user && ["core", "pro", "admin"].includes(user.role),
   });
+
+  // Track page view when ideas are loaded
+  useEffect(() => {
+    if (ideas && ideas.length > 0 && isAuthenticated) {
+      ideas.forEach((idea) => {
+        trackView.mutate({
+          scenarioId: idea.id.toString(),
+          scenarioTitle: idea.instrument,
+        });
+      });
+    }
+  }, [ideas, isAuthenticated]);
 
   if (loading || isLoading) return <div>Loading...</div>;
 

@@ -795,3 +795,9 @@
 - [x] Populate Trading Ideas dashboard page (added 4 trading ideas: 2 Core, 2 Pro)
 - [x] Test navigation on different screen sizes (verified in browser)
 - [x] Verify Trading Ideas page shows actual scenario content (EUR/USD, Gold visible)
+
+## Dashboard Statistics Fix
+- [x] Fix "Просмотрено сценариев" counter (now shows 30, loaded from database via activity.getUserStats)
+- [x] Fix "Последний просмотр" date (now shows "27 дек.", loaded from database)
+- [x] Implement activity tracking when user views Trading Ideas (added trackScenarioView mutation in TradingIdeas.tsx)
+- [x] Test statistics update after viewing scenarios (verified working - shows real data)

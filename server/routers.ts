@@ -62,6 +62,9 @@ export const appRouter = router({
       .query(async ({ ctx, input }) => {
         return await db.getUserActivity(ctx.user.id, input.limit || 10);
       }),
+    getUserStats: protectedProcedure.query(async ({ ctx }) => {
+      return await db.getUserStats(ctx.user.id);
+    }),
   }),
 
   subscription: router({

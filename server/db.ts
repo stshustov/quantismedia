@@ -639,3 +639,4 @@ export async function updateUserRole(userId: number, role: "guest" | "registered
     throw error;
   }
 }
+
