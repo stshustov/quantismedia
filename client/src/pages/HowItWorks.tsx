@@ -15,7 +15,7 @@ export default function HowItWorks() {
           icon: Database,
           title: "1) Data Structuring",
           text:
-            "Market data is aggregated and normalized to reduce noise and highlight what matters: volatility regime, market structure, and liquidity context.",
+            "Market data is aggregated and normalized to identify the prevailing regime: volatility, liquidity, and flow structure.",
           expandedTitle: "How we structure market data",
           expandedText:
             "We aggregate price, volatility, and macro inputs to separate market noise from structure. At this stage we define the current market regime: the volatility state, liquidity context, and dominant flow behavior.\nThe goal is not prediction — it's establishing an objective context for how the market operates right now.",
@@ -24,7 +24,7 @@ export default function HowItWorks() {
           icon: Cpu,
           title: "2) Algorithmic Modeling",
           text:
-            "Models evaluate recurring statistical and structural patterns. The goal is not prediction, but a disciplined framework for interpreting market conditions.",
+            "Algorithms identify recurring statistical and structural regimes, defining which scenarios are viable in the current context.",
           expandedTitle: "How we identify recurring regimes",
           expandedText:
             "Models evaluate recurring statistical and structural patterns: volatility compression/expansion, movement asymmetry, and market responses to macro and liquidity conditions.\nWe don't use models to predict price. Their role is to determine which scenarios are feasible in the current regime — and which are not.",
@@ -33,7 +33,7 @@ export default function HowItWorks() {
           icon: GitBranch,
           title: "3) Scenario Generation",
           text:
-            "We publish scenario frameworks (primary and alternative cases) with clear confirmation and invalidation factors. Scenarios are probabilistic, not instructions.",
+            "Scenario frameworks are built from the identified regime, with defined confirmation and invalidation conditions.",
           expandedTitle: "How scenarios are constructed",
           expandedText:
             "Based on the identified regime, we publish scenario frameworks: a base case and alternative cases. Each scenario includes confirmation conditions, invalidation factors, and key structural levels.\nScenarios are not instructions — they are probabilistic frameworks that clarify what must change for the market to transition into a different regime.",
@@ -42,7 +42,7 @@ export default function HowItWorks() {
           icon: UserCheck,
           title: "4) Human Interpretation",
           text:
-            "Subscribers use scenarios as decision support: to understand context, manage uncertainty, and form their own trade plans.",
+            "Scenarios serve as analytical support for independent decision-making.",
           expandedTitle: "How to use it for decision-making",
           expandedText:
             "Subscribers use scenarios as decision support, not ready-made answers — to understand context, manage uncertainty, and build their own plan consistent with their style and mandate.\nQuantis Media does not provide investment advice or execute trades.",
@@ -53,7 +53,7 @@ export default function HowItWorks() {
           icon: Database,
           title: "1) Структурирование данных",
           text:
-            "Рыночные данные агрегируются и нормализуются, чтобы снизить шум и выделить главное: режим волатильности, структуру рынка и контекст ликвидности.",
+            "Рыночные данные агрегируются и нормализуются, чтобы выделить ключевой режим рынка: волатильность, ликвидность и структуру потоков.",
           expandedTitle: "Как мы структурируем данные",
           expandedText:
             "Мы агрегируем ценовые, волатильностные и макроэкономические данные, чтобы отделить рыночный шум от структуры. На этом этапе определяется текущий режим рынка: характер волатильности, контекст ликвидности и тип доминирующих потоков.\nЦель этапа — не прогноз, а формирование объективного контекста, в котором рынок существует здесь и сейчас.",
@@ -62,7 +62,7 @@ export default function HowItWorks() {
           icon: Cpu,
           title: "2) Алгоритмическое моделирование",
           text:
-            "Модели оценивают повторяющиеся статистические и структурные закономерности. Цель — не «предсказать будущее», а дать дисциплинированный аналитический каркас.",
+            "Алгоритмы выявляют повторяющиеся статистические и структурные режимы, определяя допустимые сценарии в текущем контексте.",
           expandedTitle: "Как мы определяем повторяющиеся режимы",
           expandedText:
             "Модели анализируют повторяющиеся статистические и структурные закономерности: сжатие/расширение волатильности, асимметрию движений, реакцию рынка на макро-факторы и ликвидность.\nМы не используем модели для предсказания цены. Их задача — определить, какие сценарии допустимы в текущем режиме, а какие — нет.",
@@ -71,7 +71,7 @@ export default function HowItWorks() {
           icon: GitBranch,
           title: "3) Формирование сценариев",
           text:
-            "Публикуются сценарные рамки (основной и альтернативный сценарий) с факторами подтверждения и инвалидации. Сценарии вероятностные, а не инструкции.",
+            "На основе рыночного режима формируются сценарные рамки с условиями подтверждения и инвалидирования.",
           expandedTitle: "Как формируются сценарные рамки",
           expandedText:
             "На базе выявленного режима публикуются сценарные рамки: базовый и альтернативные сценарии. Каждый сценарий содержит условия подтверждения и факторы инвалидирования, а также ключевые уровни структуры.\nСценарии — это не инструкции, а вероятностные рамки, которые помогают понять, что должно измениться, чтобы рынок перешёл в другой режим.",
@@ -80,7 +80,7 @@ export default function HowItWorks() {
           icon: UserCheck,
           title: "4) Интерпретация пользователем",
           text:
-            "Подписчик использует сценарии как поддержку решения: чтобы понимать контекст, управлять неопределённостью и формировать собственный план действий.",
+            "Сценарии используются как аналитическая поддержка для самостоятельного принятия решений.",
           expandedTitle: "Как это использовать в принятии решений",
           expandedText:
             "Подписчик использует сценарии как аналитическую опору, а не готовое решение: чтобы понимать контекст, управлять неопределённостью и формировать собственный план действий в соответствии со своим стилем и мандатом.\nQuantis Media не предоставляет инвестиционных рекомендаций и не исполняет сделки.",

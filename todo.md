@@ -725,3 +725,11 @@
 - [x] Ensure bilingual support (EN/RU) for examples
 - [x] Test Sample Ideas page with both languages (tested EN and RU, all scenarios display correctly)
 - [x] Create checkpoint with Sample Ideas v2 update
+
+## How It Works Page - Short Texts Update
+- [x] Update Step 1 short text to match ТЗ requirements
+- [x] Update Step 2 short text to match ТЗ requirements
+- [x] Update Step 3 short text to match ТЗ requirements
+- [x] Update Step 4 short text to match ТЗ requirements
+- [x] Test with both EN/RU languages (tested EN and RU, all short texts match ТЗ requirements)
+- [x] Create checkpoint with short texts update
