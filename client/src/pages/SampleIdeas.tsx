@@ -16,71 +16,80 @@ export default function SampleIdeas() {
         instrument: "S&P 500 (US500)",
         category: "Indices",
         timeHorizon: "Short-term (1–5 trading days)",
-        marketContext: "The US equity market is in a phase of heightened sensitivity to macro data and Fed policy expectations. Price action is driven less by directional conviction and more by shifts in liquidity and flow structure.",
-        scenarioTitle: "Scenario Framework",
+        marketContext: "The US equity market remains highly sensitive to macroeconomic data and Federal Reserve policy expectations. Recent price action has been driven less by outright directional demand and more by shifts in liquidity conditions, flow structure, and sector-level risk redistribution.",
+        scenarioTitle: "Scenario Outlook",
         baseScenario: {
-          title: "Base Scenario — Structural Continuation",
+          title: "🟢 Base Scenario — Inertial continuation within current structure",
           points: [
-            "Index holds above 4,980–5,020 zone",
-            "Volatility remains controlled",
-            "Liquidity continues to support current structure"
+            "Sustained hold above 4,980–5,020",
+            "No sharp volatility expansion",
+            "Ongoing liquidity support"
           ],
-          interpretation: "Market maintains inertial movement within existing framework."
+          interpretation: "The market maintains its current trajectory without signs of structural transition."
         },
-        altScenario: {
-          title: "Alternative Scenario — Structural Reassessment",
+        upsideScenario: {
+          title: "🔵 Upside Scenario — Range expansion supported by liquidity",
           points: [
-            "Loss of 4,980 area",
-            "Increase in intraday volatility",
-            "Rise in defensive and hedging flows"
+            "Sustained acceptance above 5,020",
+            "Stable or improving risk appetite",
+            "No stress signals from rates or credit markets"
           ],
-          interpretation: "Market transitions into reassessment mode with elevated correction risk."
+          interpretation: "The move is driven by inertia and internal capital reallocation rather than speculative excess."
+        },
+        downsideScenario: {
+          title: "🔴 Downside Scenario — Transition toward re-pricing",
+          points: [
+            "Breakdown below 4,980",
+            "Volatility expansion",
+            "Increase in defensive positioning"
+          ],
+          interpretation: "The market shifts from continuation toward risk reassessment."
         },
         levelsTitle: "Analytical Reference Levels",
         levels: [
           "Structural Support Zone: 4,980–5,020",
           "Structural Pivot: ~4,950",
-          "Risk Boundary: <4,900"
-        ],
-        levelsNote: "Levels are used exclusively as analytical reference points within scenario framework."
+          "Risk Boundary: <4,900 — signals a regime shift"
+        ]
       },
       gold: {
         instrument: "Gold (XAUUSD)",
         category: "Metals",
         timeHorizon: "Short-term (1–5 trading days)",
-        currentReference: "~4,500",
-        marketContext: "Gold is trading near all-time highs supported by softer Fed rate expectations, sustained central bank demand, and geopolitical uncertainty.",
-        scenarioTitle: "Scenario Framework",
+        marketContext: "Gold is trading near historical highs amid easing Federal Reserve policy expectations, sustained institutional demand from central banks, and elevated geopolitical uncertainty. Current price action is driven less by momentum chasing and more by liquidity balance and the defense of key structural zones, leaving the market sensitive to shifts in the volatility regime.",
+        scenarioTitle: "Scenario Outlook",
         baseScenario: {
-          title: "Base Scenario — Consolidation Above Support",
+          title: "🟢 Base Scenario — Consolidation within the current liquidity regime",
           points: [
             "Price holds above 4,495–4,500",
-            "Volatility declines after momentum surge",
-            "Institutional demand persists"
+            "Stabilizing or declining short-term volatility",
+            "No sharp expansion in risk premium"
           ],
-          interpretation: "Market consolidates, building base for next move."
+          interpretation: "The market is digesting the prior move, forming a structural base for the next directional phase."
         },
         upsideScenario: {
-          title: "Upside Scenario — Momentum Expansion",
+          title: "🔵 Upside Scenario — Expansion driven by renewed risk premium",
           points: [
-            "Break above 4,520",
-            "Geopolitical or monetary premium intensifies"
+            "Sustained acceptance above 4,520",
+            "Increase in geopolitical or monetary uncertainty",
+            "Range expansion without disorderly volatility"
           ],
-          interpretation: "Market allows for acceleration on external catalyst."
+          interpretation: "Acceleration becomes possible upon the emergence of an external catalyst."
         },
         downsideScenario: {
-          title: "Downside Scenario — Tactical Pullback",
+          title: "🔴 Downside Scenario — Tactical pullback within broader structure",
           points: [
-            "Return below 4,470",
-            "Profit-taking on thin liquidity"
+            "Loss of the 4,470 area",
+            "Short-term volatility expansion",
+            "Increased profit-taking flows"
           ],
-          interpretation: "Correction within broader uptrend context."
+          interpretation: "The pullback remains corrective within a broader constructive context."
         },
         levelsTitle: "Analytical Reference Levels",
         levels: [
-          "Primary Support Zone: 4,470–4,500",
-          "Momentum Expansion Area: >4,520",
-          "Risk Boundary: <4,440"
+          "Structural Support: 4,470–4,500",
+          "Expansion Area: >4,520",
+          "Risk Boundary: <4,440 — invalidates the consolidation scenario"
         ]
       },
       cardDisclaimer: "This is an analytical scenario example for informational purposes only and does not constitute investment advice."
@@ -93,71 +102,80 @@ export default function SampleIdeas() {
         instrument: "S&P 500 (US500)",
         category: "Индексы",
         timeHorizon: "Краткосрочный (1–5 торговых дней)",
-        marketContext: "Рынок акций США находится в фазе повышенной чувствительности к макро-данным и ожиданиям по ДКП ФРС. Движение формируется не столько направлением, сколько изменениями ликвидности и структуры потоков.",
-        scenarioTitle: "Сценарная рамка",
+        marketContext: "Американский фондовый рынок остаётся в фазе повышенной чувствительности к макроэкономическим данным и ожиданиям по ДКП ФРС. Текущие движения формируются не столько направленным спросом, сколько изменениями в ликвидности, структуре потоков и перераспределением риска между секторами.",
+        scenarioTitle: "Сценарный прогноз",
         baseScenario: {
-          title: "Базовый сценарий — Структурное продолжение",
+          title: "🟢 Базовый сценарий — Инерционное продолжение в текущей структуре",
           points: [
-            "Индекс удерживается выше зоны 4,980–5,020",
-            "Волатильность остаётся контролируемой",
-            "Ликвидность продолжает поддерживать текущую структуру"
+            "Удержание выше 4,980–5,020",
+            "Отсутствие резкого роста волатильности",
+            "Сохранение поддержки со стороны ликвидности"
           ],
-          interpretation: "Рынок сохраняет инерционное движение в рамках существующей структуры."
+          interpretation: "Рынок продолжает движение в рамках текущего режима без признаков структурного сдвига."
         },
-        altScenario: {
-          title: "Альтернативный сценарий — Структурная переоценка",
+        upsideScenario: {
+          title: "🔵 Сценарий роста — Расширение при поддержке ликвидности",
           points: [
-            "Потеря области 4,980",
-            "Рост внутридневной волатильности",
-            "Усиление защитных и хеджирующих потоков"
+            "Устойчивое закрепление выше 5,020",
+            "Стабильный или улучшающийся риск-аппетит",
+            "Отсутствие стрессовых сигналов в ставках и кредитных рынках"
           ],
-          interpretation: "Рынок переходит в фазу переоценки с повышенным риском коррекции."
+          interpretation: "Движение поддерживается инерцией и перераспределением капитала внутри рынка."
+        },
+        downsideScenario: {
+          title: "🔴 Сценарий снижения — Переход к фазе переоценки",
+          points: [
+            "Потеря 4,980",
+            "Рост внутридневной волатильности",
+            "Усиление защитного позиционирования"
+          ],
+          interpretation: "Рынок переходит в фазу оценки рисков с повышенной вероятностью коррекционных движений."
         },
         levelsTitle: "Аналитические референсные уровни",
         levels: [
           "Зона структурной поддержки: 4,980–5,020",
-          "Структурный пивот: ~4,950",
-          "Граница риска: <4,900"
-        ],
-        levelsNote: "Уровни используются исключительно как аналитические ориентиры в рамках сценариев."
+          "Структурный pivot: ~4,950",
+          "Граница риска: <4,900 — указывает на смену режима"
+        ]
       },
       gold: {
         instrument: "Золото (XAUUSD)",
         category: "Металлы",
         timeHorizon: "Краткосрочный (1–5 торговых дней)",
-        currentReference: "~4,500",
-        marketContext: "Золото торгуется вблизи исторических максимумов на фоне смягчения ожиданий по ДКП ФРС, устойчивого спроса со стороны центральных банков и геополитической неопределённости.",
-        scenarioTitle: "Сценарная рамка",
+        marketContext: "Золото торгуется вблизи исторических максимумов на фоне смягчения ожиданий по денежно-кредитной политике ФРС, устойчивого институционального спроса со стороны центральных банков и сохраняющейся геополитической неопределённости. Текущая динамика формируется не импульсным спросом, а балансом ликвидности и удержанием ключевых структурных зон, что делает рынок чувствительным к смене волатильностного режима.",
+        scenarioTitle: "Сценарный прогноз",
         baseScenario: {
-          title: "Базовый сценарий — Консолидация выше поддержки",
+          title: "🟢 Базовый сценарий — Консолидация в рамках текущего режима ликвидности",
           points: [
-            "Цена удерживается выше 4,495–4,500",
-            "Волатильность снижается после импульса",
-            "Сохраняется институциональный спрос"
+            "Удержание выше 4,495–4,500",
+            "Стабилизация или снижение краткосрочной волатильности",
+            "Отсутствие резкого расширения risk premium"
           ],
-          interpretation: "Рынок консолидируется, формируя базу для следующего движения."
+          interpretation: "Рынок переваривает предыдущий импульс, формируя структурную базу для следующего движения."
         },
         upsideScenario: {
-          title: "Сценарий роста — Расширение импульса",
+          title: "🔵 Сценарий роста — Расширение на фоне роста risk premium",
           points: [
-            "Закрепление выше 4,520",
-            "Усиление геополитической или монетарной премии"
+            "Устойчивое закрепление выше 4,520",
+            "Рост геополитической или монетарной неопределённости",
+            "Расширение диапазона без резкого всплеска волатильности"
           ],
-          interpretation: "Допускается ускорение движения при внешнем катализаторе."
+          interpretation: "Допускается ускорение движения при появлении внешнего катализатора."
         },
         downsideScenario: {
-          title: "Сценарий снижения — Тактический откат",
+          title: "🔴 Сценарий снижения — Тактический откат в рамках структуры",
           points: [
-            "Возврат ниже 4,470",
-            "Фиксация прибыли на фоне тонкой ликвидности"
+            "Потеря области 4,470",
+            "Рост краткосрочной волатильности",
+            "Усиление потоков profit-taking"
           ],
-          interpretation: "Коррекция в рамках более широкого восходящего контекста."
+          interpretation: "Коррекция развивается в рамках более широкого восходящего контекста."
         },
         levelsTitle: "Аналитические референсные уровни",
         levels: [
-          "Зона первичной поддержки: 4,470–4,500",
-          "Область расширения импульса: >4,520",
-          "Граница риска: <4,440"
+          "Структурная поддержка: 4,470–4,500",
+          "Зона расширения импульса: >4,520",
+          "Граница риска: <4,440 — инвалидирует сценарий консолидации"
         ]
       },
       cardDisclaimer: "Это пример аналитического сценария в информационных целях и не является инвестиционной рекомендацией."
@@ -226,17 +244,31 @@ export default function SampleIdeas() {
                       </p>
                     </div>
 
-                    {/* Alternative Scenario */}
-                    <div className="p-4 bg-orange-500/5 border-l-4 border-l-orange-500 rounded">
-                      <p className="font-semibold text-sm mb-2">{t.sp500.altScenario.title}</p>
+                    {/* Upside Scenario */}
+                    <div className="mb-4 p-4 bg-green-500/5 border-l-4 border-l-green-500 rounded">
+                      <p className="font-semibold text-sm mb-2">{t.sp500.upsideScenario.title}</p>
                       <ul className="text-sm space-y-1 mb-2">
-                        {t.sp500.altScenario.points.map((point, idx) => (
+                        {t.sp500.upsideScenario.points.map((point, idx) => (
                           <li key={idx} className="text-foreground">• {point}</li>
                         ))}
                       </ul>
                       <p className="text-xs italic text-foreground">
                         {language === "en" ? "Interpretation: " : "Интерпретация: "}
-                        {t.sp500.altScenario.interpretation}
+                        {t.sp500.upsideScenario.interpretation}
+                      </p>
+                    </div>
+
+                    {/* Downside Scenario */}
+                    <div className="p-4 bg-red-500/5 border-l-4 border-l-red-500 rounded">
+                      <p className="font-semibold text-sm mb-2">{t.sp500.downsideScenario.title}</p>
+                      <ul className="text-sm space-y-1 mb-2">
+                        {t.sp500.downsideScenario.points.map((point, idx) => (
+                          <li key={idx} className="text-foreground">• {point}</li>
+                        ))}
+                      </ul>
+                      <p className="text-xs italic text-foreground">
+                        {language === "en" ? "Interpretation: " : "Интерпретация: "}
+                        {t.sp500.downsideScenario.interpretation}
                       </p>
                     </div>
                   </div>
@@ -248,14 +280,13 @@ export default function SampleIdeas() {
                     </h3>
                     <div className="space-y-1">
                       {t.sp500.levels.map((level, idx) => (
-                        <p key={idx} className="text-xs font-mono text-muted-foreground">{level}</p>
+                        <p key={idx} className="text-sm text-foreground">• {level}</p>
                       ))}
                     </div>
-                    <p className="text-xs italic text-muted-foreground mt-2">{t.sp500.levelsNote}</p>
                   </div>
 
                   {/* Card Disclaimer */}
-                  <div className="pt-4 border-t text-xs text-muted-foreground">
+                  <div className="text-xs text-muted-foreground italic border-t pt-4">
                     {t.cardDisclaimer}
                   </div>
                 </div>
@@ -271,8 +302,6 @@ export default function SampleIdeas() {
                       <span className="uppercase tracking-wide font-semibold">{t.gold.category}</span>
                       <span>•</span>
                       <span>{t.gold.timeHorizon}</span>
-                      <span>•</span>
-                      <span className="font-mono">{t.gold.currentReference}</span>
                     </div>
                   </div>
 
@@ -291,7 +320,7 @@ export default function SampleIdeas() {
                     </h3>
 
                     {/* Base Scenario */}
-                    <div className="mb-3 p-4 bg-blue-500/5 border-l-4 border-l-blue-500 rounded">
+                    <div className="mb-4 p-4 bg-blue-500/5 border-l-4 border-l-blue-500 rounded">
                       <p className="font-semibold text-sm mb-2">{t.gold.baseScenario.title}</p>
                       <ul className="text-sm space-y-1 mb-2">
                         {t.gold.baseScenario.points.map((point, idx) => (
@@ -305,7 +334,7 @@ export default function SampleIdeas() {
                     </div>
 
                     {/* Upside Scenario */}
-                    <div className="mb-3 p-4 bg-green-500/5 border-l-4 border-l-green-500 rounded">
+                    <div className="mb-4 p-4 bg-green-500/5 border-l-4 border-l-green-500 rounded">
                       <p className="font-semibold text-sm mb-2">{t.gold.upsideScenario.title}</p>
                       <ul className="text-sm space-y-1 mb-2">
                         {t.gold.upsideScenario.points.map((point, idx) => (
@@ -340,13 +369,13 @@ export default function SampleIdeas() {
                     </h3>
                     <div className="space-y-1">
                       {t.gold.levels.map((level, idx) => (
-                        <p key={idx} className="text-xs font-mono text-muted-foreground">{level}</p>
+                        <p key={idx} className="text-sm text-foreground">• {level}</p>
                       ))}
                     </div>
                   </div>
 
                   {/* Card Disclaimer */}
-                  <div className="pt-4 border-t text-xs text-muted-foreground">
+                  <div className="text-xs text-muted-foreground italic border-t pt-4">
                     {t.cardDisclaimer}
                   </div>
                 </div>

@@ -717,3 +717,11 @@
 - [x] Keep paywall logic intact (truncation for public users)
 - [x] Test both pages with EN/RU languages (tested Gold and SPX500 in both EN and RU)
 - [x] Create checkpoint with v2 scenario content
+
+## Sample Ideas Page v2 Update
+- [x] Locate Sample Ideas page component
+- [x] Update Gold scenario example with v2 content
+- [x] Update SPX500 scenario example with v2 content
+- [x] Ensure bilingual support (EN/RU) for examples
+- [x] Test Sample Ideas page with both languages (tested EN and RU, all scenarios display correctly)
+- [x] Create checkpoint with Sample Ideas v2 update
