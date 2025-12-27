@@ -25,7 +25,8 @@ export default function GoldAnalysis() {
       subtitle: "1–5 trading days",
       category: "Metals",
       timeHorizon: "Short-term (1–5 trading days)",
-      lastUpdated: "auto",
+      published: "Dec 22, 2025",
+      lastUpdated: "Dec 27, 2025, 16:10 UTC",
 
       marketContext: {
         title: "Market Context",
@@ -117,7 +118,8 @@ export default function GoldAnalysis() {
       subtitle: "1–5 торговых дней",
       category: "Металлы",
       timeHorizon: "Краткосрочный (1–5 торговых дней)",
-      lastUpdated: "автоматически",
+      published: "22 дек 2025",
+      lastUpdated: "27 дек 2025, 16:10 UTC",
 
       marketContext: {
         title: "Контекст рынка",
@@ -229,9 +231,14 @@ export default function GoldAnalysis() {
                 <span>{t.timeHorizon}</span>
               </div>
               <h1 className="text-3xl md:text-4xl font-bold mb-2">{t.title}</h1>
-              <p className="text-muted-foreground">
-                {language === "en" ? "Last Update:" : "Последнее обновление:"} {t.lastUpdated}
-              </p>
+              <div className="flex flex-wrap gap-4 text-sm">
+                <p className="text-muted-foreground">
+                  {language === "en" ? "Published:" : "Опубликовано:"} {t.published}
+                </p>
+                <p className="text-foreground font-semibold">
+                  {language === "en" ? "Last updated:" : "Последнее обновление:"} {t.lastUpdated}
+                </p>
+              </div>
             </div>
 
             {/* Market Context */}

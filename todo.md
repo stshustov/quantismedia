@@ -930,4 +930,43 @@
 - [x] Filtering works correctly with Market Insights data
 - [x] Preview cards show: Market Context (2-3 lines), Base Scenario (1 paragraph), Invalidation, Target
 - [x] CTA button navigates to full Market Insights analysis page
-- [ ] Create checkpoint with Trading Ideas sync
+- [x] Create checkpoint with Trading Ideas sync
+
+## Market Insights & Trading Ideas ТЗ Implementation
+
+### Trading Ideas Requirements
+- [x] Implement Status enum (active, monitoring, invalidated, completed)
+- [x] Add Status color badges:
+  * Active / Активен → green
+  * Monitoring / На наблюдении → yellow/neutral
+  * Invalidated / Инвалидирован → gray/red
+  * Completed / Завершён → gray
+- [x] Implement Last Update with relative time format:
+  * RU: "Обновлено: сегодня, 14:30 UTC" / "Обновлено: 2 дня назад"
+  * EN: "Last update: Today, 14:30 UTC" / "Last update: 2 days ago"
+- [x] Remove any "Published" / "Дата публикации" labels from Trading Ideas (must use only Last Update)
+- [x] Update Invalidation/Target labels to include "(ориентир)" / "(reference)" suffix
+
+### Market Insights Requirements
+- [x] Add Published label (secondary, neutral color):
+  * RU: "Опубликовано: 20 дек 2025"
+  * EN: "Published: Dec 20, 2025"
+- [x] Add Last Updated label (primary, prominent):
+  * RU: "Последнее обновление: 27 дек 2025, 16:10 UTC"
+  * EN: "Last updated: Dec 27, 2025, 16:10 UTC"
+- [x] Ensure Last Updated is more prominent than Published
+- [x] Update Invalidation/Target labels to include "(ориентир)" / "(reference)" suffix (N/A - only in Trading Ideas)
+
+### Backend Data Structure
+- [x] Update scenarios.ts with proper status enum values
+- [x] Add publishedAt field (datetime) for Market Insights
+- [x] Add lastUpdatedAt field (datetime) for both Trading Ideas and Market Insights
+- [x] Ensure all timestamps are UTC
+
+### Acceptance Criteria
+- [x] Status badges display correct colors in Trading Ideas
+- [x] Relative time works correctly (today, yesterday, X days ago)
+- [x] Market Insights shows both Published and Last Updated
+- [x] All Invalidation/Target labels include "(reference)" suffix
+- [x] Bilingual support for all new labels (RU/EN)
+- [ ] Create checkpoint with ТЗ implementation

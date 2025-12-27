@@ -1,7 +1,7 @@
 // Centralized Market Insights scenarios data for Trading Ideas preview cards
 // This file extracts key information from full Market Insights analysis pages
 
-export type ScenarioStatus = "active" | "monitoring" | "updated";
+export type ScenarioStatus = "active" | "monitoring" | "invalidated" | "completed";
 
 export type AssetClass = "indices" | "fx" | "energy" | "metals";
 
@@ -11,7 +11,8 @@ export interface ScenarioPreview {
   assetClass: AssetClass;
   status: ScenarioStatus;
   timeHorizon: string;
-  lastUpdated: string;
+  publishedAt: string; // ISO 8601 datetime for Market Insights
+  lastUpdatedAt: string; // ISO 8601 datetime for both Trading Ideas and Market Insights
   marketContextEn: string;
   marketContextRu: string;
   baseScenarioEn: string;
@@ -29,7 +30,8 @@ export const scenarios: ScenarioPreview[] = [
     assetClass: "energy",
     status: "active",
     timeHorizon: "1–5 days",
-    lastUpdated: "2025-12-26",
+    publishedAt: "2025-12-20T10:00:00Z",
+    lastUpdatedAt: "2025-12-26T14:30:00Z",
     marketContextEn: "WTI crude trades near 58.5 USD per barrel, consolidating after a recovery from the 55–56 USD area. Price action suggests a transition into a balance phase, reflecting a tug-of-war between supportive US fundamentals and a broader global supply overhang.",
     marketContextRu: "На момент анализа цена WTI стабилизировалась вблизи 58.5 USD за баррель, консолидируясь после восходящего движения от области 55–56 USD. Рынок перешёл в фазу балансировки, отражающую равновесие между локально поддерживающими факторами в США и более широким глобальным навесом предложения.",
     baseScenarioEn: "Range-bound trading within 57.8–59.5 USD, with elevated sensitivity to inventory data and macro headlines.",
@@ -45,7 +47,8 @@ export const scenarios: ScenarioPreview[] = [
     assetClass: "metals",
     status: "active",
     timeHorizon: "1–5 days",
-    lastUpdated: "2025-12-27",
+    publishedAt: "2025-12-22T09:00:00Z",
+    lastUpdatedAt: "2025-12-27T16:10:00Z",
     marketContextEn: "Gold is trading near historical highs amid easing Federal Reserve policy expectations, sustained institutional demand from central banks, and elevated geopolitical uncertainty. Current price action is driven less by momentum chasing and more by liquidity balance.",
     marketContextRu: "Золото торгуется вблизи исторических максимумов на фоне смягчения ожиданий по политике ФРС, устойчивого институционального спроса со стороны центральных банков и повышенной геополитической неопределённости.",
     baseScenarioEn: "As long as price holds above 2,495–2,500 and volatility remains contained, gold is expected to consolidate following the prior impulse. Flows remain predominantly institutional, with no clear signs of aggressive profit-taking.",
@@ -61,7 +64,8 @@ export const scenarios: ScenarioPreview[] = [
     assetClass: "metals",
     status: "monitoring",
     timeHorizon: "1–5 days",
-    lastUpdated: "2025-12-26",
+    publishedAt: "2025-12-21T11:00:00Z",
+    lastUpdatedAt: "2025-12-26T09:45:00Z",
     marketContextEn: "Silver maintains bullish structure above $30.50, supported by industrial demand recovery and gold's strength. Near-term resistance in the $31.80-32.20 zone.",
     marketContextRu: "Серебро сохраняет бычью структуру выше $30.50, поддерживаемое восстановлением промышленного спроса и силой золота. Ближайшее сопротивление в зоне $31.80-32.20.",
     baseScenarioEn: "Continuation toward $32.00-32.50 while holding support at $30.50. Alternative: pullback to $29.80-30.20 for re-accumulation.",
@@ -77,7 +81,8 @@ export const scenarios: ScenarioPreview[] = [
     assetClass: "metals",
     status: "monitoring",
     timeHorizon: "1–5 days",
-    lastUpdated: "2025-12-25",
+    publishedAt: "2025-12-19T13:00:00Z",
+    lastUpdatedAt: "2025-12-25T18:20:00Z",
     marketContextEn: "Copper consolidates near $4.15/lb following China stimulus optimism. Price action reflects cautious positioning ahead of manufacturing data releases.",
     marketContextRu: "Медь консолидируется около $4.15/фунт после оптимизма по стимулам Китая. Ценовое действие отражает осторожное позиционирование перед выходом данных по производству.",
     baseScenarioEn: "Range-bound trading between $4.10-4.25 with bias toward upside if China PMI data surprises positively. Watch for inventory trends.",
@@ -91,9 +96,10 @@ export const scenarios: ScenarioPreview[] = [
     id: "spx500",
     instrument: "S&P 500 (SPX500)",
     assetClass: "indices",
-    status: "updated",
+    status: "active",
     timeHorizon: "1–5 days",
-    lastUpdated: "2025-12-27",
+    publishedAt: "2025-12-23T08:00:00Z",
+    lastUpdatedAt: "2025-12-27T12:00:00Z",
     marketContextEn: "S&P 500 trades near all-time highs supported by strong earnings and Fed dovish pivot expectations. Market breadth remains healthy with participation across sectors.",
     marketContextRu: "S&P 500 торгуется вблизи исторических максимумов, поддерживаемый сильными отчётами и ожиданиями мягкого разворота ФРС. Широта рынка остаётся здоровой с участием всех секторов.",
     baseScenarioEn: "Consolidation between 5,950-6,050 with potential breakout above 6,050 if tech earnings continue to surprise positively. Watch for profit-taking signals.",
@@ -120,4 +126,62 @@ export function getScenarioById(id: string): ScenarioPreview | undefined {
 export function getScenariosByAccessLevel(accessLevel: "sample" | "core" | "pro" | "all"): ScenarioPreview[] {
   if (accessLevel === "all") return scenarios;
   return scenarios.filter(s => s.accessLevel === accessLevel);
+}
+
+// Helper function to format relative time
+export function getRelativeTime(isoDatetime: string, language: "en" | "ru"): string {
+  const now = new Date();
+  const date = new Date(isoDatetime);
+  const diffMs = now.getTime() - date.getTime();
+  const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+  const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+  
+  const timeStr = date.toLocaleTimeString(language === "en" ? "en-US" : "ru-RU", {
+    hour: "2-digit",
+    minute: "2-digit",
+    timeZone: "UTC"
+  });
+
+  if (diffDays === 0) {
+    return language === "en" 
+      ? `Today, ${timeStr} UTC`
+      : `сегодня, ${timeStr} UTC`;
+  } else if (diffDays === 1) {
+    return language === "en"
+      ? `Yesterday, ${timeStr} UTC`
+      : `вчера, ${timeStr} UTC`;
+  } else if (diffDays < 7) {
+    return language === "en"
+      ? `${diffDays} days ago`
+      : `${diffDays} ${diffDays === 2 || diffDays === 3 || diffDays === 4 ? 'дня' : 'дней'} назад`;
+  } else {
+    return date.toLocaleDateString(language === "en" ? "en-US" : "ru-RU", {
+      month: "short",
+      day: "numeric",
+      year: "numeric"
+    });
+  }
+}
+
+// Helper function to format absolute datetime for Market Insights
+export function getAbsoluteDateTime(isoDatetime: string, language: "en" | "ru"): string {
+  const date = new Date(isoDatetime);
+  return date.toLocaleString(language === "en" ? "en-US" : "ru-RU", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    timeZone: "UTC"
+  }) + " UTC";
+}
+
+// Helper function to format published date (no time)
+export function getPublishedDate(isoDatetime: string, language: "en" | "ru"): string {
+  const date = new Date(isoDatetime);
+  return date.toLocaleDateString(language === "en" ? "en-US" : "ru-RU", {
+    month: "short",
+    day: "numeric",
+    year: "numeric"
+  });
 }

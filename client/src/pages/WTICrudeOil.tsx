@@ -26,7 +26,8 @@ export default function WTICrudeOil() {
       title: "WTI Crude Oil — Short-Term Market Outlook",
       timeHorizon: "1–5 trading days",
       currentPrice: "~58.5 USD/bbl",
-      lastUpdated: "26 December 2025",
+      published: "Dec 20, 2025",
+      lastUpdated: "Dec 26, 2025, 14:30 UTC",
       
       marketSnapshot: {
         title: "Current Market Snapshot",
@@ -88,7 +89,8 @@ export default function WTICrudeOil() {
       title: "WTI: краткосрочный прогноз и сценарии",
       timeHorizon: "1–5 торговых дней",
       currentPrice: "~58.5 USD/баррель",
-      lastUpdated: "26 декабря 2025",
+      published: "20 дек 2025",
+      lastUpdated: "27 дек 2025, 14:30 UTC",
       
       marketSnapshot: {
         title: "Текущая рыночная картина",
@@ -182,6 +184,16 @@ export default function WTICrudeOil() {
             {/* Header Section */}
             <div className="max-w-[760px] mx-auto mb-12">
               <h1 className="text-4xl font-bold mb-6">{currentContent.title}</h1>
+              
+              {/* Published & Last Updated */}
+              <div className="flex flex-wrap gap-4 mb-6 text-sm">
+                <div className="text-muted-foreground">
+                  {language === "en" ? "Published:" : "Опубликовано:"} {currentContent.published}
+                </div>
+                <div className="text-foreground font-semibold">
+                  {language === "en" ? "Last updated:" : "Последнее обновление:"} {currentContent.lastUpdated}
+                </div>
+              </div>
               
               {/* Share Buttons */}
               <div className="mb-6">

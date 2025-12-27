@@ -9,7 +9,7 @@ import { useEffect, useState, useMemo } from "react";
 import { useLocation } from "wouter";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { scenarios, type AssetClass, type ScenarioStatus } from "@/data/scenarios";
+import { scenarios, type AssetClass, type ScenarioStatus, getRelativeTime } from "@/data/scenarios";
 import { ArrowRight } from "lucide-react";
 
 type AssetClassFilter = "all" | AssetClass;
@@ -79,13 +79,18 @@ export default function TradingIdeas() {
     },
     monitoring: {
       en: "Monitoring",
-      ru: "Мониторинг",
-      color: "bg-blue-500/10 text-blue-600"
+      ru: "На наблюдении",
+      color: "bg-yellow-500/10 text-yellow-600"
     },
-    updated: {
-      en: "Updated",
-      ru: "Обновлён",
-      color: "bg-amber-500/10 text-amber-600"
+    invalidated: {
+      en: "Invalidated",
+      ru: "Инвалидирован",
+      color: "bg-gray-500/10 text-gray-600"
+    },
+    completed: {
+      en: "Completed",
+      ru: "Завершён",
+      color: "bg-gray-500/10 text-gray-500"
     }
   };
 
@@ -172,7 +177,7 @@ export default function TradingIdeas() {
                         
                         {/* Last Update */}
                         <span className="text-sm text-muted-foreground">
-                          · {language === "en" ? "Updated:" : "Обновлено:"} {new Date(scenario.lastUpdated).toLocaleDateString(language === "en" ? "en-US" : "ru-RU", { month: "short", day: "numeric" })}
+                          · {language === "en" ? "Last update:" : "Обновлено:"} {getRelativeTime(scenario.lastUpdatedAt, language)}
                         </span>
                       </div>
                       
@@ -210,13 +215,13 @@ export default function TradingIdeas() {
                     <div className="grid grid-cols-2 gap-6 pt-6 border-t">
                       <div>
                         <h3 className="font-semibold text-sm uppercase tracking-wide text-muted-foreground mb-2">
-                          {language === "en" ? "Invalidation Level" : "Уровень инвалидации"}
+                          {language === "en" ? "Invalidation (reference)" : "Инвалидация (ориентир)"}
                         </h3>
                         <p className="text-lg font-mono text-red-600">{scenario.invalidationLevel}</p>
                       </div>
                       <div>
                         <h3 className="font-semibold text-sm uppercase tracking-wide text-muted-foreground mb-2">
-                          {language === "en" ? "Target Zone" : "Целевая зона"}
+                          {language === "en" ? "Target Zone (reference)" : "Целевая зона (ориентир)"}
                         </h3>
                         <p className="text-lg font-mono text-green-600">{scenario.targetZone}</p>
                       </div>

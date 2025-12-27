@@ -25,7 +25,8 @@ export default function SilverAnalysis() {
       timeHorizon: "1–5 trading days",
       currentPriceSpot: "~$74.5–75.1/oz",
       currentPriceInstrument: "SILVER",
-      lastUpdated: "26 December 2025",
+      published: "Dec 21, 2025",
+      lastUpdated: "Dec 26, 2025, 09:45 UTC",
 
       priceAnchor: {
         title: "Price Anchor & Setup",
@@ -108,7 +109,8 @@ export default function SilverAnalysis() {
       timeHorizon: "1–5 торговых дней",
       currentPriceSpot: "~$74.5–75.1/унция",
       currentPriceInstrument: "SILVER",
-      lastUpdated: "26 декабря 2025",
+      published: "21 дек 2025",
+      lastUpdated: "26 дек 2025, 09:45 UTC",
 
       priceAnchor: {
         title: "Текущая цена и контекст",
@@ -225,7 +227,17 @@ export default function SilverAnalysis() {
 
             {/* Header */}
             <div className="mb-12">
-              <h1 className="text-4xl font-bold mb-8">{currentContent.title}</h1>
+              <h1 className="text-4xl font-bold mb-6">{currentContent.title}</h1>
+              
+              {/* Published & Last Updated */}
+              <div className="flex flex-wrap gap-4 mb-6 text-sm">
+                <div className="text-muted-foreground">
+                  {language === "en" ? "Published:" : "Опубликовано:"} {currentContent.published}
+                </div>
+                <div className="text-foreground font-semibold">
+                  {language === "en" ? "Last updated:" : "Последнее обновление:"} {currentContent.lastUpdated}
+                </div>
+              </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               

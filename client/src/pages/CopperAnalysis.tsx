@@ -21,7 +21,8 @@ export default function CopperAnalysis() {
       timeHorizon: "Short-term (1–5 trading days)",
       currentPriceSpot: "$4.18/lb (spot)",
       currentPriceInstrument: "$4.20/lb (HG futures)",
-      lastUpdated: "December 26, 2025",
+      published: "Dec 19, 2025",
+      lastUpdated: "Dec 25, 2025, 18:20 UTC",
       priceAnchor: {
         title: "Price Anchor",
         content: `Copper is trading near multi-month highs, supported by supply-side constraints, robust demand from China's infrastructure stimulus, and expectations of accelerating energy transition investments. The market remains sensitive to macro data and inventory dynamics.`
@@ -78,7 +79,8 @@ export default function CopperAnalysis() {
       timeHorizon: "Краткосрочный (1–5 торговых дней)",
       currentPriceSpot: "$4.18/фунт (спот)",
       currentPriceInstrument: "$4.20/фунт (фьючерсы HG)",
-      lastUpdated: "26 декабря 2025 г.",
+      published: "19 дек 2025",
+      lastUpdated: "25 дек 2025, 18:20 UTC",
       priceAnchor: {
         title: "Ценовой ориентир",
         content: `Медь торгуется вблизи многомесячных максимумов при поддержке ограничений на стороне предложения, устойчивого спроса на фоне стимулирования инфраструктуры в Китае и ожиданий ускорения инвестиций в энергопереход. Рынок остаётся чувствительным к макро-данным и динамике запасов.`
@@ -160,6 +162,16 @@ export default function CopperAnalysis() {
           {/* Header Section */}
           <div className="max-w-[760px] mx-auto mb-12">
             <h1 className="text-4xl font-bold mb-6">{currentContent.title}</h1>
+              
+              {/* Published & Last Updated */}
+              <div className="flex flex-wrap gap-4 mb-6 text-sm">
+                <div className="text-muted-foreground">
+                  {language === "en" ? "Published:" : "Опубликовано:"} {currentContent.published}
+                </div>
+                <div className="text-foreground font-semibold">
+                  {language === "en" ? "Last updated:" : "Последнее обновление:"} {currentContent.lastUpdated}
+                </div>
+              </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
               <Card className="p-4 border-primary/20 shadow-md hover:shadow-lg transition-shadow">
