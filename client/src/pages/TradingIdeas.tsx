@@ -3,22 +3,23 @@ import Footer from "@/components/Footer";
 import ShareButtons from "@/components/ShareButtons";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { trpc } from "@/lib/trpc";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { useEffect, useState, useMemo } from "react";
 import { useLocation } from "wouter";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { scenarios, type AssetClass, type ScenarioStatus } from "@/data/scenarios";
+import { ArrowRight } from "lucide-react";
 
-type AssetClass = "all" | "indices" | "fx" | "energy" | "metals";
+type AssetClassFilter = "all" | AssetClass;
 
 export default function TradingIdeas() {
   const { user, isAuthenticated, loading } = useAuth();
   const { language, t } = useLanguage();
   const [, setLocation] = useLocation();
-  const trackView = trpc.activity.trackScenarioView.useMutation();
 
-  const [selectedAssetClass, setSelectedAssetClass] = useState<AssetClass>("all");
+  const [selectedAssetClass, setSelectedAssetClass] = useState<AssetClassFilter>("all");
   const [selectedInstrument, setSelectedInstrument] = useState<string>("all");
 
   useEffect(() => {
@@ -27,45 +28,28 @@ export default function TradingIdeas() {
     }
   }, [loading, isAuthenticated, user, setLocation]);
 
-  const { data: ideas, isLoading } = trpc.tradingIdeas.getSubscriberIdeas.useQuery(undefined, {
-    enabled: isAuthenticated && !!user && ["core", "pro", "admin"].includes(user.role),
-  });
-
-  // Track page view when ideas are loaded
-  useEffect(() => {
-    if (ideas && ideas.length > 0 && isAuthenticated) {
-      ideas.forEach((idea) => {
-        trackView.mutate({
-          scenarioId: idea.id.toString(),
-          scenarioTitle: idea.instrument,
-        });
-      });
-    }
-  }, [ideas, isAuthenticated]);
-
-  // Filter ideas by asset class
+  // Filter scenarios by asset class
   const filteredByAssetClass = useMemo(() => {
-    if (!ideas) return [];
-    if (selectedAssetClass === "all") return ideas;
+    if (selectedAssetClass === "all") return scenarios;
     
     // Group energy and metals together
     if (selectedAssetClass === "energy") {
-      return ideas.filter(idea => idea.market === "energy" || idea.market === "metals");
+      return scenarios.filter(s => s.assetClass === "energy" || s.assetClass === "metals");
     }
     
-    return ideas.filter(idea => idea.market === selectedAssetClass);
-  }, [ideas, selectedAssetClass]);
+    return scenarios.filter(s => s.assetClass === selectedAssetClass);
+  }, [selectedAssetClass]);
 
-  // Get unique instruments from filtered ideas
+  // Get unique instruments from filtered scenarios
   const availableInstruments = useMemo(() => {
-    const instruments = filteredByAssetClass.map(idea => idea.instrument);
+    const instruments = filteredByAssetClass.map(s => s.instrument);
     return ["all", ...Array.from(new Set(instruments))];
   }, [filteredByAssetClass]);
 
   // Filter by instrument
-  const filteredIdeas = useMemo(() => {
+  const filteredScenarios = useMemo(() => {
     if (selectedInstrument === "all") return filteredByAssetClass;
-    return filteredByAssetClass.filter(idea => idea.instrument === selectedInstrument);
+    return filteredByAssetClass.filter(s => s.instrument === selectedInstrument);
   }, [filteredByAssetClass, selectedInstrument]);
 
   // Reset instrument filter when asset class changes
@@ -80,14 +64,32 @@ export default function TradingIdeas() {
     energy: language === "en" ? "Energy & Metals" : "Энергия и металлы",
   };
 
-  const marketLabels = {
+  const assetClassDisplayLabels = {
     indices: language === "en" ? "Indices" : "Индексы",
     fx: language === "en" ? "FX" : "Валюты",
     energy: language === "en" ? "Energy" : "Энергия",
     metals: language === "en" ? "Metals" : "Металлы",
   };
 
-  if (loading || isLoading) return <div>Loading...</div>;
+  const statusLabels: Record<ScenarioStatus, { en: string; ru: string; color: string }> = {
+    active: {
+      en: "Active",
+      ru: "Активен",
+      color: "bg-green-500/10 text-green-600"
+    },
+    monitoring: {
+      en: "Monitoring",
+      ru: "Мониторинг",
+      color: "bg-blue-500/10 text-blue-600"
+    },
+    updated: {
+      en: "Updated",
+      ru: "Обновлён",
+      color: "bg-amber-500/10 text-amber-600"
+    }
+  };
+
+  if (loading) return <div>Loading...</div>;
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -101,7 +103,7 @@ export default function TradingIdeas() {
           {/* Filters */}
           <div className="mb-8 space-y-4">
             {/* Asset Class Tabs */}
-            <Tabs value={selectedAssetClass} onValueChange={(value) => setSelectedAssetClass(value as AssetClass)}>
+            <Tabs value={selectedAssetClass} onValueChange={(value) => setSelectedAssetClass(value as AssetClassFilter)}>
               <TabsList className="grid w-full grid-cols-4 max-w-2xl">
                 <TabsTrigger value="all">{assetClassLabels.all}</TabsTrigger>
                 <TabsTrigger value="indices">{assetClassLabels.indices}</TabsTrigger>
@@ -135,7 +137,7 @@ export default function TradingIdeas() {
 
           {/* Scenarios Grid */}
           <div className="grid gap-6">
-            {filteredIdeas.length === 0 ? (
+            {filteredScenarios.length === 0 ? (
               <Card className="border-2">
                 <CardContent className="py-12 text-center text-muted-foreground">
                   {language === "en" 
@@ -144,61 +146,63 @@ export default function TradingIdeas() {
                 </CardContent>
               </Card>
             ) : (
-              filteredIdeas.map((idea) => (
-                <Card key={idea.id} className="border-2">
+              filteredScenarios.map((scenario) => (
+                <Card key={scenario.id} className="border-2">
                   {/* Card Header Panel - Institutional Format */}
                   <div className="px-6 py-4 border-b bg-card">
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-4">
+                      <div className="flex items-center gap-4 flex-wrap">
                         {/* Instrument Name */}
-                        <h2 className="text-2xl font-bold">{idea.instrument}</h2>
+                        <h2 className="text-2xl font-bold">{scenario.instrument}</h2>
                         
                         {/* Category Badge */}
                         <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wide rounded-full bg-primary/10 text-primary">
-                          {marketLabels[idea.market as keyof typeof marketLabels]}
+                          {assetClassDisplayLabels[scenario.assetClass]}
                         </span>
                         
-                        {/* PRO Badge */}
-                        {idea.accessLevel === "pro" && (
-                          <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wide rounded-full bg-amber-500/10 text-amber-600">
-                            PRO
-                          </span>
-                        )}
-                        
-                        {/* Time Horizon - placeholder for now */}
-                        <span className="text-sm text-muted-foreground">
-                          · 1–5 {language === "en" ? "days" : "дней"}
+                        {/* Status Badge */}
+                        <span className={`inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wide rounded-full ${statusLabels[scenario.status].color}`}>
+                          {language === "en" ? statusLabels[scenario.status].en : statusLabels[scenario.status].ru}
                         </span>
                         
-                        {/* Last Update - placeholder for now */}
+                        {/* Time Horizon */}
                         <span className="text-sm text-muted-foreground">
-                          · {language === "en" ? "Updated:" : "Обновлено:"} {new Date().toLocaleDateString(language === "en" ? "en-US" : "ru-RU", { month: "short", day: "numeric" })}
+                          · {scenario.timeHorizon}
+                        </span>
+                        
+                        {/* Last Update */}
+                        <span className="text-sm text-muted-foreground">
+                          · {language === "en" ? "Updated:" : "Обновлено:"} {new Date(scenario.lastUpdated).toLocaleDateString(language === "en" ? "en-US" : "ru-RU", { month: "short", day: "numeric" })}
                         </span>
                       </div>
                       
                       {/* Share Buttons - Right Aligned */}
                       <ShareButtons
-                        url={`/trading-ideas/${idea.id}`}
-                        title={idea.instrument}
+                        url={scenario.fullAnalysisUrl}
+                        title={scenario.instrument}
                       />
                     </div>
                   </div>
 
-                  {/* Card Content - Aligned Sections */}
+                  {/* Card Content - Preview Format */}
                   <CardContent className="p-6">
-                    {/* Top-aligned section titles */}
+                    {/* Market Context & Base Scenario - Side by Side */}
                     <div className="grid grid-cols-2 gap-6 mb-6">
                       <div>
                         <h3 className="font-semibold text-sm uppercase tracking-wide text-muted-foreground mb-3">
-                          {t.tradingIdea.context}
+                          {language === "en" ? "Market Context" : "Рыночный контекст"}
                         </h3>
-                        <p className="text-sm leading-relaxed">{language === "en" ? idea.contextEn : idea.contextRu}</p>
+                        <p className="text-sm leading-relaxed">
+                          {language === "en" ? scenario.marketContextEn : scenario.marketContextRu}
+                        </p>
                       </div>
                       <div>
                         <h3 className="font-semibold text-sm uppercase tracking-wide text-muted-foreground mb-3">
-                          {t.tradingIdea.scenario}
+                          {language === "en" ? "Base Scenario" : "Базовый сценарий"}
                         </h3>
-                        <p className="text-sm leading-relaxed">{language === "en" ? idea.scenarioEn : idea.scenarioRu}</p>
+                        <p className="text-sm leading-relaxed">
+                          {language === "en" ? scenario.baseScenarioEn : scenario.baseScenarioRu}
+                        </p>
                       </div>
                     </div>
 
@@ -206,16 +210,28 @@ export default function TradingIdeas() {
                     <div className="grid grid-cols-2 gap-6 pt-6 border-t">
                       <div>
                         <h3 className="font-semibold text-sm uppercase tracking-wide text-muted-foreground mb-2">
-                          {language === "en" ? "Invalidation reference" : "Инвалидация (ориентир)"}
+                          {language === "en" ? "Invalidation Level" : "Уровень инвалидации"}
                         </h3>
-                        <p className="text-lg font-mono text-red-600">{idea.invalidationZone}</p>
+                        <p className="text-lg font-mono text-red-600">{scenario.invalidationLevel}</p>
                       </div>
                       <div>
                         <h3 className="font-semibold text-sm uppercase tracking-wide text-muted-foreground mb-2">
-                          {language === "en" ? "Reference area" : "Целевая зона (ориентир)"}
+                          {language === "en" ? "Target Zone" : "Целевая зона"}
                         </h3>
-                        <p className="text-lg font-mono text-green-600">{idea.targetArea}</p>
+                        <p className="text-lg font-mono text-green-600">{scenario.targetZone}</p>
                       </div>
+                    </div>
+
+                    {/* CTA Button - Read Full Analysis */}
+                    <div className="mt-6 pt-6 border-t">
+                      <Button
+                        onClick={() => setLocation(scenario.fullAnalysisUrl)}
+                        className="w-full sm:w-auto"
+                        size="lg"
+                      >
+                        {language === "en" ? "Read Full Market Insight" : "Читать полный анализ"}
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Button>
                     </div>
 
                     {/* Disclaimer */}

@@ -895,4 +895,39 @@
 - [x] Section titles aligned horizontally at top
 - [x] Layout matches institutional research aesthetic
 - [x] Works in both RU and EN languages
-- [ ] Create checkpoint with card structure fix
+- [x] Create checkpoint with card structure fix
+
+## Trading Ideas Sync with Market Insights (Critical)
+
+### Issue
+- [x] Trading Ideas currently uses separate database (tradingIdeas table)
+- [x] Should display scenarios from Market Insights analysis pages instead
+- [x] Market Insights has: WTI Crude Oil, Gold, Silver, Copper, S&P 500
+- [x] Need to sync data source between Trading Ideas and Market Insights
+
+### Analysis Required
+- [x] Review all Market Insights pages (WTI, Gold, Silver, Copper, SPX500)
+- [x] Identify common data structure across Market Insights pages
+- [x] Determine how to extract scenario data from Market Insights
+- [x] Map Market Insights categories to Trading Ideas filters
+
+### Implementation
+- [x] Create unified data structure for Market Insights scenarios (scenarios.ts)
+- [x] Refactor Trading Ideas to pull from Market Insights data (preview cards format)
+- [x] Ensure filtering (asset class, instrument) works with Market Insights data
+- [x] Maintain bilingual support (RU/EN)
+- [x] Keep card structure (header panel, aligned sections)
+- [x] Add Status badges (Active, Monitoring, Updated)
+- [x] Add CTA button "Read Full Market Insight" linking to full analysis pages
+
+### Acceptance Criteria
+- [x] Trading Ideas displays same scenarios as Market Insights
+- [x] WTI Crude Oil scenario visible in Trading Ideas (Energy & Metals tab)
+- [x] Gold scenario visible in Trading Ideas (Energy & Metals tab)
+- [x] Silver scenario visible in Trading Ideas (Energy & Metals tab)
+- [x] Copper scenario visible in Trading Ideas (Energy & Metals tab)
+- [x] S&P 500 scenario visible in Trading Ideas (Indices tab)
+- [x] Filtering works correctly with Market Insights data
+- [x] Preview cards show: Market Context (2-3 lines), Base Scenario (1 paragraph), Invalidation, Target
+- [x] CTA button navigates to full Market Insights analysis page
+- [ ] Create checkpoint with Trading Ideas sync
