@@ -686,3 +686,10 @@
 - [ ] Test checkout flow with Paddle sandbox
 - [x] Write documentation for Paddle setup
 - [ ] Create checkpoint with Paddle integration
+
+## Telegram Page Tier Naming Update
+- [x] Update Telegram Access page tier labels (Pro → Scenario Intelligence, Core → Scenario Access)
+- [x] Update channel descriptions to match new positioning
+- [x] Ensure consistency with tierLabels.ts mapping
+- [x] Test Telegram page with both EN/RU languages
+- [x] Create checkpoint with Telegram naming updates

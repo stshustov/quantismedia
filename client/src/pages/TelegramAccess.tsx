@@ -73,10 +73,10 @@ export default function TelegramAccess() {
       subtitle: "Choose your preferred channel language and join our community",
       languageSelection: "Channel Language",
       channelStructure: "Channel Structure",
-      proChannel: "Pro Channel",
-      coreChannel: "Core Channel",
-      proDescription: "Market analytics + Trading scenarios",
-      coreDescription: "Trading scenarios only",
+      proChannel: "Scenario Intelligence",
+      coreChannel: "Scenario Access",
+      proDescription: "Extended analytics + Scenario frameworks",
+      coreDescription: "Full scenario frameworks",
       yourAccess: "Your Access Level",
       selectedLanguage: "Selected Language",
       joinButton: "Join Telegram Channel",
@@ -84,9 +84,9 @@ export default function TelegramAccess() {
       features: {
         title: "What to Expect",
         analytics: "Real-time market analysis distribution",
-        scenarios: "Scenario-based trading ideas",
+        scenarios: "Scenario frameworks and updates",
         comments: "Discussion via comments (no chat spam)",
-        noInstructions: "No trading instructions or execution"
+        noInstructions: "No trade execution instructions"
       },
       disclaimer: {
         title: "Important Notes",
@@ -100,10 +100,10 @@ export default function TelegramAccess() {
       subtitle: "Выберите предпочитаемый язык канала и присоединяйтесь к сообществу",
       languageSelection: "Язык канала",
       channelStructure: "Структура каналов",
-      proChannel: "Pro канал",
-      coreChannel: "Core канал",
-      proDescription: "Рыночная аналитика + Торговые сценарии",
-      coreDescription: "Только торговые сценарии",
+      proChannel: "Scenario Intelligence",
+      coreChannel: "Scenario Access",
+      proDescription: "Расширенная аналитика + Сценарные фреймворки",
+      coreDescription: "Полные сценарные фреймворки",
       yourAccess: "Ваш уровень доступа",
       selectedLanguage: "Выбранный язык",
       joinButton: "Присоединиться к Telegram каналу",
@@ -111,9 +111,9 @@ export default function TelegramAccess() {
       features: {
         title: "Что ожидать",
         analytics: "Публикация рыночной аналитики в реальном времени",
-        scenarios: "Сценарные торговые идеи",
+        scenarios: "Сценарные фреймворки и обновления",
         comments: "Обсуждение через комментарии (без спама в чате)",
-        noInstructions: "Без торговых инструкций или исполнения"
+        noInstructions: "Без инструкций по исполнению сделок"
       },
       disclaimer: {
         title: "Важные примечания",
@@ -195,7 +195,7 @@ export default function TelegramAccess() {
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-primary mt-0.5">✓</span>
-                      <span className="text-foreground">{language === "en" ? "Trading Scenarios" : "Торговые сценарии"}</span>
+                      <span className="text-foreground">{language === "en" ? "Scenario Frameworks" : "Сценарные фреймворки"}</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-primary mt-0.5">✓</span>
@@ -214,7 +214,7 @@ export default function TelegramAccess() {
                   <ul className="space-y-2 text-sm">
                     <li className="flex items-start gap-2">
                       <span className="text-primary mt-0.5">✓</span>
-                      <span className="text-foreground">{language === "en" ? "Trading Scenarios" : "Торговые сценарии"}</span>
+                      <span className="text-foreground">{language === "en" ? "Scenario Frameworks" : "Сценарные фреймворки"}</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-primary mt-0.5">✓</span>
