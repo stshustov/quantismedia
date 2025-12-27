@@ -837,4 +837,34 @@
 - [x] Copy button works without registration
 - [x] Share text auto-generated from page title + context
 - [x] Bilingual support working (RU/EN)
-- [ ] Create checkpoint with Share buttons optimization
+- [x] Create checkpoint with Share buttons optimization
+
+## Scenarios Dashboard Filtering (P0 - Pre-Live)
+
+### Analysis
+- [x] Review current Trading Ideas page structure
+- [x] Identify all scenario instruments and their asset classes
+- [x] Map instruments to categories (Indices, FX, Energy & Metals)
+- [x] Review existing card layout and header structure
+
+### P0 Implementation (Must Have Before Live)
+- [x] Add tabs filter by asset class (All, Indices, FX, Energy & Metals)
+- [x] Implement dropdown filter by instrument (within selected asset class)
+- [x] Enhance scenario card headers for clarity (instrument name, category, time horizon visible)
+- [x] Ensure filters work with existing paywall logic (don't break access control)
+- [x] Test filtering with both Core and Pro subscription levels
+- [x] Verify bilingual support (RU/EN) for all filter labels
+
+### P1 Implementation (Post-Live, Future)
+- [ ] Add time horizon filter (Short-term, Medium-term, Long-term)
+- [ ] Add sort by last update time
+- [ ] Implement saved/favorite instruments feature
+
+### Acceptance Criteria (P0)
+- [x] Asset class tabs display at top of page
+- [x] Instrument dropdown shows only instruments from selected asset class
+- [x] "All" tab shows all available scenarios
+- [x] Card headers clearly show: Instrument | Category | Time Horizon
+- [x] Filters preserve paywall restrictions (Core vs Pro scenarios)
+- [x] All filter labels translated (RU/EN)
+- [ ] Create checkpoint with Scenarios Dashboard filtering
